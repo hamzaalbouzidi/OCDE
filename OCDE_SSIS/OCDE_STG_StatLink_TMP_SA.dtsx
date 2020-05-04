@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_StatLink_TMP_SA"
   DTS:PackageType="5"
-  DTS:VersionBuild="41"
-  DTS:VersionGUID="{E6BD5B46-B9D1-4A8D-BC27-4C0C7BEF0228}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{6DAEAB0E-1FC3-45FB-8FCD-9B30E4363B00}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -130,11 +130,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC V_STG_StatLink_TMP_SA"
+              refId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC OCDE_V_STG_StatLink_TMP_SA"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
               description="Source OLE DB"
-              name="OLE_SRC V_STG_StatLink_TMP_SA"
+              name="OLE_SRC OCDE_V_STG_StatLink_TMP_SA"
               usesDispositions="true"
               version="7">
               <properties>
@@ -179,32 +179,32 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC V_STG_StatLink_TMP_SA.Connections[OleDbConnection]"
+                  refId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC OCDE_V_STG_StatLink_TMP_SA.Connections[OleDbConnection]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC V_STG_StatLink_TMP_SA.Outputs[Sortie de source OLE DB]"
+                  refId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC OCDE_V_STG_StatLink_TMP_SA.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
                   <externalMetadataColumns
                     isUsed="True" />
                 </output>
                 <output
-                  refId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC V_STG_StatLink_TMP_SA.Outputs[Sortie d'erreur de source OLE DB]"
+                  refId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC OCDE_V_STG_StatLink_TMP_SA.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC V_STG_StatLink_TMP_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC OCDE_V_STG_StatLink_TMP_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC V_STG_StatLink_TMP_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC OCDE_V_STG_StatLink_TMP_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC V_STG_StatLink_TMP_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC OCDE_V_STG_StatLink_TMP_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC V_STG_StatLink_TMP_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC OCDE_V_STG_StatLink_TMP_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -213,6 +213,13 @@
               </outputs>
             </component>
           </components>
+          <paths>
+            <path
+              refId="Package\DFT INSERT INTO STG_StatLink_TMP_SA.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_DST STG_StatLink_TMP_SA.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC OCDE_V_STG_StatLink_TMP_SA.Outputs[Sortie de source OLE DB]" />
+          </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -240,15 +247,37 @@
     design-time-name="Package\DFT INSERT INTO STG_StatLink_TMP_SA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="245.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC V_STG_StatLink_TMP_SA"
+          Size="278.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_SRC OCDE_V_STG_StatLink_TMP_SA"
           TopLeft="81.6666654497383,39.8666659537952" />
         <NodeLayout
           Size="234.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_StatLink_TMP_SA\OLE_DST STG_StatLink_TMP_SA"
-          TopLeft="89.5833319984372,130.766664721767" />
+          TopLeft="103.333331793546,131.633331372936" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_StatLink_TMP_SA.Paths[Sortie de source OLE DB]"
+          TopLeft="220.833331954976,82.5333326204619">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.0999987524746"
+              Start="0,0"
+              End="0,41.5999987524746">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5999987524746" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>

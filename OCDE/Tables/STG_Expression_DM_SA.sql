@@ -1,12 +1,12 @@
 ﻿CREATE TABLE [stg].STG_Expression_DM_SA(
 	
-	Expression_ExternalID [varchar](100) NULL,
+	Expression_ExternalID [nvarchar](100) NULL,
 	ExternalSource [varchar](3) NOT NULL,
 	[DOI] [varchar](255) NULL,
 	ISSN [INT] NULL,
 	EISSN [varchar](10) NOT NULL,
-	[Title] [varchar](2000) NULL,
-	[SubTitle] [varchar](2000) NULL,
+	[Title] [nvarchar](2000) NULL,
+	[SubTitle] [nvarchar](2000) NULL,
 	Language_ID [INT] NOT NULL,
 	Directorate_lID [varchar](4) NOT NULL,
 	Theme_ID [INT] NOT NULL,

@@ -1,0 +1,1117 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/9/2019 5:03:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CSPE-W-VBISPS01"
+  DTS:CreatorName="CERBA\YMIGEOT"
+  DTS:DTSID="{58FBC2A4-2C92-460B-A23B-8E98B49FFA1E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="OCEANE_DWH_"
+  DTS:PackageType="5"
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{22CDB78B-6992-457C-B0D2-56887C2CC6D6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT INSERT INTO DWH_"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{08FB21A4-8C53-46DD-91FB-277BFA0BE5C5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT INSERT INTO DWH_"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT INSERT INTO DWH_\CSPL Mise à jour"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="CSPL Mise à jour"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_\CSPL Mise à jour.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_\CSPL Mise à jour.Outputs[Pas Update]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Pas Update"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_\CSPL Mise à jour.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression"></property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_\CSPL Mise à jour.Outputs[Update]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Update"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_\CSPL Mise à jour.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_\CSPL Mise à jour.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_\CSPL Mise à jour.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_\CSPL Mise à jour.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_\CSPL Mise à jour.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_\CSPL Mise à jour.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_\CSPL Mise à jour.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Insertion"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC Ajout colonne Date_Insertion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Insertion.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Insertion.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Insertion.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Insertion.Outputs[Derived Column Output].Columns[Date_Insertion]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Insertion.Outputs[Derived Column Output].Columns[Date_Insertion]"
+                      name="Date_Insertion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Insertion.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Insertion.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Insertion.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Insertion.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Insertion.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Insertion.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Modification"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC Ajout colonne Date_Modification"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Modification.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Modification.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Modification.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Modification.Outputs[Derived Column Output].Columns[Date_Modification]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Modification.Outputs[Derived Column Output].Columns[Date_Modification]"
+                      name="Date_Modification"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Modification.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Modification.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Modification.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Modification.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Modification.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Modification.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_\LKP DWH_"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP DWH_"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DWH_\LKP DWH_.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_Dst]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_\LKP DWH_.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_\LKP DWH_.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_\LKP DWH_.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_\LKP DWH_.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_\LKP DWH_.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_\LKP DWH_.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_\LKP DWH_.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_\LKP DWH_.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_\LKP DWH_.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_\LKP DWH_.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_\LKP DWH_.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_\OLE_CMD Mise à jour"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE_CMD Mise à jour"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DWH_\OLE_CMD Mise à jour.Connections[OleDbConnection]"
+                  connectionManagerID="{ECA75886-8DBF-4CE3-86C5-76ABA03E508B}:invalid"
+                  connectionManagerRefId="{ECA75886-8DBF-4CE3-86C5-76ABA03E508B}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_\OLE_CMD Mise à jour.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_\OLE_CMD Mise à jour.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_\OLE_CMD Mise à jour.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_\OLE_CMD Mise à jour.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_\OLE_CMD Mise à jour.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_CMD Mise à jour.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_\OLE_CMD Mise à jour.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_CMD Mise à jour.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_\OLE_CMD Mise à jour.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST DWH_"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[ODS].[OFFRPF]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Connections[OleDbConnection]"
+                  connectionManagerID="{ECA75886-8DBF-4CE3-86C5-76ABA03E508B}:invalid"
+                  connectionManagerRefId="{ECA75886-8DBF-4CE3-86C5-76ABA03E508B}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].Columns[Date_Insertion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Date_Insertion"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Date_Insertion]"
+                      lineageId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Insertion.Outputs[Derived Column Output].Columns[Date_Insertion]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Date_Insertion]"
+                      dataType="dbTimeStamp"
+                      name="Date_Insertion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Date_Modification]"
+                      dataType="dbTimeStamp"
+                      name="Date_Modification" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Cle_Resultat_Dossier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="Cle_Resultat_Dossier" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Cle_Ligne_Analyse]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="Cle_Ligne_Analyse" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Code_Statut]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Code_Statut" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Num_Dossier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Num_Dossier" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Code_Analyse]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Code_Analyse" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Num_Ligne_Analyse]"
+                      dataType="numeric"
+                      name="Num_Ligne_Analyse"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Code_Sous_Departement]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Code_Sous_Departement" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Code_Feuille_Travail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Code_Feuille_Travail" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Code_Obligatoire]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Code_Obligatoire" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Resultat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="Resultat" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Code_Commentaire_Interne_Externe]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Code_Commentaire_Interne_Externe" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Code_Block]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Code_Block" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Num_Patient]"
+                      dataType="numeric"
+                      name="Num_Patient"
+                      precision="9" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Code_Programme]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Code_Programme" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Detenteur_Parametres_Dossier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="Detenteur_Parametres_Dossier" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Groupe_Detenteur]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Groupe_Detenteur" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Num_Position_Detenteur]"
+                      dataType="numeric"
+                      name="Num_Position_Detenteur"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Code_Division]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Code_Division" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Num_Etiquette_Prelevement]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Num_Etiquette_Prelevement" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Code_Nature_Prelevement]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Code_Nature_Prelevement" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Code_Condition_De_Prelevement]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Code_Condition_De_Prelevement" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Identification_Code_Barres]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Identification_Code_Barres" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Code_Site]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Code_Site" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Heure_Creation_Ligne]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Heure_Creation_Ligne" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Date_Dossier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="Date_Dossier" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input].ExternalColumns[Hash_Ods]"
+                      dataType="bytes"
+                      length="8000"
+                      name="Hash_Ods" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_\OLE_SRC OCDE_STG_"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC OCDE_STG_"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DWH_\OLE_SRC OCDE_STG_.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_Dst]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_\OLE_SRC OCDE_STG_.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_\OLE_SRC OCDE_STG_.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_SRC OCDE_STG_.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_\OLE_SRC OCDE_STG_.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_\OLE_SRC OCDE_STG_.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_\OLE_SRC OCDE_STG_.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT INSERT INTO DWH_.Paths[Derived Column Output]"
+              endId="Package\DFT INSERT INTO DWH_\OLE_DST DWH_.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Insertion.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_.Paths[Derived Column Output1]"
+              endId="Package\DFT INSERT INTO DWH_\OLE_CMD Mise à jour.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Modification.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_.Paths[Lookup Match Output]"
+              endId="Package\DFT INSERT INTO DWH_\CSPL Mise à jour.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT INSERT INTO DWH_\LKP DWH_.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_.Paths[Lookup No Match Output]"
+              endId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Insertion.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT INSERT INTO DWH_\LKP DWH_.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO DWH_\LKP DWH_.Inputs[Lookup Input]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO DWH_\OLE_SRC OCDE_STG_.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_.Paths[Update]"
+              endId="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Modification.Inputs[Derived Column Input]"
+              name="Update"
+              startId="Package\DFT INSERT INTO DWH_\CSPL Mise à jour.Outputs[Update]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="198.666666666667,42"
+          Id="Package\DFT INSERT INTO DWH_"
+          TopLeft="194,99" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO DWH_">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="130.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_\LKP DWH_"
+          TopLeft="314.5,107.5" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Insertion"
+          TopLeft="5.5,209.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DFT INSERT INTO DWH_\OLE_DST DWH_"
+          TopLeft="38.5000000000001,311.5" />
+        <NodeLayout
+          Size="248,42"
+          Id="Package\DFT INSERT INTO DWH_\DC Ajout colonne Date_Modification"
+          TopLeft="255.5,311.5" />
+        <NodeLayout
+          Size="185.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_\OLE_SRC OCDE_STG_"
+          TopLeft="289.499997156362,3.36666668991247" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT INSERT INTO DWH_\CSPL Mise à jour"
+          TopLeft="300.5,209.5" />
+        <NodeLayout
+          Size="181.333333333334,42"
+          Id="Package\DFT INSERT INTO DWH_\OLE_CMD Mise à jour"
+          TopLeft="289,413.5" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_.Paths[Update]"
+          TopLeft="379.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.28029296875,20.4453125,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_.Paths[Sortie de source OLE DB]"
+          TopLeft="380.999998578181,46.0333333565791">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.4666666434209"
+              Start="0,0"
+              End="0,53.9666666434209">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.9666666434209" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_.Paths[Lookup No Match Output]"
+          TopLeft="359.388888888889,150.166666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-236.888888888889,59.3333333333333"
+              Start="0,0"
+              End="-236.888888888889,51.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1639784946237" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1639784946237"
+                    Point2="0,24.1639784946237"
+                    Point3="-4,24.1639784946237" />
+                  <mssgle:LineSegment
+                    End="-232.888888888889,24.1639784946237" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-232.888888888889,24.1639784946237"
+                    Point2="-236.888888888889,24.1639784946237"
+                    Point3="-236.888888888889,28.1639784946237" />
+                  <mssgle:LineSegment
+                    End="-236.888888888889,51.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-174.250831163194,29.1639784946237,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_.Paths[Lookup Match Output]"
+          TopLeft="400.277777777778,150.166666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.7777777777778,59.3333333333333"
+              Start="0,0"
+              End="-20.7777777777778,51.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1639784946236" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1639784946236"
+                    Point2="0,24.1639784946236"
+                    Point3="-4,24.1639784946236" />
+                  <mssgle:LineSegment
+                    End="-16.7777777777778,24.1639784946236" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.7777777777778,24.1639784946236"
+                    Point2="-20.7777777777778,24.1639784946236"
+                    Point3="-20.7777777777778,28.1639784946236" />
+                  <mssgle:LineSegment
+                    End="-20.7777777777778,51.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-58.5802756076389,29.1639784946236,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_.Paths[Derived Column Output1]"
+          TopLeft="379.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_.Paths[Derived Column Output]"
+          TopLeft="119.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_\LKP DWH_">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_\OLE_DST DWH_">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_\OLE_SRC OCDE_STG_">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

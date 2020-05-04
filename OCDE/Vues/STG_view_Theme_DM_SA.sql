@@ -1,4 +1,9 @@
-﻿/* CREATE view [dbo].[view_Theme_DM_SA] as
+﻿/* 
+USE [STG_UsageStat]
+GO
+
+
+CREATE view [stg].[view_Theme_DM_SA] as
 
 SELECT [Theme_ExternalID] collate Latin1_General_CI_AS as [Theme_ExternalID]
       ,[ExternalSource] collate Latin1_General_CI_AS as [ExternalSource]
@@ -15,4 +20,8 @@ SELECT [Theme_ExternalID] collate Latin1_General_CI_AS as [Theme_ExternalID]
 		FROM [KappaV3_Daily].[dbo].[view_US_Theme]	
 		 
 		) SourceThemes
-GO */
+GO
+
+
+
+*/

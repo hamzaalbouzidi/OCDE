@@ -1,4 +1,9 @@
-﻿/* CREATE view [dbo].[view_Format_DM_SA] as
+﻿/* 
+USE [STG_UsageStat]
+GO
+
+
+CREATE view [stg].[view_Format_DM_SA] as
 
 SELECT 
 	M.Medium collate Latin1_General_CI_AS as Format_ExternalID
@@ -14,4 +19,8 @@ SELECT [Medium]
       ,[Medium_KV3]
       ,[MimeType]
   FROM [KappaV3_Daily].[dbo].[view_US_Medium] WHERE MimeType IS NOT NULL ) M
-GO */
+GO
+
+
+
+*/

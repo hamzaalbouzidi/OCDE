@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Location_DM_SA"
   DTS:PackageType="5"
-  DTS:VersionBuild="41"
-  DTS:VersionGUID="{F80F1C41-9E3C-4DA0-B6E1-E3DB4B3EA8B8}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{3B207BB3-C056-43A0-9FEC-5922BDD591FB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -47,7 +47,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset"></property>
+                  name="OpenRowset">[stg].[STG_Location_DM_SA]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -69,7 +69,7 @@
                   dataType="System.Int32"
                   description="Spécifie le mode utilisé pour accéder à la base de données."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">3</property>
                 <property
                   dataType="System.Boolean"
                   description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
@@ -81,7 +81,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions"></property>
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                 <property
                   dataType="System.Int32"
                   description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
@@ -90,6 +90,8 @@
               <connections>
                 <connection
                   refId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_DST STG_Location_DM_SA.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -100,8 +102,31 @@
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_DST STG_Location_DM_SA.Inputs[Entrée de destination OLE DB].Columns[City_ID]"
+                      cachedDataType="i4"
+                      cachedName="City_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_DST STG_Location_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[City_ID]"
+                      lineageId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie de source OLE DB].Columns[City_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_DST STG_Location_DM_SA.Inputs[Entrée de destination OLE DB].Columns[Country_ID]"
+                      cachedDataType="i4"
+                      cachedName="Country_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_DST STG_Location_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ID]"
+                      lineageId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ID]" />
+                  </inputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_DST STG_Location_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[City_ID]"
+                      dataType="i4"
+                      name="City_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_DST STG_Location_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ID]"
+                      dataType="i4"
+                      name="Country_ID" />
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
@@ -145,7 +170,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset"></property>
+                  name="OpenRowset">[stg].[view_Location_DM_SA]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -180,6 +205,8 @@
               <connections>
                 <connection
                   refId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -187,14 +214,53 @@
                 <output
                   refId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie de source OLE DB].Columns[City_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[City_ID]"
+                      lineageId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie de source OLE DB].Columns[City_ID]"
+                      name="City_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ID]"
+                      lineageId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ID]"
+                      name="Country_ID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[City_ID]"
+                      dataType="i4"
+                      name="City_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ID]"
+                      dataType="i4"
+                      name="Country_ID" />
+                  </externalMetadataColumns>
                 </output>
                 <output
                   refId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[City_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[City_ID]"
+                      name="City_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ID]"
+                      name="Country_ID" />
                     <outputColumn
                       refId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -213,6 +279,13 @@
               </outputs>
             </component>
           </components>
+          <paths>
+            <path
+              refId="Package\DFT INSERT INTO STG_Location_DM_SA.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_DST STG_Location_DM_SA.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA.Outputs[Sortie de source OLE DB]" />
+          </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -240,7 +313,7 @@
     design-time-name="Package\DFT INSERT INTO STG_Location_DM_SA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="242.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA"
@@ -249,8 +322,56 @@
           Size="230.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_DST STG_Location_DM_SA"
           TopLeft="89.5833319984372,130.766664721767" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_Location_DM_SA.Paths[Sortie de source OLE DB]"
+          TopLeft="203.958332057421,82.5333326204619">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.2333321013051"
+              Start="0,0"
+              End="0,40.7333321013051">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.7333321013051" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_DST STG_Location_DM_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Location_DM_SA\OLE_SRC V_STG_Location_DM_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

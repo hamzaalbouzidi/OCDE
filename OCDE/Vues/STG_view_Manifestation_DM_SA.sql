@@ -1,4 +1,8 @@
-﻿/* CREATE view [dbo].[view_Manifestation_DM_SA]
+﻿ /*
+ USE [STG_UsageStat]
+GO
+
+ CREATE view [stg].[view_Manifestation_DM_SA]
 AS
 
 --MANIFESTATION FROM KAPPA
@@ -55,12 +59,12 @@ FROM
   ) KV3 
 
 ) SA
-INNER JOIN Expression_DM Expression
+INNER JOIN [DWH_UsageStat].[dwh].Expression_DM Expression
 	ON Expression.Expression_ExternalID = SA.Expression_ExternalID
 	AND Expression.ExternalSource = SA.ExternalSource
 	AND Expression.IsCurrent = 1
 	AND Expression.NA_Import = 0
-INNER JOIN Format_DM Format
+INNER JOIN [DWH_UsageStat].[dwh].Format_DM Format
 	ON Format.Format_ExternalID = SA.Format_ExternalID
 	AND Format.ExternalSource = SA.ExternalSource
 	AND Format.IsCurrent = 1
@@ -134,12 +138,12 @@ FROM
   ) KV3 
 
  ) SA
-INNER JOIN Expression_DM Expression
+INNER JOIN [DWH_UsageStat].[dwh].Expression_DM Expression
 	ON Expression.Expression_ExternalID = SA.Expression_ExternalID
 	AND Expression.ExternalSource = SA.ExternalSource
 	AND Expression.IsCurrent = 1
 	AND Expression.NA_Import = 0
-INNER JOIN Format_DM Format
+INNER JOIN [DWH_UsageStat].[dwh].Format_DM Format
 	ON Format.Format_ExternalID = SA.Format_ExternalID
 	AND Format.ExternalSource = SA.ExternalSource
 	AND Format.IsCurrent = 1
@@ -152,4 +156,9 @@ GROUP BY
 	,Expression.Expression_ID
 	,Format.Format_ID 
 	,SA.[FirstReleaseDate]
-	,SA.ISBN13 */
+	,SA.ISBN13 
+GO
+
+
+
+ */

@@ -1,4 +1,9 @@
-﻿/* CREATE VIEW [dbo].[view_ObjectType_DM_SA] as
+﻿/* 
+USE [STG_UsageStat]
+GO
+
+
+CREATE VIEW [stg].[view_ObjectType_DM_SA] as
 
 SELECT  cast([ObjectTypeId] as nvarchar(100))  collate Latin1_General_CI_AS  as   [ObjectType_ExternalID]
       ,cast([ExternalSource] as nchar(10))  collate Latin1_General_CI_AS  as [ExternalSource]
@@ -15,4 +20,8 @@ SELECT  cast([ObjectTypeId] as nvarchar(100))  collate Latin1_General_CI_AS  as 
 		FROM [KappaV3_Daily].[dbo].[KV3_ObjectType]
 
 	) AS SourceObjectType
-GO */
+GO
+
+
+
+*/
