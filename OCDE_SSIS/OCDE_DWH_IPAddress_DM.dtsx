@@ -1,0 +1,2104 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/9/2019 5:03:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CSPE-W-VBISPS01"
+  DTS:CreatorName="CERBA\YMIGEOT"
+  DTS:DTSID="{40F77FA0-D78C-4565-BC41-930B42CCA703}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="OCDE_DWH_IPAddress_DM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{487D4A58-2F64-4EB3-B27A-F2006F64CB52}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT INSERT INTO DWH_IPAddress_DM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E11B4016-FEF5-449B-98CD-66B2EF08243B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT INSERT INTO DWH_IPAddress_DM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Colonne dérivée"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Colonne dérivée"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[IPADDRESS_100]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="IPADDRESS"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[IPADDRESS]"
+                      name="IPADDRESS_100"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[SUBSTRING](#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[IPADDRESS]},1,100)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">SUBSTRING(IPADDRESS_100,1,100)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Colonne dérivée.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_IPAddress_DM\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_IPAddress_DM\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="CSPL Mise à jour"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour.Inputs[Conditional Split Input].Columns[IPAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="IPAddress"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[IPAddress]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour.Inputs[Conditional Split Input].Columns[IPADDRESS_100]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="IPADDRESS_100"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[IPADDRESS_100]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour.Outputs[Pas Insert]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Pas Insert"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[IPAddress]}) ==  FALSE  || #{Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[IPADDRESS_100]} != "" || #{Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[IPADDRESS_100]} != "-"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(IPAddress) ==  FALSE  || IPADDRESS_100 != "" || IPADDRESS_100 != "-"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour.Outputs[Insert]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Insert"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DC_ Variables"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[IsCurrent]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[IsCurrent]"
+                      name="IsCurrent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_BOOL)1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[HideInReport]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[HideInReport]"
+                      name="HideInReport"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_BOOL)0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[NA_Import]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[NA_Import]"
+                      name="NA_Import"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_BOOL)0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]"
+                      name="ValidFrom"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LastUpdate_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LastUpdate_Date]"
+                      name="LastUpdate_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Jointure de fusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Combine deux flux de données triés en un seul à l'aide de la jointure FULL, LEFT ou INNER. Nous recommandons cette transformation lorsque les flux de données peuvent être triés au niveau de leurs sources."
+              name="Jointure de fusion"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de jointure à effectuer."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre de colonnes dans la clé de tri."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs NULL sont traitées comme valeurs égales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indique le nombre maximal de mémoires tampons demandées par entrée avant blocage."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée gauche de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[IPAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="IPAddress"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[IPAddress]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Inputs[Entrée droite de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée droite de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[IPADDRESS_100]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="IPADDRESS_100"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Outputs[Sortie de tri].Columns[IPADDRESS_100]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Outputs[Sortie de jointure de fusion]"
+                  isSorted="true"
+                  name="Sortie de jointure de fusion">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[IPAddress]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[IPAddress]"
+                      name="IPAddress"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[IPAddress]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[IPADDRESS_100]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[IPADDRESS_100]"
+                      name="IPADDRESS_100">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[IPADDRESS_100]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST DWH_IPAddress_DM"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dwh].[IPAddress_DM]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Connections[OleDbConnection]"
+                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].Columns[HideInReport]"
+                      cachedDataType="bool"
+                      cachedName="HideInReport"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[HideInReport]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[HideInReport]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].Columns[ValidFrom]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ValidFrom"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].Columns[LastUpdate_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LastUpdate_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[LastUpdate_Date]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LastUpdate_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].Columns[NA_Import]"
+                      cachedDataType="bool"
+                      cachedName="NA_Import"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[NA_Import]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[NA_Import]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].Columns[IsCurrent]"
+                      cachedDataType="bool"
+                      cachedName="IsCurrent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[IsCurrent]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].Columns[IPADDRESS_100]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="IPADDRESS_100"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[IPAddress]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[IPADDRESS_100]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[LastUpdate_Date]"
+                      dataType="dbTimeStamp"
+                      name="LastUpdate_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[HideInReport]"
+                      dataType="bool"
+                      name="HideInReport" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[NA_Import]"
+                      dataType="bool"
+                      name="NA_Import" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
+                      dataType="bool"
+                      name="IsCurrent" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      dataType="dbDate"
+                      name="ValidFrom" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[ValidTo]"
+                      dataType="dbDate"
+                      name="ValidTo" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[Proxy_ID]"
+                      dataType="i4"
+                      name="Proxy_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[IPAddress_ID]"
+                      dataType="i4"
+                      name="IPAddress_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[IPAddress]"
+                      dataType="wstr"
+                      length="100"
+                      name="IPAddress" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[Location_ID]"
+                      dataType="i4"
+                      name="Location_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input].ExternalColumns[Country_ID]"
+                      dataType="i4"
+                      name="Country_ID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC OCDE_IPAddress_DM"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dwh].[IPAddress_DM]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Connections[OleDbConnection]"
+                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[LastUpdate_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[LastUpdate_Date]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[LastUpdate_Date]"
+                      name="LastUpdate_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[HideInReport]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[HideInReport]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[HideInReport]"
+                      name="HideInReport"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[NA_Import]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[NA_Import]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[NA_Import]"
+                      name="NA_Import"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IsCurrent]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[IsCurrent]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IsCurrent]"
+                      name="IsCurrent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[ValidFrom]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[ValidFrom]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[ValidFrom]"
+                      name="ValidFrom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[ValidTo]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[ValidTo]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[ValidTo]"
+                      name="ValidTo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Proxy_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Proxy_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Proxy_ID]"
+                      name="Proxy_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      name="IPAddress_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IPAddress]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress]"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IPAddress]"
+                      name="IPAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Location_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Location_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Location_ID]"
+                      name="Location_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_ID]"
+                      name="Country_ID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[LastUpdate_Date]"
+                      dataType="dbTimeStamp"
+                      name="LastUpdate_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[HideInReport]"
+                      dataType="bool"
+                      name="HideInReport" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[NA_Import]"
+                      dataType="bool"
+                      name="NA_Import" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[IsCurrent]"
+                      dataType="bool"
+                      name="IsCurrent" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[ValidFrom]"
+                      dataType="dbDate"
+                      name="ValidFrom" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[ValidTo]"
+                      dataType="dbDate"
+                      name="ValidTo" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Proxy_ID]"
+                      dataType="i4"
+                      name="Proxy_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      dataType="i4"
+                      name="IPAddress_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress]"
+                      dataType="wstr"
+                      length="100"
+                      name="IPAddress" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Location_ID]"
+                      dataType="i4"
+                      name="Location_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ID]"
+                      dataType="i4"
+                      name="Country_ID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      name="IPAddress_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress]"
+                      name="IPAddress" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Location_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Location_ID]"
+                      name="Location_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[LastUpdate_Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[LastUpdate_Date]"
+                      name="LastUpdate_Date" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[HideInReport]"
+                      dataType="bool"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[HideInReport]"
+                      name="HideInReport" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[NA_Import]"
+                      dataType="bool"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[NA_Import]"
+                      name="NA_Import" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[IsCurrent]"
+                      dataType="bool"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[IsCurrent]"
+                      name="IsCurrent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ValidFrom]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ValidFrom]"
+                      name="ValidFrom" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ID]"
+                      name="Country_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ValidTo]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ValidTo]"
+                      name="ValidTo" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Proxy_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Proxy_ID]"
+                      name="Proxy_ID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC OCDE_STG_StatLink_SA"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[STG_StatLink_SA]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[SOURCE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SOURCE]"
+                      length="900"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[SOURCE]"
+                      name="SOURCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[SL_DATE]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SL_DATE]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[SL_DATE]"
+                      name="SL_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[SL_TIME]"
+                      dataType="dbTime2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SL_TIME]"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[SL_TIME]"
+                      name="SL_TIME"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[FILENAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].ExternalColumns[FILENAME]"
+                      length="900"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[FILENAME]"
+                      name="FILENAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[IPADDRESS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IPADDRESS]"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[IPADDRESS]"
+                      name="IPADDRESS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[USERAGENT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].ExternalColumns[USERAGENT]"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[USERAGENT]"
+                      name="USERAGENT"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SL_DATE]"
+                      dataType="dbDate"
+                      name="SL_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SL_TIME]"
+                      dataType="dbTime2"
+                      name="SL_TIME"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].ExternalColumns[FILENAME]"
+                      dataType="wstr"
+                      length="900"
+                      name="FILENAME" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IPADDRESS]"
+                      dataType="wstr"
+                      length="100"
+                      name="IPADDRESS" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].ExternalColumns[USERAGENT]"
+                      dataType="wstr"
+                      length="100"
+                      name="USERAGENT" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SOURCE]"
+                      dataType="wstr"
+                      length="900"
+                      name="SOURCE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SOURCE]"
+                      dataType="wstr"
+                      length="900"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SOURCE]"
+                      name="SOURCE" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SL_DATE]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SL_DATE]"
+                      name="SL_DATE" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SL_TIME]"
+                      dataType="dbTime2"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SL_TIME]"
+                      name="SL_TIME"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[FILENAME]"
+                      dataType="wstr"
+                      length="900"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[FILENAME]"
+                      name="FILENAME" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IPADDRESS]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IPADDRESS]"
+                      name="IPADDRESS" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[USERAGENT]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[USERAGENT]"
+                      name="USERAGENT" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Inputs[Entrée de tri].Columns[SOURCE]"
+                      cachedDataType="wstr"
+                      cachedLength="900"
+                      cachedName="SOURCE"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[SOURCE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Inputs[Entrée de tri].Columns[SL_DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="SL_DATE"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[SL_DATE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Inputs[Entrée de tri].Columns[SL_TIME]"
+                      cachedDataType="dbTime2"
+                      cachedName="SL_TIME"
+                      cachedScale="7"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[SL_TIME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Inputs[Entrée de tri].Columns[FILENAME]"
+                      cachedDataType="wstr"
+                      cachedLength="900"
+                      cachedName="FILENAME"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[FILENAME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Inputs[Entrée de tri].Columns[IPADDRESS]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="IPADDRESS"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[IPADDRESS]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Inputs[Entrée de tri].Columns[USERAGENT]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="USERAGENT"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[USERAGENT]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Outputs[Sortie de tri].Columns[SOURCE]"
+                      dataType="wstr"
+                      length="900"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Outputs[Sortie de tri].Columns[SOURCE]"
+                      name="SOURCE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[SOURCE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Outputs[Sortie de tri].Columns[SL_DATE]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Outputs[Sortie de tri].Columns[SL_DATE]"
+                      name="SL_DATE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[SL_DATE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Outputs[Sortie de tri].Columns[SL_TIME]"
+                      dataType="dbTime2"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Outputs[Sortie de tri].Columns[SL_TIME]"
+                      name="SL_TIME"
+                      scale="7">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[SL_TIME]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Outputs[Sortie de tri].Columns[FILENAME]"
+                      dataType="wstr"
+                      length="900"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Outputs[Sortie de tri].Columns[FILENAME]"
+                      name="FILENAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[FILENAME]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Outputs[Sortie de tri].Columns[IPADDRESS_100]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Outputs[Sortie de tri].Columns[IPADDRESS_100]"
+                      name="IPADDRESS_100"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[IPADDRESS]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Outputs[Sortie de tri].Columns[USERAGENT]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Outputs[Sortie de tri].Columns[USERAGENT]"
+                      name="USERAGENT">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB].Columns[USERAGENT]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Inputs[Entrée de tri].Columns[LastUpdate_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LastUpdate_Date"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[LastUpdate_Date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Inputs[Entrée de tri].Columns[HideInReport]"
+                      cachedDataType="bool"
+                      cachedName="HideInReport"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[HideInReport]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Inputs[Entrée de tri].Columns[NA_Import]"
+                      cachedDataType="bool"
+                      cachedName="NA_Import"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[NA_Import]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Inputs[Entrée de tri].Columns[IsCurrent]"
+                      cachedDataType="bool"
+                      cachedName="IsCurrent"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IsCurrent]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Inputs[Entrée de tri].Columns[ValidFrom]"
+                      cachedDataType="dbDate"
+                      cachedName="ValidFrom"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[ValidFrom]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Inputs[Entrée de tri].Columns[ValidTo]"
+                      cachedDataType="dbDate"
+                      cachedName="ValidTo"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[ValidTo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Inputs[Entrée de tri].Columns[Proxy_ID]"
+                      cachedDataType="i4"
+                      cachedName="Proxy_ID"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Proxy_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Inputs[Entrée de tri].Columns[IPAddress_ID]"
+                      cachedDataType="i4"
+                      cachedName="IPAddress_ID"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Inputs[Entrée de tri].Columns[IPAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="IPAddress"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IPAddress]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Inputs[Entrée de tri].Columns[Location_ID]"
+                      cachedDataType="i4"
+                      cachedName="Location_ID"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Location_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Inputs[Entrée de tri].Columns[Country_ID]"
+                      cachedDataType="i4"
+                      cachedName="Country_ID"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[LastUpdate_Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[LastUpdate_Date]"
+                      name="LastUpdate_Date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[LastUpdate_Date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[HideInReport]"
+                      dataType="bool"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[HideInReport]"
+                      name="HideInReport">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[HideInReport]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[NA_Import]"
+                      dataType="bool"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[NA_Import]"
+                      name="NA_Import">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[NA_Import]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[IsCurrent]"
+                      dataType="bool"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[IsCurrent]"
+                      name="IsCurrent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IsCurrent]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[ValidFrom]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[ValidFrom]"
+                      name="ValidFrom">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[ValidFrom]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[ValidTo]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[ValidTo]"
+                      name="ValidTo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[ValidTo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[Proxy_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[Proxy_ID]"
+                      name="Proxy_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Proxy_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[IPAddress_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[IPAddress_ID]"
+                      name="IPAddress_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[IPAddress]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[IPAddress]"
+                      name="IPAddress"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IPAddress]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[Location_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[Location_ID]"
+                      name="Location_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Location_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[Country_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri].Columns[Country_ID]"
+                      name="Country_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM.Paths[Insert]"
+              endId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Inputs[Entrée de colonne dérivée]"
+              name="Insert"
+              startId="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour.Outputs[Insert]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM.Paths[Sortie de colonne dérivée]"
+              endId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Inputs[Entrée de tri]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT INSERT INTO DWH_IPAddress_DM\Colonne dérivée.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM.Paths[Sortie de colonne dérivée1]"
+              endId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM.Inputs[OLE DB Destination Input]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM.Paths[Sortie de jointure de fusion]"
+              endId="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour.Inputs[Conditional Split Input]"
+              name="Sortie de jointure de fusion"
+              startId="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Outputs[Sortie de jointure de fusion]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Inputs[Entrée de tri]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM.Paths[Sortie de source OLE DB1]"
+              endId="Package\DFT INSERT INTO DWH_IPAddress_DM\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM.Paths[Sortie de tri]"
+              endId="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_IPAddress_DM.Paths[Sortie de tri1]"
+              endId="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion.Inputs[Entrée droite de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier.Outputs[Sortie de tri]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="268,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM"
+          TopLeft="72.7500018067658,95.9666667209069" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO DWH_IPAddress_DM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM\Jointure de fusion"
+          TopLeft="519.791658921167,194.999996513128" />
+        <NodeLayout
+          Size="101.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier"
+          TopLeft="405.902771729355,150.222219536039" />
+        <NodeLayout
+          Size="228,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM"
+          TopLeft="648.958323663101,9.7499998256564" />
+        <NodeLayout
+          Size="225.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM"
+          TopLeft="493.638882106792,539.983332973024" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM\CSPL Mise à jour"
+          TopLeft="524.263881650443,309.749998120963" />
+        <NodeLayout
+          Size="240,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA"
+          TopLeft="289.499997156362,3.36666668991247" />
+        <NodeLayout
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM\DC_ Variables"
+          TopLeft="534.374992037192,416.999994808436" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM\Colonne dérivée"
+          TopLeft="326.041661808267,71.4999987214804" />
+        <NodeLayout
+          Size="110.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM\Trier 1"
+          TopLeft="753.124988777563,131.083330989381" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM.Paths[Sortie de tri1]"
+          TopLeft="507.236105062688,171.555552869373">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="94.5555538584791,23.4444436437554"
+              Start="0,0"
+              End="94.5555538584791,15.9444436437554">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="90.5555538584791,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="90.5555538584791,0"
+                    Point2="94.5555538584791,0"
+                    Point3="94.5555538584791,4" />
+                  <mssgle:LineSegment
+                    End="94.5555538584791,15.9444436437554" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM.Paths[Sortie de tri]"
+          TopLeft="753.124988777563,152.416664322714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-69.3333298563959,63.916665523747"
+              Start="0,0"
+              End="-61.8333298563959,63.916665523747">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-30.666664928198,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.666664928198,0"
+                    Point2="-34.666664928198,0"
+                    Point3="-34.666664928198,4" />
+                  <mssgle:LineSegment
+                    End="-34.666664928198,59.916665523747" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34.666664928198,59.916665523747"
+                    Point2="-34.666664928198,63.916665523747"
+                    Point3="-38.666664928198,63.916665523747" />
+                  <mssgle:LineSegment
+                    End="-61.8333298563959,63.916665523747" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM.Paths[Sortie de source OLE DB1]"
+          TopLeft="406.437496148981,46.0333333565791">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.4666653649013"
+              Start="0,0"
+              End="0,17.9666653649013">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.9666653649013" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM.Paths[Sortie de source OLE DB]"
+          TopLeft="762.958323663101,52.4166664923231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="45.4999984477953,78.666664497058"
+              Start="0,0"
+              End="45.4999984477953,71.166664497058">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.333332248529" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.333332248529"
+                    Point2="0,39.333332248529"
+                    Point3="4,39.333332248529" />
+                  <mssgle:LineSegment
+                    End="41.4999984477953,39.333332248529" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.4999984477953,39.333332248529"
+                    Point2="45.4999984477953,39.333332248529"
+                    Point3="45.4999984477953,43.333332248529" />
+                  <mssgle:LineSegment
+                    End="45.4999984477953,71.166664497058" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM.Paths[Sortie de jointure de fusion]"
+          TopLeft="602.527770285805,237.666663179795">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72.0833349411684"
+              Start="0,0"
+              End="0,64.5833349411684">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5833349411684" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM.Paths[Sortie de colonne dérivée1]"
+          TopLeft="606.673603738659,459.666661475103">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,80.3166714979209"
+              Start="0,0"
+              End="0,72.8166714979209">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.8166714979209" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM.Paths[Sortie de colonne dérivée]"
+          TopLeft="403.3749951416,114.166665388147">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.1944432544209,36.0555541478922"
+              Start="0,0"
+              End="53.1944432544209,28.5555541478922">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.0277770739461" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.0277770739461"
+                    Point2="0,18.0277770739461"
+                    Point3="4,18.0277770739461" />
+                  <mssgle:LineSegment
+                    End="49.1944432544209,18.0277770739461" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.1944432544209,18.0277770739461"
+                    Point2="53.1944432544209,18.0277770739461"
+                    Point3="53.1944432544209,22.0277770739461" />
+                  <mssgle:LineSegment
+                    End="53.1944432544209,28.5555541478922" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM.Paths[Insert]"
+          TopLeft="605.152770177151,351.749998120963">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.249996687473"
+              Start="0,0"
+              End="0,57.749996687473">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.749996687473" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-13.75298828125,24.1738264687365,27.5059765625,9.40234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_IPAddress_DM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_DST DWH_IPAddress_DM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_IPAddress_DM\OLE_SRC OCDE_STG_StatLink_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

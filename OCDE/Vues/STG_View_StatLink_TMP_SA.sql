@@ -1,4 +1,11 @@
-﻿/* CREATE VIEW [dbo].[View_StatLink_TMP_SA]
+﻿/*
+USE [STG_UsageStat]
+GO
+
+
+
+
+CREATE VIEW [stg].[View_StatLink_TMP_SA]
 AS
 
 SELECT
@@ -11,4 +18,9 @@ SELECT
       ,substring([USERAGENT],1,100) as [USERAGENT]
       ,substring([SOURCE] ,1,900) as [SOURCE]
 FROM	
-[dbo].[Statlink_File_SA] */
+[stg].[STG_Statlink_File_SA]
+
+
+GO
+
+*/

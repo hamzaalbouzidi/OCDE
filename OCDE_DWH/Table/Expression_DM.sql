@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dwh].[Expression_DM](
-	[Expression_ID] [int] IDENTITY(1,1) NOT NULL primary key,
+	[Expression_ID] [int] IDENTITY(1,1) NOT NULL,
 	[Expression_ExternalID] [nvarchar](100) NOT NULL,
 	[ExternalSource] [nchar](10) NOT NULL,
 	[DOI] [nvarchar](100) NULL,

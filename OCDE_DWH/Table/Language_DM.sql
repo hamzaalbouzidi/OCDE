@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dwh].[Language_DM](
-	[Language_ID] [int] IDENTITY(1,1) NOT NULL primary key,
+	[Language_ID] [int] IDENTITY(1,1) NOT NULL ,
 	[Language_ExternalID] [nvarchar](100) NOT NULL,
 	[ExternalSource] [nchar](10) NOT NULL,
 	[Language_Lib_EN] [nvarchar](150) NOT NULL,

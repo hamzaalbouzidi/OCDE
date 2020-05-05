@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dwh].[Country_DM](
-	[Country_ID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Country_ID] [int] IDENTITY(1,1) NOT NULL,
 	CONSTRAINT [PK_Country_ID] PRIMARY KEY([Country_ID]),
 	[Country_ExternalID] [nvarchar](100) NOT NULL,
 	[ExternalSource] [nchar](10) NOT NULL,

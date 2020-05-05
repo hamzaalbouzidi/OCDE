@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dwh].[Format_DM](
-	[Format_ID] [int] IDENTITY(1,1) NOT NULL primary key,
+	[Format_ID] [int] IDENTITY(1,1) NOT NULL,
 	[Format_ExternalID] [nvarchar](100) NOT NULL,
 	[ExternalSource] [nchar](10) NOT NULL,
 	[MimeType] [nvarchar](50) NULL,

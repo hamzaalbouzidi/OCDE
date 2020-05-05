@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dwh].[Registration_DM](
-	[Registration_ID] [int] IDENTITY(1,1) NOT NULL primary key,
+	[Registration_ID] [int] IDENTITY(1,1) NOT NULL ,
 	CONSTRAINT [PK_Registration_ID] PRIMARY KEY([Registration_ID]),
 	[identityID] [nvarchar](20) NOT NULL,
 	[Location_ID] [int] NOT NULL,

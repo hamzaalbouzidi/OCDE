@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dwh].[Location_DM](
-	[Location_ID] [int] IDENTITY(1,1) NOT NULL primary key,
+	[Location_ID] [int] IDENTITY(1,1) NOT NULL ,
 	CONSTRAINT [PK_Location_ID] PRIMARY KEY([Location_ID]),
 	[City_ID] [int] NOT NULL,
 	CONSTRAINT [FK_Location_City_ID] FOREIGN KEY ([City_ID])

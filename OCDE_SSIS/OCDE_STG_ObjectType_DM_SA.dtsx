@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_ObjectType_DM_SA"
   DTS:PackageType="5"
-  DTS:VersionBuild="45"
-  DTS:VersionGUID="{BAF71CDB-B8EB-4594-9040-3873C6F34144}">
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{918FAC56-BF43-42F9-97FC-3F35421A299E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -31,6 +31,84 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données.Inputs[Entrée de conversion de données].Columns[ExternalSource]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ExternalSource"
+                      lineageId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_SRC OCDE_V_STG_ObjectType_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
+                      name="Copie de ExternalSource"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_SRC OCDE_V_STG_ObjectType_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_DST STG_ObjectType_DM_SA"
               componentClassID="Microsoft.OLEDBDestination"
@@ -111,13 +189,6 @@
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_DST STG_ObjectType_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[ObjectType_ExternalID]"
                       lineageId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_SRC OCDE_V_STG_ObjectType_DM_SA.Outputs[Sortie de source OLE DB].Columns[ObjectType_ExternalID]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_DST STG_ObjectType_DM_SA.Inputs[Entrée de destination OLE DB].Columns[ExternalSource]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="ExternalSource"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_DST STG_ObjectType_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
-                      lineageId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_SRC OCDE_V_STG_ObjectType_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
-                    <inputColumn
                       refId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_DST STG_ObjectType_DM_SA.Inputs[Entrée de destination OLE DB].Columns[ObjectType_Lib_EN]"
                       cachedDataType="wstr"
                       cachedLength="50"
@@ -138,6 +209,14 @@
                       cachedName="ProductType"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_DST STG_ObjectType_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[ProductType]"
                       lineageId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_SRC OCDE_V_STG_ObjectType_DM_SA.Outputs[Sortie de source OLE DB].Columns[ProductType]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_DST STG_ObjectType_DM_SA.Inputs[Entrée de destination OLE DB].Columns[Copie de ExternalSource]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copie de ExternalSource"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_DST STG_ObjectType_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
+                      lineageId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -148,7 +227,8 @@
                       name="ObjectType_ExternalID" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_DST STG_ObjectType_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="10"
                       name="ExternalSource" />
                     <externalMetadataColumn
@@ -390,15 +470,46 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT INSERT INTO STG_ObjectType_DM_SA.Paths[Sortie de source OLE DB]"
+              refId="Package\DFT INSERT INTO STG_ObjectType_DM_SA.Paths[Sortie de conversion de données]"
               endId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_DST STG_ObjectType_DM_SA.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de conversion de données"
+              startId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\DFT INSERT INTO STG_ObjectType_DM_SA.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données.Inputs[Entrée de conversion de données]"
               name="Sortie de source OLE DB"
               startId="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_SRC OCDE_V_STG_ObjectType_DM_SA.Outputs[Sortie de source OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate STG_ObjectType_DM_SA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{14eaf0b6-8958-4042-9758-7e036b8df4d9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate STG_ObjectType_DM_SA"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE STG_ObjectType_DM_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{BC8794E0-9280-4A84-904C-09BA11794C4D}"
+      DTS:From="Package\Truncate STG_ObjectType_DM_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\DFT INSERT INTO STG_ObjectType_DM_SA" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
 <!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
@@ -410,11 +521,37 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="288,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_ObjectType_DM_SA"
-          TopLeft="91.7499987147751,57.9333323957523" />
+          TopLeft="21.3333330973985,141.13333090802" />
+        <NodeLayout
+          Size="242.666666666667,42.6666666666667"
+          Id="Package\Truncate STG_ObjectType_DM_SA"
+          TopLeft="40.9166661389175,54.4333342941602" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="163.791666284825,97.1000009608269">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.0333299471935"
+              Start="0,0"
+              End="0,36.5333299471935">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5333299471935" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -422,29 +559,55 @@
     design-time-name="Package\DFT INSERT INTO STG_ObjectType_DM_SA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="245.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_DST STG_ObjectType_DM_SA"
+          TopLeft="102.49999847263,195.766663559477" />
         <NodeLayout
           Size="289.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_SRC OCDE_V_STG_ObjectType_DM_SA"
           TopLeft="81.6666654497383,39.8666659537952" />
         <NodeLayout
-          Size="245.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_ObjectType_DM_SA\OLE_DST STG_ObjectType_DM_SA"
-          TopLeft="106.249998416751,131.199998047352" />
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_ObjectType_DM_SA\Conversion de données"
+          TopLeft="135.833331309259,108.999998992682" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO STG_ObjectType_DM_SA.Paths[Sortie de source OLE DB]"
-          TopLeft="227.624998599911,82.5333326204619">
+          TopLeft="228.416665046165,82.5333326204619">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,48.6666654268899"
+              EndConnector="0,26.4666663722196"
               Start="0,0"
-              End="0,41.1666654268899">
+              End="0,18.9666663722196">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.1666654268899" />
+                    End="0,18.9666663722196" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_ObjectType_DM_SA.Paths[Sortie de conversion de données]"
+          TopLeft="227.833331557611,151.666665659348">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.0999979001285"
+              Start="0,0"
+              End="0,36.5999979001285">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5999979001285" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

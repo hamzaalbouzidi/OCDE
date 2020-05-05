@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dwh].[Directorate_DM](
-	[Directorate_ID] [int] IDENTITY(1,1) NOT NULL primary key,
+	[Directorate_ID] [int] IDENTITY(1,1) NOT NULL ,
 	[Directorate_ExternalID] [nvarchar](100) NOT NULL,
 	[ExternalSource] [nchar](10) NOT NULL,
 	[Directorate_Code] [nvarchar](4) NOT NULL,

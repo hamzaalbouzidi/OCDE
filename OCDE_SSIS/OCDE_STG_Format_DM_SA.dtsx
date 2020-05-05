@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Format_DM_SA"
   DTS:PackageType="5"
-  DTS:VersionBuild="46"
-  DTS:VersionGUID="{47EE37A5-1B09-415C-803F-80E28CB2BC50}">
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{64768691-C50E-45C0-BAF8-97DD09231945}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -423,7 +423,33 @@
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate STG_Format_DM_SA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{4cf10ae9-880f-40c9-8ae9-64b91369380e}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate STG_Format_DM_SA"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE STG_Format_DM_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{359BBC00-E5E7-4E93-B8C3-20A51B2F73A3}"
+      DTS:From="Package\Truncate STG_Format_DM_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\DFT INSERT INTO STG_Format_DM_SA" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
 <!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
@@ -435,11 +461,49 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="266.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Format_DM_SA"
-          TopLeft="91.7499987147751,57.9333323957523" />
+          TopLeft="60.4999991804364,197.89999655962" />
+        <NodeLayout
+          Size="222.666666666667,42.6666666666667"
+          Id="Package\Truncate STG_Format_DM_SA"
+          TopLeft="94.66666533798,115.533333201607" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="205.999998671313,158.199999868274">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.1666661575436,39.6999966913462"
+              Start="0,0"
+              End="-12.1666661575436,32.1999966913462">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.8499983456731" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.8499983456731"
+                    Point2="0,19.8499983456731"
+                    Point3="-4,19.8499983456731" />
+                  <mssgle:LineSegment
+                    End="-8.16666615754363,19.8499983456731" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.16666615754363,19.8499983456731"
+                    Point2="-12.1666661575436,19.8499983456731"
+                    Point3="-12.1666661575436,23.8499983456731" />
+                  <mssgle:LineSegment
+                    End="-12.1666661575436,32.1999966913462" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
