@@ -10,5 +10,6 @@
 	[NA_Import] [bit] NOT NULL,
 	[IsCurrent] [bit] NOT NULL,
 	[ValidFrom] [date] NULL,
-	[ValidTo] [date] NULL
+	[ValidTo] [date] NULL, 
+    CONSTRAINT [PK_Directorate_DM] PRIMARY KEY ([Directorate_ID])
 )

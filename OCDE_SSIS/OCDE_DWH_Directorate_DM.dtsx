@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_Directorate_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="41"
-  DTS:VersionGUID="{55C13A22-26F5-4C21-A78D-E2A219F1B386}">
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{F502AA74-EDC1-40DB-8A08-29A5D1E56F25}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -202,7 +202,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="3"
+                      length="10"
                       lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
                       name="Copie de ExternalSource"
                       truncationRowDisposition="FailComponent">
@@ -223,7 +223,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="4"
+                      length="100"
                       lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_ExternalID]"
                       name="Copie de Directorate_ExternalID"
                       truncationRowDisposition="FailComponent">
@@ -615,7 +615,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_Directorate_DM\228:invalid};#{Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]};#{Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_ExternalID]};</property>
+                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_Directorate_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_IsCurrent]};#{Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]};#{Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_ExternalID]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -641,7 +641,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                     <inputColumn
                       refId="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Inputs[Lookup Input].Columns[Copie de Directorate_ExternalID]"
                       cachedDataType="wstr"
-                      cachedLength="4"
+                      cachedLength="100"
                       cachedName="Copie de Directorate_ExternalID"
                       lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_ExternalID]">
                       <properties>
@@ -658,7 +658,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                     <inputColumn
                       refId="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Inputs[Lookup Input].Columns[Copie de ExternalSource]"
                       cachedDataType="wstr"
-                      cachedLength="3"
+                      cachedLength="10"
                       cachedName="Copie de ExternalSource"
                       lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]">
                       <properties>
@@ -666,6 +666,22 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                           dataType="System.String"
                           description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
                           name="JoinToReferenceColumn">ExternalSource</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Inputs[Lookup Input].Columns[Insert_IsCurrent]"
+                      cachedDataType="bool"
+                      cachedName="Insert_IsCurrent"
+                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_IsCurrent]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">IsCurrent</property>
                         <property
                           dataType="System.Null"
                           description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
@@ -1021,14 +1037,14 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                     <inputColumn
                       refId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM.Inputs[OLE DB Destination Input].Columns[Copie de ExternalSource]"
                       cachedDataType="wstr"
-                      cachedLength="3"
+                      cachedLength="10"
                       cachedName="Copie de ExternalSource"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM.Inputs[OLE DB Destination Input].ExternalColumns[ExternalSource]"
                       lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]" />
                     <inputColumn
                       refId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM.Inputs[OLE DB Destination Input].Columns[Copie de Directorate_ExternalID]"
                       cachedDataType="wstr"
-                      cachedLength="4"
+                      cachedLength="100"
                       cachedName="Copie de Directorate_ExternalID"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM.Inputs[OLE DB Destination Input].ExternalColumns[Directorate_ExternalID]"
                       lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_ExternalID]" />
@@ -1383,10 +1399,10 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
               name="Lookup Match Output"
               startId="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\DFT INSERT INTO DWH_Directorate_DM.Paths[Pas Update]"
+              refId="Package\DFT INSERT INTO DWH_Directorate_DM.Paths[Lookup No Match Output]"
               endId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM.Inputs[OLE DB Destination Input]"
-              name="Pas Update"
-              startId="Package\DFT INSERT INTO DWH_Directorate_DM\CSPL Mise à jour.Outputs[Pas Update]" />
+              name="Lookup No Match Output"
+              startId="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\DFT INSERT INTO DWH_Directorate_DM.Paths[Sortie de colonne dérivée]"
               endId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Inputs[Entrée de conversion de données]"
@@ -1437,133 +1453,53 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="204,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM"
-          TopLeft="204.500001639128,322.64444095499" />
-        <NodeLayout
-          Size="276,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA"
-          TopLeft="163.458332367862,16.8444434319603" />
-        <NodeLayout
-          Size="236,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données"
-          TopLeft="182.738092515085,245.96825621166" />
-        <NodeLayout
           Size="181.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_CMD Mise à jour"
           TopLeft="246.29166730307,666.777773606447" />
         <NodeLayout
-          Size="230.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM"
-          TopLeft="7.2500004656611,635.194439013965" />
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Directorate_DM\DC_ Variables"
+          TopLeft="237.791663205251,119.444451896018" />
+        <NodeLayout
+          Size="276,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA"
+          TopLeft="179.083332135031,21.1777766878076" />
+        <NodeLayout
+          Size="204,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM"
+          TopLeft="204.500001639128,322.64444095499" />
         <NodeLayout
           Size="158.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Directorate_DM\CSPL Mise à jour"
           TopLeft="234.875000977888,445.444440583058" />
         <NodeLayout
-          Size="145.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Directorate_DM\DC_ Variables"
-          TopLeft="222.166663438082,115.111118640171" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Directorate_DM.Paths[Sortie de source OLE DB]"
-          TopLeft="298.145831236305,59.511110098627">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,55.6000085415442"
-              Start="0,0"
-              End="0,48.1000085415442">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.1000085415442" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Directorate_DM.Paths[Sortie de conversion de données]"
-          TopLeft="303.619047077107,288.634922878326">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.0095180766637"
-              Start="0,0"
-              End="0,26.5095180766637">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5095180766637" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="230.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM"
+          TopLeft="7.2500004656611,635.194439013965" />
+        <NodeLayout
+          Size="236,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données"
+          TopLeft="190.029759073097,208.051590222996" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Directorate_DM.Paths[Sortie de colonne dérivée]"
-          TopLeft="297.785711309917,157.777785306838">
+          TopLeft="309.244044472508,162.111118562685">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,88.1904709048218"
+              EndConnector="0,45.9404716603112"
               Start="0,0"
-              End="0,80.6904709048218">
+              End="0,38.4404716603112">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,80.6904709048218" />
+                    End="0,38.4404716603112" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Directorate_DM.Paths[Pas Update]"
-          TopLeft="289.097223200111,488.111107249724">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-166.513889401116,147.083331764241"
-              Start="0,0"
-              End="-166.513889401116,139.583331764241">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,55.7143643102741" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,55.7143643102741"
-                    Point2="0,59.7143643102741"
-                    Point3="-4,59.7143643102741" />
-                  <mssgle:LineSegment
-                    End="-162.513889401116,59.7143643102741" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-162.513889401116,59.7143643102741"
-                    Point2="-166.513889401116,59.7143643102741"
-                    Point3="-166.513889401116,63.7143643102741" />
-                  <mssgle:LineSegment
-                    End="-166.513889401116,139.583331764241" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-108.668292356808,64.7143643102741,50.8226953125,11.609375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1614,32 +1550,89 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Directorate_DM.Paths[Sortie de source OLE DB]"
+          TopLeft="313.770831003474,63.8444433544743">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.6000085415442"
+              Start="0,0"
+              End="0,48.1000085415442">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.1000085415442" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Directorate_DM.Paths[Sortie de conversion de données]"
+          TopLeft="307.264880356113,250.718256889663">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71.9261840653272"
+              Start="0,0"
+              End="0,64.4261840653272">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.4261840653272" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Directorate_DM.Paths[Lookup No Match Output]"
+          TopLeft="273.833334972461,365.311107621657">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-151.250001173467,269.883331392308"
+              Start="0,0"
+              End="-151.250001173467,262.383331392308">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,105.213488189884" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,105.213488189884"
+                    Point2="0,109.213488189884"
+                    Point3="-4,109.213488189884" />
+                  <mssgle:LineSegment
+                    End="-147.250001173467,109.213488189884" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-147.250001173467,109.213488189884"
+                    Point2="-151.250001173467,109.213488189884"
+                    Point3="-151.250001173467,113.213488189884" />
+                  <mssgle:LineSegment
+                    End="-151.250001173467,262.383331392308" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-131.431387305483,114.213488189884,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA">
     <Properties>
@@ -1650,6 +1643,29 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

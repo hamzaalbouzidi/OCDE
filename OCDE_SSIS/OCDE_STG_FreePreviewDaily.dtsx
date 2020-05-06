@@ -5,18 +5,346 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="CSPE-W-VBISPS01"
   DTS:CreatorName="CERBA\YMIGEOT"
-  DTS:DTSID="{B18E4A43-675E-4FD0-840A-B3FAAC1470EC}"
+  DTS:DTSID="{75613FB6-3E6C-4144-9F4D-EF2E22F3E8D3}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
-  DTS:ObjectName="OCDE_STG_FreePreviewDaily_SA"
+  DTS:ObjectName="OCDE_STG_FreePreviewDaily"
   DTS:PackageType="5"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{E3DDB1B2-C43F-4334-A17E-4AB4B84C656E}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{80DB9711-3F66-4AB2-A6EF-DB7744E85989}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{8c911e32-d36b-408f-98a8-4d326c4da641}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT INSERT INTO STG_FreePreviewDaily_FT_SA"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST STG_FreePreviewDaily_FT_SA"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[STG_FreePreviewDaily_FT_SA]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Inputs[Entrée de destination OLE DB].Columns[Download_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Download_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Inputs[Entrée de destination OLE DB].Columns[Expression_ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression_ID]"
+                      lineageId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].Columns[Expression_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Inputs[Entrée de destination OLE DB].Columns[Embed]"
+                      cachedDataType="bool"
+                      cachedName="Embed"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Embed]"
+                      lineageId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].Columns[Embed]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Inputs[Entrée de destination OLE DB].Columns[Downloads]"
+                      cachedDataType="i4"
+                      cachedName="Downloads"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Downloads]"
+                      lineageId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].Columns[Downloads]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
+                      dataType="dbDate"
+                      name="Download_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression_ID]"
+                      dataType="i4"
+                      name="Expression_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Embed]"
+                      dataType="bool"
+                      name="Embed" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Downloads]"
+                      dataType="i4"
+                      name="Downloads" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[view_FreePreviewDaily_FT_SA]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
+                      name="Download_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].Columns[Expression_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Expression_ID]"
+                      lineageId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].Columns[Expression_ID]"
+                      name="Expression_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].Columns[Embed]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Embed]"
+                      lineageId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].Columns[Embed]"
+                      name="Embed"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].Columns[Downloads]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Downloads]"
+                      lineageId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].Columns[Downloads]"
+                      name="Downloads"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
+                      dataType="dbDate"
+                      name="Download_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Expression_ID]"
+                      dataType="i4"
+                      name="Expression_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Embed]"
+                      dataType="bool"
+                      name="Embed" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Downloads]"
+                      dataType="i4"
+                      name="Downloads" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
+                      name="Download_Date" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression_ID]"
+                      name="Expression_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Embed]"
+                      dataType="bool"
+                      lineageId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Embed]"
+                      name="Embed" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Downloads]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Downloads]"
+                      name="Downloads" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\DFT INSERT INTO STG_FreePreviewDaily_SA"
       DTS:CreationName="Microsoft.Pipeline"
@@ -555,19 +883,35 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Truncate STG_FreePreviewDaily_SA"
+      DTS:refId="Package\TSQL Truncate STG_FreePreviewDaily_FT_SA"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{C33499FA-2499-4989-8282-BF07622BF8B4}"
+      DTS:DTSID="{8b1f0178-6399-42f5-8a30-01e7f886055b}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Truncate STG_FreePreviewDaily_SA"
+      DTS:ObjectName="TSQL Truncate STG_FreePreviewDaily_FT_SA"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE STG_FreePreviewDaily_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_FreePreviewDaily_FT_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL Truncate STG_FreePreviewDaily_SA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{C33499FA-2499-4989-8282-BF07622BF8B4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL Truncate STG_FreePreviewDaily_SA"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_FreePreviewDaily_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -575,11 +919,27 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
-      DTS:DTSID="{2EEB2B2F-16FC-44FD-A56E-850CD9CA47B9}"
-      DTS:From="Package\Truncate STG_FreePreviewDaily_SA"
+      DTS:DTSID="{710F2087-55CD-4CC5-BFC6-D043818A8E95}"
+      DTS:From="Package\TSQL Truncate STG_FreePreviewDaily_SA"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte"
+      DTS:To="Package\TSQL Truncate STG_FreePreviewDaily_FT_SA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{A74F2922-D05E-47DB-BD93-C9A202E52169}"
+      DTS:From="Package\TSQL Truncate STG_FreePreviewDaily_FT_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 1"
       DTS:To="Package\DFT INSERT INTO STG_FreePreviewDaily_SA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{B446423A-1C9B-44D8-B745-7823D78EBFB7}"
+      DTS:From="Package\DFT INSERT INTO STG_FreePreviewDaily_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 2"
+      DTS:To="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
@@ -592,29 +952,81 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="293.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_FreePreviewDaily_SA"
-          TopLeft="51.1666664431495,106.899998186827" />
+          TopLeft="62.2777773886921,217.399996210933" />
         <NodeLayout
-          Size="248,42.6666666666667"
-          Id="Package\Truncate STG_FreePreviewDaily_SA"
+          Size="276,42.6666666666667"
+          Id="Package\TSQL Truncate STG_FreePreviewDaily_SA"
           TopLeft="77.9999989196659,25.2333331473668" />
+        <NodeLayout
+          Size="310.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA"
+          TopLeft="51.1666664431495,291.499994885922" />
+        <NodeLayout
+          Size="294.666666666667,42.6666666666667"
+          Id="Package\TSQL Truncate STG_FreePreviewDaily_FT_SA"
+          TopLeft="67.972221748283,101.955555666619" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="199.916666014741,67.8999998140335">
+          TopLeft="215.652777000641,67.8999998140335">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,38.9999983727932"
+              EndConnector="0,34.0555558525857"
               Start="0,0"
-              End="0,31.4999983727932">
+              End="0,26.5555558525857">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.4999983727932" />
+                    End="0,26.5555558525857" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 1]"
+          TopLeft="212.124999568488,144.622222333286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72.7777738776473"
+              Start="0,0"
+              End="0,65.2777738776473">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.2777738776473" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 2]"
+          TopLeft="207.722221915921,260.0666628776">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.4333320083219"
+              Start="0,0"
+              End="0,23.9333320083219">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.9333320083219" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -719,19 +1131,6 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_FreePreviewDaily_SA\OLE_DST STG_FreePreviewDaily_SA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO STG_FreePreviewDaily_SA\OLE_SRC OCDE_V_STG_FreePreview_TMP_SA">
     <Properties>
       <Property>
@@ -744,5 +1143,58 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_FreePreviewDaily_SA\OLE_DST STG_FreePreviewDaily_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="268,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_DST STG_FreePreviewDaily_FT_SA"
+          TopLeft="89.5833319984372,130.766664721767" />
+        <NodeLayout
+          Size="340,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_V_STG_view_FreePreviewDaily_FT_SA"
+          TopLeft="61.2499990873036,39.8666659537952" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_FreePreviewDaily_FT_SA.Paths[Sortie de source OLE DB]"
+          TopLeft="227.41666554287,82.5333326204619">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.2333321013051"
+              Start="0,0"
+              End="0,40.7333321013051">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.7333321013051" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

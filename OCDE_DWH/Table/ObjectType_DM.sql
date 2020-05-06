@@ -12,5 +12,6 @@
 	[NA_Import] [bit] NOT NULL,
 	[IsCurrent] [bit] NOT NULL,
 	[ValidFrom] [date] NULL,
-	[ValidTo] [date] NULL
+	[ValidTo] [date] NULL, 
+    CONSTRAINT [PK_ObjectType_DM] PRIMARY KEY ([ObjectType_ID])
 )

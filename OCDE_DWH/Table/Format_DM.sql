@@ -10,5 +10,6 @@
 	[NA_Import] [bit] NOT NULL,
 	[IsCurrent] [bit] NOT NULL,
 	[ValidFrom] [date] NULL,
-	[ValidTo] [date] NULL
+	[ValidTo] [date] NULL, 
+    CONSTRAINT [PK_Format_DM] PRIMARY KEY ([Format_ID])
 )

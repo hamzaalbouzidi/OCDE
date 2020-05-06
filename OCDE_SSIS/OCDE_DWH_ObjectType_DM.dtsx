@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_ObjectType_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="43"
-  DTS:VersionGUID="{759C4AD7-99A4-4D1C-84B3-28D3235E9786}">
+  DTS:VersionBuild="45"
+  DTS:VersionGUID="{AA9FA324-59FB-42B2-90CA-1A94E7D44509}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -192,7 +192,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="3"
+                      length="10"
                       lineageId="Package\DFT INSERT INTO DWH_ObjectType_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
                       name="Copie de ExternalSource"
                       truncationRowDisposition="FailComponent">
@@ -455,6 +455,50 @@
                           name="FriendlyExpression">GETDATE()</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ObjectType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LinkToParentMain]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT INSERT INTO DWH_ObjectType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LinkToParentMain]"
+                      name="LinkToParentMain"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_BOOL)0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ObjectType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LinkToParentTop]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT INSERT INTO DWH_ObjectType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LinkToParentTop]"
+                      name="LinkToParentTop"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_BOOL)0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)0</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -568,7 +612,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                     <inputColumn
                       refId="Package\DFT INSERT INTO DWH_ObjectType_DM\LKP DWH_ObjectType_DM.Inputs[Lookup Input].Columns[Copie de ExternalSource]"
                       cachedDataType="wstr"
-                      cachedLength="3"
+                      cachedLength="10"
                       cachedName="Copie de ExternalSource"
                       lineageId="Package\DFT INSERT INTO DWH_ObjectType_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]">
                       <properties>
@@ -964,7 +1008,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                     <inputColumn
                       refId="Package\DFT INSERT INTO DWH_ObjectType_DM\OLE_DST DWH_ObjectType_DM.Inputs[OLE DB Destination Input].Columns[Copie de ExternalSource]"
                       cachedDataType="wstr"
-                      cachedLength="3"
+                      cachedLength="10"
                       cachedName="Copie de ExternalSource"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_ObjectType_DM\OLE_DST DWH_ObjectType_DM.Inputs[OLE DB Destination Input].ExternalColumns[ExternalSource]"
                       lineageId="Package\DFT INSERT INTO DWH_ObjectType_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]" />
@@ -1026,6 +1070,18 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                       cachedName="ValidFrom"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_ObjectType_DM\OLE_DST DWH_ObjectType_DM.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
                       lineageId="Package\DFT INSERT INTO DWH_ObjectType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_ObjectType_DM\OLE_DST DWH_ObjectType_DM.Inputs[OLE DB Destination Input].Columns[LinkToParentMain]"
+                      cachedDataType="bool"
+                      cachedName="LinkToParentMain"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ObjectType_DM\OLE_DST DWH_ObjectType_DM.Inputs[OLE DB Destination Input].ExternalColumns[LinkToParentMain]"
+                      lineageId="Package\DFT INSERT INTO DWH_ObjectType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LinkToParentMain]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_ObjectType_DM\OLE_DST DWH_ObjectType_DM.Inputs[OLE DB Destination Input].Columns[LinkToParentTop]"
+                      cachedDataType="bool"
+                      cachedName="LinkToParentTop"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ObjectType_DM\OLE_DST DWH_ObjectType_DM.Inputs[OLE DB Destination Input].ExternalColumns[LinkToParentTop]"
+                      lineageId="Package\DFT INSERT INTO DWH_ObjectType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LinkToParentTop]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1376,14 +1432,6 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="232,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_ObjectType_DM\OLE_DST DWH_ObjectType_DM"
-          TopLeft="86.4166659526525,542.58332943966" />
-        <NodeLayout
-          Size="236,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_ObjectType_DM\DC Conversioon type de données"
-          TopLeft="362.499994598328,227.499995931983" />
-        <NodeLayout
           Size="145.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_ObjectType_DM\DC_ Variables"
           TopLeft="413.833327248692,109.166674182812" />
@@ -1400,9 +1448,41 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
           Id="Package\DFT INSERT INTO DWH_ObjectType_DM\LKP DWH_ObjectType_DM"
           TopLeft="385.749998938292,310.19999661386" />
         <NodeLayout
+          Size="232,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_ObjectType_DM\OLE_DST DWH_ObjectType_DM"
+          TopLeft="86.4166659526525,542.58332943966" />
+        <NodeLayout
           Size="158.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_ObjectType_DM\CSPL Mise à jour"
           TopLeft="445.70833116956,422.599996427894" />
+        <NodeLayout
+          Size="236,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_ObjectType_DM\DC Conversioon type de données"
+          TopLeft="362.499994598328,227.499995931983" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_ObjectType_DM.Paths[Update]"
+          TopLeft="526.624997811391,465.266663094561">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,149.200000216961"
+              Start="0,0"
+              End="0,141.700000216961">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,141.700000216961" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.28029296875,65.0453126084805,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_ObjectType_DM.Paths[Sortie de source OLE DB]"
           TopLeft="482.854161822237,56.8666664961975">
@@ -1501,7 +1581,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-182.361942100459,81.7667953272783,111.6127734375,11.609375"
+              BoundingBox="-182.361942100458,81.7667953272783,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1529,46 +1609,9 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_ObjectType_DM.Paths[Update]"
-          TopLeft="526.624997811391,465.266663094561">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,149.200000216961"
-              Start="0,0"
-              End="0,141.700000216961">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,141.700000216961" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-16.28029296875,65.0453126084805,32.5605859375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_ObjectType_DM\OLE_DST DWH_ObjectType_DM">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO DWH_ObjectType_DM\OLE_SRC OCDE_STG_ObjectType_DM_SA">
     <Properties>
@@ -1602,6 +1645,19 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_ObjectType_DM\OLE_DST DWH_ObjectType_DM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
