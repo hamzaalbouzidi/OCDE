@@ -1,5 +1,6 @@
 ﻿CREATE TABLE [dwh].[Expression_DM](
 	[Expression_ID] [int] IDENTITY(1,1) NOT NULL,
+	CONSTRAINT [PK_Expression_ID] PRIMARY KEY([Expression_ID]),
 	[Expression_ExternalID] [nvarchar](100) NOT NULL,
 	[ExternalSource] [nchar](10) NOT NULL,
 	[DOI] [nvarchar](100) NULL,

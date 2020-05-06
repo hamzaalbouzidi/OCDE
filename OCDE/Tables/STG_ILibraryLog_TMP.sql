@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dwh].[ILibraryLog_TMP](
+﻿CREATE TABLE [stg].[STG_ILibraryLog_TMP](
 	[EVENTLOGID] [nvarchar](20) NULL,
 	[IDENTITYID] [nvarchar](30) NULL,
 	[EVENT_TIME] [nvarchar](30) NULL,

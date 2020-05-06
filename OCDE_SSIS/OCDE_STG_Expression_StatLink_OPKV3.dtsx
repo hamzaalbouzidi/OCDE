@@ -1,0 +1,863 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/9/2019 5:03:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CSPE-W-VBISPS01"
+  DTS:CreatorName="CERBA\YMIGEOT"
+  DTS:DTSID="{6EEF1903-1635-4029-8D83-EB26F2F5E627}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="OCDE_STG_Expression_StatLink_OPKV3"
+  DTS:PackageType="5"
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{083312E1-4D68-4143-9195-62757AFA2B31}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{62401D2D-9458-4B73-A7F6-6DA98C8AC68E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT INSERT INTO STG_Expression_StatLink_OPKV3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST STG_Expression_StatLink_OPKV3"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[STG_Expression_StatLink_OPKV3]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].Columns[ExpressionId]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="ExpressionId"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[ExpressionId]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[ExpressionId]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].Columns[DOI]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DOI"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[DOI]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].Columns[ISSN]"
+                      cachedDataType="i4"
+                      cachedName="ISSN"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[ISSN]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[ISSN]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].Columns[Title]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Title"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Title]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[Title]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].Columns[SubTitle]"
+                      cachedDataType="i4"
+                      cachedName="SubTitle"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[SubTitle]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[SubTitle]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].Columns[Language]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Language"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Language]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[Language]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].Columns[Directorate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Directorate"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Directorate]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[Directorate]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].Columns[Theme]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Theme"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Theme]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[Theme]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].Columns[IGOId]"
+                      cachedDataType="i4"
+                      cachedName="IGOId"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[IGOId]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[IGOId]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].Columns[ObjectTypeId]"
+                      cachedDataType="i4"
+                      cachedName="ObjectTypeId"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[ObjectTypeId]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[ObjectTypeId]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].Columns[FirstReleaseDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FirstReleaseDate"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[FirstReleaseDate]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[FirstReleaseDate]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].Columns[iLibraryURLAlias]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="iLibraryURLAlias"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[iLibraryURLAlias]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[iLibraryURLAlias]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].Columns[FirstExportDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FirstExportDate"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[FirstExportDate]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[FirstExportDate]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].Columns[LatestExportDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LatestExportDate"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[LatestExportDate]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[LatestExportDate]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].Columns[LatestDeletionDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LatestDeletionDate"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[LatestDeletionDate]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[LatestDeletionDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[ExpressionId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ExpressionId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DOI" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[ISSN]"
+                      dataType="i4"
+                      name="ISSN" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[SubTitle]"
+                      dataType="i4"
+                      name="SubTitle" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Language]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Language" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Directorate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Directorate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Theme]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="Theme" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[IGOId]"
+                      dataType="i4"
+                      name="IGOId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[ObjectTypeId]"
+                      dataType="i4"
+                      name="ObjectTypeId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[FirstReleaseDate]"
+                      dataType="dbTimeStamp"
+                      name="FirstReleaseDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[iLibraryURLAlias]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="iLibraryURLAlias" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[FirstExportDate]"
+                      dataType="dbTimeStamp"
+                      name="FirstExportDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[LatestExportDate]"
+                      dataType="dbTimeStamp"
+                      name="LatestExportDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[LatestDeletionDate]"
+                      dataType="dbTimeStamp"
+                      name="LatestDeletionDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[view_KA_Expression_StatLink]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[ExpressionId]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[ExpressionId]"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[ExpressionId]"
+                      name="ExpressionId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[DOI]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
+                      length="50"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[DOI]"
+                      name="DOI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[ISSN]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[ISSN]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[ISSN]"
+                      name="ISSN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[Title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[Title]"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[Title]"
+                      name="Title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[SubTitle]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[SubTitle]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[SubTitle]"
+                      name="SubTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[Language]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[Language]"
+                      length="3"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[Language]"
+                      name="Language"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[Directorate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[Directorate]"
+                      length="4"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[Directorate]"
+                      name="Directorate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[Theme]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[Theme]"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[Theme]"
+                      name="Theme"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[IGOId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[IGOId]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[IGOId]"
+                      name="IGOId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[ObjectTypeId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[ObjectTypeId]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[ObjectTypeId]"
+                      name="ObjectTypeId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[FirstReleaseDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[FirstReleaseDate]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[FirstReleaseDate]"
+                      name="FirstReleaseDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[iLibraryURLAlias]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[iLibraryURLAlias]"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[iLibraryURLAlias]"
+                      name="iLibraryURLAlias"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[FirstExportDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[FirstExportDate]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[FirstExportDate]"
+                      name="FirstExportDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[LatestExportDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[LatestExportDate]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[LatestExportDate]"
+                      name="LatestExportDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[LatestDeletionDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[LatestDeletionDate]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].Columns[LatestDeletionDate]"
+                      name="LatestDeletionDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[ExpressionId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ExpressionId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DOI" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[ISSN]"
+                      dataType="i4"
+                      name="ISSN" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[Title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[SubTitle]"
+                      dataType="i4"
+                      name="SubTitle" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[Language]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Language" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[Directorate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Directorate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[Theme]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Theme" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[IGOId]"
+                      dataType="i4"
+                      name="IGOId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[ObjectTypeId]"
+                      dataType="i4"
+                      name="ObjectTypeId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[FirstReleaseDate]"
+                      dataType="dbTimeStamp"
+                      name="FirstReleaseDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[iLibraryURLAlias]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="iLibraryURLAlias" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[FirstExportDate]"
+                      dataType="dbTimeStamp"
+                      name="FirstExportDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[LatestExportDate]"
+                      dataType="dbTimeStamp"
+                      name="LatestExportDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[LatestDeletionDate]"
+                      dataType="dbTimeStamp"
+                      name="LatestDeletionDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[ExpressionId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[ExpressionId]"
+                      name="ExpressionId" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
+                      name="DOI" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[ISSN]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[ISSN]"
+                      name="ISSN" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[Title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[Title]"
+                      name="Title" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[SubTitle]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[SubTitle]"
+                      name="SubTitle" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[Language]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[Language]"
+                      name="Language" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[Directorate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[Directorate]"
+                      name="Directorate" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[Theme]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[Theme]"
+                      name="Theme" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[IGOId]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[IGOId]"
+                      name="IGOId" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[ObjectTypeId]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[ObjectTypeId]"
+                      name="ObjectTypeId" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[FirstReleaseDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[FirstReleaseDate]"
+                      name="FirstReleaseDate" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[iLibraryURLAlias]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[iLibraryURLAlias]"
+                      name="iLibraryURLAlias" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[FirstExportDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[FirstExportDate]"
+                      name="FirstExportDate" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[LatestExportDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[LatestExportDate]"
+                      name="LatestExportDate" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[LatestDeletionDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[LatestDeletionDate]"
+                      name="LatestDeletionDate" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate STG_Expression_StatLink_OPKV3"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{5EA5E5AF-8EAD-4D61-844B-940684752325}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate STG_Expression_StatLink_OPKV3"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE STG_Expression_StatLink_OPKV3" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{0E18B84F-DB27-4C02-B088-D7BFEF51D7B2}"
+      DTS:From="Package\Truncate STG_Expression_StatLink_OPKV3"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="326,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3"
+          TopLeft="99.6666652634743,184.466663466493" />
+        <NodeLayout
+          Size="281.333333333334,42.6666666666667"
+          Id="Package\Truncate STG_Expression_StatLink_OPKV3"
+          TopLeft="115.083331700415,102.533333434065" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="259.208331815278,145.200000100732">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.2666633657613"
+              Start="0,0"
+              End="0,31.7666633657613">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7666633657613" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="336,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink"
+          TopLeft="67.9166656546293,36.8333326747021" />
+        <NodeLayout
+          Size="284,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3"
+          TopLeft="89.5833319984372,130.766664721767" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3.Paths[Sortie de source OLE DB]"
+          TopLeft="233.749998826533,79.4999993413688">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.2666653803982"
+              Start="0,0"
+              End="0,43.7666653803982">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.7666653803982" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_DST STG_Expression_StatLink_OPKV3">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Expression_StatLink_OPKV3\OLE_SRC OCDE_V_STG_view_KA_Expression_StatLink">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

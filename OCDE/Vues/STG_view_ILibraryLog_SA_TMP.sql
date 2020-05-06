@@ -1,7 +1,7 @@
 ﻿/*
+
 USE [STG_UsageStat]
 GO
-
 
 
 CREATE VIEW [stg].[view_ILibraryLog_SA_TMP]
@@ -55,10 +55,13 @@ AS
 		replace(replace(ITEMID,'/','.'),'%2F','.') AS ITEMID,
 		MIME_TYPE,
 		LICENCE_TYPE,
-		SOURCE FROM [DWH_UsageStat].[dwh].[iLibraryLog_TMP]) TMP) TMP2
+		SOURCE FROM [stg].[STG_iLibraryLog_TMP]) TMP) TMP2
+
+
 
 
 GO
+
 
 
 

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_ExpressionParent_Update_DM_SA"
   DTS:PackageType="5"
-  DTS:VersionBuild="46"
-  DTS:VersionGUID="{24B48D13-833B-442E-89FE-001286C6031C}">
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{3968E89F-5CA2-4038-BCA4-FEFE9D8EF9AD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -32,6 +32,84 @@
           version="1">
           <components>
             <component
+              refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données.Inputs[Entrée de conversion de données].Columns[doi]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="doi"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].Columns[doi]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de doi]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="225"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de doi]"
+                      name="Copie de doi"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].Columns[doi]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
@@ -47,7 +125,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset"></property>
+                  name="OpenRowset">[stg].[STG_ExpressionParent_Update_DM_SA]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -69,7 +147,7 @@
                   dataType="System.Int32"
                   description="Spécifie le mode utilisé pour accéder à la base de données."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">3</property>
                 <property
                   dataType="System.Boolean"
                   description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
@@ -81,7 +159,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions"></property>
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                 <property
                   dataType="System.Int32"
                   description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
@@ -90,6 +168,8 @@
               <connections>
                 <connection
                   refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -100,8 +180,53 @@
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA.Inputs[Entrée de destination OLE DB].Columns[expr]"
+                      cachedDataType="i4"
+                      cachedName="expr"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[TopParent_ID]"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].Columns[expr]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA.Inputs[Entrée de destination OLE DB].Columns[Parent]"
+                      cachedDataType="i4"
+                      cachedName="Parent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Top2Parent_ID]"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].Columns[Parent]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA.Inputs[Entrée de destination OLE DB].Columns[GParent]"
+                      cachedDataType="i4"
+                      cachedName="GParent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Top3Parent_ID]"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].Columns[GParent]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA.Inputs[Entrée de destination OLE DB].Columns[Copie de doi]"
+                      cachedDataType="wstr"
+                      cachedLength="225"
+                      cachedName="Copie de doi"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[doi]"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de doi]" />
+                  </inputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[TopParent_ID]"
+                      dataType="i4"
+                      name="TopParent_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Top2Parent_ID]"
+                      dataType="i4"
+                      name="Top2Parent_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Top3Parent_ID]"
+                      dataType="i4"
+                      name="Top3Parent_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[doi]"
+                      dataType="wstr"
+                      length="225"
+                      name="doi" />
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
@@ -130,11 +255,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_ExpressionParent_Update_DM_SA"
+              refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
               description="Source OLE DB"
-              name="OLE_SRC OCDE_V_STG_ExpressionParent_Update_DM_SA"
+              name="OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA"
               usesDispositions="true"
               version="7">
               <properties>
@@ -145,7 +270,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset"></property>
+                  name="OpenRowset">[stg].[view_ExpressionParent_Update_DM_SA]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -179,32 +304,115 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_ExpressionParent_Update_DM_SA.Connections[OleDbConnection]"
+                  refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB]"
+                  refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].Columns[expr]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[expr]"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].Columns[expr]"
+                      name="expr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].Columns[Parent]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Parent]"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].Columns[Parent]"
+                      name="Parent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].Columns[GParent]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[GParent]"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].Columns[GParent]"
+                      name="GParent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].Columns[doi]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[doi]"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].Columns[doi]"
+                      name="doi"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[expr]"
+                      dataType="i4"
+                      name="expr" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Parent]"
+                      dataType="i4"
+                      name="Parent" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[GParent]"
+                      dataType="i4"
+                      name="GParent" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[doi]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="doi" />
+                  </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB]"
+                  refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[doi]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[doi]"
+                      name="doi" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[expr]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[expr]"
+                      name="expr" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Parent]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Parent]"
+                      name="Parent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[GParent]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[GParent]"
+                      name="GParent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -215,10 +423,15 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA.Paths[Sortie de source OLE DB]"
+              refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA.Paths[Sortie de conversion de données]"
               endId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de conversion de données"
+              startId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données.Inputs[Entrée de conversion de données]"
               name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB]" />
+              startId="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA.Outputs[Sortie de source OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -265,37 +478,25 @@
         <NodeLayout
           Size="354.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA"
-          TopLeft="13.4166665486993,268.066662257711" />
+          TopLeft="8.833333283663,268.066662257711" />
         <NodeLayout
           Size="309.333333333334,42.6666666666667"
           Id="Package\Truncate STG_ExpressionParent_Update_DM_SA"
           TopLeft="26.3333330228927,156.699999132156" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="180.999999689559,199.366665798823">
+          TopLeft="183.583333153278,199.366665798823">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="9.75000019247335,68.6999964588881"
+              EndConnector="0,68.6999964588884"
               Start="0,0"
-              End="9.75000019247335,61.1999964588881">
+              End="0,61.1999964588884">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.3499982294441" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.3499982294441"
-                    Point2="0,34.3499982294441"
-                    Point3="4,34.3499982294441" />
-                  <mssgle:LineSegment
-                    End="5.75000019247335,34.3499982294441" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5.75000019247335,34.3499982294441"
-                    Point2="9.75000019247335,34.3499982294441"
-                    Point3="9.75000019247335,38.3499982294441" />
-                  <mssgle:LineSegment
-                    End="9.75000019247335,61.1999964588881" />
+                    End="0,61.1999964588884" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -311,29 +512,55 @@
     design-time-name="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="356,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_ExpressionParent_Update_DM_SA"
+          Size="384,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA"
           TopLeft="81.6666654497383,39.8666659537952" />
         <NodeLayout
           Size="312,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA"
-          TopLeft="107.499998398125,132.499998024106" />
+          TopLeft="111.249998342246,189.122219233844" />
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\Conversion de données"
+          TopLeft="178.444442590078,115.048146830025" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA.Paths[Sortie de source OLE DB]"
-          TopLeft="261.583331923932,82.5333326204619">
+          TopLeft="273.388887353241,82.5333326204619">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.9666654036441"
+              EndConnector="0,32.5148142095627"
               Start="0,0"
-              End="0,42.4666654036441">
+              End="0,25.0148142095627">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.4666654036441" />
+                    End="0,25.0148142095627" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA.Paths[Sortie de conversion de données]"
+          TopLeft="270.180553799495,157.714813496691">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.4074057371528"
+              Start="0,0"
+              End="0,23.9074057371528">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.9074057371528" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -345,5 +572,31 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_DST STG_ExpressionParent_Update_DM_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_ExpressionParent_Update_DM_SA\OLE_SRC OCDE_V_STG_view_ExpressionParent_Update_DM_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

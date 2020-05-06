@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [stg].STG_Expression_StatLinks_DM_SA(
-	[Expression_ExternalID] [varchar](100) NULL,
+	[Expression_ExternalID] [nvarchar](100) NULL,
 	[ExternalSource] [varchar](2) NOT NULL,
 	DOI [varchar](50) NULL,
 	ISSN [INT] NULL,

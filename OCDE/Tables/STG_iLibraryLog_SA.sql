@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dwh].[iLibraryLog_SA](
+﻿CREATE TABLE [stg].[STG_iLibraryLog_SA](
 	[Download_Date] [datetime] NULL,
 	[Manifestation_ID] [int] NULL,
 	[Registration_ID] [int] NULL,

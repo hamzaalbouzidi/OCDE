@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Expression_DM_SA_OPKV3"
   DTS:PackageType="5"
-  DTS:VersionBuild="49"
-  DTS:VersionGUID="{5179F74A-6216-49DF-9B32-33F73EAF7EE3}">
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{659F8636-12AE-4167-B3B9-7EC6DE464233}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -44,6 +44,24 @@
                   name="Entrée de conversion de données">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\Conversion de données.Inputs[Entrée de conversion de données].Columns[Expression_ExternalID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Expression_ExternalID"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_SRC OCDE_V_STG_Expression_DM_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Expression_ExternalID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\Conversion de données.Inputs[Entrée de conversion de données].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="Title"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_SRC OCDE_V_STG_Expression_DM_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Title]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\Conversion de données.Inputs[Entrée de conversion de données].Columns[SubTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="SubTitle"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_SRC OCDE_V_STG_Expression_DM_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[SubTitle]" />
+                    <inputColumn
                       refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\Conversion de données.Inputs[Entrée de conversion de données].Columns[ISSN]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -62,8 +80,75 @@
                   synchronousInputId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\Conversion de données.Inputs[Entrée de conversion de données]">
                   <outputColumns>
                     <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Expression_ExternalID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Expression_ExternalID]"
+                      name="Copie de Expression_ExternalID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_SRC OCDE_V_STG_Expression_DM_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Expression_ExternalID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="2000"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Title]"
+                      name="Copie de Title"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_SRC OCDE_V_STG_Expression_DM_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Title]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de SubTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="2000"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de SubTitle]"
+                      name="Copie de SubTitle"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_SRC OCDE_V_STG_Expression_DM_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[SubTitle]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
                       refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ISSN]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="10"
@@ -125,7 +210,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[dwh].[Expression_DM_SA_OPKV3]</property>
+                  name="OpenRowset">[stg].[STG_Expression_DM_SA_OPKV3]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -168,8 +253,8 @@
               <connections>
                 <connection
                   refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Connections[OleDbConnection]"
-                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -181,13 +266,6 @@
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
                   <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].Columns[Expression_ExternalID]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="Expression_ExternalID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression_ExternalID]"
-                      lineageId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_SRC OCDE_V_STG_Expression_DM_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Expression_ExternalID]" />
                     <inputColumn
                       refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].Columns[ExternalSource]"
                       cachedCodepage="1252"
@@ -204,20 +282,6 @@
                       cachedName="DOI"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
                       lineageId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_SRC OCDE_V_STG_Expression_DM_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[DOI]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].Columns[Title]"
-                      cachedDataType="wstr"
-                      cachedLength="2000"
-                      cachedName="Title"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Title]"
-                      lineageId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_SRC OCDE_V_STG_Expression_DM_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Title]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].Columns[SubTitle]"
-                      cachedDataType="wstr"
-                      cachedLength="2000"
-                      cachedName="SubTitle"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[SubTitle]"
-                      lineageId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_SRC OCDE_V_STG_Expression_DM_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[SubTitle]" />
                     <inputColumn
                       refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].Columns[Language_ExternalID]"
                       cachedCodepage="1252"
@@ -287,8 +351,33 @@
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[iLibraryURLAlias]"
                       lineageId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_SRC OCDE_V_STG_Expression_DM_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[iLibraryURLAlias]" />
                     <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].Columns[Copie de Expression_ExternalID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copie de Expression_ExternalID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression_ExternalID]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Expression_ExternalID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].Columns[Copie de Title]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2000"
+                      cachedName="Copie de Title"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Title]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Title]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].Columns[Copie de SubTitle]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2000"
+                      cachedName="Copie de SubTitle"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[SubTitle]"
+                      lineageId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de SubTitle]" />
+                    <inputColumn
                       refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].Columns[Copie de ISSN]"
-                      cachedDataType="wstr"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="10"
                       cachedName="Copie de ISSN"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[ISSN]"
@@ -298,7 +387,8 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression_ExternalID]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="100"
                       name="Expression_ExternalID" />
                     <externalMetadataColumn
@@ -315,17 +405,20 @@
                       name="DOI" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[ISSN]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="10"
                       name="ISSN" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Title]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="2000"
                       name="Title" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[SubTitle]"
-                      dataType="wstr"
+                      codePage="1252"
+                      dataType="str"
                       length="2000"
                       name="SubTitle" />
                     <externalMetadataColumn
@@ -344,7 +437,7 @@
                       refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Theme_ExternalID]"
                       codePage="1252"
                       dataType="str"
-                      length="500"
+                      length="100"
                       name="Theme_ExternalID" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[IGO_ExternalID]"
@@ -925,13 +1018,13 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="280,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3"
+          TopLeft="111.249998342245,187.533330373367" />
+        <NodeLayout
           Size="324,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_SRC OCDE_V_STG_Expression_DM_SA_OPKV3"
           TopLeft="81.6666654497383,39.8666659537952" />
-        <NodeLayout
-          Size="280,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\OLE_DST STG_Expression_DM_SA_OPKV3"
-          TopLeft="111.666665002703,187.533330373367" />
         <NodeLayout
           Size="189.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3\Conversion de données"
@@ -960,18 +1053,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO STG_Expression_DM_SA_OPKV3.Paths[Sortie de conversion de données]"
-          TopLeft="250.666664679845,159.533331768115">
+          TopLeft="250.458331349616,159.533331768116">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,27.9999986052514"
+              EndConnector="0,27.9999986052513"
               Start="0,0"
-              End="0,20.4999986052514">
+              End="0,20.4999986052513">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.4999986052514" />
+                    End="0,20.4999986052513" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
