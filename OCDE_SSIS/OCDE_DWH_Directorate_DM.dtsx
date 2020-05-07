@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_Directorate_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{F502AA74-EDC1-40DB-8A08-29A5D1E56F25}">
+  DTS:VersionBuild="52"
+  DTS:VersionGUID="{63E89149-A64A-4112-BC02-1B08D0966C8D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -68,6 +68,18 @@
                       cachedLength="4"
                       cachedName="Directorate_Code"
                       lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Outputs[Lookup Match Output].Columns[Directorate_Code]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\CSPL Mise à jour.Inputs[Conditional Split Input].Columns[Copie de Directorate_Lib_EN]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="Copie de Directorate_Lib_EN"
+                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_Lib_EN]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\CSPL Mise à jour.Inputs[Conditional Split Input].Columns[Directorate_Lib_FR]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="Directorate_Lib_FR"
+                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Outputs[Lookup Match Output].Columns[Directorate_Lib_FR]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -87,13 +99,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[REPLACENULL](#{Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_Code]},"") == [REPLACENULL](#{Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Outputs[Lookup Match Output].Columns[Directorate_Code]},"") &amp;&amp; [REPLACENULL](#{Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_Lib_FR]},"") == [REPLACENULL](#{Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Outputs[Lookup Match Output].Columns[Directorate_Lib_EN]},"") &amp;&amp; [REPLACENULL](#{Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_Lib_FR]},"") == [REPLACENULL](#{Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Outputs[Lookup Match Output].Columns[Directorate_Lib_EN]},"")</property>
+                      name="Expression">[REPLACENULL](#{Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_Code]},"") == [REPLACENULL](#{Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Outputs[Lookup Match Output].Columns[Directorate_Code]},"") &amp;&amp; [REPLACENULL](#{Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_Lib_EN]},"") == [REPLACENULL](#{Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Outputs[Lookup Match Output].Columns[Directorate_Lib_EN]},"") &amp;&amp; [REPLACENULL](#{Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_Lib_FR]},"") == [REPLACENULL](#{Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Outputs[Lookup Match Output].Columns[Directorate_Lib_FR]},"")</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">REPLACENULL([Copie de Directorate_Code],"") == REPLACENULL([LKP DWH_Directorate_DM].Directorate_Code,"") &amp;&amp; REPLACENULL([Copie de Directorate_Lib_FR],"") == REPLACENULL([LKP DWH_Directorate_DM].Directorate_Lib_EN,"") &amp;&amp; REPLACENULL([Copie de Directorate_Lib_FR],"") == REPLACENULL([LKP DWH_Directorate_DM].Directorate_Lib_EN,"")</property>
+                      name="FriendlyExpression">REPLACENULL([Copie de Directorate_Code],"") == REPLACENULL([LKP DWH_Directorate_DM].Directorate_Code,"") &amp;&amp; REPLACENULL([Copie de Directorate_Lib_EN],"") == REPLACENULL([LKP DWH_Directorate_DM].Directorate_Lib_EN,"") &amp;&amp; REPLACENULL([Copie de Directorate_Lib_FR],"") == REPLACENULL([LKP DWH_Directorate_DM].Directorate_Lib_FR,"")</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -152,20 +164,6 @@
                   name="Entrée de conversion de données">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Inputs[Entrée de conversion de données].Columns[ExternalSource]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="3"
-                      cachedName="ExternalSource"
-                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Inputs[Entrée de conversion de données].Columns[Directorate_ExternalID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="4"
-                      cachedName="Directorate_ExternalID"
-                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_ExternalID]" />
-                    <inputColumn
                       refId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Inputs[Entrée de conversion de données].Columns[Directorate_Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -197,48 +195,6 @@
                   name="Sortie de conversion de données"
                   synchronousInputId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Inputs[Entrée de conversion de données]">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="10"
-                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
-                      name="Copie de ExternalSource"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_ExternalID]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_ExternalID]"
-                      name="Copie de Directorate_ExternalID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_ExternalID]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_Code]"
                       dataType="wstr"
@@ -579,7 +535,7 @@ FROM   dwh.Directorate_DM</property>
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT IsCurrent, Directorate_Lib_FR, Directorate_Lib_EN, Directorate_Code, ExternalSource, Directorate_ExternalID, Directorate_ID
 FROM   dwh.Directorate_DM) [refTable]
-where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTable].[Directorate_ExternalID] = ?</property>
+where [refTable].[ExternalSource] = ? and [refTable].[Directorate_ExternalID] = ? and [refTable].[IsCurrent] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -589,7 +545,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
                   name="CacheType"
-                  typeConverter="CacheType">0</property>
+                  typeConverter="CacheType">2</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
@@ -615,7 +571,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_Directorate_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_IsCurrent]};#{Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]};#{Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_ExternalID]};</property>
+                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]};#{Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_ExternalID]};#{Package\DFT INSERT INTO DWH_Directorate_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_IsCurrent]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -639,16 +595,15 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Inputs[Lookup Input].Columns[Copie de Directorate_ExternalID]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="Copie de Directorate_ExternalID"
-                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_ExternalID]">
+                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Inputs[Lookup Input].Columns[Insert_IsCurrent]"
+                      cachedDataType="bool"
+                      cachedName="Insert_IsCurrent"
+                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_IsCurrent]">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
-                          name="JoinToReferenceColumn">Directorate_ExternalID</property>
+                          name="JoinToReferenceColumn">IsCurrent</property>
                         <property
                           dataType="System.Null"
                           description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
@@ -656,11 +611,11 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Inputs[Lookup Input].Columns[Copie de ExternalSource]"
+                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Inputs[Lookup Input].Columns[ExternalSource]"
                       cachedDataType="wstr"
                       cachedLength="10"
-                      cachedName="Copie de ExternalSource"
-                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]">
+                      cachedName="ExternalSource"
+                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -673,15 +628,16 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Inputs[Lookup Input].Columns[Insert_IsCurrent]"
-                      cachedDataType="bool"
-                      cachedName="Insert_IsCurrent"
-                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_IsCurrent]">
+                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM.Inputs[Lookup Input].Columns[Directorate_ExternalID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Directorate_ExternalID"
+                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_ExternalID]">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
-                          name="JoinToReferenceColumn">IsCurrent</property>
+                          name="JoinToReferenceColumn">Directorate_ExternalID</property>
                         <property
                           dataType="System.Null"
                           description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
@@ -1035,20 +991,6 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM.Inputs[OLE DB Destination Input].Columns[Copie de ExternalSource]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Copie de ExternalSource"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM.Inputs[OLE DB Destination Input].ExternalColumns[ExternalSource]"
-                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM.Inputs[OLE DB Destination Input].Columns[Copie de Directorate_ExternalID]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="Copie de Directorate_ExternalID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM.Inputs[OLE DB Destination Input].ExternalColumns[Directorate_ExternalID]"
-                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_ExternalID]" />
-                    <inputColumn
                       refId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM.Inputs[OLE DB Destination Input].Columns[Copie de Directorate_Code]"
                       cachedDataType="wstr"
                       cachedLength="4"
@@ -1099,6 +1041,20 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                       cachedName="ValidFrom"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
                       lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM.Inputs[OLE DB Destination Input].Columns[ExternalSource]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ExternalSource"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM.Inputs[OLE DB Destination Input].ExternalColumns[ExternalSource]"
+                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM.Inputs[OLE DB Destination Input].Columns[Directorate_ExternalID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Directorate_ExternalID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM.Inputs[OLE DB Destination Input].ExternalColumns[Directorate_ExternalID]"
+                      lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_ExternalID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1246,23 +1202,21 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                   <outputColumns>
                     <outputColumn
                       refId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
-                      length="3"
+                      length="10"
                       lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
                       name="ExternalSource"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_ExternalID]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Directorate_ExternalID]"
-                      length="4"
+                      length="100"
                       lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_ExternalID]"
                       name="Directorate_ExternalID"
                       truncationRowDisposition="FailComponent" />
@@ -1304,15 +1258,13 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
+                      dataType="wstr"
+                      length="10"
                       name="ExternalSource" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Directorate_ExternalID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
+                      dataType="wstr"
+                      length="100"
                       name="Directorate_ExternalID" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Directorate_Code]"
@@ -1341,16 +1293,14 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                   <outputColumns>
                     <outputColumn
                       refId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Directorate_ExternalID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
+                      dataType="wstr"
+                      length="100"
                       lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Directorate_ExternalID]"
                       name="Directorate_ExternalID" />
                     <outputColumn
                       refId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
+                      dataType="wstr"
+                      length="10"
                       lineageId="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
                       name="ExternalSource" />
                     <outputColumn
@@ -1457,75 +1407,29 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
           Id="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_CMD Mise à jour"
           TopLeft="246.29166730307,666.777773606447" />
         <NodeLayout
-          Size="145.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Directorate_DM\DC_ Variables"
-          TopLeft="237.791663205251,119.444451896018" />
+          Size="204,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM"
+          TopLeft="204.500001639128,322.64444095499" />
         <NodeLayout
           Size="276,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA"
           TopLeft="179.083332135031,21.1777766878076" />
         <NodeLayout
-          Size="204,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM"
-          TopLeft="204.500001639128,322.64444095499" />
+          Size="230.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM"
+          TopLeft="7.2500004656611,635.194439013965" />
         <NodeLayout
           Size="158.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Directorate_DM\CSPL Mise à jour"
           TopLeft="234.875000977888,445.444440583058" />
         <NodeLayout
-          Size="230.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_DST DWH_Directorate_DM"
-          TopLeft="7.2500004656611,635.194439013965" />
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Directorate_DM\DC_ Variables"
+          TopLeft="237.791663205251,119.444451896018" />
         <NodeLayout
           Size="236,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Directorate_DM\DC Conversioon type de données"
           TopLeft="190.029759073097,208.051590222996" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Directorate_DM.Paths[Sortie de colonne dérivée]"
-          TopLeft="309.244044472508,162.111118562685">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45.9404716603112"
-              Start="0,0"
-              End="0,38.4404716603112">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.4404716603112" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Directorate_DM.Paths[Lookup Match Output]"
-          TopLeft="310.354167975175,365.311107621657">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,80.1333329614008"
-              Start="0,0"
-              End="0,72.6333329614008">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,72.6333329614008" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,30.5119789807004,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Directorate_DM.Paths[Update]"
           TopLeft="338.138889696035,488.111107249724">
@@ -1546,7 +1450,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-16.28029296875,79.7786456783613,32.5605859375,11.609375"
+              BoundingBox="-16.28029296875,79.7786456783615,32.5605859375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1595,6 +1499,28 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Directorate_DM.Paths[Sortie de colonne dérivée]"
+          TopLeft="309.244044472508,162.111118562685">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.9404716603112"
+              Start="0,0"
+              End="0,38.4404716603112">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.4404716603112" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Directorate_DM.Paths[Lookup No Match Output]"
           TopLeft="273.833334972461,365.311107621657">
           <EdgeLayout.Curve>
@@ -1630,9 +1556,56 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Directorate_DM.Paths[Lookup Match Output]"
+          TopLeft="310.354167975175,365.311107621657">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,80.1333329614008"
+              Start="0,0"
+              End="0,72.6333329614008">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.6333329614008" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,30.5119789807004,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO DWH_Directorate_DM\OLE_SRC OCDE_STG_Directorate_DM_SA">
     <Properties>
@@ -1643,29 +1616,6 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_Directorate_DM\LKP DWH_Directorate_DM">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

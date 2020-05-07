@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_Theme_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="41"
-  DTS:VersionGUID="{34ACCC92-F217-429C-AD0A-AFEBBF5A2A76}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{3D36352D-9E15-4CFF-9D24-93693DC48116}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -553,7 +553,7 @@ FROM   dwh.Theme_DM</property>
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT Theme_ID, Theme_ExternalID, ExternalSource, IsCurrent, Theme_Lib_EN, Theme_Lib_FR
 FROM   dwh.Theme_DM) [refTable]
-where [refTable].[ExternalSource] = ? and [refTable].[Theme_ExternalID] = ? and [refTable].[IsCurrent] = ?</property>
+where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTable].[Theme_ExternalID] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -563,7 +563,7 @@ where [refTable].[ExternalSource] = ? and [refTable].[Theme_ExternalID] = ? and 
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
                   name="CacheType"
-                  typeConverter="CacheType">0</property>
+                  typeConverter="CacheType">2</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
@@ -589,7 +589,7 @@ where [refTable].[ExternalSource] = ? and [refTable].[Theme_ExternalID] = ? and 
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_Theme_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]};#{Package\DFT INSERT INTO DWH_Theme_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Theme_ExternalID]};#{Package\DFT INSERT INTO DWH_Theme_DM\300:invalid};</property>
+                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_Theme_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_IsCurrent]};#{Package\DFT INSERT INTO DWH_Theme_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]};#{Package\DFT INSERT INTO DWH_Theme_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Theme_ExternalID]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -640,6 +640,22 @@ where [refTable].[ExternalSource] = ? and [refTable].[Theme_ExternalID] = ? and 
                           dataType="System.String"
                           description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
                           name="JoinToReferenceColumn">ExternalSource</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Theme_DM\LKP DWH_Theme_DM.Inputs[Lookup Input].Columns[Insert_IsCurrent]"
+                      cachedDataType="bool"
+                      cachedName="Insert_IsCurrent"
+                      lineageId="Package\DFT INSERT INTO DWH_Theme_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_IsCurrent]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">IsCurrent</property>
                         <property
                           dataType="System.Null"
                           description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
@@ -1360,17 +1376,25 @@ where [refTable].[ExternalSource] = ? and [refTable].[Theme_ExternalID] = ? and 
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="210.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Theme_DM\OLE_DST DWH_Theme_DM"
-          TopLeft="63.4999996274707,544.749996067584" />
+          Size="181.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Theme_DM\OLE_CMD Mise à jour"
+          TopLeft="402.541664974763,617.499996590615" />
         <NodeLayout
           Size="256,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Theme_DM\OLE_SRC OCDE_STG_Theme_DM_SA"
           TopLeft="328.736107682809,14.6814813024027" />
         <NodeLayout
+          Size="210.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Theme_DM\OLE_DST DWH_Theme_DM"
+          TopLeft="63.4999996274707,544.749996067584" />
+        <NodeLayout
           Size="145.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Theme_DM\DC_ Variables"
           TopLeft="385.416660923511,110.499998024106" />
+        <NodeLayout
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Theme_DM\CSPL Mise à jour"
+          TopLeft="409.874998370185,443.833329381545" />
         <NodeLayout
           Size="184,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Theme_DM\LKP DWH_Theme_DM"
@@ -1379,14 +1403,52 @@ where [refTable].[ExternalSource] = ? and [refTable].[Theme_ExternalID] = ? and 
           Size="236,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Theme_DM\DC Conversioon type de données"
           TopLeft="339.583328273146,229.666662559906" />
-        <NodeLayout
-          Size="181.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Theme_DM\OLE_CMD Mise à jour"
-          TopLeft="402.541664974763,617.499996590615" />
-        <NodeLayout
-          Size="158.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Theme_DM\CSPL Mise à jour"
-          TopLeft="409.874998370185,443.833329381545" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Theme_DM.Paths[Update]"
+          TopLeft="491.208331672474,486.499996048212">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,131.000000542403"
+              Start="0,0"
+              End="0,123.500000542403">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,123.500000542403" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.28029296875,55.9453127712016,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Theme_DM.Paths[Sortie de source OLE DB]"
+          TopLeft="457.409717636493,57.3481479690694">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.1518500550367"
+              Start="0,0"
+              End="0,45.6518500550367">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.6518500550367" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Theme_DM.Paths[Sortie de conversion de données]"
           TopLeft="456.208330443128,272.333329226573">
@@ -1491,68 +1553,9 @@ where [refTable].[ExternalSource] = ? and [refTable].[Theme_ExternalID] = ? and 
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Theme_DM.Paths[Sortie de source OLE DB]"
-          TopLeft="457.409717636493,57.3481479690694">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,53.1518500550367"
-              Start="0,0"
-              End="0,45.6518500550367">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.6518500550367" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Theme_DM.Paths[Update]"
-          TopLeft="491.208331672474,486.499996048212">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,131.000000542403"
-              Start="0,0"
-              End="0,123.500000542403">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,123.500000542403" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-16.28029296875,55.9453127712016,32.5605859375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_Theme_DM\OLE_DST DWH_Theme_DM">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO DWH_Theme_DM\OLE_SRC OCDE_STG_Theme_DM_SA">
     <Properties>
@@ -1567,12 +1570,25 @@ where [refTable].[ExternalSource] = ? and [refTable].[Theme_ExternalID] = ? and 
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_Theme_DM\OLE_DST DWH_Theme_DM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO DWH_Theme_DM\LKP DWH_Theme_DM">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1582,7 +1598,7 @@ where [refTable].[ExternalSource] = ? and [refTable].[Theme_ExternalID] = ? and 
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

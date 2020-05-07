@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Country_DM_SA"
   DTS:PackageType="5"
-  DTS:VersionBuild="50"
-  DTS:VersionGUID="{72579D84-86B3-4B97-BC0A-236A78BCF6C8}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{1FFA900A-139A-4B60-A6BA-199B485F5147}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -31,6 +31,84 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Inputs[Entrée de conversion de données].Columns[ExternalSource]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ExternalSource"
+                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
+                      name="Copie de ExternalSource"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA"
               componentClassID="Microsoft.OLEDBDestination"
@@ -104,14 +182,6 @@
                   name="Entrée de destination OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].Columns[ExternalSource]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="3"
-                      cachedName="ExternalSource"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
-                    <inputColumn
                       refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].Columns[Country_Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -149,18 +219,25 @@
                       cachedName="Country_ExternalID"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ExternalID]"
                       lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ExternalID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].Columns[Copie de ExternalSource]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="Copie de ExternalSource"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
+                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ExternalID]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="100"
                       name="Country_ExternalID" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
+                      dataType="wstr"
+                      length="10"
                       name="ExternalSource" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Code]"
@@ -443,8 +520,13 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT INSERT INTO STG_Country_DM_SA.Paths[Sortie de source OLE DB]"
+              refId="Package\DFT INSERT INTO STG_Country_DM_SA.Paths[Sortie de conversion de données]"
               endId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de conversion de données"
+              startId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\DFT INSERT INTO STG_Country_DM_SA.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Inputs[Entrée de conversion de données]"
               name="Sortie de source OLE DB"
               startId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB]" />
           </paths>
@@ -527,7 +609,7 @@
     design-time-name="Package\DFT INSERT INTO STG_Country_DM_SA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="288,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA"
@@ -535,21 +617,47 @@
         <NodeLayout
           Size="228,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA"
-          TopLeft="121.805553740511,155.322219838234" />
+          TopLeft="119.722220438222,195.188885792029" />
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données"
+          TopLeft="144.583331178874,114.533332620462" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO STG_Country_DM_SA.Paths[Sortie de source OLE DB]"
-          TopLeft="233.534723842206,83.2555548297698">
+          TopLeft="235.25694589472,83.2555548297698">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,72.0666650084646"
+              EndConnector="0,31.277777790692"
               Start="0,0"
-              End="0,64.5666650084646">
+              End="0,23.777777790692">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,64.5666650084646" />
+                    End="0,23.777777790692" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_Country_DM_SA.Paths[Sortie de conversion de données]"
+          TopLeft="236.486109141881,157.199999287128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.9888865049006"
+              Start="0,0"
+              End="0,30.4888865049006">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.4888865049006" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

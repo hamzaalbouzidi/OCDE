@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_Expression_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="52"
-  DTS:VersionGUID="{F0527109-4B57-4615-B3BA-F2D3D3397E71}">
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{D50D4000-D054-4FDA-A1DD-EBCD983D8EB9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -621,7 +621,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
                   name="CacheType"
-                  typeConverter="CacheType">0</property>
+                  typeConverter="CacheType">2</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
@@ -2464,7 +2464,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
                   name="CacheType"
-                  typeConverter="CacheType">0</property>
+                  typeConverter="CacheType">2</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
@@ -3604,10 +3604,10 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
               name="Lookup Match Output"
               startId="Package\DFT INSERT INTO DWH_Expression_DM Stlk\LKP DWH_Expression_DM.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\DFT INSERT INTO DWH_Expression_DM Stlk.Paths[Pas Update]"
+              refId="Package\DFT INSERT INTO DWH_Expression_DM Stlk.Paths[Lookup No Match Output]"
               endId="Package\DFT INSERT INTO DWH_Expression_DM Stlk\OLE_DST DWH_Expression_DM.Inputs[OLE DB Destination Input]"
-              name="Pas Update"
-              startId="Package\DFT INSERT INTO DWH_Expression_DM Stlk\CSPL Mise à jour.Outputs[Pas Update]" />
+              name="Lookup No Match Output"
+              startId="Package\DFT INSERT INTO DWH_Expression_DM Stlk\LKP DWH_Expression_DM.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\DFT INSERT INTO DWH_Expression_DM Stlk.Paths[Sortie de colonne dérivée]"
               endId="Package\DFT INSERT INTO DWH_Expression_DM Stlk\DC Conversioon type de données.Inputs[Entrée de conversion de données]"
@@ -5469,9 +5469,7 @@ WHERE DOI = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5493,9 +5491,7 @@ WHERE DOI = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5517,45 +5513,7 @@ WHERE DOI = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Expression_DM Stlk.Paths[Pas Update]"
-          TopLeft="373.652777869874,486.463884937746">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-183.652778428668,91.6527771998617"
-              Start="0,0"
-              End="-183.652778428668,84.1527771998617">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.8263885999309" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,41.8263885999309"
-                    Point2="0,45.8263885999309"
-                    Point3="-4,45.8263885999309" />
-                  <mssgle:LineSegment
-                    End="-179.652778428668,45.8263885999309" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-179.652778428668,45.8263885999309"
-                    Point2="-183.652778428668,45.8263885999309"
-                    Point3="-183.652778428668,49.8263885999309" />
-                  <mssgle:LineSegment
-                    End="-183.652778428668,84.1527771998617" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-117.237736870584,50.8263885999309,50.8226953125,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5579,6 +5537,42 @@ WHERE DOI = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-48.19138671875,30.060590099883,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Expression_DM Stlk.Paths[Lookup No Match Output]"
+          TopLeft="345.861111663695,364.566663071314">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-155.861112222489,213.549999066295"
+              Start="0,0"
+              End="-155.861112222489,206.049999066295">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.430223012377" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,82.430223012377"
+                    Point2="0,86.430223012377"
+                    Point3="-4,86.430223012377" />
+                  <mssgle:LineSegment
+                    End="-151.861112222489,86.430223012377" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-151.861112222489,86.430223012377"
+                    Point2="-155.861112222489,86.430223012377"
+                    Point3="-155.861112222489,90.430223012377" />
+                  <mssgle:LineSegment
+                    End="-155.861112222489,206.049999066295" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-133.736942829995,91.430223012377,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
