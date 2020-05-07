@@ -4,7 +4,7 @@ GO
 
 
 
-CREATE view [dbo].[view_CounterMonthly_SA_TMP] AS
+CREATE view [stg].[view_CounterMonthly_SA_TMP] AS
 
 
 	select 
