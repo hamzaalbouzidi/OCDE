@@ -3,7 +3,7 @@
 	Expression_ExternalID [nvarchar](100) NULL,
 	ExternalSource [varchar](3) NOT NULL,
 	[DOI] [varchar](255) NULL,
-	ISSN [INT] NULL,
+	ISSN [varchar](10) NULL,
 	EISSN [varchar](10) NOT NULL,
 	[Title] [nvarchar](2000) NULL,
 	[SubTitle] [nvarchar](2000) NULL,

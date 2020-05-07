@@ -1,8 +1,9 @@
-﻿CREATE TABLE [stg].STG_Language_DM_SA(
-	Language_ExternalID [varchar](3) NOT NULL,
-	[ExternalSource] [varchar](3) NOT NULL,
-	Language_Lib_EN [varchar](255) NULL,
-	Language_Lib_FR [varchar](255) NULL,
-	[ISOCode] [varchar](3) NOT NULL,
-	[ISOCode3] [varchar](4) NULL
-	)
+﻿create table [stg].[STG_Language_DM_SA]
+(
+[Language_ExternalID] [varchar](3) not null,
+[ExternalSource] [varchar](3) not null,
+[Language_Lib_EN] [nvarchar](255) null,
+[Language_Lib_FR] [nvarchar](255) null,
+[ISOCode] [varchar](3) not null,
+[ISOCode3] [nvarchar](3) null
+)
