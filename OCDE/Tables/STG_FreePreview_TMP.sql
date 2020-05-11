@@ -20,6 +20,6 @@
 	[avg_time_generation] [real] NULL,
 	[metadata_url] [nvarchar](2000) NULL,
 	[sum_time_generation] [real] NULL,
-	[File_Date] [date] NOT NULL,
-	[Import_Date] [datetime] NOT NULL
+    [File_Name] NVARCHAR(35) NULL,
+	[Import_Date] DATETIME NOT NULL DEFAULT GETUTCDATE(), 
 )
