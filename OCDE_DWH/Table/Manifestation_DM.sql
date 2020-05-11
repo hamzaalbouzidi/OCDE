@@ -1,5 +1,6 @@
 ﻿CREATE TABLE [dwh].[Manifestation_DM](
 	[Manifestation_ID] [int] IDENTITY(1,1) NOT NULL ,
+	CONSTRAINT [PK_Manifestation_DM] PRIMARY KEY ([Manifestation_ID]),
 	[Manifestation_ExternalID] [nvarchar](100) NOT NULL,
 	[ExternalSource] [nchar](10) NOT NULL,
 	[Expression_ID] [int] NOT NULL,
@@ -15,5 +16,5 @@
 	[NA_Import] [bit] NOT NULL,
 	[IsCurrent] [bit] NOT NULL,
 	[ValidFrom] [date] NULL,
-	[ValidTo] [date] NULL
+	[ValidTo] [date] NULL, 
 )
