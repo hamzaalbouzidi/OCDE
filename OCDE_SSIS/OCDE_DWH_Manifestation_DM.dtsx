@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_Manifestation_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="45"
-  DTS:VersionGUID="{E66B7C8E-71C4-4530-82A0-08BF21FD09D6}">
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{46EEB823-8415-4C18-AE1D-EB88C7085A7C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -516,7 +516,7 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
                   name="CacheType"
-                  typeConverter="CacheType">0</property>
+                  typeConverter="CacheType">2</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
@@ -2729,14 +2729,6 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="241.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM"
-          TopLeft="48.9166665114458,550.166662637393" />
-        <NodeLayout
-          Size="286.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_SRC OCDE_STG_Manifestation_DM_SA"
-          TopLeft="326.374996606882,11.5999998760224" />
-        <NodeLayout
           Size="145.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM\DC_ Variables"
           TopLeft="398.083327975124,105.26667425255" />
@@ -2753,9 +2745,41 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Manifestation_DM"
           TopLeft="366.999999217688,316.699996497631" />
         <NodeLayout
+          Size="286.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_SRC OCDE_STG_Manifestation_DM_SA"
+          TopLeft="326.374996606882,11.5999998760224" />
+        <NodeLayout
+          Size="241.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM"
+          TopLeft="48.9166665114458,550.166662637393" />
+        <NodeLayout
           Size="158.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM\CSPL Mise à jour"
           TopLeft="427.236109222595,420.722218683693" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Update]"
+          TopLeft="506.486109222595,463.38888535036">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,161.333333333334"
+              Start="0,0"
+              End="0,153.833333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,153.833333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.28029296875,71.1119791666672,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de source OLE DB]"
           TopLeft="470.229162291003,54.2666665426891">
@@ -2882,30 +2906,6 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Update]"
-          TopLeft="506.486109222595,463.38888535036">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,161.333333333334"
-              Start="0,0"
-              End="0,153.833333333334">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,153.833333333334" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-16.28029296875,71.1119791666672,32.5605859375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -2915,7 +2915,7 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_ILibraryLog_TMP2"
   DTS:PackageType="5"
-  DTS:VersionBuild="47"
-  DTS:VersionGUID="{9A10EE77-19A9-4D3B-B01C-E3E34C4FCB86}">
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{5FC9C9C1-2579-4794-B75D-9E29B426C120}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -55,6 +55,16 @@
                       cachedLength="4000"
                       cachedName="DOI"
                       lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[DOI]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\Conversion de données.Inputs[Entrée de conversion de données].Columns[UserAgent]"
+                      cachedDataType="nText"
+                      cachedName="UserAgent"
+                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[UserAgent]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\Conversion de données.Inputs[Entrée de conversion de données].Columns[Source]"
+                      cachedDataType="nText"
+                      cachedName="Source"
+                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Source]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -102,6 +112,48 @@
                           dataType="System.Int32"
                           description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
                           name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[DOI]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de UserAgent]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de UserAgent]"
+                      name="Copie de UserAgent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[UserAgent]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Source]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="900"
+                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Source]"
+                      name="Copie de Source"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Source]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
@@ -241,24 +293,12 @@
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress]"
                       lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[IPAddress]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].Columns[UserAgent]"
-                      cachedDataType="nText"
-                      cachedName="UserAgent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].ExternalColumns[UserAgent]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[UserAgent]" />
-                    <inputColumn
                       refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].Columns[LicenceType]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="LicenceType"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].ExternalColumns[LicenceType]"
                       lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[LicenceType]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].Columns[Source]"
-                      cachedDataType="nText"
-                      cachedName="Source"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].ExternalColumns[Source]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Source]" />
                     <inputColumn
                       refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].Columns[MimeType]"
                       cachedDataType="wstr"
@@ -280,6 +320,20 @@
                       cachedName="Copie de DOI"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
                       lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de DOI]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].Columns[Copie de UserAgent]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copie de UserAgent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].ExternalColumns[UserAgent]"
+                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de UserAgent]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].Columns[Copie de Source]"
+                      cachedDataType="wstr"
+                      cachedLength="900"
+                      cachedName="Copie de Source"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].ExternalColumns[Source]"
+                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Source]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -688,19 +742,19 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Truncate STG_ILibraryLog_TMP2"
+      DTS:refId="Package\TSQL Truncate STG_ILibraryLog_TMP2"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
       DTS:DTSID="{8D88EC7C-ACA8-4247-9AD6-C1B8F5B2507B}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Truncate STG_ILibraryLog_TMP2"
+      DTS:ObjectName="TSQL Truncate STG_ILibraryLog_TMP2"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE STG_ILibraryLog_TMP2" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_ILibraryLog_TMP2" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -709,7 +763,7 @@
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
       DTS:DTSID="{7C927552-66C6-4E2E-8B33-7406EDA83C1F}"
-      DTS:From="Package\Truncate STG_ILibraryLog_TMP2"
+      DTS:From="Package\TSQL Truncate STG_ILibraryLog_TMP2"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte"
       DTS:To="Package\DFT INSERT INTO STG_ILibraryLog_TMP2" />
@@ -731,12 +785,12 @@
           Id="Package\DFT INSERT INTO STG_ILibraryLog_TMP2"
           TopLeft="99.6666652634743,184.466663466493" />
         <NodeLayout
-          Size="234.666666666667,42.6666666666667"
-          Id="Package\Truncate STG_ILibraryLog_TMP2"
+          Size="264,42.6666666666667"
+          Id="Package\TSQL Truncate STG_ILibraryLog_TMP2"
           TopLeft="115.083331700415,102.533333434065" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="236.041665148611,145.200000100732">
+          TopLeft="243.374998481945,145.200000100732">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -824,19 +878,6 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP">
     <Properties>
       <Property>
@@ -846,6 +887,19 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

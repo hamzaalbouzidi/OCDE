@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_Country_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="41"
-  DTS:VersionGUID="{66202B63-8B0B-4D26-88A7-65A62004CF20}">
+  DTS:VersionBuild="44"
+  DTS:VersionGUID="{9430033C-921F-4A08-B839-EBDDE45F198F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -176,13 +176,6 @@
                   name="Entrée de conversion de données">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données.Inputs[Entrée de conversion de données].Columns[ExternalSource]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="3"
-                      cachedName="ExternalSource"
-                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
-                    <inputColumn
                       refId="Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données.Inputs[Entrée de conversion de données].Columns[Country_Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -210,11 +203,6 @@
                       cachedLength="2"
                       cachedName="Country_ISO2Code"
                       lineageId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ISO2Code]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données.Inputs[Entrée de conversion de données].Columns[Country_ExternalID]"
-                      cachedDataType="i4"
-                      cachedName="Country_ExternalID"
-                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ExternalID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -226,27 +214,6 @@
                   name="Sortie de conversion de données"
                   synchronousInputId="Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données.Inputs[Entrée de conversion de données]">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="10"
-                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
-                      name="Copie de ExternalSource"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Country_Code]"
                       dataType="wstr"
@@ -325,27 +292,6 @@
                           dataType="System.Int32"
                           description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
                           name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ISO2Code]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Country_ExternalID]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Country_ExternalID]"
-                      name="Copie de Country_ExternalID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ExternalID]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
@@ -629,7 +575,7 @@ FROM   dwh.Country_DM</property>
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT Country_ExternalID, ExternalSource, Country_Code AS Country_Code_D, Country_ISO2Code AS Country_ISO2Code_D, Country_Lib_EN AS Country_Lib_EN_D, Country_Lib_FR AS Country_Lib_FR_D, IsCurrent, Country_ID
 FROM   dwh.Country_DM) [refTable]
-where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTable].[Country_ExternalID] = ?</property>
+where [refTable].[ExternalSource] = ? and [refTable].[Country_ExternalID] = ? and [refTable].[IsCurrent] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -639,7 +585,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
                   name="CacheType"
-                  typeConverter="CacheType">0</property>
+                  typeConverter="CacheType">2</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
@@ -665,7 +611,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_Country_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_IsCurrent]};#{Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]};#{Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Country_ExternalID]};</property>
+                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]};#{Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ExternalID]};#{Package\DFT INSERT INTO DWH_Country_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_IsCurrent]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -705,11 +651,11 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Country_DM\LKP DWH_Country_DM.Inputs[Lookup Input].Columns[Copie de ExternalSource]"
+                      refId="Package\DFT INSERT INTO DWH_Country_DM\LKP DWH_Country_DM.Inputs[Lookup Input].Columns[ExternalSource]"
                       cachedDataType="wstr"
                       cachedLength="10"
-                      cachedName="Copie de ExternalSource"
-                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]">
+                      cachedName="ExternalSource"
+                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -722,11 +668,11 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Country_DM\LKP DWH_Country_DM.Inputs[Lookup Input].Columns[Copie de Country_ExternalID]"
+                      refId="Package\DFT INSERT INTO DWH_Country_DM\LKP DWH_Country_DM.Inputs[Lookup Input].Columns[Country_ExternalID]"
                       cachedDataType="wstr"
                       cachedLength="100"
-                      cachedName="Copie de Country_ExternalID"
-                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Country_ExternalID]">
+                      cachedName="Country_ExternalID"
+                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ExternalID]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1101,7 +1047,8 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                   <inputColumns>
                     <inputColumn
                       refId="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM.Inputs[OLE DB Destination Input].Columns[Country_ExternalID]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="100"
                       cachedName="Country_ExternalID"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM.Inputs[OLE DB Destination Input].ExternalColumns[Country_ExternalID]"
                       lineageId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ExternalID]" />
@@ -1117,12 +1064,6 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                       cachedName="ValidFrom"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
                       lineageId="Package\DFT INSERT INTO DWH_Country_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM.Inputs[OLE DB Destination Input].Columns[ValidTo]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="ValidTo"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM.Inputs[OLE DB Destination Input].ExternalColumns[ValidTo]"
-                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidTo]" />
                     <inputColumn
                       refId="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM.Inputs[OLE DB Destination Input].Columns[LastUpdate_Date]"
                       cachedDataType="dbTimeStamp"
@@ -1170,12 +1111,12 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM.Inputs[OLE DB Destination Input].ExternalColumns[Country_Code]"
                       lineageId="Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Country_Code]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM.Inputs[OLE DB Destination Input].Columns[Copie de ExternalSource]"
+                      refId="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM.Inputs[OLE DB Destination Input].Columns[ExternalSource]"
                       cachedDataType="wstr"
                       cachedLength="10"
-                      cachedName="Copie de ExternalSource"
+                      cachedName="ExternalSource"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM.Inputs[OLE DB Destination Input].ExternalColumns[ExternalSource]"
-                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]" />
+                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1336,12 +1277,11 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                   <outputColumns>
                     <outputColumn
                       refId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
-                      length="3"
+                      length="10"
                       lineageId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
                       name="ExternalSource"
                       truncationRowDisposition="FailComponent" />
@@ -1391,10 +1331,11 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ExternalID]"
-                      dataType="i4"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ExternalID]"
+                      length="100"
                       lineageId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ExternalID]"
                       name="Country_ExternalID"
                       truncationRowDisposition="FailComponent" />
@@ -1403,9 +1344,8 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
+                      dataType="wstr"
+                      length="10"
                       name="ExternalSource" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Code]"
@@ -1433,7 +1373,8 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                       name="Country_ISO2Code" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ExternalID]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="100"
                       name="Country_ExternalID" />
                   </externalMetadataColumns>
                 </output>
@@ -1444,14 +1385,14 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                   <outputColumns>
                     <outputColumn
                       refId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ExternalID]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="100"
                       lineageId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ExternalID]"
                       name="Country_ExternalID" />
                     <outputColumn
                       refId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
+                      dataType="wstr"
+                      length="10"
                       lineageId="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
                       name="ExternalSource" />
                     <outputColumn
@@ -1561,17 +1502,21 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="188,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Country_DM\LKP DWH_Country_DM"
-          TopLeft="370.124999171122,352.449995858371" />
-        <NodeLayout
-          Size="214.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM"
-          TopLeft="70.791666185483,584.833328684171" />
-        <NodeLayout
           Size="261.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA"
           TopLeft="335.333329806725,5.5333333178362" />
+        <NodeLayout
+          Size="181.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Country_DM\OLE_CMD Mise à jour"
+          TopLeft="408.791664881631,601.249996881186" />
+        <NodeLayout
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Country_DM\DC_ Variables"
+          TopLeft="395.833327434957,126.749997733533" />
+        <NodeLayout
+          Size="188,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Country_DM\LKP DWH_Country_DM"
+          TopLeft="377.069443512086,349.561107021139" />
         <NodeLayout
           Size="236,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données"
@@ -1581,13 +1526,9 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
           Id="Package\DFT INSERT INTO DWH_Country_DM\CSPL Mise à jour"
           TopLeft="420.291664881631,462.249995718896" />
         <NodeLayout
-          Size="181.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Country_DM\OLE_CMD Mise à jour"
-          TopLeft="408.791664881631,601.249996881186" />
-        <NodeLayout
-          Size="145.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Country_DM\DC_ Variables"
-          TopLeft="395.833327434957,126.749997733533" />
+          Size="214.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM"
+          TopLeft="70.791666185483,584.833328684171" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Country_DM.Paths[Update]"
           TopLeft="499.541664881631,504.916662385563">
@@ -1636,18 +1577,18 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Country_DM.Paths[Sortie de conversion de données]"
-          TopLeft="464.49999700114,275.583329168458">
+          TopLeft="467.972219171622,275.583329168459">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,76.8666666899122"
+              EndConnector="0,73.9777778526808"
               Start="0,0"
-              End="0,69.3666666899122">
+              End="0,66.4777778526808">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,69.3666666899122" />
+                    End="0,66.4777778526808" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1680,61 +1621,61 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Country_DM.Paths[Lookup No Match Output]"
-          TopLeft="434.124999171122,395.116662525037">
+          TopLeft="441.069443512086,392.227773687806">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-255.999999652306,189.716666159134"
+              EndConnector="-262.94444399327,192.605554996365"
               Start="0,0"
-              End="-255.999999652306,182.216666159134">
+              End="-262.94444399327,185.105554996365">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,72.8472571783833" />
+                    End="0,74.0174399985275" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,72.8472571783833"
-                    Point2="0,76.8472571783833"
-                    Point3="-4,76.8472571783833" />
+                    Point1="0,74.0174399985275"
+                    Point2="0,78.0174399985275"
+                    Point3="-4,78.0174399985275" />
                   <mssgle:LineSegment
-                    End="-251.999999652306,76.8472571783833" />
+                    End="-258.94444399327,78.0174399985275" />
                   <mssgle:CubicBezierSegment
-                    Point1="-251.999999652306,76.8472571783833"
-                    Point2="-255.999999652306,76.8472571783833"
-                    Point3="-255.999999652306,80.8472571783833" />
+                    Point1="-258.94444399327,78.0174399985275"
+                    Point2="-262.94444399327,78.0174399985275"
+                    Point3="-262.94444399327,82.0174399985275" />
                   <mssgle:LineSegment
-                    End="-255.999999652306,182.216666159134" />
+                    End="-262.94444399327,185.105554996365" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-183.806386544903,81.8472571783833,111.6127734375,11.609375"
+              BoundingBox="-187.278608715385,83.0174399985275,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Country_DM.Paths[Lookup Match Output]"
-          TopLeft="496.874998693043,395.116662525037">
+          TopLeft="500.347220863525,392.227773687806">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,67.1333331938589"
+              EndConnector="0,70.0222220310898"
               Start="0,0"
-              End="0,59.6333331938589">
+              End="0,62.5222220310898">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,59.6333331938589" />
+                    End="0,62.5222220310898" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,24.0119790969295,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,25.4564235155449,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1742,12 +1683,25 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO DWH_Country_DM\LKP DWH_Country_DM">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1766,19 +1720,6 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

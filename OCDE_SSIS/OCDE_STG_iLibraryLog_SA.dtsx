@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_iLibraryLog_SA"
   DTS:PackageType="5"
-  DTS:VersionBuild="50"
-  DTS:VersionGUID="{3F7F0741-7827-46E8-8542-BF62C5602EEB}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{AB1103C2-CB8C-48E7-A4D2-B4F8AA407FF5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -618,19 +618,19 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Truncate STG_iLibraryLog_SA"
+      DTS:refId="Package\TSQL Truncate STG_iLibraryLog_SA"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
       DTS:DTSID="{0AEC64A0-1577-41A2-877F-551543DEB76E}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Truncate STG_iLibraryLog_SA"
+      DTS:ObjectName="TSQL Truncate STG_iLibraryLog_SA"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE 1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_iLibraryLog_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -639,7 +639,7 @@
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
       DTS:DTSID="{07C08F99-271B-4036-9E6E-71048D2BEE87}"
-      DTS:From="Package\Truncate STG_iLibraryLog_SA"
+      DTS:From="Package\TSQL Truncate STG_iLibraryLog_SA"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte"
       DTS:To="Package\DFT INSERT INTO STG_iLibraryLog_SA" />
@@ -661,12 +661,12 @@
           Id="Package\DFT INSERT INTO STG_iLibraryLog_SA"
           TopLeft="99.6666652634743,184.466663466493" />
         <NodeLayout
-          Size="220,42.6666666666667"
-          Id="Package\Truncate STG_iLibraryLog_SA"
+          Size="248,42.6666666666667"
+          Id="Package\TSQL Truncate STG_iLibraryLog_SA"
           TopLeft="115.083331700415,102.533333434065" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="228.374998481945,145.200000100732">
+          TopLeft="235.374998481945,145.200000100732">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -699,35 +699,13 @@
           Id="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP2"
           TopLeft="27.9166662506756,14.7333330698809" />
         <NodeLayout
-          Size="222.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA"
-          TopLeft="78.7499988265331,205.29999672234" />
-        <NodeLayout
           Size="158.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour"
           TopLeft="105.416665095836,108.633333620032" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA.Paths[Sortie de source OLE DB]"
-          TopLeft="188.333332339922,57.3999997365476">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51.233333883484"
-              Start="0,0"
-              End="0,43.733333883484">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.733333883484" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="222.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA"
+          TopLeft="78.7499988265331,205.29999672234" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO STG_iLibraryLog_SA.Paths[Insert]"
           TopLeft="187.416665294518,151.300000286698">
@@ -752,22 +730,33 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA.Paths[Sortie de source OLE DB]"
+          TopLeft="188.333332339922,57.3999997365476">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.233333883484"
+              Start="0,0"
+              End="0,43.733333883484">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.733333883484" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP2">
     <Properties>
@@ -778,6 +767,19 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

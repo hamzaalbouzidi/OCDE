@@ -1,30 +1,30 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="9/9/2019 5:03:05 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="CSPE-W-VBISPS01"
   DTS:CreatorName="CERBA\YMIGEOT"
-  DTS:DTSID="{234FA973-4801-446A-91D8-48E524F7E56B}"
+  DTS:DTSID="{27EC5399-9A41-4A11-8892-7362E373CCCB}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
-  DTS:ObjectName="OCDE_DWH_ILibrary_Session_DM_SA"
+  DTS:ObjectName="OCDE_DWH_RegistrationType_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="45"
-  DTS:VersionGUID="{B7CBEB59-4224-413D-964A-B65600F08C92}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{7FC20E3E-4F25-4F0D-AC33-AE14969571C6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO DWH_UserAgent_DM"
+      DTS:refId="Package\DFT INSERT INTO DWH_RegistrationType_DM"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{14E1608F-B920-41F9-B3A9-30BB10001835}"
+      DTS:DTSID="{6141DC10-5041-4225-B0FD-765D0A182308}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO DWH_UserAgent_DM"
+      DTS:ObjectName="DFT INSERT INTO DWH_RegistrationType_DM"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -32,7 +32,7 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables"
+              refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
               description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
@@ -40,35 +40,27 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Inputs[Entrée de colonne dérivée]"
+                  refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Inputs[Entrée de colonne dérivée]"
                   description="Entrée de la transformation de colonnes dérivées"
                   name="Entrée de colonne dérivée">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Inputs[Entrée de colonne dérivée].Columns[Session]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Session"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie de source OLE DB].Columns[Session]" />
-                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée]"
+                  refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée]"
                   description="Sortie par défaut de la transformation de colonnes dérivées"
                   exclusionGroup="1"
                   name="Sortie de colonne dérivée"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Inputs[Entrée de colonne dérivée]">
+                  synchronousInputId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Inputs[Entrée de colonne dérivée]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[IsCurrent]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_IsCurrent]"
                       dataType="bool"
                       errorOrTruncationOperation="Calcul"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[IsCurrent]"
-                      name="IsCurrent"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_IsCurrent]"
+                      name="Insert_IsCurrent"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -85,11 +77,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[HideInReport]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[HideInReport]"
                       dataType="bool"
                       errorOrTruncationOperation="Calcul"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[HideInReport]"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[HideInReport]"
                       name="HideInReport"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -107,12 +99,12 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[NA_Import]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_NA_Import]"
                       dataType="bool"
                       errorOrTruncationOperation="Calcul"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[NA_Import]"
-                      name="NA_Import"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_NA_Import]"
+                      name="Insert_NA_Import"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -129,11 +121,55 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Update_IsCurrent]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Update_IsCurrent]"
+                      name="Update_IsCurrent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_BOOL)0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Update_NA_Import]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Update_NA_Import]"
+                      name="Update_NA_Import"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_BOOL)1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Calcul"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]"
                       name="ValidFrom"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -151,12 +187,12 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LastUpdate_Date]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidTo]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Calcul"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LastUpdate_Date]"
-                      name="LastUpdate_Date"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidTo]"
+                      name="ValidTo"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -173,49 +209,48 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Session_100]"
-                      dataType="wstr"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LastUpdate_Date]"
+                      dataType="dbTimeStamp"
                       errorOrTruncationOperation="Calcul"
                       errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Session_100]"
-                      name="Session_100"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LastUpdate_Date]"
+                      name="LastUpdate_Date"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Expression de colonne dérivée"
-                          name="Expression">(DT_WSTR,100)[SUBSTRING]((DT_STR,100,1252)(DT_TEXT,1252)#{Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie de source OLE DB].Columns[Session]},1,100)</property>
+                          name="Expression">[GETDATE]()</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Expression claire de colonne dérivée"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_WSTR,100)SUBSTRING((DT_STR,100,1252)(DT_TEXT,1252)Session,1,100)</property>
+                          name="FriendlyExpression">GETDATE()</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée]"
+                  refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée]"
                   description="Sortie d'erreur de la transformation de colonnes dérivées"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de colonne dérivée"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Inputs[Entrée de colonne dérivée]">
+                  synchronousInputId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Inputs[Entrée de colonne dérivée]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -224,11 +259,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM"
+              refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="OLE_DST DWH_Session_DM"
+              name="OLE_DST DWH_RegistrationType_DM"
               usesDispositions="true"
               version="4">
               <properties>
@@ -239,7 +274,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dwh].[Session_DM]</property>
+                  name="OpenRowset">[dwh].[RegistrationType_DM]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -281,123 +316,118 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Connections[OleDbConnection]"
-                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:invalid"
-                  connectionManagerRefId="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:invalid"
+                  refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Connections[OleDbConnection]"
+                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input]"
+                  refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].Columns[HideInReport]"
-                      cachedDataType="bool"
-                      cachedName="HideInReport"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].ExternalColumns[HideInReport]"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[HideInReport]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].Columns[ValidFrom]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="ValidFrom"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].Columns[LastUpdate_Date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="LastUpdate_Date"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].ExternalColumns[LastUpdate_Date]"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LastUpdate_Date]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].Columns[NA_Import]"
-                      cachedDataType="bool"
-                      cachedName="NA_Import"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].ExternalColumns[NA_Import]"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[NA_Import]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].Columns[IsCurrent]"
-                      cachedDataType="bool"
-                      cachedName="IsCurrent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[IsCurrent]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].Columns[Session_100]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].Columns[RegistrationType]"
                       cachedDataType="wstr"
                       cachedLength="100"
-                      cachedName="Session_100"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].ExternalColumns[Session]"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Session_100]" />
+                      cachedName="RegistrationType"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationType]"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA.Outputs[Sortie de source OLE DB].Columns[RegistrationType]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].Columns[HideInReport]"
+                      cachedDataType="bool"
+                      cachedName="HideInReport"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].ExternalColumns[HideInReport]"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[HideInReport]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].Columns[ValidFrom]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ValidFrom"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].Columns[LastUpdate_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LastUpdate_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].ExternalColumns[LastUpdate_Date]"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LastUpdate_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].Columns[Insert_IsCurrent]"
+                      cachedDataType="bool"
+                      cachedName="Insert_IsCurrent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_IsCurrent]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].Columns[Insert_NA_Import]"
+                      cachedDataType="bool"
+                      cachedName="Insert_NA_Import"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].ExternalColumns[NA_Import]"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_NA_Import]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].ExternalColumns[LastUpdate_Date]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationType_ID]"
+                      dataType="i4"
+                      name="RegistrationType_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationType]"
+                      dataType="wstr"
+                      length="200"
+                      name="RegistrationType" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].ExternalColumns[LastUpdate_Date]"
                       dataType="dbTimeStamp"
                       name="LastUpdate_Date" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].ExternalColumns[HideInReport]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].ExternalColumns[HideInReport]"
                       dataType="bool"
                       name="HideInReport" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].ExternalColumns[NA_Import]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].ExternalColumns[NA_Import]"
                       dataType="bool"
                       name="NA_Import" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
                       dataType="bool"
                       name="IsCurrent" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
                       dataType="dbDate"
                       name="ValidFrom" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].ExternalColumns[ValidTo]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].ExternalColumns[ValidTo]"
                       dataType="dbDate"
                       name="ValidTo" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].ExternalColumns[Proxy_ID]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input].ExternalColumns[Proxy_ID]"
                       dataType="i4"
                       name="Proxy_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].ExternalColumns[Session_ID]"
-                      dataType="i4"
-                      name="Session_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].ExternalColumns[Session]"
-                      dataType="wstr"
-                      length="100"
-                      name="Session" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input].ExternalColumns[Server]"
-                      dataType="wstr"
-                      length="3"
-                      name="Server" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -406,11 +436,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA"
+              refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
               description="Source OLE DB"
-              name="OLE_SRC OCDE_STG_view_Session_DM_SA"
+              name="OLE_SRC OCDE_STG_RegistrationType_DM_SA"
               usesDispositions="true"
               version="7">
               <properties>
@@ -421,7 +451,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[view_Session_DM_SA]</property>
+                  name="OpenRowset">[stg].[STG_RegistrationType_DM_SA]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -455,58 +485,58 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA.Connections[OleDbConnection]"
-                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:invalid"
-                  connectionManagerRefId="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:invalid"
+                  refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie de source OLE DB]"
+                  refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie de source OLE DB].Columns[Session]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA.Outputs[Sortie de source OLE DB].Columns[RegistrationType]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Session]"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie de source OLE DB].Columns[Session]"
-                      name="Session"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[RegistrationType]"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA.Outputs[Sortie de source OLE DB].Columns[RegistrationType]"
+                      name="RegistrationType"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Session]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[RegistrationType]"
                       dataType="wstr"
-                      length="255"
-                      name="Session" />
+                      length="100"
+                      name="RegistrationType" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie d'erreur de source OLE DB]"
+                  refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Session]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[RegistrationType]"
                       dataType="wstr"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Session]"
-                      name="Session" />
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[RegistrationType]"
+                      name="RegistrationType" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -517,82 +547,70 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT INSERT INTO DWH_UserAgent_DM.Paths[Sortie de colonne dérivée]"
-              endId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM.Inputs[OLE DB Destination Input]"
+              refId="Package\DFT INSERT INTO DWH_RegistrationType_DM.Paths[Sortie de colonne dérivée]"
+              endId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM.Inputs[OLE DB Destination Input]"
               name="Sortie de colonne dérivée"
-              startId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Outputs[Sortie de colonne dérivée]" />
+              startId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Outputs[Sortie de colonne dérivée]" />
             <path
-              refId="Package\DFT INSERT INTO DWH_UserAgent_DM.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables.Inputs[Entrée de colonne dérivée]"
+              refId="Package\DFT INSERT INTO DWH_RegistrationType_DM.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables.Inputs[Entrée de colonne dérivée]"
               name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie de source OLE DB]" />
+              startId="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA.Outputs[Sortie de source OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="269.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_UserAgent_DM"
-          TopLeft="70.6666685044766,95.9666667209069" />
+          Size="300,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_RegistrationType_DM"
+          TopLeft="194,99" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\DFT INSERT INTO DWH_UserAgent_DM">
+    design-time-name="Package\DFT INSERT INTO DWH_RegistrationType_DM">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="213.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM"
-          TopLeft="75.999999441208,189.777783679631" />
+          Size="257.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM"
+          TopLeft="310.027773731699,191.611113254892" />
         <NodeLayout
-          Size="286.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA"
-          TopLeft="70.0555559818945,16.3666664574544" />
+          Size="302.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA"
+          TopLeft="289.499997156362,3.36666668991247" />
         <NodeLayout
           Size="145.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_UserAgent_DM\DC_ Variables"
-          TopLeft="119.270831556059,106.583331725498" />
+          Id="Package\DFT INSERT INTO DWH_RegistrationType_DM\DC_ Variables"
+          TopLeft="371.83332836628,79.8333392997581" />
         <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_UserAgent_DM.Paths[Sortie de source OLE DB]"
-          TopLeft="213.388889315228,59.0333331241211">
+          Id="Package\DFT INSERT INTO DWH_RegistrationType_DM.Paths[Sortie de source OLE DB]"
+          TopLeft="442.666662761321,46.0333333565791">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-21.4513910925022,47.5499986013769"
+              EndConnector="0,33.800005943179"
               Start="0,0"
-              End="-21.4513910925022,40.0499986013769">
+              End="0,26.300005943179">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.7749993006885" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.7749993006885"
-                    Point2="0,23.7749993006885"
-                    Point3="-4,23.7749993006885" />
-                  <mssgle:LineSegment
-                    End="-17.4513910925022,23.7749993006885" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-17.4513910925022,23.7749993006885"
-                    Point2="-21.4513910925022,23.7749993006885"
-                    Point3="-21.4513910925022,27.7749993006885" />
-                  <mssgle:LineSegment
-                    End="-21.4513910925022,40.0499986013769" />
+                    End="0,26.300005943179" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -602,31 +620,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_UserAgent_DM.Paths[Sortie de colonne dérivée]"
-          TopLeft="191.937498222726,149.249998392165">
+          Id="Package\DFT INSERT INTO DWH_RegistrationType_DM.Paths[Sortie de colonne dérivée]"
+          TopLeft="441.597217715656,122.500005966425">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.27083211485098,40.5277852874663"
+              EndConnector="0,69.1111072884667"
               Start="0,0"
-              End="-9.27083211485098,33.0277852874663">
+              End="0,61.6111072884667">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.2638926437332" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.2638926437332"
-                    Point2="0,20.2638926437332"
-                    Point3="-4,20.2638926437332" />
-                  <mssgle:LineSegment
-                    End="-5.27083211485098,20.2638926437332" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.27083211485098,20.2638926437332"
-                    Point2="-9.27083211485098,20.2638926437332"
-                    Point3="-9.27083211485098,24.2638926437332" />
-                  <mssgle:LineSegment
-                    End="-9.27083211485098,33.0277852874663" />
+                    End="0,61.6111072884667" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -639,7 +645,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_DST DWH_Session_DM">
+    design-time-name="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_DST DWH_RegistrationType_DM">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -652,7 +658,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_UserAgent_DM\OLE_SRC OCDE_STG_view_Session_DM_SA">
+    design-time-name="Package\DFT INSERT INTO DWH_RegistrationType_DM\OLE_SRC OCDE_STG_RegistrationType_DM_SA">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -660,7 +666,7 @@
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">View</Value>
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

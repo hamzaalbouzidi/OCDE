@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_Language_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{F8AE1B4F-1E47-42FF-BCFB-5768178CC25C}">
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{977A2268-94B7-4374-8AF1-F41741EA787D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -733,7 +733,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[Language_ExternalID] = ? and [r
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
                   name="CacheType"
-                  typeConverter="CacheType">0</property>
+                  typeConverter="CacheType">2</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
@@ -1183,12 +1183,6 @@ where [refTable].[IsCurrent] = ? and [refTable].[Language_ExternalID] = ? and [r
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Language_DM\OLE_DST DWH_Language_DM.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
                       lineageId="Package\DFT INSERT INTO DWH_Language_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Language_DM\OLE_DST DWH_Language_DM.Inputs[OLE DB Destination Input].Columns[ValidTo]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="ValidTo"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Language_DM\OLE_DST DWH_Language_DM.Inputs[OLE DB Destination Input].ExternalColumns[ValidTo]"
-                      lineageId="Package\DFT INSERT INTO DWH_Language_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidTo]" />
-                    <inputColumn
                       refId="Package\DFT INSERT INTO DWH_Language_DM\OLE_DST DWH_Language_DM.Inputs[OLE DB Destination Input].Columns[LastUpdate_Date]"
                       cachedDataType="dbTimeStamp"
                       cachedName="LastUpdate_Date"
@@ -1625,33 +1619,41 @@ where [refTable].[IsCurrent] = ? and [refTable].[Language_ExternalID] = ? and [r
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="197.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Language_DM\LKP DWH_Language_DM"
-          TopLeft="339.996031366111,319.944442274835" />
-        <NodeLayout
-          Size="234,42"
-          Id="Package\DFT INSERT INTO DWH_Language_DM\DC Ajout colonne Date_Insertion"
-          TopLeft="41.6111105730137,420.49999785622" />
-        <NodeLayout
           Size="224,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Language_DM\OLE_DST DWH_Language_DM"
           TopLeft="45.4444443409643,519.611109018988" />
-        <NodeLayout
-          Size="248,42"
-          Id="Package\DFT INSERT INTO DWH_Language_DM\DC Ajout colonne Date_Modification"
-          TopLeft="291.611110573014,522.499997856219" />
         <NodeLayout
           Size="269.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Language_DM\OLE_SRC OCDE_STG_Language_DM_SA"
           TopLeft="289.499997156362,3.36666668991247" />
         <NodeLayout
-          Size="158,42"
-          Id="Package\DFT INSERT INTO DWH_Language_DM\CSPL Mise à jour"
-          TopLeft="336.611110573014,420.49999785622" />
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Language_DM\DC_ Variables"
+          TopLeft="364.180550210801,102.500009014209" />
+        <NodeLayout
+          Size="248,42"
+          Id="Package\DFT INSERT INTO DWH_Language_DM\DC Ajout colonne Date_Modification"
+          TopLeft="291.611110573014,522.499997856219" />
         <NodeLayout
           Size="181.333333333334,42"
           Id="Package\DFT INSERT INTO DWH_Language_DM\OLE_CMD Mise à jour"
           TopLeft="325.111110573014,624.49999785622" />
+        <NodeLayout
+          Size="197.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Language_DM\LKP DWH_Language_DM"
+          TopLeft="339.996031366111,319.944442274835" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT INSERT INTO DWH_Language_DM\CSPL Mise à jour"
+          TopLeft="336.611110573014,420.49999785622" />
+        <NodeLayout
+          Size="236,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Language_DM\DC Conversioon type de données"
+          TopLeft="315.222217607002,208.666673782468" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\DFT INSERT INTO DWH_Language_DM\DC Ajout colonne Date_Insertion"
+          TopLeft="41.6111105730137,420.49999785622" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Language_DM.Paths[Update]"
           TopLeft="415.611110573014,462.49999785622">
@@ -1674,6 +1676,84 @@ where [refTable].[IsCurrent] = ? and [refTable].[Language_ExternalID] = ? and [r
             <mssgm:EdgeLabel
               BoundingBox="-16.28029296875,20.4453125,32.5605859375,11.609375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Language_DM.Paths[Sortie de source OLE DB]"
+          TopLeft="424.166663823029,46.0333333565791">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.6805530544386,56.4666756576296"
+              Start="0,0"
+              End="12.6805530544386,48.9666756576296">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.2333378288148" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.2333378288148"
+                    Point2="0,28.2333378288148"
+                    Point3="4,28.2333378288148" />
+                  <mssgle:LineSegment
+                    End="8.68055305443858,28.2333378288148" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.68055305443858,28.2333378288148"
+                    Point2="12.6805530544386,28.2333378288148"
+                    Point3="12.6805530544386,32.2333378288148" />
+                  <mssgle:LineSegment
+                    End="12.6805530544386,48.9666756576296" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Language_DM.Paths[Sortie de conversion de données]"
+          TopLeft="435.94245781989,251.333340449134">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68.6111018257011"
+              Start="0,0"
+              End="0,61.1111018257011">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.1111018257011" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Language_DM.Paths[Sortie de colonne dérivée]"
+          TopLeft="435.034717242234,145.166675680875">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63.4999981015923"
+              Start="0,0"
+              End="0,55.9999981015923">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.9999981015923" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1792,118 +1872,9 @@ where [refTable].[IsCurrent] = ? and [refTable].[Language_ExternalID] = ? and [r
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="236,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Language_DM\DC Conversioon type de données"
-          TopLeft="315.222217607002,208.666673782468" />
-        <NodeLayout
-          Size="145.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Language_DM\DC_ Variables"
-          TopLeft="364.180550210801,102.500009014209" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Language_DM.Paths[Sortie de colonne dérivée]"
-          TopLeft="435.034717242234,145.166675680875">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,63.4999981015923"
-              Start="0,0"
-              End="0,55.9999981015923">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,55.9999981015923" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Language_DM.Paths[Sortie de source OLE DB]"
-          TopLeft="424.166663823029,46.0333333565791">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="12.6805530544386,56.4666756576296"
-              Start="0,0"
-              End="12.6805530544386,48.9666756576296">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.2333378288148" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.2333378288148"
-                    Point2="0,28.2333378288148"
-                    Point3="4,28.2333378288148" />
-                  <mssgle:LineSegment
-                    End="8.68055305443858,28.2333378288148" />
-                  <mssgle:CubicBezierSegment
-                    Point1="8.68055305443858,28.2333378288148"
-                    Point2="12.6805530544386,28.2333378288148"
-                    Point3="12.6805530544386,32.2333378288148" />
-                  <mssgle:LineSegment
-                    End="12.6805530544386,48.9666756576296" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Language_DM.Paths[Sortie de conversion de données]"
-          TopLeft="435.94245781989,251.333340449134">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,68.6111018257011"
-              Start="0,0"
-              End="0,61.1111018257011">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,61.1111018257011" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_Language_DM\LKP DWH_Language_DM">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO DWH_Language_DM\OLE_DST DWH_Language_DM">
     <Properties>
@@ -1927,6 +1898,29 @@ where [refTable].[IsCurrent] = ? and [refTable].[Language_ExternalID] = ? and [r
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_Language_DM\LKP DWH_Language_DM">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

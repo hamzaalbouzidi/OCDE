@@ -1,0 +1,716 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/9/2019 5:03:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CSPE-W-VBISPS01"
+  DTS:CreatorName="CERBA\YMIGEOT"
+  DTS:DTSID="{DEEB1C31-2970-49D3-88FA-773242D88151}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="OCDE_DWH_ILibraryLog_FT"
+  DTS:PackageType="5"
+  DTS:VersionBuild="52"
+  DTS:VersionGUID="{E64B6FA4-191E-44F4-B363-5C8195FB6AAB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8558462E-11CA-4887-A77B-D63B79850859}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT INSERT INTO DWH_ILibraryLog_FT"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DC_ Variables"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Exclude]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Exclude]"
+                      name="Exclude"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_BOOL)0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST DWH_ILibraryLog_FT"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dwh].[ILibraryLog_FT]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Connections[OleDbConnection]"
+                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[Manifestation_ID]"
+                      cachedDataType="i4"
+                      cachedName="Manifestation_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Manifestation_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[Registration_ID]"
+                      cachedDataType="i4"
+                      cachedName="Registration_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Registration_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[IPAddress_ID]"
+                      cachedDataType="i4"
+                      cachedName="IPAddress_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[Source_ID]"
+                      cachedDataType="i4"
+                      cachedName="Source_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Source_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[SourceLight_ID]"
+                      cachedDataType="i4"
+                      cachedName="SourceLight_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[SourceLight_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[UserAgent_ID]"
+                      cachedDataType="i4"
+                      cachedName="UserAgent_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[UserAgent_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[Session_ID]"
+                      cachedDataType="i4"
+                      cachedName="Session_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Session_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Session_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[EventLogID]"
+                      cachedDataType="i4"
+                      cachedName="EventLogID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[EventLogID]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[EventLogID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[Exclude]"
+                      cachedDataType="bool"
+                      cachedName="Exclude"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Exclude]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Exclude]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[Download_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Download_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[DownloadDate]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Session_ID]"
+                      dataType="i4"
+                      name="Session_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[DownloadDate]"
+                      dataType="dbTimeStamp"
+                      name="DownloadDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Manifestation_ID]"
+                      dataType="i4"
+                      name="Manifestation_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Registration_ID]"
+                      dataType="i4"
+                      name="Registration_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[IPAddress_ID]"
+                      dataType="i4"
+                      name="IPAddress_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Source_ID]"
+                      dataType="i4"
+                      name="Source_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[SourceLight_ID]"
+                      dataType="i4"
+                      name="SourceLight_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[UserAgent_ID]"
+                      dataType="i4"
+                      name="UserAgent_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[EventLogID]"
+                      dataType="i4"
+                      name="EventLogID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Exclude]"
+                      dataType="bool"
+                      name="Exclude" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Agg_Daily]"
+                      dataType="bool"
+                      name="Agg_Daily" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Agg_Monthly]"
+                      dataType="bool"
+                      name="Agg_Monthly" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[STG_ILibraryLog_FT_SA]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
+                      name="Download_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Manifestation_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]"
+                      name="Manifestation_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Registration_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]"
+                      name="Registration_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      name="IPAddress_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[DOI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
+                      length="60"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[DOI]"
+                      name="DOI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
+                      name="Source_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SourceLight_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]"
+                      name="SourceLight_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
+                      name="UserAgent_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Session_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Session_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Session_ID]"
+                      name="Session_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[EventLogID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[EventLogID]"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[EventLogID]"
+                      name="EventLogID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
+                      dataType="dbTimeStamp"
+                      name="Download_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Manifestation_ID]"
+                      dataType="i4"
+                      name="Manifestation_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Registration_ID]"
+                      dataType="i4"
+                      name="Registration_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      dataType="i4"
+                      name="IPAddress_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
+                      dataType="wstr"
+                      length="60"
+                      name="DOI" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
+                      dataType="i4"
+                      name="Source_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SourceLight_ID]"
+                      dataType="i4"
+                      name="SourceLight_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
+                      dataType="i4"
+                      name="UserAgent_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Session_ID]"
+                      dataType="i4"
+                      name="Session_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[EventLogID]"
+                      dataType="i4"
+                      name="EventLogID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
+                      name="Download_Date" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Manifestation_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Manifestation_ID]"
+                      name="Manifestation_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Registration_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Registration_ID]"
+                      name="Registration_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      name="IPAddress_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
+                      name="DOI" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
+                      name="Source_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SourceLight_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SourceLight_ID]"
+                      name="SourceLight_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
+                      name="UserAgent_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Session_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Session_ID]"
+                      name="Session_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[EventLogID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[EventLogID]"
+                      name="EventLogID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Sortie de colonne dérivée]"
+              endId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="270.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT"
+          TopLeft="70.6666685044766,95.9666667209069" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO DWH_ILibraryLog_FT">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="228,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT"
+          TopLeft="75.999999441208,189.777783679631" />
+        <NodeLayout
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables"
+          TopLeft="119.270831556059,106.583331725498" />
+        <NodeLayout
+          Size="301.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA"
+          TopLeft="34.2222231825194,17.6666664342086" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Sortie de source OLE DB]"
+          TopLeft="188.413194035956,60.3333331008753">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.2499986246227"
+              Start="0,0"
+              End="0,38.7499986246227">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.7499986246227" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Sortie de colonne dérivée]"
+          TopLeft="190.968748831967,149.249998392165">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.5277852874663"
+              Start="0,0"
+              End="0,33.0277852874663">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.0277852874663" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_view_ILibraryLog_FT_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
