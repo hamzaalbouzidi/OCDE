@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_GoogleBooksMonthly"
   DTS:PackageType="5"
-  DTS:VersionBuild="49"
-  DTS:VersionGUID="{F5258A2F-F147-4E0A-8F7E-FFD3A3028F18}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{702CAA04-36D9-4D21-8C7A-05F643DCE900}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -411,12 +411,12 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\CSPL Mise à jour.Outputs[Pas Insert]"
+                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\CSPL Mise à jour.Outputs[Rejet]"
                   description="Output 1 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
-                  name="Pas Insert"
+                  name="Rejet"
                   synchronousInputId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\CSPL Mise à jour.Inputs[Conditional Split Input]"
                   truncationRowDisposition="FailComponent">
                   <properties>
@@ -634,6 +634,309 @@
                       lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST STG_GoogleBooksMonthly_SA_Rejected"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[STG_GoogleBooksMonthly_SA_Rejected]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[File_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="File_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[File_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Import_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Import_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Import_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Download_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Download_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Download_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[ISBN13]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ISBN13"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[ISBN13]"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[ISBN13]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[books_visits]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="books_visits"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[books_visits]"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[books_visits]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[BV_w_pages_viewed]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="BV_w_pages_viewed"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[BV_w_pages_viewed]"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[BV_w_pages_viewed]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[pages_viewed]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="pages_viewed"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[pages_viewed]"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[pages_viewed]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
+                      dataType="dbDate"
+                      name="Download_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
+                      dataType="dbDate"
+                      name="File_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
+                      dataType="dbTimeStamp"
+                      name="Import_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[ISBN13]"
+                      dataType="wstr"
+                      length="100"
+                      name="ISBN13" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[books_visits]"
+                      dataType="i4"
+                      name="books_visits" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[BV_w_pages_viewed]"
+                      dataType="i4"
+                      name="BV_w_pages_viewed" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[pages_viewed]"
+                      dataType="i4"
+                      name="pages_viewed" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC OCDE GoogleBooksMonthly_TMP"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[STG_BrowseIt_TMP]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT top 1 File_Date, Import_Date
+FROM   stg.STG_GoogleBooksMonthly_TMP</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie de source OLE DB].Columns[File_Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[File_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie de source OLE DB].Columns[File_Date]"
+                      name="File_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie de source OLE DB].Columns[Import_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[Import_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie de source OLE DB].Columns[Import_Date]"
+                      name="Import_Date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[File_Date]"
+                      dataType="dbDate"
+                      name="File_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[Import_Date]"
+                      dataType="dbTimeStamp"
+                      name="Import_Date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[File_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[File_Date]"
+                      name="File_Date" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[Import_Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[Import_Date]"
+                      name="Import_Date" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1072,6 +1375,204 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Unir tout;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Combine des lignes de plusieurs flux de données sans effectuer de tri. Par exemple, rajoutez des lignes à un flux de données après correction des erreurs. Si le tri est important, nous recommandons l'utilisation de la transformation de fusion."
+              name="Unir tout"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Inputs[Unir tout entrée 1]"
+                  name="Unir tout entrée 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Inputs[Unir tout entrée 1].Columns[Download_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Download_Date"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Download_Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Download_Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Inputs[Unir tout entrée 1].Columns[ISBN13]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ISBN13"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Trier.Outputs[Sortie de tri].Columns[ISBN13]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[ISBN13]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Inputs[Unir tout entrée 1].Columns[books_visits]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="books_visits"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Trier.Outputs[Sortie de tri].Columns[books_visits]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[books_visits]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Inputs[Unir tout entrée 1].Columns[BV_w_pages_viewed]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="BV_w_pages_viewed"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Trier.Outputs[Sortie de tri].Columns[BV_w_pages_viewed]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[BV_w_pages_viewed]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Inputs[Unir tout entrée 1].Columns[pages_viewed]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="pages_viewed"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Trier.Outputs[Sortie de tri].Columns[pages_viewed]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[pages_viewed]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Inputs[Unir tout entrée 1].Columns[Manifestation_ID]"
+                      cachedDataType="i4"
+                      cachedName="Manifestation_ID"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Manifestation_ID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Manifestation_ID]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Inputs[Entrée Union All 1]"
+                  hasSideEffects="true"
+                  name="Entrée Union All 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Inputs[Entrée Union All 1].Columns[File_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="File_Date"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie de source OLE DB].Columns[File_Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[File_Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Inputs[Entrée Union All 1].Columns[Import_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Import_Date"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie de source OLE DB].Columns[Import_Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de lignage de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Import_Date]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Inputs[Entrée Union All 2]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Entrée Union All 2">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1]"
+                  name="Unir tout sortie 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Download_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Download_Date]"
+                      name="Download_Date" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[ISBN13]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[ISBN13]"
+                      name="ISBN13" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[books_visits]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[books_visits]"
+                      name="books_visits" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[BV_w_pages_viewed]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[BV_w_pages_viewed]"
+                      name="BV_w_pages_viewed" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[pages_viewed]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[pages_viewed]"
+                      name="pages_viewed" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Manifestation_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Manifestation_ID]"
+                      name="Manifestation_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[File_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[File_Date]"
+                      name="File_Date" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Import_Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Import_Date]"
+                      name="Import_Date" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -1080,15 +1581,30 @@
               name="Insert"
               startId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\CSPL Mise à jour.Outputs[Insert]" />
             <path
+              refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Rejet]"
+              endId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Inputs[Unir tout entrée 1]"
+              name="Rejet"
+              startId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\CSPL Mise à jour.Outputs[Rejet]" />
+            <path
               refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Sortie de source OLE DB]"
               endId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Trier.Inputs[Entrée de tri]"
               name="Sortie de source OLE DB"
               startId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE_STG_GoogleBooksMonthly_TMP2.Outputs[Sortie de source OLE DB]" />
             <path
+              refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Sortie de source OLE DB1]"
+              endId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Inputs[Entrée Union All 1]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP.Outputs[Sortie de source OLE DB]" />
+            <path
               refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Sortie de tri]"
               endId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\CSPL Mise à jour.Inputs[Conditional Split Input]"
               name="Sortie de tri"
               startId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Trier.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Unir tout sortie 1]"
+              endId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB]"
+              name="Unir tout sortie 1"
+              startId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout.Outputs[Unir tout sortie 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1755,29 +2271,29 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="324,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_TMP2"
-          TopLeft="102.791665216908,406.549992828667" />
-        <NodeLayout
-          Size="308,42.6666666666667"
-          Id="Package\TSQL Truncate STG_GoogleBooksMonthly_TMP2"
-          TopLeft="115.083331700415,102.533333434065" />
+          Size="328,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_FT_SA"
+          TopLeft="99.6666652634743,553.666656864683" />
         <NodeLayout
           Size="310.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA"
           TopLeft="103.833331868053,481.733324817617" />
         <NodeLayout
-          Size="294.666666666667,42.6666666666667"
-          Id="Package\TSQL Truncate STG_GoogleBooksMonthly_SA"
-          TopLeft="116.12499835156,176.633332109054" />
-        <NodeLayout
-          Size="328,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_FT_SA"
-          TopLeft="99.6666652634743,553.666656864683" />
+          Size="324,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_TMP2"
+          TopLeft="102.791665216908,406.549992828667" />
         <NodeLayout
           Size="312,42.6666666666667"
           Id="Package\TSQL Truncate STG_GoogleBooksMonthly_FT_SA"
           TopLeft="105.708331840113,251.816664098004" />
+        <NodeLayout
+          Size="294.666666666667,42.6666666666667"
+          Id="Package\TSQL Truncate STG_GoogleBooksMonthly_SA"
+          TopLeft="116.12499835156,176.633332109054" />
+        <NodeLayout
+          Size="308,42.6666666666667"
+          Id="Package\TSQL Truncate STG_GoogleBooksMonthly_TMP2"
+          TopLeft="115.083331700415,102.533333434065" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
           TopLeft="266.270831692654,145.200000100732">
@@ -1892,6 +2408,254 @@
     </LayoutInfo>
   </Package>
   <TaskHost
+    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly_FT_SA">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="285.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_FT_SA\OLE_DST STG_GoogleBooksMonthly_FT_SA"
+          TopLeft="89.5833319984372,130.766664721767" />
+        <NodeLayout
+          Size="357.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_FT_SA\OLE_SRC OCDE_V_STG_view_GoogleBooksMonthly_FT_SA"
+          TopLeft="58.3333324640987,37.6999993258716" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_FT_SA.Paths[Sortie de source OLE DB]"
+          TopLeft="234.624998897935,80.3666659925382">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.3999987292288"
+              Start="0,0"
+              End="0,42.8999987292288">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.8999987292288" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="314.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE_STG_GoogleBooksMonthly_TMP2"
+          TopLeft="66.2499990127979,8.66666651169468" />
+        <NodeLayout
+          Size="101.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Trier"
+          TopLeft="174.583330731839,85.614284183383" />
+        <NodeLayout
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\CSPL Mise à jour"
+          TopLeft="144.166664518416,152.361902335485" />
+        <NodeLayout
+          Size="268,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA"
+          TopLeft="11.071428406451,244.361900785763" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Sortie de tri]"
+          TopLeft="224.374997625127,128.28095085005">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.0809514854351"
+              Start="0,0"
+              End="0,16.5809514854351">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5809514854351" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Sortie de source OLE DB]"
+          TopLeft="224.416664872318,51.3333331783613">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.2809510050217"
+              Start="0,0"
+              End="0,26.7809510050217">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.7809510050217" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Insert]"
+          TopLeft="223.499997851749,195.028569002152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-78.4285694452983,49.3333317836118"
+              Start="0,0"
+              End="-78.4285694452983,41.8333317836118">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6666658918059" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.6666658918059"
+                    Point2="0,24.6666658918059"
+                    Point3="-4,24.6666658918059" />
+                  <mssgle:LineSegment
+                    End="-74.4285694452983,24.6666658918059" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-74.4285694452983,24.6666658918059"
+                    Point2="-78.4285694452983,24.6666658918059"
+                    Point3="-78.4285694452983,28.6666658918059" />
+                  <mssgle:LineSegment
+                    End="-78.4285694452983,41.8333317836118" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-52.9672730038992,29.6666658918059,27.5059765625,9.40234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="281.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP"
+          TopLeft="482.986103914057,165.895237358013" />
+        <NodeLayout
+          Size="314.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected"
+          TopLeft="272.916662599891,381.773011537856" />
+        <NodeLayout
+          Size="121.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Unir tout"
+          TopLeft="365.833327881992,259.199997272491" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Rejet]"
+          TopLeft="248.61110896286,195.028569002152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="158.999996696909,64.1714282703398"
+              Start="0,0"
+              End="158.999996696909,56.6714282703398">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.9647880768715" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.9647880768715"
+                    Point2="0,31.9647880768715"
+                    Point3="4,31.9647880768715" />
+                  <mssgle:LineSegment
+                    End="154.999996696909,31.9647880768715" />
+                  <mssgle:CubicBezierSegment
+                    Point1="154.999996696909,31.9647880768715"
+                    Point2="158.999996696909,31.9647880768715"
+                    Point3="158.999996696909,35.9647880768715" />
+                  <mssgle:LineSegment
+                    End="158.999996696909,56.6714282703398" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="67.4286116297046,36.9647880768715,24.1427734375,11.384765625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Sortie de source OLE DB1]"
+          TopLeft="623.652770580724,208.56190402468">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-178.263887143177,50.6380932478118"
+              Start="0,0"
+              End="-178.263887143177,43.1380932478118">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.9874174764699" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.9874174764699"
+                    Point2="0,29.9874174764699"
+                    Point3="-4,29.9874174764699" />
+                  <mssgle:LineSegment
+                    End="-174.263887143177,29.9874174764699" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-174.263887143177,29.9874174764699"
+                    Point2="-178.263887143177,29.9874174764699"
+                    Point3="-178.263887143177,33.9874174764699" />
+                  <mssgle:LineSegment
+                    End="-178.263887143177,43.1380932478118" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Unir tout sortie 1]"
+          TopLeft="428.374995240942,301.866663939158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,79.9063475986981"
+              Start="0,0"
+              End="0,72.4063475986981">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.4063475986981" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
     design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly_TMP2">
     <LayoutInfo>
       <GraphLayout
@@ -1993,141 +2757,26 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="314.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE_STG_GoogleBooksMonthly_TMP2"
-          TopLeft="66.2499990127979,8.66666651169468" />
-        <NodeLayout
-          Size="101.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Trier"
-          TopLeft="174.583330731839,85.614284183383" />
-        <NodeLayout
-          Size="158.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\CSPL Mise à jour"
-          TopLeft="144.166664518416,152.361902335485" />
-        <NodeLayout
-          Size="268,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA"
-          TopLeft="91.9047605352739,222.695234506527" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Sortie de tri]"
-          TopLeft="224.374997625127,128.28095085005">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,24.0809514854351"
-              Start="0,0"
-              End="0,16.5809514854351">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5809514854351" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Sortie de source OLE DB]"
-          TopLeft="224.416664872318,51.3333331783613">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.2809510050217"
-              Start="0,0"
-              End="0,26.7809510050217">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.7809510050217" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Insert]"
-          TopLeft="224.702379193511,195.028569002151">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27.6666655043761"
-              Start="0,0"
-              End="0,20.1666655043761">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.1666655043761" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-13.75298828125,5.38216087718804,27.5059765625,9.40234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly_FT_SA">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="285.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_FT_SA\OLE_DST STG_GoogleBooksMonthly_FT_SA"
-          TopLeft="89.5833319984372,130.766664721767" />
-        <NodeLayout
-          Size="357.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_FT_SA\OLE_SRC OCDE_V_STG_view_GoogleBooksMonthly_FT_SA"
-          TopLeft="58.3333324640987,37.6999993258716" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_FT_SA.Paths[Sortie de source OLE DB]"
-          TopLeft="234.624998897935,80.3666659925382">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50.3999987292288"
-              Start="0,0"
-              End="0,42.8999987292288">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.8999987292288" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE GoogleBooksMonthly_TMP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
