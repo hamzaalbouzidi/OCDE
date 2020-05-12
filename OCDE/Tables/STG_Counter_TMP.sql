@@ -14,5 +14,5 @@
 	[IdentityName] [nvarchar](500) NULL,
 	[IdentityCountry] [nvarchar](4) NULL,
 	[File_Date] [date] NOT NULL,
-	[Import_Date] [datetime] NOT NULL
+	[Date_Time] DATETIME NOT NULL DEFAULT GETUTCDATE()
 )

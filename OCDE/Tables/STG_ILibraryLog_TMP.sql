@@ -10,5 +10,5 @@
 	[LICENCE_TYPE] [nvarchar](50) NULL,
 	[SOURCE] [nvarchar](max) NULL,
 	[File_Date] [date] NOT NULL,
-	[Import_Date] [datetime] NOT NULL
+	[Import_Date] DATETIME NOT NULL DEFAULT GETUTCDATE()
 )
