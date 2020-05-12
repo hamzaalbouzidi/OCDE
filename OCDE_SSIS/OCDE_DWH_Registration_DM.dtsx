@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_Registration_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{6543A65E-3181-48C5-93C6-A50882AA8F4E}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{2D055562-EA2D-46AA-805F-C777B9F71608}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1561,6 +1561,339 @@ Registration_ID =?</property>
               </outputs>
             </component>
             <component
+              refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST DWH_Registration_DM 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dwh].[Registration_DM]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Connections[OleDbConnection]"
+                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[identityID]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="identityID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[identityID]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA.Outputs[Sortie de source OLE DB].Columns[identityID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA.Outputs[Sortie de source OLE DB].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[CustomerType_ID]"
+                      cachedDataType="i4"
+                      cachedName="CustomerType_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[CustomerType_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA.Outputs[Sortie de source OLE DB].Columns[CustomerType_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[Location_ID]"
+                      cachedDataType="i4"
+                      cachedName="Location_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[Location_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA.Outputs[Sortie de source OLE DB].Columns[Location_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[CU_Number]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CU_Number"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[CU_Number]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA.Outputs[Sortie de source OLE DB].Columns[CU_Number]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[Admin]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="Admin"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[Admin]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA.Outputs[Sortie de source OLE DB].Columns[Admin]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[RegistrationType_ID]"
+                      cachedDataType="i4"
+                      cachedName="RegistrationType_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationType_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA.Outputs[Sortie de source OLE DB].Columns[RegistrationType_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[RegistrationTypeNo]"
+                      cachedDataType="i4"
+                      cachedName="RegistrationTypeNo"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationTypeNo]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA.Outputs[Sortie de source OLE DB].Columns[RegistrationTypeNo]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[isActive]"
+                      cachedDataType="bool"
+                      cachedName="isActive"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[isActive]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA.Outputs[Sortie de source OLE DB].Columns[isActive]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[isParentConsortium]"
+                      cachedDataType="bool"
+                      cachedName="isParentConsortium"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[isParentConsortium]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA.Outputs[Sortie de source OLE DB].Columns[isParentConsortium]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[isChildConsortium]"
+                      cachedDataType="bool"
+                      cachedName="isChildConsortium"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[isChildConsortium]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA.Outputs[Sortie de source OLE DB].Columns[isChildConsortium]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[isMaster]"
+                      cachedDataType="bool"
+                      cachedName="isMaster"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[isMaster]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA.Outputs[Sortie de source OLE DB].Columns[isMaster]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[isSubordinate]"
+                      cachedDataType="bool"
+                      cachedName="isSubordinate"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[isSubordinate]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA.Outputs[Sortie de source OLE DB].Columns[isSubordinate]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[ParentMaster_identityID]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="ParentMaster_identityID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[ParentMaster_identityID]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA.Outputs[Sortie de source OLE DB].Columns[ParentMaster_identityID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[DoNotCountDL]"
+                      cachedDataType="bool"
+                      cachedName="DoNotCountDL"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[DoNotCountDL]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA.Outputs[Sortie de source OLE DB].Columns[DoNotCountDL]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[LastUpdate_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LastUpdate_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[LastUpdate_Date]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LastUpdate_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[HideInReport]"
+                      cachedDataType="bool"
+                      cachedName="HideInReport"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[HideInReport]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[HideInReport]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[Insert_NA_Import]"
+                      cachedDataType="bool"
+                      cachedName="Insert_NA_Import"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[NA_Import]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_NA_Import]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[Insert_IsCurrent]"
+                      cachedDataType="bool"
+                      cachedName="Insert_IsCurrent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_IsCurrent]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].Columns[ValidFrom]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ValidFrom"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[Registration_ID]"
+                      dataType="i4"
+                      name="Registration_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[identityID]"
+                      dataType="wstr"
+                      length="20"
+                      name="identityID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[Location_ID]"
+                      dataType="i4"
+                      name="Location_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="500"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[CustomerType_ID]"
+                      dataType="i4"
+                      name="CustomerType_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[CU_Number]"
+                      dataType="wstr"
+                      length="50"
+                      name="CU_Number" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[Admin]"
+                      dataType="wstr"
+                      length="2"
+                      name="Admin" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationType_ID]"
+                      dataType="i4"
+                      name="RegistrationType_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[isActive]"
+                      dataType="bool"
+                      name="isActive" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[isParentConsortium]"
+                      dataType="bool"
+                      name="isParentConsortium" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[isChildConsortium]"
+                      dataType="bool"
+                      name="isChildConsortium" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[isMaster]"
+                      dataType="bool"
+                      name="isMaster" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[isSubordinate]"
+                      dataType="bool"
+                      name="isSubordinate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[ParentMaster_identityID]"
+                      dataType="wstr"
+                      length="20"
+                      name="ParentMaster_identityID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[ParentMaster_ID]"
+                      dataType="i4"
+                      name="ParentMaster_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[DoNotCountDL]"
+                      dataType="bool"
+                      name="DoNotCountDL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[LastUpdate_Date]"
+                      dataType="dbTimeStamp"
+                      name="LastUpdate_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[HideInReport]"
+                      dataType="bool"
+                      name="HideInReport" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[NA_Import]"
+                      dataType="bool"
+                      name="NA_Import" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
+                      dataType="bool"
+                      name="IsCurrent" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      dataType="dbDate"
+                      name="ValidFrom" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[ValidTo]"
+                      dataType="dbDate"
+                      name="ValidTo" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[Proxy_ID]"
+                      dataType="i4"
+                      name="Proxy_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[MainParent_ID]"
+                      dataType="i4"
+                      name="MainParent_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationTypeNo]"
+                      dataType="i4"
+                      name="RegistrationTypeNo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
@@ -1946,6 +2279,11 @@ Registration_ID =?</property>
               name="Lookup No Match Output"
               startId="Package\DFT INSERT INTO DWH_Registration_DM\LKP DWH_Registration_DM.Outputs[Lookup No Match Output]" />
             <path
+              refId="Package\DFT INSERT INTO DWH_Registration_DM.Paths[OLE DB Command Output]"
+              endId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1.Inputs[OLE DB Destination Input]"
+              name="OLE DB Command Output"
+              startId="Package\DFT INSERT INTO DWH_Registration_DM\OLE_CMD Mise à jour.Outputs[OLE DB Command Output]" />
+            <path
               refId="Package\DFT INSERT INTO DWH_Registration_DM.Paths[Sortie de colonne dérivée]"
               endId="Package\DFT INSERT INTO DWH_Registration_DM\LKP DWH_Registration_DM.Inputs[Lookup Input]"
               name="Sortie de colonne dérivée"
@@ -1990,13 +2328,13 @@ Registration_ID =?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="208,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Registration_DM\LKP DWH_Registration_DM"
-          TopLeft="324.22222207735,175.388887674941" />
-        <NodeLayout
           Size="234.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM"
           TopLeft="21.8333335816861,372.166665581862" />
+        <NodeLayout
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Registration_DM\DC_ Variables"
+          TopLeft="351.041661435738,84.4999996513128" />
         <NodeLayout
           Size="280,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Registration_DM\OLE_SRC OCDE_STG_Registration_DM_SA"
@@ -2006,33 +2344,13 @@ Registration_ID =?</property>
           Id="Package\DFT INSERT INTO DWH_Registration_DM\OLE_CMD Mise à jour"
           TopLeft="342.819443642472,384.972222732338" />
         <NodeLayout
+          Size="208,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Registration_DM\LKP DWH_Registration_DM"
+          TopLeft="324.22222207735,175.388887674941" />
+        <NodeLayout
           Size="158,42"
           Id="Package\DFT INSERT INTO DWH_Registration_DM\CSPL Mise à jour"
           TopLeft="350.499999254942,293.277776279714" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Registration_DM.Paths[Lookup Match Output]"
-          TopLeft="428.861110666146,218.055554341608">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,75.2222219381067"
-              Start="0,0"
-              End="0,67.7222219381067">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,67.7222219381067" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,28.0564234690534,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Registration_DM.Paths[Lookup No Match Output]"
           TopLeft="394.888888744016,218.055554341608">
@@ -2069,10 +2387,54 @@ Registration_ID =?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="145.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Registration_DM\DC_ Variables"
-          TopLeft="351.041661435738,84.4999996513128" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Registration_DM.Paths[Lookup Match Output]"
+          TopLeft="428.861110666146,218.055554341608">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75.2222219381067"
+              Start="0,0"
+              End="0,67.7222219381067">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.7222219381067" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,28.0564234690534,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Registration_DM.Paths[Update]"
+          TopLeft="431.493054782041,335.277776279714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.6944464526242"
+              Start="0,0"
+              End="0,42.1944464526242">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.1944464526242" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.28029296875,15.2925357263121,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Registration_DM.Paths[Sortie de source OLE DB]"
           TopLeft="425.041662652667,42.7833334146937">
@@ -2117,56 +2479,35 @@ Registration_ID =?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="244,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM 1"
+          TopLeft="314.888884770374,473.972222964796" />
         <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Registration_DM.Paths[Update]"
-          TopLeft="431.493054782041,335.277776279714">
+          Id="Package\DFT INSERT INTO DWH_Registration_DM.Paths[OLE DB Command Output]"
+          TopLeft="435.187497539756,426.972222732338">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.6944464526242"
+              EndConnector="0,47.0000002324581"
               Start="0,0"
-              End="0,42.1944464526242">
+              End="0,39.5000002324581">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.1944464526242" />
+                    End="0,39.5000002324581" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-16.28029296875,15.2925357263121,32.5605859375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_Registration_DM\LKP DWH_Registration_DM">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO DWH_Registration_DM\OLE_DST DWH_Registration_DM">
     <Properties>
@@ -2190,6 +2531,29 @@ Registration_ID =?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_Registration_DM\LKP DWH_Registration_DM">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

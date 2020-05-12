@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_IGO_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="46"
-  DTS:VersionGUID="{BB79D2C1-E35E-4685-A27A-BDA92E50686F}">
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{D03ACD84-DB9A-4942-BD2B-50EDEBBCD14E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1330,6 +1330,251 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
               </outputs>
             </component>
             <component
+              refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST DWH_IGO_DM 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dwh].[IGO_DM]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Connections[OleDbConnection]"
+                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].Columns[Copie de ExternalSource]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="Copie de ExternalSource"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[ExternalSource]"
+                      lineageId="Package\DFT INSERT INTO DWH_IGO_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].Columns[Copie de IGO_ExternalID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copie de IGO_ExternalID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[IGO_ExternalID]"
+                      lineageId="Package\DFT INSERT INTO DWH_IGO_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de IGO_ExternalID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].Columns[Copie de IGO_Lib_EN]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copie de IGO_Lib_EN"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[IGO_Lib_EN]"
+                      lineageId="Package\DFT INSERT INTO DWH_IGO_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de IGO_Lib_EN]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].Columns[Copie de IGO_Lib_FR]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copie de IGO_Lib_FR"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[IGO_Lib_FR]"
+                      lineageId="Package\DFT INSERT INTO DWH_IGO_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de IGO_Lib_FR]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].Columns[Copie de IGO_Code_EN]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copie de IGO_Code_EN"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[IGO_Code_EN]"
+                      lineageId="Package\DFT INSERT INTO DWH_IGO_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de IGO_Code_EN]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].Columns[Copie de IGO_Code_FR]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copie de IGO_Code_FR"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[IGO_Code_FR]"
+                      lineageId="Package\DFT INSERT INTO DWH_IGO_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de IGO_Code_FR]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].Columns[Copie de DOIPrefix]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Copie de DOIPrefix"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[DOIPrefix]"
+                      lineageId="Package\DFT INSERT INTO DWH_IGO_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de DOIPrefix]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].Columns[LastUpdate_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LastUpdate_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[LastUpdate_Date]"
+                      lineageId="Package\DFT INSERT INTO DWH_IGO_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[LastUpdate_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].Columns[HideInReport]"
+                      cachedDataType="bool"
+                      cachedName="HideInReport"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[HideInReport]"
+                      lineageId="Package\DFT INSERT INTO DWH_IGO_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[HideInReport]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].Columns[Insert_NA_Import]"
+                      cachedDataType="bool"
+                      cachedName="Insert_NA_Import"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[NA_Import]"
+                      lineageId="Package\DFT INSERT INTO DWH_IGO_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_NA_Import]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].Columns[Insert_IsCurrent]"
+                      cachedDataType="bool"
+                      cachedName="Insert_IsCurrent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
+                      lineageId="Package\DFT INSERT INTO DWH_IGO_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Insert_IsCurrent]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].Columns[ValidFrom]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ValidFrom"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      lineageId="Package\DFT INSERT INTO DWH_IGO_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[ExternalSource]"
+                      dataType="wstr"
+                      length="10"
+                      name="ExternalSource" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[LastUpdate_Date]"
+                      dataType="dbTimeStamp"
+                      name="LastUpdate_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[HideInReport]"
+                      dataType="bool"
+                      name="HideInReport" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[NA_Import]"
+                      dataType="bool"
+                      name="NA_Import" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
+                      dataType="bool"
+                      name="IsCurrent" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      dataType="dbDate"
+                      name="ValidFrom" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[ValidTo]"
+                      dataType="dbDate"
+                      name="ValidTo" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[IGO_ID]"
+                      dataType="i4"
+                      name="IGO_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[IGO_ExternalID]"
+                      dataType="wstr"
+                      length="100"
+                      name="IGO_ExternalID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[IGO_Lib_EN]"
+                      dataType="wstr"
+                      length="255"
+                      name="IGO_Lib_EN" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[IGO_Lib_FR]"
+                      dataType="wstr"
+                      length="255"
+                      name="IGO_Lib_FR" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[IGO_Code_EN]"
+                      dataType="wstr"
+                      length="50"
+                      name="IGO_Code_EN" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[IGO_Code_FR]"
+                      dataType="wstr"
+                      length="50"
+                      name="IGO_Code_FR" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[DOIPrefix]"
+                      dataType="wstr"
+                      length="8"
+                      name="DOIPrefix" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_SRC OCDE_STG_IGO_DM_SA"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
@@ -1598,6 +1843,11 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
               name="Lookup No Match Output"
               startId="Package\DFT INSERT INTO DWH_IGO_DM\LKP DWH_IGO_DM.Outputs[Lookup No Match Output]" />
             <path
+              refId="Package\DFT INSERT INTO DWH_IGO_DM.Paths[OLE DB Command Output]"
+              endId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1.Inputs[OLE DB Destination Input]"
+              name="OLE DB Command Output"
+              startId="Package\DFT INSERT INTO DWH_IGO_DM\OLE_CMD Mise à jour.Outputs[OLE DB Command Output]" />
+            <path
               refId="Package\DFT INSERT INTO DWH_IGO_DM.Paths[Sortie de colonne dérivée]"
               endId="Package\DFT INSERT INTO DWH_IGO_DM\DC Conversioon type de données.Inputs[Entrée de conversion de données]"
               name="Sortie de colonne dérivée"
@@ -1657,7 +1907,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
         <NodeLayout
           Size="181.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_IGO_DM\OLE_CMD Mise à jour"
-          TopLeft="379.624998649581,609.466662304203" />
+          TopLeft="469.208330648019,533.633330326875" />
         <NodeLayout
           Size="242.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_IGO_DM\OLE_SRC OCDE_STG_IGO_DM_SA"
@@ -1669,32 +1919,44 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
         <NodeLayout
           Size="158.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_IGO_DM\CSPL Mise à jour"
-          TopLeft="391.124998649581,405.466662304203" />
+          TopLeft="470.291664136572,405.466662304203" />
         <NodeLayout
           Size="196.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM"
           TopLeft="55.1666664183136,535.649996230305" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_IGO_DM.Paths[Update]"
-          TopLeft="470.374998649581,448.13332897087">
+          TopLeft="549.624997469906,448.13332897087">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,161.333333333333"
+              EndConnector="10.2499998447795,85.5000013560058"
               Start="0,0"
-              End="0,153.833333333333">
+              End="10.2499998447795,78.0000013560058">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,153.833333333333" />
+                    End="0,38.7500006780029" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.7500006780029"
+                    Point2="0,42.7500006780029"
+                    Point3="4,42.7500006780029" />
+                  <mssgle:LineSegment
+                    End="6.2499998447795,42.7500006780029" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.2499998447795,42.7500006780029"
+                    Point2="10.2499998447795,42.7500006780029"
+                    Point3="10.2499998447795,46.7500006780029" />
+                  <mssgle:LineSegment
+                    End="10.2499998447795,78.0000013560058" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-16.28029296875,71.1119791666667,32.5605859375,11.609375"
+              BoundingBox="-11.1552930463603,47.7500006780029,32.5605859375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1802,26 +2064,64 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_IGO_DM.Paths[Lookup Match Output]"
-          TopLeft="468.979165689294,346.077774513032">
+          TopLeft="467.499999395673,346.077774513032">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.3888877911709"
+              EndConnector="82.1249980742324,59.3888877911713"
               Start="0,0"
-              End="0,51.8888877911709">
+              End="82.1249980742324,51.8888877911713">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.8888877911709" />
+                    End="0,20.0865148626732" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.0865148626732"
+                    Point2="0,24.0865148626732"
+                    Point3="4,24.0865148626732" />
+                  <mssgle:LineSegment
+                    End="78.1249980742324,24.0865148626732" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78.1249980742324,24.0865148626732"
+                    Point2="82.1249980742324,24.0865148626732"
+                    Point3="82.1249980742324,28.0865148626732" />
+                  <mssgle:LineSegment
+                    End="82.1249980742324,51.8888877911713" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,20.1397563955855,96.3827734375,11.609375"
+              BoundingBox="-7.12888768163381,29.0865148626732,96.3827734375,11.609375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="206.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_IGO_DM\OLE_DST DWH_IGO_DM 1"
+          TopLeft="455.166660457849,631.8166630132" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_IGO_DM.Paths[OLE DB Command Output]"
+          TopLeft="559.187495552934,576.299996993542">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.5166660196584"
+              Start="0,0"
+              End="0,48.0166660196584">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.0166660196584" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1833,7 +2133,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
