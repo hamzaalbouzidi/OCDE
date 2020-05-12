@@ -19,5 +19,6 @@
 	[Password] [nvarchar](50) NULL,
 	[admin] [nvarchar](2) NULL,
 	[parent] [nvarchar](max) NULL,
-	[subordinate(s)] [nvarchar](max) NULL
+	[subordinate(s)] [nvarchar](max) NULL, 
+    [createdon] NVARCHAR(10) NULL
 )
