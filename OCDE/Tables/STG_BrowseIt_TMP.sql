@@ -6,5 +6,5 @@ CREATE TABLE [stg].[STG_BrowseIt_TMP](
 	[Item] [nvarchar](100) NULL,
 	[Type] [nvarchar](2000) NULL,
 	[File_Date] [date] NOT NULL,
-	[Date_Time] DATETIME NOT NULL DEFAULT GETUTCDATE()
+	[Import_Date] DATETIME NOT NULL DEFAULT GETUTCDATE()
 )

@@ -21,5 +21,5 @@
 	[metadata_url] [nvarchar](2000) NULL,
 	[sum_time_generation] [real] NULL,
     [File_Date] [date] NOT NULL,
-	[Date_Time] DATETIME NOT NULL DEFAULT GETUTCDATE() 
+	[Import_Date] DATETIME NOT NULL DEFAULT GETUTCDATE() 
 )
