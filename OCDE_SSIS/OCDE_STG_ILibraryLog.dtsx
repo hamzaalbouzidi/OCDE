@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_ILibraryLog"
   DTS:PackageType="5"
-  DTS:VersionBuild="51"
-  DTS:VersionGUID="{98433354-A4E0-49BD-A5F0-D0F09526A163}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{33ED0D3A-50F9-44BD-97B7-6CFABC917D42}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1166,6 +1166,13 @@
                       cachedDataType="nText"
                       cachedName="Source"
                       lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Source]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\Conversion de données.Inputs[Entrée de conversion de données].Columns[Download_Date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Download_Date"
+                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Download_Date]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1255,6 +1262,26 @@
                           dataType="System.Int32"
                           description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
                           name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Source]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Download_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Download_Date]"
+                      name="Copie de Download_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Download_Date]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
@@ -1374,12 +1401,6 @@
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].ExternalColumns[IdentityID]"
                       lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[IdentityID]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].Columns[Download_Date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Download_Date"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Download_Date]" />
-                    <inputColumn
                       refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].Columns[Session]"
                       cachedDataType="wstr"
                       cachedLength="100"
@@ -1435,6 +1456,12 @@
                       cachedName="Copie de Source"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].ExternalColumns[Source]"
                       lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Source]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].Columns[Copie de Download_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copie de Download_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Download_Date]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1601,10 +1628,12 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
-                      dataType="dbTimeStamp"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
+                      length="30"
                       lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
                       name="Download_Date"
                       truncationRowDisposition="FailComponent" />
@@ -1700,7 +1729,9 @@
                       name="IdentityID" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
-                      dataType="dbTimeStamp"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
                       name="Download_Date" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[Session]"
@@ -1760,7 +1791,9 @@
                       name="IdentityID" />
                     <outputColumn
                       refId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
-                      dataType="dbTimeStamp"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
                       lineageId="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
                       name="Download_Date" />
                     <outputColumn
@@ -1946,29 +1979,51 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="280,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_ILibraryLog_TMP2"
-          TopLeft="120.499998286367,367.911104630695" />
-        <NodeLayout
-          Size="264,42.6666666666667"
-          Id="Package\TSQL Truncate STG_ILibraryLog_TMP2"
-          TopLeft="115.083331700415,102.533333434065" />
+          Size="282.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA"
+          TopLeft="118.83333671093,530.844435050554" />
         <NodeLayout
           Size="264,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_iLibraryLog_SA"
           TopLeft="126.125003268942,452.411103119718" />
         <NodeLayout
-          Size="248,42.6666666666667"
-          Id="Package\TSQL Truncate STG_iLibraryLog_SA"
-          TopLeft="123.138892202328,171.866665527622" />
-        <NodeLayout
-          Size="282.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA"
-          TopLeft="118.83333671093,530.844435050554" />
+          Size="280,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_ILibraryLog_TMP2"
+          TopLeft="120.499998286367,367.911104630695" />
         <NodeLayout
           Size="265.333333333334,42.6666666666667"
           Id="Package\TSQL Truncate STG_iLibraryLog_FT_SA"
           TopLeft="122.097225551184,254.633330714305" />
+        <NodeLayout
+          Size="248,42.6666666666667"
+          Id="Package\TSQL Truncate STG_iLibraryLog_SA"
+          TopLeft="123.138892202328,171.866665527622" />
+        <NodeLayout
+          Size="264,42.6666666666667"
+          Id="Package\TSQL Truncate STG_ILibraryLog_TMP2"
+          TopLeft="115.083331700415,102.533333434065" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="247.111111951372,145.200000100732">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.66666542689"
+              Start="0,0"
+              End="0,19.16666542689">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.16666542689" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 1]"
           TopLeft="250.951392210089,214.533332194288">
@@ -2005,28 +2060,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,28.2666652641691" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="247.111111951372,145.200000100732">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26.66666542689"
-              Start="0,0"
-              End="0,19.16666542689">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.16666542689" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2083,36 +2116,100 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_ILibraryLog_TMP2">
+    design-time-name="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="321.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP"
-          TopLeft="24.9999996274708,27.7333328374228" />
+          Size="312,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_V_STG_view_iLibraryLog_FT_SA"
+          TopLeft="60.8333324268458,37.2666660002868" />
         <NodeLayout
-          Size="237.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2"
-          TopLeft="62.0833324082192,206.899997063279" />
-        <NodeLayout
-          Size="189.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\Conversion de données"
-          TopLeft="90.4166653193534,116.533331690629" />
+          Size="240,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA"
+          TopLeft="89.5833319984372,130.766664721767" />
         <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_ILibraryLog_TMP2.Paths[Sortie de source OLE DB]"
-          TopLeft="185.374999140079,70.3999995040895">
+          Id="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA.Paths[Sortie de source OLE DB]"
+          TopLeft="213.208332212641,79.9333326669535">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.1333321865399"
+              EndConnector="0,50.8333320548135"
               Start="0,0"
-              End="0,38.6333321865399">
+              End="0,43.3333320548135">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.6333321865399" />
+                    End="0,43.3333320548135" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO STG_iLibraryLog_SA">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="328,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP2"
+          TopLeft="27.9166662506756,14.7333330698809" />
+        <NodeLayout
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour"
+          TopLeft="105.416665095836,108.633333620032" />
+        <NodeLayout
+          Size="222.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA"
+          TopLeft="78.7499988265331,205.29999672234" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA.Paths[Insert]"
+          TopLeft="187.416665294518,151.300000286698">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.9999964356423"
+              Start="0,0"
+              End="0,46.4999964356423">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.4999964356423" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-13.75298828125,18.5488263428211,27.5059765625,9.40234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA.Paths[Sortie de source OLE DB]"
+          TopLeft="188.333332339922,57.3999997365476">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.233333883484"
+              Start="0,0"
+              End="0,43.733333883484">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.733333883484" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2121,6 +2218,39 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO STG_ILibraryLog_TMP2">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="237.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_DST STG_ILibraryLog_TMP2"
+          TopLeft="62.0833324082192,206.899997063279" />
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\Conversion de données"
+          TopLeft="90.4166653193534,116.533331690629" />
+        <NodeLayout
+          Size="321.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_ILibraryLog_TMP2\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP"
+          TopLeft="24.9999996274708,27.7333328374228" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO STG_ILibraryLog_TMP2.Paths[Sortie de conversion de données]"
           TopLeft="182.916665530453,159.199998357296">
@@ -2135,6 +2265,28 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,40.199998705983" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_ILibraryLog_TMP2.Paths[Sortie de source OLE DB]"
+          TopLeft="185.374999140079,70.3999995040895">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.1333321865399"
+              Start="0,0"
+              End="0,38.6333321865399">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.6333321865399" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2172,113 +2324,5 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_iLibraryLog_SA">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="328,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_V_STG_view_ILibraryLog_SA_TMP2"
-          TopLeft="27.9166662506756,14.7333330698809" />
-        <NodeLayout
-          Size="158.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour"
-          TopLeft="105.416665095836,108.633333620032" />
-        <NodeLayout
-          Size="222.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA"
-          TopLeft="78.7499988265331,205.29999672234" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA.Paths[Sortie de source OLE DB]"
-          TopLeft="188.333332339922,57.3999997365476">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51.233333883484"
-              Start="0,0"
-              End="0,43.733333883484">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.733333883484" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA.Paths[Insert]"
-          TopLeft="187.416665294518,151.300000286698">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,53.9999964356423"
-              Start="0,0"
-              End="0,46.4999964356423">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.4999964356423" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-13.75298828125,18.5488263428211,27.5059765625,9.40234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="240,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA"
-          TopLeft="89.5833319984372,130.766664721767" />
-        <NodeLayout
-          Size="312,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_V_STG_view_iLibraryLog_FT_SA"
-          TopLeft="60.8333324268458,37.2666660002868" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA.Paths[Sortie de source OLE DB]"
-          TopLeft="213.208332212641,79.9333326669535">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50.8333320548135"
-              Start="0,0"
-              End="0,43.3333320548135">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.3333320548135" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

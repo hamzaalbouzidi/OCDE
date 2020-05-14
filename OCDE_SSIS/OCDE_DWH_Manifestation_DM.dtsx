@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_Manifestation_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="47"
-  DTS:VersionGUID="{BCD069F8-9266-4ECD-AB1D-7D6175BAEB68}">
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{C22068AC-C08A-4E5A-AE86-5DF9CD388978}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -476,6 +476,292 @@
                       refId="Package\DFT INSERT INTO DWH_Manifestation_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="LKP DWH_Expression_DM"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT Expression_ID
+FROM   dwh.Expression_DM</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT Expression_ID
+FROM   dwh.Expression_DM) [refTable]
+where [refTable].[Expression_ID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Expression_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de lignage se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_SRC OCDE_STG_Manifestation_DM_SA.Outputs[Sortie de source OLE DB].Columns[Expression_ID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Connections[OleDbConnection]"
+                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Inputs[Entrée de recherche].Columns[Expression_ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression_ID"
+                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_SRC OCDE_STG_Manifestation_DM_SA.Outputs[Sortie de source OLE DB].Columns[Expression_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Expression_ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="LKP DWH_Format_DM"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT Format_ID
+FROM   dwh.Format_DM</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT Format_ID
+FROM   dwh.Format_DM) [refTable]
+where [refTable].[Format_ID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Format_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de lignage se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_SRC OCDE_STG_Manifestation_DM_SA.Outputs[Sortie de source OLE DB].Columns[Format_ID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Connections[OleDbConnection]"
+                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Inputs[Entrée de recherche].Columns[Format_ID]"
+                      cachedDataType="i4"
+                      cachedName="Format_ID"
+                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_SRC OCDE_STG_Manifestation_DM_SA.Outputs[Sortie de source OLE DB].Columns[Format_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Format_ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1192,7 +1478,7 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
                       cachedDataType="i4"
                       cachedName="Expression_ID"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[Expression_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_SRC OCDE_STG_Manifestation_DM_SA.Outputs[Sortie de source OLE DB].Columns[Expression_ID]" />
+                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Manifestation_DM.Outputs[Lookup Match Output].Columns[Expression_ID]" />
                     <inputColumn
                       refId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM 1.Inputs[OLE DB Destination Input].Columns[Format_ID]"
                       cachedDataType="i4"
@@ -1557,9 +1843,19 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
               startId="Package\DFT INSERT INTO DWH_Manifestation_DM\DC_ Variables.Outputs[Sortie de colonne dérivée]" />
             <path
               refId="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de conversion de données]"
-              endId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Manifestation_DM.Inputs[Lookup Input]"
+              endId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Inputs[Entrée de recherche]"
               name="Sortie de conversion de données"
               startId="Package\DFT INSERT INTO DWH_Manifestation_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de recherche avec correspondance1]"
+              endId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Manifestation_DM.Inputs[Lookup Input]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Outputs[Sortie de recherche avec correspondance]" />
             <path
               refId="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de source OLE DB]"
               endId="Package\DFT INSERT INTO DWH_Manifestation_DM\DC_ Variables.Inputs[Entrée de colonne dérivée]"
@@ -2959,38 +3255,42 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
     design-time-name="Package\DFT INSERT INTO DWH_Manifestation_DM">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="145.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM\DC_ Variables"
-          TopLeft="398.083327975124,105.26667425255" />
+          TopLeft="399.472216843317,86.488896810545" />
         <NodeLayout
           Size="236,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM\DC Conversioon type de données"
-          TopLeft="348.749994803219,235.733329118093" />
+          TopLeft="350.138883671412,170.733330280384" />
         <NodeLayout
           Size="181.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_CMD Mise à jour"
-          TopLeft="413.652775920306,543.472220136557" />
+          TopLeft="410.87499818392,640.805552126799" />
         <NodeLayout
           Size="214.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Manifestation_DM"
-          TopLeft="366.999999217688,316.699996497631" />
+          TopLeft="364.222221481302,414.033328487873" />
         <NodeLayout
           Size="286.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_SRC OCDE_STG_Manifestation_DM_SA"
           TopLeft="326.374996606882,11.5999998760224" />
         <NodeLayout
           Size="241.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM 1"
+          TopLeft="385.722217048207,736.083328212798" />
+        <NodeLayout
+          Size="241.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM"
-          TopLeft="48.9166665114458,550.166662637393" />
+          TopLeft="46.1388887750601,647.499994627635" />
         <NodeLayout
           Size="158.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM\CSPL Mise à jour"
-          TopLeft="427.236109222595,420.722218683693" />
+          TopLeft="424.458331486209,518.055550673935" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Update]"
-          TopLeft="505.44444257145,463.38888535036">
+          TopLeft="502.666664835064,560.722217340602">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3014,40 +3314,18 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de source OLE DB]"
-          TopLeft="470.229162291003,54.2666665426891">
+          TopLeft="470.923606725099,54.2666665426891">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,51.0000077098605"
+              EndConnector="0,32.222230267856"
               Start="0,0"
-              End="0,43.5000077098605">
+              End="0,24.722230267856">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43.5000077098605" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de conversion de données]"
-          TopLeft="470.54166367712,278.399995784759">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.3000007128713"
-              Start="0,0"
-              End="0,30.8000007128713">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.8000007128713" />
+                    End="0,24.722230267856" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3058,18 +3336,40 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de colonne dérivée]"
-          TopLeft="468.749994722504,147.933340919216">
+          TopLeft="470.138883590698,129.155563477212">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,87.7999881988763"
+              EndConnector="0,41.5777668031718"
               Start="0,0"
-              End="0,80.2999881988763">
+              End="0,34.0777668031718">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,80.2999881988763" />
+                    End="0,34.0777668031718" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[OLE DB Command Output]"
+          TopLeft="503.96527428273,683.472218793466">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.611109419332"
+              Start="0,0"
+              End="0,45.111109419332">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.111109419332" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3080,7 +3380,7 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Lookup No Match Output]"
-          TopLeft="439.888888106577,359.366663164298">
+          TopLeft="437.111110370191,456.69999515454">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3116,7 +3416,7 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Lookup Match Output]"
-          TopLeft="507.673609775697,359.366663164298">
+          TopLeft="504.895832039311,456.69999515454">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3139,29 +3439,81 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="241.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM 1"
-          TopLeft="388.499994784593,638.749996222556" />
+          Size="201.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM"
+          TopLeft="365.833327881992,251.977774662839" />
+        <NodeLayout
+          Size="185.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM"
+          TopLeft="379.999994337559,339.222217547231" />
         <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[OLE DB Command Output]"
-          TopLeft="506.743052019116,586.138886803224">
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de conversion de données]"
+          TopLeft="467.319439110035,213.39999694705">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,52.611109419332"
+              EndConnector="0,38.5777777157889"
               Start="0,0"
-              End="0,45.111109419332">
+              End="0,31.0777777157889">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.111109419332" />
+                    End="0,31.0777777157889" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="469.583327776442,294.644441329506">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.5777762177256"
+              Start="0,0"
+              End="0,37.0777762177256">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.0777762177256" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.67701171875,12.7342006088628,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="472.111107909431,381.888884213898">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.1444442739751"
+              Start="0,0"
+              End="0,24.6444442739751">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.6444442739751" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.67701171875,6.51753463698753,183.3540234375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3412,6 +3764,52 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

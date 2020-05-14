@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">LAPTOP-7LCUDRHF</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2LXo1CCoNU2BYlY+XMwDOQAAAAACAAAAAAAQZgAAAAEAACAAAABhQ/y4qJr473iR0nVbcz77t5wqPX9brBkmayf+ZNiaZQAAAAAOgAAAAAIAACAAAABexusGUCFnNPgb3QZYWLKEN+DxIzC61ihim2/ddDFnWZAAAACIyRXErilRaqpIA8DTrubFgF3mEmEIZeQZ61YpTsFXAM7yukEQCOksOuBiATGkxebPRtrs6xzYLKfA1HWA0yF7UrfgV4Zf4cw+mECoAhzJIeYUn7ZbWKOz4U7AII7DljBzA2NsgPzVO+qp/4eq0IlKyjcIu7nMQuQLv3bi8yNNPGfxET+/UIX/gCsfRFBmzOpAAAAADxSGhFXTgOQ7LFvxLQTjKyeIMtyMStqSH8AoV+g3znKFleWT+lh7eHwi4pOPtpf7iFLZV7grx0+TeWcd8jX+xw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2LXo1CCoNU2BYlY+XMwDOQAAAAACAAAAAAAQZgAAAAEAACAAAAA4YHJXdIpjU8J2r6C72rZ2NrDMWR/X/suFjehbf9ViSAAAAAAOgAAAAAIAACAAAADzZ4k14t+yBjEyWaHb8cay1Yj4QEu7886FfYL158mPppAAAADFTr/2+ua/Xzw7afC7bLTAdloYPN3XQ/eAvymTL6I+iekil01J2kJFlL6MTschak9wI26O+riL2/0V3DOG0rlLqjz2zW1Hg6fVDjjpoKl+DqzkjWQvGwQ0lzlI4Mo9gfrRo8PGdUKiPf08V2YV3ZGdJPmVlrlrGSBTSkCZciUY5O1C1n03aUpW7e4qQfLX57xAAAAAIOL9eaiWGgjiVw3vxx6DlPX+Q98qajBJZkPeUsj6PIl3AoB2pgev+F9O4BDgmoScmpUp2InC2aMw56DT5BxDpQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -54,8 +54,6 @@
           <SSIS:Package SSIS:Name="OCDE_DWH_Source_DM.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="OCDE_DWH_UserAgent_DM.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="OCDE_DWH_IPAddress_DM.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="OCDE_DWH_ILibrary_Source_DM.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="OCDE_DWH_ILibrary_UserAgent_DM.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="OCDE_STG_Source_DM_SA.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="OCDE_STG_UserAgent_DM_SA.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="OCDE_DWH_CounterMonthly_FT.dtsx" SSIS:EntryPoint="1" />
@@ -78,11 +76,14 @@
           <SSIS:Package SSIS:Name="OCDE_STG_Registration_DM_SA.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="OCDE_DWH_Registration_DM.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="OCDE_STG_IPAddress_DM_SA.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="OCDE_DWH_ILibrary_IPAddress_DM.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="OCDE_DWH_ILibrary_Session_DM.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="OCDE_STG_Session_DM_SA.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="OCDE_DWH_ILibraryLog_FT.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="OCDE_STG_ILibraryLog.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="OCDE_DWH_Session_DM.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="OCDE_DWH_CCMZone_DM.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="OCDE_STG_Update_County_DM.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="OCDE_STG_Metadata_IPCountry.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="OCDE_STG_Send_Mail.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="OCDE_DWH.conmgr" />
@@ -538,10 +539,10 @@
                 <SSIS:Property SSIS:Name="Name">OCDE_DWH_Expression_DM</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">55</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">58</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{D50D4000-D054-4FDA-A1DD-EBCD983D8EB9}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{AB764CC8-CA95-4DDF-8940-B8300CA87B64}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -572,10 +573,10 @@
                 <SSIS:Property SSIS:Name="Name">OCDE_DWH_Location_DM</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">39</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">44</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{846E942B-1F5A-438F-9F58-95E65663BCA3}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{0AB43952-8D22-4C64-BDF8-21F30F18F60F}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -623,10 +624,10 @@
                 <SSIS:Property SSIS:Name="Name">OCDE_DWH_Manifestation_DM</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">46</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">48</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{46EEB823-8415-4C18-AE1D-EB88C7085A7C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{C22068AC-C08A-4E5A-AE86-5DF9CD388978}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -657,10 +658,10 @@
                 <SSIS:Property SSIS:Name="Name">OCDE_DWH_FreePreviewDaily_FT</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">29</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">30</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{AD8CF4C9-1FD9-456A-A4CA-4BB953FF7870}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{300F4910-9CE4-4E0A-8A6D-1D27C52BE9D1}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -674,10 +675,10 @@
                 <SSIS:Property SSIS:Name="Name">OCDE_STG_StatLink_SA</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">56</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">63</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{DE758ACB-AD01-4058-95F9-F951DD68A9BB}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{EC92E346-21F8-4A83-B82C-1F1A1D9D1831}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -691,10 +692,10 @@
                 <SSIS:Property SSIS:Name="Name">OCDE_DWH_Source_DM</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">35</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">36</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{43B60868-60FF-4E03-9F3A-C725110EE961}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{46A2147D-877C-4B92-8F6A-F12E3984F183}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -708,10 +709,10 @@
                 <SSIS:Property SSIS:Name="Name">OCDE_DWH_UserAgent_DM</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">36</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">37</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{670014AF-FED4-48F9-937C-00810A4E9B51}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{B4997509-59AB-4662-85D8-8F7AE5C80EC2}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -725,44 +726,10 @@
                 <SSIS:Property SSIS:Name="Name">OCDE_DWH_IPAddress_DM</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">38</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">40</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{487D4A58-2F64-4EB3-B27A-F2006F64CB52}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="OCDE_DWH_ILibrary_Source_DM.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{4DE228C4-65D8-49D5-9F4B-C6180378A8E1}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">OCDE_DWH_ILibrary_Source_DM</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">39</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{746DED16-89F8-4E00-86E1-51F74F85372B}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="OCDE_DWH_ILibrary_UserAgent_DM.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{81D3A21B-0EDC-4F78-A1A5-DEB86C3892B7}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">OCDE_DWH_ILibrary_UserAgent_DM</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">41</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{DE9D9F89-4315-4EB8-AF77-F9B4D8C33E22}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{56E83023-4C7E-4FB3-89B8-2F5304CD3811}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -861,10 +828,10 @@
                 <SSIS:Property SSIS:Name="Name">OCDE_STG_BrowseItMonthly</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">54</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">62</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{AA33CDF3-C5B2-407C-A5B2-3B4E83333552}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{48BDD9ED-AE74-4813-8C30-4F3E44B271E7}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -878,10 +845,10 @@
                 <SSIS:Property SSIS:Name="Name">OCDE_STG_CounterMonthly</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">53</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">63</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{FB46CF90-4E40-4EAE-B54E-BF2CDBEE974E}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{552FBCD8-30FB-4B73-8F87-4C3DDC21AB5A}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -912,10 +879,10 @@
                 <SSIS:Property SSIS:Name="Name">OCDE_STG_FreePreviewDaily</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">50</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">54</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{106BBDA8-4EDD-4893-9584-D45BABFFF8B3}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{01684A09-A337-427B-8412-7C0797D9C49E}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -929,10 +896,10 @@
                 <SSIS:Property SSIS:Name="Name">OCDE_STG_GoogleBooksMonthly</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">51</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">53</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{702CAA04-36D9-4D21-8C7A-05F643DCE900}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{93D6EBDF-B5B6-4EF2-9195-83C4B87BD4B4}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1031,10 +998,10 @@
                 <SSIS:Property SSIS:Name="Name">OCDE_DWH_CustomerType_DM</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">28</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">29</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{9EA2B449-A350-4E4A-BB69-087376CA24E6}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{046BD21B-9CAA-4FF4-ADD2-489ADC6470BB}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1116,10 +1083,10 @@
                 <SSIS:Property SSIS:Name="Name">OCDE_DWH_Registration_DM</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">30</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">34</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{6543A65E-3181-48C5-93C6-A50882AA8F4E}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{8F64EE9A-CCF6-4C37-AF97-3780B84C7D97}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1137,40 +1104,6 @@
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionGUID">{7061F2EB-0B0D-45F7-9CCE-7F3DD098A5BB}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="OCDE_DWH_ILibrary_IPAddress_DM.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{654370C1-6769-420E-853B-C710850B050D}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">OCDE_DWH_ILibrary_IPAddress_DM</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">50</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{F3D0C5DC-DBAD-45DD-8ED7-F450DEEAEF1A}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="OCDE_DWH_ILibrary_Session_DM.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{3428851C-0A01-4846-B9CA-2657967B454F}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">OCDE_DWH_ILibrary_Session_DM</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">48</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{FCBAD225-09DD-4248-98B0-69928843601C}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1201,10 +1134,10 @@
                 <SSIS:Property SSIS:Name="Name">OCDE_DWH_ILibraryLog_FT</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">52</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">53</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{E64B6FA4-191E-44F4-B363-5C8195FB6AAB}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D3646B8D-90F2-4957-A18E-614D4E614183}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1218,16 +1151,177 @@
                 <SSIS:Property SSIS:Name="Name">OCDE_STG_ILibraryLog</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">51</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">54</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{98433354-A4E0-49BD-A5F0-D0F09526A163}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{33ED0D3A-50F9-44BD-97B7-6CFABC917D42}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="OCDE_DWH_Session_DM.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{FBE552F2-4D2D-4A27-937A-40EA7F6B38A3}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">OCDE_DWH_Session_DM</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">49</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{57F7ED51-A19D-4475-989E-A7EE0EE815B4}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="OCDE_DWH_CCMZone_DM.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{63D01BBD-AE08-4EDF-A73B-39B40EFD8B96}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">OCDE_DWH_CCMZone_DM</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">37</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{0BA11980-6842-42CD-B541-94B78B60F09D}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="OCDE_STG_Update_County_DM.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{D701949D-83E3-461D-9BDF-33A24442592B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">OCDE_STG_Update_County_DM</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">48</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{A996FAE0-747F-487C-8A51-A52D102A851A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="OCDE_STG_Metadata_IPCountry.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{32AE62DB-094E-40D3-BE85-893ADAB2F0DE}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">OCDE_STG_Metadata_IPCountry</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">48</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{E11D1CB1-2451-43A8-90A8-A2F274FD558E}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="OCDE_STG_Send_Mail.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{5C77BEBE-6ED4-49E8-B580-71CFBE7C2317}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">OCDE_STG_Send_Mail</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">55</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{025BB927-B3A0-46F7-95EC-8BD5EB0E471B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="CM.Office_Ocde.ConnectionString">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">SmtpServer=smtp.office365.com;UseWindowsAuthentication=False;EnableSsl=True;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.Office_Ocde.EnableSsl">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">true</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.Office_Ocde.SmtpServer">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">smtp.office365.com</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.Office_Ocde.TargetServerVersion">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">140</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.Office_Ocde.UseWindowsAuthentication">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
             </SSIS:PackageMetaData>
           </SSIS:PackageInfo>
         </SSIS:DeploymentInfo>

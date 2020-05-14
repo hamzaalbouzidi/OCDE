@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_CounterMonthly"
   DTS:PackageType="5"
-  DTS:VersionBuild="53"
-  DTS:VersionGUID="{FB46CF90-4E40-4EAE-B54E-BF2CDBEE974E}">
+  DTS:VersionBuild="63"
+  DTS:VersionGUID="{552FBCD8-30FB-4B73-8F87-4C3DDC21AB5A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -383,6 +383,11 @@
                       cachedLength="4000"
                       cachedName="DOI"
                       lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[DOI]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Inputs[Entrée de conversion de données].Columns[Downloads]"
+                      cachedDataType="r8"
+                      cachedName="Downloads"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Downloads]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -436,6 +441,26 @@
                           name="FastParse">false</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Downloads]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Downloads]"
+                      name="Copie de Downloads"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Downloads]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -456,6 +481,138 @@
                       refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Inputs[Entrée de conversion de données].Columns[Copie de DOI]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copie de DOI"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Copie de DOI]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Inputs[Entrée de conversion de données].Columns[Copie de IdentityID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copie de IdentityID"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Copie de IdentityID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Inputs[Entrée de conversion de données].Columns[Downloads]"
+                      cachedDataType="r8"
+                      cachedName="Downloads"
+                      cachedSortKeyPosition="6"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Downloads]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données].Columns[Copie de Copie de DOI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="60"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données].Columns[Copie de Copie de DOI]"
+                      name="Copie de Copie de DOI"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Copie de DOI]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données].Columns[Copie de Copie de IdentityID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données].Columns[Copie de Copie de IdentityID]"
+                      name="Copie de Copie de IdentityID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Copie de IdentityID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données].Columns[Copie de Downloads]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données].Columns[Copie de Downloads]"
+                      name="Copie de Downloads"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Downloads]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -571,10 +728,10 @@
                   name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\CSPL Mise à jour 1.Inputs[Conditional Split Input].Columns[Downloads]"
-                      cachedDataType="r8"
-                      cachedName="Downloads"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Downloads]" />
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\CSPL Mise à jour 1.Inputs[Conditional Split Input].Columns[DownloadDate]"
+                      cachedDataType="dbDate"
+                      cachedName="DownloadDate"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[DownloadDate]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -594,13 +751,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de lignage à la place des noms de colonnes."
-                      name="Expression">[ISNULL](#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Downloads]})</property>
+                      name="Expression">[ISNULL](#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[DownloadDate]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
                       expressionType="Notify"
-                      name="FriendlyExpression">ISNULL(Downloads)</property>
+                      name="FriendlyExpression">ISNULL(DownloadDate)</property>
                     <property
                       dataType="System.Int32"
                       description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
@@ -641,6 +798,259 @@
                       lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\CSPL Mise à jour 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Jointure de fusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Combine deux flux de données triés en un seul à l'aide de la jointure FULL, LEFT ou INNER. Nous recommandons cette transformation lorsque les flux de données peuvent être triés au niveau de leurs sources."
+              name="Jointure de fusion"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de jointure à effectuer."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre de colonnes dans la clé de tri."
+                  name="NumKeyColumns">6</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs NULL sont traitées comme valeurs égales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indique le nombre maximal de mémoires tampons demandées par entrée avant blocage."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée gauche de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[DownloadDate]"
+                      cachedDataType="dbDate"
+                      cachedName="DownloadDate"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[DownloadDate]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[Downloads]"
+                      cachedDataType="r8"
+                      cachedName="Downloads"
+                      cachedSortKeyPosition="6"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Downloads]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[Registration_ID]"
+                      cachedDataType="i4"
+                      cachedName="Registration_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Registration_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[Expression_ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression_ID"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Expression_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[Copie de IdentityID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copie de IdentityID"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Copie de IdentityID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[Copie de DOI]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copie de DOI"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Copie de DOI]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée droite de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée droite de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[Expression_ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression_ID"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[Expression_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[Downloads]"
+                      cachedDataType="r8"
+                      cachedName="Downloads"
+                      cachedSortKeyPosition="6"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[Downloads]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[DownloadDate]"
+                      cachedDataType="dbDate"
+                      cachedName="DownloadDate"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[DownloadDate]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[DOI]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="DOI"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[DOI]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[IdentityID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IdentityID"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[IdentityID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[Registration_ID]"
+                      cachedDataType="i4"
+                      cachedName="Registration_ID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[Registration_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[File_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="File_Date"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[File_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[Import_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Import_Date"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[Import_Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion]"
+                  isSorted="true"
+                  name="Sortie de jointure de fusion">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Registration_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Registration_ID]"
+                      name="Registration_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[Registration_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Expression_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Expression_ID]"
+                      name="Expression_ID"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[Expression_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Copie de IdentityID]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Copie de IdentityID]"
+                      name="Copie de IdentityID"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[Copie de IdentityID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Copie de DOI]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Copie de DOI]"
+                      name="Copie de DOI"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[Copie de DOI]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[DownloadDate]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[DownloadDate]"
+                      name="DownloadDate"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[DownloadDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Downloads]"
+                      dataType="r8"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Downloads]"
+                      name="Downloads"
+                      sortKeyPosition="6">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[Downloads]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[File_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[File_Date]"
+                      name="File_Date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[File_Date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Import_Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Import_Date]"
+                      name="Import_Date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[Import_Date]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -719,12 +1129,6 @@
                   name="Entrée de destination OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA.Inputs[Entrée de destination OLE DB].Columns[Downloads]"
-                      cachedDataType="r8"
-                      cachedName="Downloads"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Downloads]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Downloads]" />
-                    <inputColumn
                       refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA.Inputs[Entrée de destination OLE DB].Columns[Registration_ID]"
                       cachedDataType="i4"
                       cachedName="Registration_ID"
@@ -756,6 +1160,12 @@
                       cachedName="Copie de DOI"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
                       lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de DOI]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA.Inputs[Entrée de destination OLE DB].Columns[Copie de Downloads]"
+                      cachedDataType="i4"
+                      cachedName="Copie de Downloads"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Downloads]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Downloads]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -886,55 +1296,58 @@
                   name="Entrée de destination OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Downloads]"
-                      cachedDataType="r8"
-                      cachedName="Downloads"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Downloads]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Downloads]" />
-                    <inputColumn
                       refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[File_Date]"
                       cachedDataType="dbDate"
                       cachedName="File_Date"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[File_Date]" />
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[File_Date]" />
                     <inputColumn
                       refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Import_Date]"
                       cachedDataType="dbTimeStamp"
                       cachedName="Import_Date"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Import_Date]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[DownloadDate]"
-                      cachedDataType="dbDate"
-                      cachedName="DownloadDate"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[DownloadDate]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Copie de IdentityID]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="Copie de IdentityID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[IdentityID]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Copie de IdentityID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Copie de DOI]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="Copie de DOI"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Copie de DOI]" />
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Import_Date]" />
                     <inputColumn
                       refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Expression_ID]"
                       cachedDataType="i4"
                       cachedName="Expression_ID"
+                      cachedSortKeyPosition="2"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Expression_ID]" />
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Expression_ID]" />
                     <inputColumn
                       refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Registration_ID]"
                       cachedDataType="i4"
                       cachedName="Registration_ID"
+                      cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Registration_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Registration_ID]" />
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Registration_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Copie de Copie de DOI]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="Copie de Copie de DOI"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données].Columns[Copie de Copie de DOI]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Copie de Copie de IdentityID]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Copie de Copie de IdentityID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[IdentityID]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données].Columns[Copie de Copie de IdentityID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[DownloadDate]"
+                      cachedDataType="dbDate"
+                      cachedName="DownloadDate"
+                      cachedSortKeyPosition="5"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[DownloadDate]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Copie de Downloads]"
+                      cachedDataType="i4"
+                      cachedName="Copie de Downloads"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Downloads]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données].Columns[Copie de Downloads]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1025,8 +1438,12 @@
                   dataType="System.String"
                   description="Commande SQL à exécuter."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT top 1 File_Date, Import_Date
-FROM   stg.STG_Counter_TMP</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT *
+  FROM [STG_UsageStat].[stg].[view_CounterMonthly_SA_TMP]
+ LEFT OUTER JOIN 
+  (SELECT top 1 File_Date, Import_Date
+FROM   stg.STG_Counter_TMP ) t
+on 1=1</property>
                 <property
                   dataType="System.String"
                   description="Variable contenant la commande SQL à exécuter."
@@ -1080,6 +1497,62 @@ FROM   stg.STG_Counter_TMP</property>
                       lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[Import_Date]"
                       name="Import_Date"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[Expression_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[Expression_ID]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[Expression_ID]"
+                      name="Expression_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[Downloads]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[Downloads]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[Downloads]"
+                      name="Downloads"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[DownloadDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[DownloadDate]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[DownloadDate]"
+                      name="DownloadDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[DOI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
+                      length="4000"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[DOI]"
+                      name="DOI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[IdentityID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[IdentityID]"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[IdentityID]"
+                      name="IdentityID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[Registration_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[Registration_ID]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[Registration_ID]"
+                      name="Registration_ID"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1091,6 +1564,32 @@ FROM   stg.STG_Counter_TMP</property>
                       refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[Import_Date]"
                       dataType="dbTimeStamp"
                       name="Import_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[Expression_ID]"
+                      dataType="i4"
+                      name="Expression_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[Downloads]"
+                      dataType="r8"
+                      name="Downloads" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[DownloadDate]"
+                      dataType="dbDate"
+                      name="DownloadDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
+                      dataType="wstr"
+                      length="4000"
+                      name="DOI" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[IdentityID]"
+                      dataType="wstr"
+                      length="255"
+                      name="IdentityID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[Registration_ID]"
+                      dataType="i4"
+                      name="Registration_ID" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1098,6 +1597,38 @@ FROM   stg.STG_Counter_TMP</property>
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[DownloadDate]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[DownloadDate]"
+                      name="DownloadDate" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
+                      name="DOI" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[IdentityID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[IdentityID]"
+                      name="IdentityID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression_ID]"
+                      name="Expression_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[Registration_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[Registration_ID]"
+                      name="Registration_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[Downloads]"
+                      dataType="r8"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[Downloads]"
+                      name="Downloads" />
                     <outputColumn
                       refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -1328,229 +1859,593 @@ FROM   stg.STG_Counter_TMP</property>
               </outputs>
             </component>
             <component
-              refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout"
-              componentClassID="Microsoft.UnionAll"
-              contactInfo="Unir tout;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
-              description="Combine des lignes de plusieurs flux de données sans effectuer de tri. Par exemple, rajoutez des lignes à un flux de données après correction des erreurs. Si le tri est important, nous recommandons l'utilisation de la transformation de fusion."
-              name="Unir tout"
+              refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier"
               version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
               <inputs>
                 <input
-                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Inputs[Unir tout entrée 1]"
-                  name="Unir tout entrée 1">
+                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Inputs[Unir tout entrée 1].Columns[DownloadDate]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Inputs[Entrée de tri].Columns[DownloadDate]"
                       cachedDataType="dbDate"
                       cachedName="DownloadDate"
                       lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[DownloadDate]">
                       <properties>
                         <property
-                          containsID="true"
                           dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[DownloadDate]}</property>
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">5</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Inputs[Unir tout entrée 1].Columns[DOI]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Inputs[Entrée de tri].Columns[DOI]"
                       cachedDataType="wstr"
                       cachedLength="4000"
                       cachedName="DOI"
                       lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[DOI]">
                       <properties>
                         <property
-                          containsID="true"
                           dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[DOI]}</property>
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Inputs[Unir tout entrée 1].Columns[IdentityID]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Inputs[Entrée de tri].Columns[IdentityID]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="IdentityID"
                       lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[IdentityID]">
                       <properties>
                         <property
-                          containsID="true"
                           dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[IdentityID]}</property>
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Inputs[Unir tout entrée 1].Columns[Downloads]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Inputs[Entrée de tri].Columns[Downloads]"
                       cachedDataType="r8"
                       cachedName="Downloads"
                       lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Downloads]">
                       <properties>
                         <property
-                          containsID="true"
                           dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Downloads]}</property>
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">6</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Inputs[Unir tout entrée 1].Columns[Registration_ID]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Inputs[Entrée de tri].Columns[Registration_ID]"
                       cachedDataType="i4"
                       cachedName="Registration_ID"
                       lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Registration_ID]">
                       <properties>
                         <property
-                          containsID="true"
                           dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Registration_ID]}</property>
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Inputs[Unir tout entrée 1].Columns[Expression_ID]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Inputs[Entrée de tri].Columns[Expression_ID]"
                       cachedDataType="i4"
                       cachedName="Expression_ID"
                       lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Expression_ID]">
                       <properties>
                         <property
-                          containsID="true"
                           dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Expression_ID]}</property>
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">2</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Inputs[Unir tout entrée 1].Columns[Copie de IdentityID]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Inputs[Entrée de tri].Columns[Copie de IdentityID]"
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="Copie de IdentityID"
                       lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de IdentityID]">
                       <properties>
                         <property
-                          containsID="true"
                           dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Copie de IdentityID]}</property>
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">3</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Inputs[Unir tout entrée 1].Columns[Copie de DOI]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Inputs[Entrée de tri].Columns[Copie de DOI]"
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="Copie de DOI"
                       lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de DOI]">
                       <properties>
                         <property
-                          containsID="true"
                           dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Copie de DOI]}</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Inputs[Entrée Union All 1]"
-                  hasSideEffects="true"
-                  name="Entrée Union All 1">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Inputs[Entrée Union All 1].Columns[File_Date]"
-                      cachedDataType="dbDate"
-                      cachedName="File_Date"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[File_Date]">
-                      <properties>
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
                         <property
-                          containsID="true"
                           dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[File_Date]}</property>
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">4</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Inputs[Entrée Union All 1].Columns[Import_Date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Import_Date"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[Import_Date]">
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Inputs[Entrée de tri].Columns[Copie de Downloads]"
+                      cachedDataType="i4"
+                      cachedName="Copie de Downloads"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Downloads]">
                       <properties>
                         <property
-                          containsID="true"
                           dataType="System.Int32"
-                          description="ID de lignage de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Import_Date]}</property>
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Inputs[Entrée Union All 2]"
-                  dangling="true"
-                  hasSideEffects="true"
-                  name="Entrée Union All 2">
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1]"
-                  name="Unir tout sortie 1">
+                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[DownloadDate]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[DownloadDate]"
                       dataType="dbDate"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[DownloadDate]"
-                      name="DownloadDate" />
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[DownloadDate]"
+                      name="DownloadDate"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[DownloadDate]}</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[DOI]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[DOI]"
                       dataType="wstr"
                       length="4000"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[DOI]"
-                      name="DOI" />
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[DOI]"
+                      name="DOI">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[DOI]}</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[IdentityID]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[IdentityID]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[IdentityID]"
-                      name="IdentityID" />
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[IdentityID]"
+                      name="IdentityID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[IdentityID]}</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Downloads]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Downloads]"
                       dataType="r8"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Downloads]"
-                      name="Downloads" />
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Downloads]"
+                      name="Downloads"
+                      sortKeyPosition="6">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Downloads]}</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Registration_ID]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Registration_ID]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Registration_ID]"
-                      name="Registration_ID" />
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Registration_ID]"
+                      name="Registration_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Registration_ID]}</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Expression_ID]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Expression_ID]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Expression_ID]"
-                      name="Expression_ID" />
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Expression_ID]"
+                      name="Expression_ID"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB].Columns[Expression_ID]}</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Copie de IdentityID]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Copie de IdentityID]"
                       dataType="wstr"
                       length="100"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Copie de IdentityID]"
-                      name="Copie de IdentityID" />
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Copie de IdentityID]"
+                      name="Copie de IdentityID"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de IdentityID]}</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Copie de DOI]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Copie de DOI]"
                       dataType="wstr"
                       length="100"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Copie de DOI]"
-                      name="Copie de DOI" />
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Copie de DOI]"
+                      name="Copie de DOI"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de DOI]}</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[File_Date]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Copie de Downloads]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri].Columns[Copie de Downloads]"
+                      name="Copie de Downloads">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Downloads]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Inputs[Entrée de tri].Columns[File_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="File_Date"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[File_Date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Inputs[Entrée de tri].Columns[Import_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Import_Date"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[Import_Date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Inputs[Entrée de tri].Columns[Expression_ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression_ID"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[Expression_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Inputs[Entrée de tri].Columns[Downloads]"
+                      cachedDataType="r8"
+                      cachedName="Downloads"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[Downloads]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">6</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Inputs[Entrée de tri].Columns[DownloadDate]"
+                      cachedDataType="dbDate"
+                      cachedName="DownloadDate"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[DownloadDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Inputs[Entrée de tri].Columns[DOI]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="DOI"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[DOI]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Inputs[Entrée de tri].Columns[IdentityID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IdentityID"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[IdentityID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Inputs[Entrée de tri].Columns[Registration_ID]"
+                      cachedDataType="i4"
+                      cachedName="Registration_ID"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[Registration_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[File_Date]"
                       dataType="dbDate"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[File_Date]"
-                      name="File_Date" />
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[File_Date]"
+                      name="File_Date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[File_Date]}</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Import_Date]"
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[Import_Date]"
                       dataType="dbTimeStamp"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1].Columns[Import_Date]"
-                      name="Import_Date" />
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[Import_Date]"
+                      name="Import_Date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[Import_Date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[Expression_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[Expression_ID]"
+                      name="Expression_ID"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[Expression_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[Downloads]"
+                      dataType="r8"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[Downloads]"
+                      name="Downloads"
+                      sortKeyPosition="6">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[Downloads]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[DownloadDate]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[DownloadDate]"
+                      name="DownloadDate"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[DownloadDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[DOI]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[DOI]"
+                      name="DOI"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[DOI]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[IdentityID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[IdentityID]"
+                      name="IdentityID"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[IdentityID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[Registration_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri].Columns[Registration_ID]"
+                      name="Registration_ID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB].Columns[Registration_ID]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1565,7 +2460,7 @@ FROM   stg.STG_Counter_TMP</property>
               startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\CSPL Mise à jour.Outputs[Insert]" />
             <path
               refId="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Insert1]"
-              endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Inputs[Unir tout entrée 1]"
+              endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Inputs[Entrée de tri]"
               name="Insert"
               startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\CSPL Mise à jour 1.Outputs[Insert]" />
             <path
@@ -1579,20 +2474,35 @@ FROM   stg.STG_Counter_TMP</property>
               name="Sortie de conversion de données"
               startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Outputs[Sortie de conversion de données]" />
             <path
+              refId="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de conversion de données1]"
+              endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de conversion de données"
+              startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de jointure de fusion]"
+              endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Inputs[Entrée de conversion de données]"
+              name="Sortie de jointure de fusion"
+              startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion]" />
+            <path
               refId="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de source OLE DB]"
               endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Inputs[Entrée de conversion de données]"
               name="Sortie de source OLE DB"
               startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP.Outputs[Sortie de source OLE DB]" />
             <path
               refId="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de source OLE DB1]"
-              endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Inputs[Entrée Union All 1]"
+              endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Inputs[Entrée de tri]"
               name="Sortie de source OLE DB"
               startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP.Outputs[Sortie de source OLE DB]" />
             <path
-              refId="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Unir tout sortie 1]"
-              endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB]"
-              name="Unir tout sortie 1"
-              startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout.Outputs[Unir tout sortie 1]" />
+              refId="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de tri]"
+              endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de tri1]"
+              endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Inputs[Entrée droite de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1.Outputs[Sortie de tri]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1629,6 +2539,22 @@ FROM   stg.STG_Counter_TMP</property>
           SQLTask:SqlStatementSource="TRUNCATE TABLE [stg].STG_CounterMonthly_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL Truncate STG_CounterMonthly_SA_Rejected"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{c6065f79-fd65-4b61-89e0-10222c4516f1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL Truncate STG_CounterMonthly_SA_Rejected"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [stg].STG_CounterMonthly_SA_Rejected" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -1642,11 +2568,11 @@ FROM   stg.STG_Counter_TMP</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 1]"
       DTS:CreationName=""
-      DTS:DTSID="{4CCDC772-2050-4FA3-B55F-102C7268DABE}"
+      DTS:DTSID="{78C83ABF-1882-4E4B-BB89-C65D93142D7D}"
       DTS:From="Package\TSQL Truncate STG_CounterMonthly_FT_SA"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 1"
-      DTS:To="Package\DFT INSERT INTO STG_CounterMonthly_SA" />
+      DTS:To="Package\TSQL Truncate STG_CounterMonthly_SA_Rejected" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 2]"
       DTS:CreationName=""
@@ -1655,6 +2581,14 @@ FROM   stg.STG_Counter_TMP</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 2"
       DTS:To="Package\DFT INSERT INTO STG_CounterMonthly_FT_SA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{39C97FFD-A374-4905-8C37-739DBE2CB6D1}"
+      DTS:From="Package\TSQL Truncate STG_CounterMonthly_SA_Rejected"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 3"
+      DTS:To="Package\DFT INSERT INTO STG_CounterMonthly_SA" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
@@ -1667,7 +2601,7 @@ FROM   stg.STG_Counter_TMP</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="305.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_FT_SA"
@@ -1707,19 +2641,45 @@ FROM   stg.STG_Counter_TMP</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 1]"
-          TopLeft="236.180554258948,155.311111031042">
+          Id="Package.PrecedenceConstraints[Contrainte 2]"
+          TopLeft="240.72222092251,336.622217064235">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,138.644439366526"
+              EndConnector="0,26.9555543106133"
               Start="0,0"
-              End="0,131.144439366526">
+              End="0,19.4555543106133">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,131.144439366526" />
+                    End="0,19.4555543106133" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="317.333333333334,42.6666666666667"
+          Id="Package\TSQL Truncate STG_CounterMonthly_SA_Rejected"
+          TopLeft="76.9583325665449,193.461109585927" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 1]"
+          TopLeft="235.270832313536,155.311111031042">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.1499985548857"
+              Start="0,0"
+              End="0,30.6499985548857">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.6499985548857" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1729,19 +2689,19 @@ FROM   stg.STG_Counter_TMP</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 2]"
-          TopLeft="240.72222092251,336.622217064234">
+          Id="Package.PrecedenceConstraints[Contrainte 3]"
+          TopLeft="236.534721178624,236.127776252594">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,26.9555543106135"
+              EndConnector="0,57.827774144974"
               Start="0,0"
-              End="0,19.4555543106135">
+              End="0,50.327774144974">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.4555543106135" />
+                    End="0,50.327774144974" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1757,7 +2717,7 @@ FROM   stg.STG_Counter_TMP</property>
     design-time-name="Package\DFT INSERT INTO STG_CounterMonthly_FT_SA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="334.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_FT_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_FT_SA"
@@ -1785,7 +2745,9 @@ FROM   stg.STG_Counter_TMP</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1821,26 +2783,38 @@ FROM   stg.STG_Counter_TMP</property>
     design-time-name="Package\DFT INSERT INTO STG_CounterMonthly_SA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="342.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP"
-          TopLeft="41.6666660457847,25.1333328839144" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="158.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\CSPL Mise à jour"
           TopLeft="133.333331346512,176.377776853111" />
         <NodeLayout
+          Size="168,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\CSPL Mise à jour 1"
+          TopLeft="291.597217877085,293.34999908179" />
+        <NodeLayout
           Size="245.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA"
-          TopLeft="16.7361108617232,254.194440292484" />
+          TopLeft="12.5694442571447,291.027772967186" />
+        <NodeLayout
+          Size="342.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP"
+          TopLeft="41.6666660457847,25.1333328839144" />
         <NodeLayout
           Size="189.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données"
           TopLeft="120.833331532776,93.4999985665084" />
+        <NodeLayout
+          Size="220,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP"
+          TopLeft="583.611102414627,289.549997051656" />
+        <NodeLayout
+          Size="292,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected"
+          TopLeft="414.722216042379,632.461103425787" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de source OLE DB]"
-          TopLeft="214.249998789281,67.7999995505811">
+          TopLeft="214.24999878928,67.7999995505811">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1883,155 +2857,199 @@ FROM   stg.STG_Counter_TMP</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Insert]"
-          TopLeft="212.666664679845,219.044443519778">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-73.2638871514554,35.1499967727063"
-              Start="0,0"
-              End="-73.2638871514554,27.6499967727063">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.5749983863531" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.5749983863531"
-                    Point2="0,17.5749983863531"
-                    Point3="-4,17.5749983863531" />
-                  <mssgle:LineSegment
-                    End="-69.2638871514554,17.5749983863531" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-69.2638871514554,17.5749983863531"
-                    Point2="-73.2638871514554,17.5749983863531"
-                    Point3="-73.2638871514554,21.5749983863531" />
-                  <mssgle:LineSegment
-                    End="-73.2638871514554,27.6499967727063" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-50.3849318569777,22.5749983863531,27.5059765625,9.40234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="220,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP"
-          TopLeft="583.611102414627,217.327776120868" />
-        <NodeLayout
-          Size="292,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected"
-          TopLeft="386.666660904884,452.705549952023" />
-        <NodeLayout
-          Size="168,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\CSPL Mise à jour 1"
-          TopLeft="286.73610683841,274.572221639785" />
-        <EdgeLayout
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Rejet]"
           TopLeft="237.777775790956,219.044443519778">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="132.958331047453,55.5277781200076"
+              EndConnector="137.819442086128,74.3055555620123"
               Start="0,0"
-              End="132.958331047453,48.0277781200076">
+              End="137.819442086128,66.8055555620123">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.543723562865" />
+                    End="0,26.1673137389867" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.543723562865"
-                    Point2="0,22.543723562865"
-                    Point3="4,22.543723562865" />
+                    Point1="0,26.1673137389867"
+                    Point2="0,30.1673137389867"
+                    Point3="4,30.1673137389867" />
                   <mssgle:LineSegment
-                    End="128.958331047453,22.543723562865" />
+                    End="133.819442086128,30.1673137389867" />
                   <mssgle:CubicBezierSegment
-                    Point1="128.958331047453,22.543723562865"
-                    Point2="132.958331047453,22.543723562865"
-                    Point3="132.958331047453,26.543723562865" />
+                    Point1="133.819442086128,30.1673137389867"
+                    Point2="137.819442086128,30.1673137389867"
+                    Point3="137.819442086128,34.1673137389867" />
                   <mssgle:LineSegment
-                    End="132.958331047453,48.0277781200076" />
+                    End="137.819442086128,66.8055555620123" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="54.4077788049767,27.543723562865,24.1427734375,11.384765625"
+              BoundingBox="56.8383343243142,35.1673137389867,24.1427734375,11.384765625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Insert]"
+          TopLeft="187.555553568734,219.044443519778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-52.3194426449229,71.9833294474084"
+              Start="0,0"
+              End="-52.3194426449229,64.4833294474084">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.2245131200793" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.2245131200793"
+                    Point2="0,29.2245131200793"
+                    Point3="-4,29.2245131200793" />
+                  <mssgle:LineSegment
+                    End="-48.3194426449229,29.2245131200793" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-48.3194426449229,29.2245131200793"
+                    Point2="-52.3194426449229,29.2245131200793"
+                    Point3="-52.3194426449229,33.2245131200793" />
+                  <mssgle:LineSegment
+                    End="-52.3194426449229,64.4833294474084" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-39.9127096037114,34.2245131200793,27.5059765625,9.40234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="121.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\Unir tout"
-          TopLeft="470.83332631737,351.133329629501" />
+          Size="198.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1"
+          TopLeft="463.194437542309,526.055551255081" />
         <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Insert1]"
-          TopLeft="370.73610683841,317.238888306452">
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de conversion de données1]"
+          TopLeft="561.624993459011,568.722217921747">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="160.763886145627,33.8944413230489"
+              EndConnector="0,63.7388855040398"
               Start="0,0"
-              End="160.763886145627,26.3944413230489">
+              End="0,56.2388855040398">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.9472206615245" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.9472206615245"
-                    Point2="0,16.9472206615245"
-                    Point3="4,16.9472206615245" />
+                    End="0,56.2388855040398" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="101.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier"
+          TopLeft="418.055549326042,372.555549330844" />
+        <NodeLayout
+          Size="110.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier 1"
+          TopLeft="644.444434841474,373.99999374946" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Insert1]"
+          TopLeft="375.597217877085,336.016665748457">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="93.1249981156242,36.5388835823873"
+              Start="0,0"
+              End="93.1249981156242,29.0388835823873">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="156.763886145627,16.9472206615245" />
+                    End="0,14.2694417911937" />
                   <mssgle:CubicBezierSegment
-                    Point1="156.763886145627,16.9472206615245"
-                    Point2="160.763886145627,16.9472206615245"
-                    Point3="160.763886145627,20.9472206615245" />
+                    Point1="0,14.2694417911937"
+                    Point2="0,18.2694417911937"
+                    Point3="4,18.2694417911937" />
                   <mssgle:LineSegment
-                    End="160.763886145627,26.3944413230489" />
+                    End="89.1249981156242,18.2694417911937" />
+                  <mssgle:CubicBezierSegment
+                    Point1="89.1249981156242,18.2694417911937"
+                    Point2="93.1249981156242,18.2694417911937"
+                    Point3="93.1249981156242,22.2694417911937" />
+                  <mssgle:LineSegment
+                    End="93.1249981156242,29.0388835823873" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="66.6289547915635,21.9472206615245,27.5059765625,9.40234375"
+              BoundingBox="32.8095107765621,23.2694417911937,27.5059765625,9.40234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de source OLE DB1]"
-          TopLeft="693.611102414627,259.994442787534">
+          TopLeft="696.694435294717,332.216663718323">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-143.222220541702,91.1388868419664"
+              EndConnector="0,41.7833300311366"
               Start="0,0"
-              End="-143.222220541702,83.6388868419664">
+              End="0,34.2833300311366">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49.9716184552209" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,49.9716184552209"
-                    Point2="0,53.9716184552209"
-                    Point3="-4,53.9716184552209" />
+                    End="0,34.2833300311366" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion"
+          TopLeft="497.222214813034,452.888880830341" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de tri]"
+          TopLeft="468.722215992709,415.222215997511">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="110.499998820325,37.6666648328305"
+              Start="0,0"
+              End="110.499998820325,30.1666648328305">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-139.222220541702,53.9716184552209" />
+                    End="0,14.8333324164152" />
                   <mssgle:CubicBezierSegment
-                    Point1="-139.222220541702,53.9716184552209"
-                    Point2="-143.222220541702,53.9716184552209"
-                    Point3="-143.222220541702,57.9716184552209" />
+                    Point1="0,14.8333324164152"
+                    Point2="0,18.8333324164152"
+                    Point3="4,18.8333324164152" />
                   <mssgle:LineSegment
-                    End="-143.222220541702,83.6388868419664" />
+                    End="106.499998820325,18.8333324164152" />
+                  <mssgle:CubicBezierSegment
+                    Point1="106.499998820325,18.8333324164152"
+                    Point2="110.499998820325,18.8333324164152"
+                    Point3="110.499998820325,22.8333324164152" />
+                  <mssgle:LineSegment
+                    End="110.499998820325,30.1666648328305" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2041,19 +3059,65 @@ FROM   stg.STG_Counter_TMP</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Unir tout sortie 1]"
-          TopLeft="532.08332694446,393.799996296167">
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de tri1]"
+          TopLeft="699.777768174807,416.666660416126">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58.9055536558558"
+              EndConnector="-94.5555533617736,36.2222204142147"
               Start="0,0"
-              End="0,51.4055536558558">
+              End="-94.5555533617736,28.7222204142147">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.4055536558558" />
+                    End="0,17.5233483620696" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5233483620696"
+                    Point2="0,21.5233483620696"
+                    Point3="-4,21.5233483620696" />
+                  <mssgle:LineSegment
+                    End="-90.5555533617736,21.5233483620696" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-90.5555533617736,21.5233483620696"
+                    Point2="-94.5555533617736,21.5233483620696"
+                    Point3="-94.5555533617736,25.5233483620696" />
+                  <mssgle:LineSegment
+                    End="-94.5555533617736,28.7222204142147" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de jointure de fusion]"
+          TopLeft="579.222214813034,495.555547497008">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16.694443937391,30.5000037580729"
+              Start="0,0"
+              End="-16.694443937391,23.0000037580729">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.2500018790364" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.2500018790364"
+                    Point2="0,15.2500018790364"
+                    Point3="-4,15.2500018790364" />
+                  <mssgle:LineSegment
+                    End="-12.694443937391,15.2500018790364" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.694443937391,15.2500018790364"
+                    Point2="-16.694443937391,15.2500018790364"
+                    Point3="-16.694443937391,19.2500018790364" />
+                  <mssgle:LineSegment
+                    End="-16.694443937391,23.0000037580729" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2065,6 +3129,19 @@ FROM   stg.STG_Counter_TMP</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_V_STG_view_CounterMonthly_SA_TMP">
     <Properties>
