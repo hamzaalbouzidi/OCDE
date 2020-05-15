@@ -1,0 +1,25 @@
+﻿CREATE TABLE [stg].[STG_Expression_SA](
+	[Expression_ExternalID] [nvarchar](100) NULL,
+	[ExternalSource] [nchar](10) NULL,
+	[DOI] [nvarchar](100) NULL,
+	[ISSN] [nvarchar](20) NULL,
+	[EISSN] [nvarchar](20) NULL,
+	[Title] [nvarchar](2000) NULL,
+	[SubTitle] [nvarchar](2000) NULL,
+	[ItemType] [nvarchar](255) NOT NULL,
+	[Language_ExternalID] [nvarchar](100) NOT NULL,
+	[Directorate_ExternalID] [nvarchar](100) NOT NULL,
+	[Theme_ExternalID] [nvarchar](500) NULL,
+	[Igo_ExternalID] [nvarchar](100) NOT NULL,
+	[ObjectType_ExternalID] [nvarchar](100) NOT NULL,
+	[FirstRelease_Date] [datetime] NULL,
+	[iLibraryURLAlias] [nvarchar](1054) NULL,
+	[Parent] [nvarchar](100) NULL,
+	[TopParent] [nvarchar](100) NULL,
+	[Parent_ExternalID] [nvarchar](100) NULL,
+	[Parent_ExternalSource] [nchar](10) NULL,
+	[FirstExportDate] [datetime] NULL,
+	[LatestExportDate] [datetime] NULL,
+	[LatestDeletionDate] [datetime] NULL
+) 
+GO
