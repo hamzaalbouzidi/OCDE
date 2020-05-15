@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Manifestation_DM_SA"
   DTS:PackageType="5"
-  DTS:VersionBuild="49"
-  DTS:VersionGUID="{40676D76-8DEE-46F3-BDA0-58E477424B70}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{0EB68426-8360-48C0-8605-AFD64218FE0C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -412,6 +412,1425 @@
               endId="Package\DFT INSERT INTO STG_Manifestation_DM_SA\OLE_DST STG_Manifestation_DM_SA.Inputs[Entrée de destination OLE DB]"
               name="Sortie de source OLE DB"
               startId="Package\DFT INSERT INTO STG_Manifestation_DM_SA\OLE_SRC OCDE_V_STG_Manifestation_DM_SA.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{28f27523-c831-48a8-8fa8-ddccfc79ef1f}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT INSERT INTO STG_Manifestation_OPKV3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST STG_Manifestation_OPKV3"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[STG_Manifestation_OPKV3]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Inputs[Entrée de destination OLE DB].Columns[ProductId]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="ProductId"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[ProductId]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].Columns[ProductId]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Inputs[Entrée de destination OLE DB].Columns[DOI]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="DOI"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].Columns[DOI]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Inputs[Entrée de destination OLE DB].Columns[Medium]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Medium"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Medium]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].Columns[Medium]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Inputs[Entrée de destination OLE DB].Columns[FirstReleaseDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FirstReleaseDate"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[FirstReleaseDate]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].Columns[FirstReleaseDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[ProductId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="256"
+                      name="ProductId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="DOI" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[Medium]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Medium" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Inputs[Entrée de destination OLE DB].ExternalColumns[FirstReleaseDate]"
+                      dataType="dbTimeStamp"
+                      name="FirstReleaseDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC OCDE_V_STG_view_KV3_Manifestation"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[view_KV3_Manifestation]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].Columns[ProductId]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].ExternalColumns[ProductId]"
+                      length="30"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].Columns[ProductId]"
+                      name="ProductId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].Columns[DOI]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].Columns[DOI]"
+                      name="DOI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].Columns[Medium]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].ExternalColumns[Medium]"
+                      length="10"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].Columns[Medium]"
+                      name="Medium"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].Columns[FirstReleaseDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].ExternalColumns[FirstReleaseDate]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].Columns[FirstReleaseDate]"
+                      name="FirstReleaseDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].ExternalColumns[ProductId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="ProductId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="DOI" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].ExternalColumns[Medium]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Medium" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB].ExternalColumns[FirstReleaseDate]"
+                      dataType="dbTimeStamp"
+                      name="FirstReleaseDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie d'erreur de source OLE DB].Columns[ProductId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie d'erreur de source OLE DB].Columns[ProductId]"
+                      name="ProductId" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
+                      name="DOI" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie d'erreur de source OLE DB].Columns[Medium]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie d'erreur de source OLE DB].Columns[Medium]"
+                      name="Medium" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie d'erreur de source OLE DB].Columns[FirstReleaseDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie d'erreur de source OLE DB].Columns[FirstReleaseDate]"
+                      name="FirstReleaseDate" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT INSERT INTO STG_Manifestation_OPKV3.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT INSERT INTO STG_Manifestation_SA"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{e810e6ec-d483-4b66-8563-2dc012ff3420}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT INSERT INTO STG_Manifestation_SA"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Inputs[Entrée de conversion de données].Columns[Manifestation_ExternalID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="256"
+                      cachedName="Manifestation_ExternalID"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Manifestation_ExternalID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Inputs[Entrée de conversion de données].Columns[ExternalSource]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ExternalSource"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Inputs[Entrée de conversion de données].Columns[Expression_ExternalID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Expression_ExternalID"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Expression_ExternalID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Inputs[Entrée de conversion de données].Columns[Format_ExternalID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Format_ExternalID"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Format_ExternalID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Manifestation_ExternalID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Manifestation_ExternalID]"
+                      name="Copie de Manifestation_ExternalID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Manifestation_ExternalID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
+                      name="Copie de ExternalSource"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[ExternalSource]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Expression_ExternalID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Expression_ExternalID]"
+                      name="Copie de Expression_ExternalID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Expression_ExternalID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Format_ExternalID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Format_ExternalID]"
+                      name="Copie de Format_ExternalID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Format_ExternalID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST STG_Manifestation_SA"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[STG_Manifestation_SA]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB].Columns[FirstReleaseDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FirstReleaseDate"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[FirstRelease_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[FirstReleaseDate]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB].Columns[Copie de Manifestation_ExternalID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copie de Manifestation_ExternalID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Manifestation_ExternalID]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Manifestation_ExternalID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB].Columns[Copie de ExternalSource]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Copie de ExternalSource"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB].Columns[Copie de Expression_ExternalID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copie de Expression_ExternalID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression_ExternalID]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Expression_ExternalID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB].Columns[Copie de Format_ExternalID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copie de Format_ExternalID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Format_ExternalID]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Format_ExternalID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Manifestation_ExternalID]"
+                      dataType="wstr"
+                      length="100"
+                      name="Manifestation_ExternalID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
+                      dataType="wstr"
+                      length="10"
+                      name="ExternalSource" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression_ExternalID]"
+                      dataType="wstr"
+                      length="100"
+                      name="Expression_ExternalID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Format_ExternalID]"
+                      dataType="wstr"
+                      length="100"
+                      name="Format_ExternalID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[ISBN13]"
+                      dataType="wstr"
+                      length="20"
+                      name="ISBN13" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[FirstRelease_Date]"
+                      dataType="dbTimeStamp"
+                      name="FirstRelease_Date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[view_Manifestation_SA_OPKV3]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Manifestation_ExternalID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].ExternalColumns[Manifestation_ExternalID]"
+                      length="256"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Manifestation_ExternalID]"
+                      name="Manifestation_ExternalID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
+                      length="3"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
+                      name="ExternalSource"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Expression_ExternalID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].ExternalColumns[Expression_ExternalID]"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Expression_ExternalID]"
+                      name="Expression_ExternalID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Format_ExternalID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].ExternalColumns[Format_ExternalID]"
+                      length="10"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[Format_ExternalID]"
+                      name="Format_ExternalID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[FirstReleaseDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].ExternalColumns[FirstReleaseDate]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].Columns[FirstReleaseDate]"
+                      name="FirstReleaseDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].ExternalColumns[Manifestation_ExternalID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="256"
+                      name="Manifestation_ExternalID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ExternalSource" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].ExternalColumns[Expression_ExternalID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Expression_ExternalID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].ExternalColumns[Format_ExternalID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Format_ExternalID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB].ExternalColumns[FirstReleaseDate]"
+                      dataType="dbTimeStamp"
+                      name="FirstReleaseDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie d'erreur de source OLE DB].Columns[Manifestation_ExternalID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="256"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie d'erreur de source OLE DB].Columns[Manifestation_ExternalID]"
+                      name="Manifestation_ExternalID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
+                      name="ExternalSource" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression_ExternalID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression_ExternalID]"
+                      name="Expression_ExternalID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie d'erreur de source OLE DB].Columns[Format_ExternalID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie d'erreur de source OLE DB].Columns[Format_ExternalID]"
+                      name="Format_ExternalID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie d'erreur de source OLE DB].Columns[FirstReleaseDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie d'erreur de source OLE DB].Columns[FirstReleaseDate]"
+                      name="FirstReleaseDate" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT INSERT INTO STG_Manifestation_SA.Paths[Sortie de conversion de données]"
+              endId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de conversion de données"
+              startId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\DFT INSERT INTO STG_Manifestation_SA.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données.Inputs[Entrée de conversion de données]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{99df5c29-e7e9-48a8-8b12-16f79c4089b9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT INSERT INTO STG_Manifestation_SA_Rejected"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données.Inputs[Entrée de conversion de données].Columns[Reason]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="33"
+                      cachedName="Reason"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[Reason]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Reason]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Reason]"
+                      name="Copie de Reason"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[Reason]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST STG_Manifestation_SA_Rejected"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[STG_Manifestation_SA_Rejected]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Manifestation_ExternalID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Manifestation_ExternalID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Manifestation_ExternalID]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[Manifestation_ExternalID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[ExternalSource]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ExternalSource"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Expression_ExternalID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Expression_ExternalID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression_ExternalID]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[Expression_ExternalID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Format_ExternalID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Format_ExternalID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Format_ExternalID]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[Format_ExternalID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[FirstRelease_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FirstRelease_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[FirstRelease_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[FirstRelease_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Copie de Reason]"
+                      cachedDataType="nText"
+                      cachedName="Copie de Reason"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Reason]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Reason]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Job_ID]"
+                      dataType="i4"
+                      name="Job_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Reason]"
+                      dataType="nText"
+                      name="Reason" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Manifestation_ExternalID]"
+                      dataType="wstr"
+                      length="100"
+                      name="Manifestation_ExternalID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
+                      dataType="wstr"
+                      length="10"
+                      name="ExternalSource" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression_ExternalID]"
+                      dataType="wstr"
+                      length="100"
+                      name="Expression_ExternalID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Format_ExternalID]"
+                      dataType="wstr"
+                      length="100"
+                      name="Format_ExternalID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[ISBN13]"
+                      dataType="wstr"
+                      length="20"
+                      name="ISBN13" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[FirstRelease_Date]"
+                      dataType="dbTimeStamp"
+                      name="FirstRelease_Date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[view_Manifestation_SA_Check_ExternalIDs]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[Reason]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].ExternalColumns[Reason]"
+                      length="33"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[Reason]"
+                      name="Reason"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[Manifestation_ExternalID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].ExternalColumns[Manifestation_ExternalID]"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[Manifestation_ExternalID]"
+                      name="Manifestation_ExternalID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
+                      length="10"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
+                      name="ExternalSource"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[Expression_ExternalID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].ExternalColumns[Expression_ExternalID]"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[Expression_ExternalID]"
+                      name="Expression_ExternalID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[Format_ExternalID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].ExternalColumns[Format_ExternalID]"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[Format_ExternalID]"
+                      name="Format_ExternalID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[FirstRelease_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].ExternalColumns[FirstRelease_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].Columns[FirstRelease_Date]"
+                      name="FirstRelease_Date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].ExternalColumns[Reason]"
+                      codePage="1252"
+                      dataType="str"
+                      length="33"
+                      name="Reason" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].ExternalColumns[Manifestation_ExternalID]"
+                      dataType="wstr"
+                      length="100"
+                      name="Manifestation_ExternalID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
+                      dataType="wstr"
+                      length="10"
+                      name="ExternalSource" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].ExternalColumns[Expression_ExternalID]"
+                      dataType="wstr"
+                      length="100"
+                      name="Expression_ExternalID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].ExternalColumns[Format_ExternalID]"
+                      dataType="wstr"
+                      length="100"
+                      name="Format_ExternalID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB].ExternalColumns[FirstRelease_Date]"
+                      dataType="dbTimeStamp"
+                      name="FirstRelease_Date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB].Columns[Reason]"
+                      codePage="1252"
+                      dataType="str"
+                      length="33"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB].Columns[Reason]"
+                      name="Reason" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB].Columns[Manifestation_ExternalID]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB].Columns[Manifestation_ExternalID]"
+                      name="Manifestation_ExternalID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
+                      name="ExternalSource" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression_ExternalID]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression_ExternalID]"
+                      name="Expression_ExternalID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB].Columns[Format_ExternalID]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB].Columns[Format_ExternalID]"
+                      name="Format_ExternalID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB].Columns[FirstRelease_Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB].Columns[FirstRelease_Date]"
+                      name="FirstRelease_Date" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected.Paths[Sortie de conversion de données]"
+              endId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de conversion de données"
+              startId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données.Inputs[Entrée de conversion de données]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs.Outputs[Sortie de source OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -920,6 +2339,54 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\TSQL Truncate STG_Manifestation_OPKV3"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{e56c0f06-9145-49c7-bd45-18e80745950c}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL Truncate STG_Manifestation_OPKV3"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_Manifestation_OPKV3" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL Truncate STG_Manifestation_SA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{b27f34a9-36e8-40c2-be4e-829f4c6070a0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL Truncate STG_Manifestation_SA"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_Manifestation_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL Truncate STG_Manifestation_SA_Rejected"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{60b83843-c70f-48b1-9327-afbdbb41d8da}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL Truncate STG_Manifestation_SA_Rejected"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_Manifestation_SA_Rejected" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\TSQL Truncate STG_Manifestation_StatLink_DM_SA"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
@@ -948,11 +2415,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 1]"
       DTS:CreationName=""
-      DTS:DTSID="{CF246645-7C7D-4F05-9909-F1582BD8509A}"
-      DTS:From="Package\TSQL Truncate STG_Manifestation_StatLink_DM_SA"
+      DTS:DTSID="{A56F8332-4248-43EA-9DC1-F57041DA6128}"
+      DTS:From="Package\TSQL Truncate STG_Manifestation_OPKV3"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 1"
-      DTS:To="Package\DFT INSERT INTO STG_Manifestation_DM_SA" />
+      DTS:To="Package\TSQL Truncate STG_Manifestation_SA" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 2]"
       DTS:CreationName=""
@@ -961,6 +2428,54 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 2"
       DTS:To="Package\DFT INSERT INTO STG_Manifestation_StatLink_DM_SA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{00961389-ACE6-4E2B-A080-6A796D3E2464}"
+      DTS:From="Package\TSQL Truncate STG_Manifestation_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 3"
+      DTS:To="Package\TSQL Truncate STG_Manifestation_DM_SA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{D51ED471-F183-436B-8D17-A31175E8644A}"
+      DTS:From="Package\TSQL Truncate STG_Manifestation_StatLink_DM_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 4"
+      DTS:To="Package\TSQL Truncate STG_Manifestation_SA_Rejected" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{F3E00A1E-5895-402A-B961-58AE9810A5D3}"
+      DTS:From="Package\TSQL Truncate STG_Manifestation_SA_Rejected"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 5"
+      DTS:To="Package\DFT INSERT INTO STG_Manifestation_OPKV3" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{234635DD-E310-41E6-9B3B-81F8F6EE6EB3}"
+      DTS:From="Package\DFT INSERT INTO STG_Manifestation_OPKV3"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 6"
+      DTS:To="Package\DFT INSERT INTO STG_Manifestation_SA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{E2D5AEB8-3D6E-4A59-A7C3-2805DB1816AD}"
+      DTS:From="Package\DFT INSERT INTO STG_Manifestation_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 7"
+      DTS:To="Package\DFT INSERT INTO STG_Manifestation_DM_SA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{57B16142-48A2-4254-9060-6862B1BA8DAA}"
+      DTS:From="Package\DFT INSERT INTO STG_Manifestation_StatLink_DM_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 8"
+      DTS:To="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
@@ -973,26 +2488,26 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="297.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Manifestation_DM_SA"
-          TopLeft="14.249999869615,375.133326723774" />
+          TopLeft="30.916666287929,547.383323643704" />
         <NodeLayout
           Size="340,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Manifestation_StatLink_DM_SA"
-          TopLeft="0.708333404734901,452.483325340648" />
+          TopLeft="17.3749998230489,624.733322260578" />
         <NodeLayout
           Size="280,42.6666666666667"
           Id="Package\TSQL Truncate STG_Manifestation_DM_SA"
-          TopLeft="38.6249995063993,170.566665550868" />
+          TopLeft="41.7499994598332,146.733332643708" />
         <NodeLayout
           Size="324,42.6666666666667"
           Id="Package\TSQL Truncate STG_Manifestation_StatLink_DM_SA"
-          TopLeft="14.0416665393864,243.799997574687" />
+          TopLeft="17.1666664928203,219.966664667527" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="177.333333022893,213.233332217535">
+          TopLeft="180.458332976327,189.399999310375">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1013,31 +2528,65 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 1]"
-          TopLeft="176.041666539386,286.466664241354">
+          Id="Package.PrecedenceConstraints[Contrainte 2]"
+          TopLeft="183.479166388822,590.049990310371">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-13.1250000031047,88.6666624824204"
+              EndConnector="0,34.6833319502069"
               Start="0,0"
-              End="-13.1250000031047,81.1666624824204">
+              End="0,27.1833319502069">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.3333312412102" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40.3333312412102"
-                    Point2="0,44.3333312412102"
-                    Point3="-4,44.3333312412102" />
+                    End="0,27.1833319502069" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="294.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Manifestation_OPKV3"
+          TopLeft="30.916666287929,397.666659654179" />
+        <NodeLayout
+          Size="278.666666666667,42.6666666666667"
+          Id="Package\TSQL Truncate STG_Manifestation_OPKV3"
+          TopLeft="43.2083327714357,0.483335258860937" />
+        <NodeLayout
+          Size="276,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Manifestation_SA"
+          TopLeft="35.0833328925076,477.833324887354" />
+        <NodeLayout
+          Size="258.666666666667,42.6666666666667"
+          Id="Package\TSQL Truncate STG_Manifestation_SA"
+          TopLeft="49.4583326783034,75.2333339222263" />
+        <NodeLayout
+          Size="322.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected"
+          TopLeft="23.6249997299166,717.683320598502" />
+        <NodeLayout
+          Size="305.333333333334,42.6666666666667"
+          Id="Package\TSQL Truncate STG_Manifestation_SA_Rejected"
+          TopLeft="21.3333330973988,286.916663470366" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 1]"
+          TopLeft="180.666666058203,43.1500019255276">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.0833319966987"
+              Start="0,0"
+              End="0,24.5833319966987">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-9.12500000310473,44.3333312412102" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9.12500000310473,44.3333312412102"
-                    Point2="-13.1250000031047,44.3333312412102"
-                    Point3="-13.1250000031047,48.3333312412102" />
-                  <mssgle:LineSegment
-                    End="-13.1250000031047,81.1666624824204" />
+                    End="0,24.5833319966987" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1047,19 +2596,129 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 2]"
-          TopLeft="166.812499970508,417.799993390441">
+          Id="Package.PrecedenceConstraints[Contrainte 3]"
+          TopLeft="180.270832735735,117.900000588893">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.6833319502074"
+              EndConnector="0,28.8333320548148"
               Start="0,0"
-              End="0,27.1833319502074">
+              End="0,21.3333320548148">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.1833319502074" />
+                    End="0,21.3333320548148" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 4]"
+          TopLeft="176.583333128443,262.633331334193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.2833321361728"
+              Start="0,0"
+              End="0,16.7833321361728">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.7833321361728" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 5]"
+          TopLeft="176.124999692664,329.583330137033">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68.0833295171464"
+              Start="0,0"
+              End="0,60.5833295171464">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5833295171464" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 6]"
+          TopLeft="175.666666256885,440.333326320846">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.4999985665081"
+              Start="0,0"
+              End="0,29.9999985665081">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.9999985665081" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 7]"
+          TopLeft="176.333332923552,520.499991554021">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.8833320896833"
+              Start="0,0"
+              End="0,19.3833320896833">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.3833320896833" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 8]"
+          TopLeft="186.166666443149,667.399988927244">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.2833316712572"
+              Start="0,0"
+              End="0,42.7833316712572">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.7833316712572" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1215,5 +2874,249 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO STG_Manifestation_OPKV3">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="253.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3"
+          TopLeft="89.5833319984372,130.766664721767" />
+        <NodeLayout
+          Size="310.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation"
+          TopLeft="62.9166657291351,36.8333326747021" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_Manifestation_OPKV3.Paths[Sortie de source OLE DB]"
+          TopLeft="217.249998863786,79.4999993413688">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.2666653803982"
+              Start="0,0"
+              End="0,43.7666653803982">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.7666653803982" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_DST STG_Manifestation_OPKV3">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Manifestation_OPKV3\OLE_SRC OCDE_V_STG_view_KV3_Manifestation">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO STG_Manifestation_SA">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="233.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA"
+          TopLeft="95.5833319984372,178.0999980551" />
+        <NodeLayout
+          Size="342.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3"
+          TopLeft="40.8333322281637,36.799999318123" />
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Manifestation_SA\Conversion de données"
+          TopLeft="120,102.666666666667" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_Manifestation_SA.Paths[Sortie de source OLE DB]"
+          TopLeft="213.416666114082,79.4666659847896">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.200000681877"
+              Start="0,0"
+              End="0,15.700000681877">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.700000681877" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_Manifestation_SA.Paths[Sortie de conversion de données]"
+          TopLeft="213.458332665885,145.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.766664721767"
+              Start="0,0"
+              End="0,25.266664721767">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.266664721767" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_DST STG_Manifestation_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Manifestation_SA\OLE_SRC OCDE_V_STG_view_Manifestation_SA_OPKV3">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="280,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected"
+          TopLeft="114.249998665104,176.766664721767" />
+        <NodeLayout
+          Size="398.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs"
+          TopLeft="56.166665561497,37.4666659847896" />
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\Conversion de données"
+          TopLeft="154,111.333333333333" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected.Paths[Sortie de source OLE DB]"
+          TopLeft="252.083332780748,80.1333326514563">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.2000006818771"
+              Start="0,0"
+              End="0,23.7000006818771">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7000006818771" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected.Paths[Sortie de conversion de données]"
+          TopLeft="251.458332665885,154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,22.766664721767"
+              Start="0,0"
+              End="0,15.266664721767">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.266664721767" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_SRC OCDE_V_STG_view_Manifestation_SA_Check_ExternalIDs">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
