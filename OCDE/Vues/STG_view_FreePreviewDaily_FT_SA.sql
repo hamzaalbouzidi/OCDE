@@ -1,10 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-
-
-CREATE view [stg].[view_FreePreviewDaily_FT_SA] AS
+﻿CREATE view [stg].[view_FreePreviewDaily_FT_SA] AS
 
 SELECT   
 	 [Download_Date]	
@@ -13,6 +7,3 @@ SELECT
 	,Downloads
 FROM [stg].[STG_FreePreviewDaily_SA]  
 
-GO
-
-*/

@@ -1,10 +1,4 @@
-﻿/*
-
-USE [STG_UsageStat]
-GO
-
-
-CREATE VIEW [stg].[view_ILibraryLog_SA_TMP]
+﻿CREATE VIEW [stg].[view_ILibraryLog_SA_TMP]
 
 AS
 	SELECT 
@@ -57,14 +51,5 @@ AS
 		LICENCE_TYPE,
 		SOURCE FROM [stg].[STG_iLibraryLog_TMP]) TMP) TMP2
 
-
-
-
-GO
-
-
-
-
-*/
 
 
