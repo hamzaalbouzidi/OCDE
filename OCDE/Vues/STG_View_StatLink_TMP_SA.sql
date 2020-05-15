@@ -1,11 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-
-
-
-CREATE VIEW [stg].[View_StatLink_TMP_SA]
+﻿CREATE VIEW [stg].[View_StatLink_TMP_SA]
 AS
 
 SELECT
@@ -19,8 +12,3 @@ SELECT
       ,substring([SOURCE] ,1,900) as [SOURCE]
 FROM	
 [stg].[STG_Statlink_File_SA]
-
-
-GO
-
-*/

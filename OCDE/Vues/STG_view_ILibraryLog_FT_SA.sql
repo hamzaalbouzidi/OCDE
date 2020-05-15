@@ -1,6 +1,4 @@
-﻿/*USE [STG_UsageStat]
-
-CREATE view [stg].[view_ILibraryLog_FT_SA] AS
+﻿CREATE view [stg].[view_ILibraryLog_FT_SA] AS
 
 SELECT   
 
@@ -17,6 +15,5 @@ SELECT
 
 
 FROM  [stg].[STG_iLibraryLog_SA] 
-GO
-*/
+
 

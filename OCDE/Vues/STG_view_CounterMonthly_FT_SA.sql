@@ -1,9 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-
-CREATE view [stg].[view_CounterMonthly_FT_SA] AS
+﻿CREATE view [stg].[view_CounterMonthly_FT_SA] AS
 
 SELECT   
 	 [Download_Date]	
@@ -11,10 +6,3 @@ SELECT
 	,Registration_ID
 	,Downloads
 FROM [stg].[STG_CounterMonthly_SA] 
-
-
-GO
-
-
-
-*/

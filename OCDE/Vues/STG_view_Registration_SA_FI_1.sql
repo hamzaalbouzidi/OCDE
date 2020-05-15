@@ -1,10 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-
-
-CREATE view [stg].[view_Registration_SA_FI_1]
+﻿CREATE view [stg].[view_Registration_SA_FI_1]
 AS
 
 SELECT LEFT([customer name],500) as Name
@@ -22,5 +16,3 @@ SELECT LEFT([customer name],500) as Name
       ,ISNULL([parent],'') as ParentIDs
       ,ISNULL([subordinate(s)],'') as SubordinateIDs
 FROM [stg].[STG_Registration_FI]
-GO
-*/

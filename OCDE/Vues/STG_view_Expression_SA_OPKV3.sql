@@ -1,10 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-
-
-CREATE VIEW [stg].[view_Expression_SA_OPKV3] AS
+﻿CREATE VIEW [stg].[view_Expression_SA_OPKV3] AS
 
 SELECT [Exp].DOI as Expression_ExternalID
       ,'KV3' as ExternalSource
@@ -25,8 +19,3 @@ SELECT [Exp].DOI as Expression_ExternalID
       ,[Exp].[LatestExportDate] as [LatestExportDate]
       ,[Exp].[LatestDeletionDate] as [LatestDeletionDate]
   FROM [stg].[STG_Expression_OPKV3] [Exp]
-GO
-
-
-
-*/
