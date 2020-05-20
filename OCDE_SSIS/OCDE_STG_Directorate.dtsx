@@ -5,26 +5,26 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="CSPE-W-VBISPS01"
   DTS:CreatorName="CERBA\YMIGEOT"
-  DTS:DTSID="{7B88FAB4-9D72-4A13-A519-5648145616CD}"
+  DTS:DTSID="{F76856E5-7D8F-48E2-B419-54F130764FE1}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
-  DTS:ObjectName="OCDE_STG_Country_DM_SA"
+  DTS:ObjectName="OCDE_STG_Directorate"
   DTS:PackageType="5"
-  DTS:VersionBuild="51"
-  DTS:VersionGUID="{1FFA900A-139A-4B60-A6BA-199B485F5147}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{26A61F60-BD5D-4329-9295-44EDF58E66E3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO STG_Country_DM_SA"
+      DTS:refId="Package\DFT INSERT INTO STG_Directorate"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{06E92CF8-09EF-4204-B9DC-816519AA4678}"
+      DTS:DTSID="{B10CBD65-7620-405B-9696-9268E6E9FDF6}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO STG_Country_DM_SA"
+      DTS:ObjectName="DFT INSERT INTO STG_Directorate"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -32,7 +32,7 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données"
+              refId="Package\DFT INSERT INTO STG_Directorate\Conversion de données"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
               description="Conversion de données"
@@ -40,34 +40,62 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Inputs[Entrée de conversion de données]"
+                  refId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Inputs[Entrée de conversion de données]"
                   name="Entrée de conversion de données">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Inputs[Entrée de conversion de données].Columns[ExternalSource]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Inputs[Entrée de conversion de données].Columns[Directorate_ExternalID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Directorate_ExternalID"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_ExternalID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Inputs[Entrée de conversion de données].Columns[ExternalSource]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="3"
                       cachedName="ExternalSource"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie de conversion de données]"
+                  refId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Outputs[Sortie de conversion de données]"
                   exclusionGroup="1"
                   name="Sortie de conversion de données"
-                  synchronousInputId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Inputs[Entrée de conversion de données]">
+                  synchronousInputId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Inputs[Entrée de conversion de données]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_ExternalID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_ExternalID]"
+                      name="Copie de Directorate_ExternalID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_ExternalID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="3"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
                       name="Copie de ExternalSource"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -75,7 +103,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]}</property>
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
@@ -86,22 +114,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  refId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de conversion de données"
-                  synchronousInputId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Inputs[Entrée de conversion de données]">
+                  synchronousInputId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Inputs[Entrée de conversion de données]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -110,11 +138,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA"
+              refId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
               description="Destination OLE DB"
-              name="OLE_DST STG_Country_DM_SA"
+              name="OLE_DST STG_Directorate"
               usesDispositions="true"
               version="4">
               <properties>
@@ -125,7 +153,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_Country_DM_SA]</property>
+                  name="OpenRowset">[stg].[STG_Directorate_DM_SA]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -167,7 +195,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Connections[OleDbConnection]"
+                  refId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Connections[OleDbConnection]"
                   connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -175,115 +203,102 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB]"
+                  refId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB]"
                   errorOrTruncationOperation="Insérer"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].Columns[Country_Code]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB].Columns[Directorate_Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="4"
-                      cachedName="Country_Code"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Code]"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Code]" />
+                      cachedName="Directorate_Code"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB].ExternalColumns[Directorate_Code]"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_Code]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].Columns[Country_Lib_EN]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB].Columns[Directorate_Lib_EN]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="150"
-                      cachedName="Country_Lib_EN"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Lib_EN]"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Lib_EN]" />
+                      cachedLength="255"
+                      cachedName="Directorate_Lib_EN"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB].ExternalColumns[Directorate_Lib_EN]"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_Lib_EN]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].Columns[Country_Lib_FR]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB].Columns[Directorate_Lib_FR]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="150"
-                      cachedName="Country_Lib_FR"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Lib_FR]"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Lib_FR]" />
+                      cachedLength="255"
+                      cachedName="Directorate_Lib_FR"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB].ExternalColumns[Directorate_Lib_FR]"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_Lib_FR]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].Columns[Country_ISO2Code]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="2"
-                      cachedName="Country_ISO2Code"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ISO2Code]"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ISO2Code]" />
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB].Columns[Copie de Directorate_ExternalID]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Copie de Directorate_ExternalID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB].ExternalColumns[Directorate_ExternalID]"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Directorate_ExternalID]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].Columns[Country_ExternalID]"
-                      cachedDataType="i4"
-                      cachedName="Country_ExternalID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ExternalID]"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ExternalID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].Columns[Copie de ExternalSource]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB].Columns[Copie de ExternalSource]"
                       cachedDataType="wstr"
                       cachedLength="3"
                       cachedName="Copie de ExternalSource"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]" />
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ExternalID]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB].ExternalColumns[Directorate_ExternalID]"
                       dataType="wstr"
                       length="100"
-                      name="Country_ExternalID" />
+                      name="Directorate_ExternalID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
                       dataType="wstr"
                       length="10"
                       name="ExternalSource" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Code]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB].ExternalColumns[Directorate_Code]"
                       codePage="1252"
                       dataType="str"
                       length="4"
-                      name="Country_Code" />
+                      name="Directorate_Code" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Lib_EN]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB].ExternalColumns[Directorate_Lib_EN]"
                       codePage="1252"
                       dataType="str"
-                      length="150"
-                      name="Country_Lib_EN" />
+                      length="255"
+                      name="Directorate_Lib_EN" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Lib_FR]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB].ExternalColumns[Directorate_Lib_FR]"
                       codePage="1252"
                       dataType="str"
-                      length="150"
-                      name="Country_Lib_FR" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ISO2Code]"
-                      codePage="1252"
-                      dataType="str"
-                      length="2"
-                      name="Country_ISO2Code" />
+                      length="255"
+                      name="Directorate_Lib_FR" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Outputs[Sortie d'erreur de destination OLE DB]"
+                  refId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Outputs[Sortie d'erreur de destination OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB]">
+                  synchronousInputId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -292,11 +307,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA"
+              refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
               description="Source OLE DB"
-              name="OLE_SRC OCDE_STG_view_Country_DM_SA"
+              name="OLE_SRC OCDE_STG_view_Directorate_DM_SA"
               usesDispositions="true"
               version="7">
               <properties>
@@ -307,7 +322,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[view_Country_DM_SA]</property>
+                  name="OpenRowset">[stg].[view_Directorate_DM_SA]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -341,7 +356,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Connections[OleDbConnection]"
+                  refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Connections[OleDbConnection]"
                   connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -349,167 +364,149 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB]"
+                  refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_ExternalID]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Directorate_ExternalID]"
+                      length="4"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_ExternalID]"
+                      name="Directorate_ExternalID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
                       length="3"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
                       name="ExternalSource"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Code]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_Code]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Code]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Directorate_Code]"
                       length="4"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Code]"
-                      name="Country_Code"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_Code]"
+                      name="Directorate_Code"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Lib_EN]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_Lib_EN]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Lib_EN]"
-                      length="150"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Lib_EN]"
-                      name="Country_Lib_EN"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Directorate_Lib_EN]"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_Lib_EN]"
+                      name="Directorate_Lib_EN"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Lib_FR]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_Lib_FR]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Lib_FR]"
-                      length="150"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Lib_FR]"
-                      name="Country_Lib_FR"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ISO2Code]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ISO2Code]"
-                      length="2"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ISO2Code]"
-                      name="Country_ISO2Code"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ExternalID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ExternalID]"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ExternalID]"
-                      name="Country_ExternalID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Directorate_Lib_FR]"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].Columns[Directorate_Lib_FR]"
+                      name="Directorate_Lib_FR"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Directorate_ExternalID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Directorate_ExternalID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
                       codePage="1252"
                       dataType="str"
                       length="3"
                       name="ExternalSource" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Code]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Directorate_Code]"
                       codePage="1252"
                       dataType="str"
                       length="4"
-                      name="Country_Code" />
+                      name="Directorate_Code" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Lib_EN]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Directorate_Lib_EN]"
                       codePage="1252"
                       dataType="str"
-                      length="150"
-                      name="Country_Lib_EN" />
+                      length="255"
+                      name="Directorate_Lib_EN" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Lib_FR]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Directorate_Lib_FR]"
                       codePage="1252"
                       dataType="str"
-                      length="150"
-                      name="Country_Lib_FR" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ISO2Code]"
-                      codePage="1252"
-                      dataType="str"
-                      length="2"
-                      name="Country_ISO2Code" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ExternalID]"
-                      dataType="i4"
-                      name="Country_ExternalID" />
+                      length="255"
+                      name="Directorate_Lib_FR" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB]"
+                  refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ExternalID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ExternalID]"
-                      name="Country_ExternalID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
-                      name="ExternalSource" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Code]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Directorate_ExternalID]"
                       codePage="1252"
                       dataType="str"
                       length="4"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Code]"
-                      name="Country_Code" />
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Directorate_ExternalID]"
+                      name="Directorate_ExternalID" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Lib_EN]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
                       codePage="1252"
                       dataType="str"
-                      length="150"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Lib_EN]"
-                      name="Country_Lib_EN" />
+                      length="3"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
+                      name="ExternalSource" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Lib_FR]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Directorate_Code]"
                       codePage="1252"
                       dataType="str"
-                      length="150"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Lib_FR]"
-                      name="Country_Lib_FR" />
+                      length="4"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Directorate_Code]"
+                      name="Directorate_Code" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ISO2Code]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Directorate_Lib_EN]"
                       codePage="1252"
                       dataType="str"
-                      length="2"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ISO2Code]"
-                      name="Country_ISO2Code" />
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Directorate_Lib_EN]"
+                      name="Directorate_Lib_EN" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Directorate_Lib_FR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Directorate_Lib_FR]"
+                      name="Directorate_Lib_FR" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -520,33 +517,33 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT INSERT INTO STG_Country_DM_SA.Paths[Sortie de conversion de données]"
-              endId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA.Inputs[Entrée de destination OLE DB]"
+              refId="Package\DFT INSERT INTO STG_Directorate.Paths[Sortie de conversion de données]"
+              endId="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate.Inputs[Entrée de destination OLE DB]"
               name="Sortie de conversion de données"
-              startId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Outputs[Sortie de conversion de données]" />
+              startId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Outputs[Sortie de conversion de données]" />
             <path
-              refId="Package\DFT INSERT INTO STG_Country_DM_SA.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données.Inputs[Entrée de conversion de données]"
+              refId="Package\DFT INSERT INTO STG_Directorate.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO STG_Directorate\Conversion de données.Inputs[Entrée de conversion de données]"
               name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB]" />
+              startId="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA.Outputs[Sortie de source OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\TSQL Truncate STG_Country_DM_SA"
+      DTS:refId="Package\TSQL Truncate STG_Directorate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{638374c3-1418-440f-a38c-e874e0b2fa4f}"
+      DTS:DTSID="{a023acfa-0dde-4533-b01e-3d8adab94569}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL Truncate STG_Country_DM_SA"
+      DTS:ObjectName="TSQL Truncate STG_Directorate"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE [stg].STG_Country_DM_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [stg].STG_Directorate_DM_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -554,11 +551,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
-      DTS:DTSID="{026040AD-DB56-4741-9705-75F6C0084AD1}"
-      DTS:From="Package\TSQL Truncate STG_Country_DM_SA"
+      DTS:DTSID="{174C458D-017A-4C25-B3E7-9BDB53805482}"
+      DTS:From="Package\TSQL Truncate STG_Directorate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte"
-      DTS:To="Package\DFT INSERT INTO STG_Country_DM_SA" />
+      DTS:To="Package\DFT INSERT INTO STG_Directorate" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
@@ -573,27 +570,27 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="270.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Country_DM_SA"
-          TopLeft="68.4166657291354,180.999996861816" />
+          Size="246.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Directorate"
+          TopLeft="38.8333328366283,118.16666465203" />
         <NodeLayout
-          Size="254.666666666667,42.6666666666667"
-          Id="Package\TSQL Truncate STG_Country_DM_SA"
-          TopLeft="76.7499989382925,98.6333335038026" />
+          Size="230.666666666667,42.6666666666667"
+          Id="Package\TSQL Truncate STG_Directorate"
+          TopLeft="45.9166660644117,40.1333345498641" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="203.916665667047,141.300000170469">
+          TopLeft="161.708332783853,82.8000012165311">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39.6999966913463"
+              EndConnector="0,35.3666634354993"
               Start="0,0"
-              End="0,32.1999966913463">
+              End="0,27.8666634354993">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.1999966913463" />
+                    End="0,27.8666634354993" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -606,36 +603,36 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_Country_DM_SA">
+    design-time-name="Package\DFT INSERT INTO STG_Directorate">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="288,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_SRC OCDE_STG_view_Country_DM_SA"
-          TopLeft="87.2638939439001,40.5888881631031" />
+          Size="204,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate"
+          TopLeft="129.583331402391,186.129626706684" />
         <NodeLayout
-          Size="228,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA"
-          TopLeft="119.722220438222,195.188885792029" />
+          Size="302.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA"
+          TopLeft="81.6666654497383,39.8666659537952" />
         <NodeLayout
           Size="189.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Country_DM_SA\Conversion de données"
-          TopLeft="144.583331178874,114.533332620462" />
+          Id="Package\DFT INSERT INTO STG_Directorate\Conversion de données"
+          TopLeft="135.416664648801,109.266665535371" />
         <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_Country_DM_SA.Paths[Sortie de source OLE DB]"
-          TopLeft="235.25694589472,83.2555548297698">
+          Id="Package\DFT INSERT INTO STG_Directorate.Paths[Sortie de source OLE DB]"
+          TopLeft="231.54166504927,82.5333326204619">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.277777790692"
+              EndConnector="0,26.7333329149092"
               Start="0,0"
-              End="0,23.777777790692">
+              End="0,19.2333329149092">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.777777790692" />
+                    End="0,19.2333329149092" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -645,19 +642,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_Country_DM_SA.Paths[Sortie de conversion de données]"
-          TopLeft="236.486109141881,157.199999287128">
+          Id="Package\DFT INSERT INTO STG_Directorate.Paths[Sortie de conversion de données]"
+          TopLeft="230.83333135893,151.933332202038">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,37.9888865049006"
+              EndConnector="0,34.1962945046464"
               Start="0,0"
-              End="0,30.4888865049006">
+              End="0,26.6962945046464">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.4888865049006" />
+                    End="0,26.6962945046464" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -670,7 +667,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_Country_DM_SA\OLE_DST STG_Country_DM_SA">
+    design-time-name="Package\DFT INSERT INTO STG_Directorate\OLE_DST STG_Directorate">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -679,6 +676,19 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Directorate\OLE_SRC OCDE_STG_view_Directorate_DM_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

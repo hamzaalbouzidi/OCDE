@@ -5,26 +5,26 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="CSPE-W-VBISPS01"
   DTS:CreatorName="CERBA\YMIGEOT"
-  DTS:DTSID="{D701949D-83E3-461D-9BDF-33A24442592B}"
+  DTS:DTSID="{9C3B1B86-0346-4D97-B068-C22FAC7287D7}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
-  DTS:ObjectName="OCDE_STG_Update_County_DM"
+  DTS:ObjectName="OCDE_STG_Theme"
   DTS:PackageType="5"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{A996FAE0-747F-487C-8A51-A52D102A851A}">
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{B06C5D77-DC6E-42CD-9C74-545AEE4D2FAA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO STG_Update_County_DM"
+      DTS:refId="Package\DFT INSERT INTO STG_Theme"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{C981B47B-C077-4D63-9681-2172B85EDB41}"
+      DTS:DTSID="{FF2F79C1-856E-44CE-B043-38E0F21973F0}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO STG_Update_County_DM"
+      DTS:ObjectName="DFT INSERT INTO STG_Theme"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -32,11 +32,11 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM"
+              refId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
               description="Destination OLE DB"
-              name="OLE_DST STG_Update_County_DM"
+              name="OLE_DST STG_Theme"
               usesDispositions="true"
               version="4">
               <properties>
@@ -47,7 +47,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_Update_County_DM]</property>
+                  name="OpenRowset">[stg].[STG_Theme_DM_SA]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -89,7 +89,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Connections[OleDbConnection]"
+                  refId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Connections[OleDbConnection]"
                   connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -97,56 +97,92 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB]"
+                  refId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Inputs[Entrée de destination OLE DB]"
                   errorOrTruncationOperation="Insérer"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB].Columns[CCMZone_ID]"
-                      cachedDataType="i4"
-                      cachedName="CCMZone_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB].ExternalColumns[CCMZone_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].Columns[CCMZone_ID]" />
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Inputs[Entrée de destination OLE DB].Columns[Theme_ExternalID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Theme_ExternalID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Inputs[Entrée de destination OLE DB].ExternalColumns[Theme_ExternalID]"
+                      lineageId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].Columns[Theme_ExternalID]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB].Columns[Country_ID]"
-                      cachedDataType="i4"
-                      cachedName="Country_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].Columns[Country_ID]" />
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Inputs[Entrée de destination OLE DB].Columns[ExternalSource]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ExternalSource"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
+                      lineageId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Inputs[Entrée de destination OLE DB].Columns[Theme_Lib_EN]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Theme_Lib_EN"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Inputs[Entrée de destination OLE DB].ExternalColumns[Theme_Lib_EN]"
+                      lineageId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].Columns[Theme_Lib_EN]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Inputs[Entrée de destination OLE DB].Columns[Theme_Lib_FR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Theme_Lib_FR"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Inputs[Entrée de destination OLE DB].ExternalColumns[Theme_Lib_FR]"
+                      lineageId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].Columns[Theme_Lib_FR]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB].ExternalColumns[CCMZone_ID]"
-                      dataType="i4"
-                      name="CCMZone_ID" />
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Inputs[Entrée de destination OLE DB].ExternalColumns[Theme_ExternalID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Theme_ExternalID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ID]"
-                      dataType="i4"
-                      name="Country_ID" />
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ExternalSource" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Inputs[Entrée de destination OLE DB].ExternalColumns[Theme_Lib_EN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Theme_Lib_EN" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Inputs[Entrée de destination OLE DB].ExternalColumns[Theme_Lib_FR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Theme_Lib_FR" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Outputs[Sortie d'erreur de destination OLE DB]"
+                  refId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Outputs[Sortie d'erreur de destination OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB]">
+                  synchronousInputId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Inputs[Entrée de destination OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -155,11 +191,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM"
+              refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
               description="Source OLE DB"
-              name="OLE_SRC OCDE_V_STG_view_Update_County_DM"
+              name="OLE_SRC OCDE_STG_view_Theme_DM_SA"
               usesDispositions="true"
               version="7">
               <properties>
@@ -170,7 +206,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[view_Update_County_DM]</property>
+                  name="OpenRowset">[stg].[view_Theme_DM_SA]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -204,7 +240,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Connections[OleDbConnection]"
+                  refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Connections[OleDbConnection]"
                   connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -212,65 +248,125 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB]"
+                  refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].Columns[CCMZone_ID]"
-                      dataType="i4"
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].Columns[Theme_ExternalID]"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].ExternalColumns[CCMZone_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].Columns[CCMZone_ID]"
-                      name="CCMZone_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Theme_ExternalID]"
+                      length="20"
+                      lineageId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].Columns[Theme_ExternalID]"
+                      name="Theme_ExternalID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].Columns[Country_ID]"
-                      dataType="i4"
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].Columns[Country_ID]"
-                      name="Country_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
+                      length="3"
+                      lineageId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
+                      name="ExternalSource"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].Columns[Theme_Lib_EN]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Theme_Lib_EN]"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].Columns[Theme_Lib_EN]"
+                      name="Theme_Lib_EN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].Columns[Theme_Lib_FR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Theme_Lib_FR]"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].Columns[Theme_Lib_FR]"
+                      name="Theme_Lib_FR"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].ExternalColumns[CCMZone_ID]"
-                      dataType="i4"
-                      name="CCMZone_ID" />
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Theme_ExternalID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Theme_ExternalID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ID]"
-                      dataType="i4"
-                      name="Country_ID" />
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ExternalSource" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Theme_Lib_EN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Theme_Lib_EN" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Theme_Lib_FR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Theme_Lib_FR" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB]"
+                  refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[CCMZone_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[CCMZone_ID]"
-                      name="CCMZone_ID" />
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Theme_ExternalID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Theme_ExternalID]"
+                      name="Theme_ExternalID" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ID]"
-                      name="Country_ID" />
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
+                      name="ExternalSource" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Theme_Lib_EN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Theme_Lib_EN]"
+                      name="Theme_Lib_EN" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Theme_Lib_FR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Theme_Lib_FR]"
+                      name="Theme_Lib_FR" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -281,28 +377,28 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT INSERT INTO STG_Update_County_DM.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB]"
+              refId="Package\DFT INSERT INTO STG_Theme.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme.Inputs[Entrée de destination OLE DB]"
               name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB]" />
+              startId="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA.Outputs[Sortie de source OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\TSQL Truncate STG_Update_County_DM"
+      DTS:refId="Package\TSQL Truncate STG_Theme"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{6617B606-3CF7-4303-99AF-0E95A72F1D70}"
+      DTS:DTSID="{7af78668-628e-48d4-b042-a465e5211e1b}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL Truncate STG_Update_County_DM"
+      DTS:ObjectName="TSQL Truncate STG_Theme"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_Update_County_DM" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE STG.STG_Theme_DM_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -310,11 +406,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
-      DTS:DTSID="{3C325A59-239F-4968-8066-3729FAE31C8C}"
-      DTS:From="Package\TSQL Truncate STG_Update_County_DM"
+      DTS:DTSID="{AA536C0C-A351-4465-9AA6-2354E5535D0E}"
+      DTS:From="Package\TSQL Truncate STG_Theme"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte"
-      DTS:To="Package\DFT INSERT INTO STG_Update_County_DM" />
+      DTS:To="Package\DFT INSERT INTO STG_Theme" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
@@ -329,27 +425,27 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="288,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Update_County_DM"
-          TopLeft="47.999999366701,187.933330071171" />
+          Size="226.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Theme"
+          TopLeft="36.749999534339,112.966664745013" />
         <NodeLayout
-          Size="272,42.6666666666667"
-          Id="Package\TSQL Truncate STG_Update_County_DM"
-          TopLeft="54.249999273569,102.10000010848" />
+          Size="210.666666666667,42.6666666666667"
+          Id="Package\TSQL Truncate STG_Theme"
+          TopLeft="47.583332706243,36.6666679451863" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="191.124999320135,144.766666775147">
+          TopLeft="151.499999453624,79.333334611853">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43.1666632960239"
+              EndConnector="0,33.63333013316"
               Start="0,0"
-              End="0,35.6666632960239">
+              End="0,26.13333013316">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.6666632960239" />
+                    End="0,26.13333013316" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -362,32 +458,32 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_Update_County_DM">
+    design-time-name="Package\DFT INSERT INTO STG_Theme">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="245.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM"
-          TopLeft="89.5833319984372,130.766664721767" />
+          Size="284,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA"
+          TopLeft="81.6666654497383,39.8666659537952" />
         <NodeLayout
-          Size="317.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM"
-          TopLeft="51.2499992363152,42.4666659073036" />
+          Size="184,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme"
+          TopLeft="125.83333145827,125.133331489166" />
         <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_Update_County_DM.Paths[Sortie de source OLE DB]"
-          TopLeft="211.083332284043,85.1333325739702">
+          Id="Package\DFT INSERT INTO STG_Theme.Paths[Sortie de source OLE DB]"
+          TopLeft="220.749998454004,82.5333326204619">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45.6333321477968"
+              EndConnector="0,42.5999988687037"
               Start="0,0"
-              End="0,38.1333321477968">
+              End="0,35.0999988687037">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.1333321477968" />
+                    End="0,35.0999988687037" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -400,7 +496,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM">
+    design-time-name="Package\DFT INSERT INTO STG_Theme\OLE_DST STG_Theme">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -413,7 +509,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_V_STG_view_Update_County_DM">
+    design-time-name="Package\DFT INSERT INTO STG_Theme\OLE_SRC OCDE_STG_view_Theme_DM_SA">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
