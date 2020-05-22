@@ -1,0 +1,727 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/9/2019 5:03:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CSPE-W-VBISPS01"
+  DTS:CreatorName="CERBA\YMIGEOT"
+  DTS:DTSID="{F5F80F9F-547B-4833-BE67-F7F86C1D4714}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="OCDE_STG_Test"
+  DTS:PackageType="5"
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{67275C1C-A0ED-4D5A-A48C-83AC77C04E34}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT INSERT INTO STG_Country"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{CAB5282D-DECC-4822-83B7-BDD7E07AA315}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT INSERT INTO STG_Country"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT INSERT INTO STG_Country\Conversion de données"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_Country\Conversion de données.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\Conversion de données.Inputs[Entrée de conversion de données].Columns[ExternalSource]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ExternalSource"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Country\Conversion de données.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\DFT INSERT INTO STG_Country\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\DFT INSERT INTO STG_Country\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]"
+                      name="Copie de ExternalSource"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Country\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\DFT INSERT INTO STG_Country\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Country\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Country\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST STG_Country"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[STG_Country_DM_SA]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].Columns[Country_Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Country_Code"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Code]"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Code]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].Columns[Country_Lib_EN]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Country_Lib_EN"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Lib_EN]"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Lib_EN]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].Columns[Country_Lib_FR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Country_Lib_FR"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Lib_FR]"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Lib_FR]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].Columns[Country_ISO2Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Country_ISO2Code"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ISO2Code]"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ISO2Code]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].Columns[Country_ExternalID]"
+                      cachedDataType="i4"
+                      cachedName="Country_ExternalID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ExternalID]"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ExternalID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].Columns[ExternalSource]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ExternalSource"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ExternalID]"
+                      dataType="i4"
+                      name="Country_ExternalID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ExternalSource" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Country_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Lib_EN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="Country_Lib_EN" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Lib_FR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="Country_Lib_FR" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ISO2Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Country_ISO2Code" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC OCDE_STG_view_Country_DM_SA"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[view_Country_DM_SA]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
+	dbo.fn_asciiCodeInteger(convert(varchar(4),([Country]))) as Country_ExternalID
+	,
+	'KV3'  collate Latin1_General_CI_AS as ExternalSource
+	,[Country] collate Latin1_General_CI_AS as Country_Code
+	,LEFT([EnglishDesc],150) collate Latin1_General_CI_AS as Country_Lib_EN
+	,LEFT([FrenchDesc],150) collate Latin1_General_CI_AS as Country_Lib_FR
+	,LEFT([ISO2],10) collate Latin1_General_CI_AS as Country_ISO2Code 
+  FROM [KappaV3_daily].[dbo].[KV3_Country]</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Connections[OleDbConnection]"
+                  connectionManagerID="{4778CC85-0D69-42DD-93E7-2333A30D1D37}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_KappaV3]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
+                      length="3"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
+                      name="ExternalSource"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Code]"
+                      length="4"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Code]"
+                      name="Country_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Lib_EN]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Lib_EN]"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Lib_EN]"
+                      name="Country_Lib_EN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Lib_FR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Lib_FR]"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_Lib_FR]"
+                      name="Country_Lib_FR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ISO2Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ISO2Code]"
+                      length="2"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ISO2Code]"
+                      name="Country_ISO2Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ExternalID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ExternalID]"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ExternalID]"
+                      name="Country_ExternalID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ExternalSource" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Country_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Lib_EN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="Country_Lib_EN" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Lib_FR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="Country_Lib_FR" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ISO2Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Country_ISO2Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ExternalID]"
+                      dataType="i4"
+                      name="Country_ExternalID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ExternalID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ExternalID]"
+                      name="Country_ExternalID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
+                      name="ExternalSource" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Code]"
+                      name="Country_Code" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Lib_EN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Lib_EN]"
+                      name="Country_Lib_EN" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Lib_FR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Lib_FR]"
+                      name="Country_Lib_FR" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ISO2Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ISO2Code]"
+                      name="Country_ISO2Code" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT INSERT INTO STG_Country.Paths[Sortie de conversion de données]"
+              endId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de conversion de données"
+              startId="Package\DFT INSERT INTO STG_Country\Conversion de données.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\DFT INSERT INTO STG_Country.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO STG_Country\Conversion de données.Inputs[Entrée de conversion de données]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL Truncate STG_Country"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{0B8CCE6C-980C-4742-B3B0-ABEBABE4883D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL Truncate STG_Country"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [stg].STG_Country_DM_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{5CD8CF69-2DA2-4C04-A2AE-4B2D829930F6}"
+      DTS:From="Package\TSQL Truncate STG_Country"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\DFT INSERT INTO STG_Country" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="232,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Country"
+          TopLeft="68.4166657291354,180.999996861816" />
+        <NodeLayout
+          Size="214.666666666667,42.6666666666667"
+          Id="Package\TSQL Truncate STG_Country"
+          TopLeft="76.7499989382925,98.6333335038026" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="184.249999000381,141.300000170469">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.6999966913467"
+              Start="0,0"
+              End="0,32.1999966913467">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.1999966913467" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO STG_Country">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="288,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA"
+          TopLeft="231.24537327989,39.1444437444873" />
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country"
+          TopLeft="219.999996721745,205.011107838616" />
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Country\Conversion de données"
+          TopLeft="204.76851546723,120.311110294925" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_Country.Paths[Sortie de source OLE DB]"
+          TopLeft="375.24537327989,81.811110411154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-75.8101911459938,38.4999998837711"
+              Start="0,0"
+              End="-75.8101911459938,30.9999998837711">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.2499999418855" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.2499999418855"
+                    Point2="0,19.2499999418855"
+                    Point3="-4,19.2499999418855" />
+                  <mssgle:LineSegment
+                    End="-71.8101911459938,19.2499999418855" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-71.8101911459938,19.2499999418855"
+                    Point2="-75.8101911459938,19.2499999418855"
+                    Point3="-75.8101911459938,23.2499999418855" />
+                  <mssgle:LineSegment
+                    End="-75.8101911459938,30.9999998837711" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_Country.Paths[Sortie de conversion de données]"
+          TopLeft="299.435182133897,162.977776961592">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.2314812545146,42.0333308770241"
+              Start="0,0"
+              End="15.2314812545146,34.5333308770241">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.016665438512" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.016665438512"
+                    Point2="0,21.016665438512"
+                    Point3="4,21.016665438512" />
+                  <mssgle:LineSegment
+                    End="11.2314812545146,21.016665438512" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.2314812545146,21.016665438512"
+                    Point2="15.2314812545146,21.016665438512"
+                    Point3="15.2314812545146,25.016665438512" />
+                  <mssgle:LineSegment
+                    End="15.2314812545146,34.5333308770241" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
