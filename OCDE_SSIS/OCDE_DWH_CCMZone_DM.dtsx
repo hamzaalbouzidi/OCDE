@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_CCMZone_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{0BA11980-6842-42CD-B541-94B78B60F09D}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{D8C5E216-0F74-4131-85CA-4E520989122E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -100,6 +100,83 @@ SET [CCMZone_ID]= NULL</property>
                       refId="Package\DFT INSERT INTO DWH_CCMZone_DM\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DFT INSERT INTO DWH_CCMZone_DM\Commande OLE DB.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données.Inputs[Entrée de conversion de données].Columns[ManagerName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ManagerName"
+                      lineageId="Package\DFT INSERT INTO DWH_CCMZone_DM\OLE_SRC OCDE_STG_Metadata_TMP_CCM_IDS.Outputs[Sortie de source OLE DB].Columns[ManagerName]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ManagerName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ManagerName]"
+                      name="Copie de ManagerName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO DWH_CCMZone_DM\OLE_SRC OCDE_STG_Metadata_TMP_CCM_IDS.Outputs[Sortie de source OLE DB].Columns[ManagerName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -430,13 +507,6 @@ SET [CCMZone_ID]= NULL</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_CCMZone_DM\OLE_DST DWH_CCMZone_DM.Inputs[OLE DB Destination Input].Columns[ManagerName]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="ManagerName"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_CCMZone_DM\OLE_DST DWH_CCMZone_DM.Inputs[OLE DB Destination Input].ExternalColumns[ManagerName]"
-                      lineageId="Package\DFT INSERT INTO DWH_CCMZone_DM\OLE_SRC OCDE_STG_Metadata_TMP_CCM_IDS.Outputs[Sortie de source OLE DB].Columns[ManagerName]" />
-                    <inputColumn
                       refId="Package\DFT INSERT INTO DWH_CCMZone_DM\OLE_DST DWH_CCMZone_DM.Inputs[OLE DB Destination Input].Columns[HideInReport]"
                       cachedDataType="bool"
                       cachedName="HideInReport"
@@ -473,6 +543,13 @@ SET [CCMZone_ID]= NULL</property>
                       cachedName="CCZone"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_CCMZone_DM\OLE_DST DWH_CCMZone_DM.Inputs[OLE DB Destination Input].ExternalColumns[CCMZone]"
                       lineageId="Package\DFT INSERT INTO DWH_CCMZone_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[CCZone]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_CCMZone_DM\OLE_DST DWH_CCMZone_DM.Inputs[OLE DB Destination Input].Columns[Copie de ManagerName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copie de ManagerName"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_CCMZone_DM\OLE_DST DWH_CCMZone_DM.Inputs[OLE DB Destination Input].ExternalColumns[ManagerName]"
+                      lineageId="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ManagerName]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -680,7 +757,7 @@ SET [CCMZone_ID]= NULL</property>
           <paths>
             <path
               refId="Package\DFT INSERT INTO DWH_CCMZone_DM.Paths[Sortie de colonne dérivée]"
-              endId="Package\DFT INSERT INTO DWH_CCMZone_DM\OLE_DST DWH_CCMZone_DM.Inputs[OLE DB Destination Input]"
+              endId="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données.Inputs[Entrée de conversion de données]"
               name="Sortie de colonne dérivée"
               startId="Package\DFT INSERT INTO DWH_CCMZone_DM\DC_ Variables.Outputs[Sortie de colonne dérivée]" />
             <path
@@ -688,6 +765,11 @@ SET [CCMZone_ID]= NULL</property>
               endId="Package\DFT INSERT INTO DWH_CCMZone_DM\DC_ Variables.Inputs[Entrée de colonne dérivée]"
               name="Sortie de commande OLE DB"
               startId="Package\DFT INSERT INTO DWH_CCMZone_DM\Commande OLE DB.Outputs[Sortie de commande OLE DB]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_CCMZone_DM.Paths[Sortie de conversion de données]"
+              endId="Package\DFT INSERT INTO DWH_CCMZone_DM\OLE_DST DWH_CCMZone_DM.Inputs[OLE DB Destination Input]"
+              name="Sortie de conversion de données"
+              startId="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données.Outputs[Sortie de conversion de données]" />
             <path
               refId="Package\DFT INSERT INTO DWH_CCMZone_DM.Paths[Sortie de source OLE DB]"
               endId="Package\DFT INSERT INTO DWH_CCMZone_DM\Commande OLE DB.Inputs[Entrée de commande OLE DB]"
@@ -1113,6 +1195,10 @@ Country_ID=?
           Id="Package\DFT INSERT INTO DWH_CCMZone_DM"
           TopLeft="72.7500018067657,120.199999907017" />
         <NodeLayout
+          Size="232,42.6666666666667"
+          Id="Package\DFT UPDATE DWH_Country_DM"
+          TopLeft="94.000001490116,216.800000015497" />
+        <NodeLayout
           Size="248,42.6666666666667"
           Id="Package\TSQL Truncate DWH_CCMZone_DM"
           TopLeft="77.7500017322599,33.0666687277953" />
@@ -1138,10 +1224,6 @@ Country_ID=?
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="232,42.6666666666667"
-          Id="Package\DFT UPDATE DWH_Country_DM"
-          TopLeft="94.000001490116,216.800000015497" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 1]"
           TopLeft="207.708334981774,162.866666573683">
@@ -1171,59 +1253,37 @@ Country_ID=?
     design-time-name="Package\DFT INSERT INTO DWH_CCMZone_DM">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_CCMZone_DM\DC_ Variables"
+          TopLeft="335.857137934438,159.309531281392" />
         <NodeLayout
           Size="222.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_CCMZone_DM\OLE_DST DWH_CCMZone_DM"
-          TopLeft="297.874996135012,265.916668584446" />
+          TopLeft="295.494043789538,308.011905926962" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_CCMZone_DM\Commande OLE DB"
+          TopLeft="318.898804771847,84.9642841950059" />
         <NodeLayout
           Size="304,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_CCMZone_DM\OLE_SRC OCDE_STG_Metadata_TMP_CCM_IDS"
           TopLeft="254.083331017445,15.2000009143353" />
-        <NodeLayout
-          Size="145.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_CCMZone_DM\DC_ Variables"
-          TopLeft="334.666661761701,174.166673872868" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_CCMZone_DM.Paths[Sortie de colonne dérivée]"
-          TopLeft="408.270828948356,216.833340539535">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,49.0833280449112"
-              Start="0,0"
-              End="0,41.5833280449112">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.5833280449112" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="172,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_CCMZone_DM\Commande OLE DB"
-          TopLeft="313.541661994532,98.583331570526" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_CCMZone_DM.Paths[Sortie de source OLE DB]"
-          TopLeft="402.812496505988,57.8666675810019">
+          TopLeft="405.491067894646,57.866667581002">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40.7166639895241"
+              EndConnector="0,27.097616614004"
               Start="0,0"
-              End="0,33.2166639895241">
+              End="0,19.597616614004">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.2166639895241" />
+                    End="0,19.597616614004" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1234,18 +1294,66 @@ Country_ID=?
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_CCMZone_DM.Paths[Sortie de commande OLE DB]"
-          TopLeft="403.43749521145,141.249998237193">
+          TopLeft="406.711304686476,127.630950861673">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,32.9166756356755"
+              EndConnector="0,31.678580419719"
               Start="0,0"
-              End="0,25.4166756356755">
+              End="0,24.178580419719">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.4166756356755" />
+                    End="0,24.178580419719" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_CCMZone_DM\Conversion de données"
+          TopLeft="314.88094768886,232.476187000388" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_CCMZone_DM.Paths[Sortie de colonne dérivée]"
+          TopLeft="409.035709478316,201.976197948058">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.4999890523301"
+              Start="0,0"
+              End="0,22.9999890523301">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.9999890523301" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_CCMZone_DM.Paths[Sortie de conversion de données]"
+          TopLeft="408.187495739199,275.142853667055">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.8690522599074"
+              Start="0,0"
+              End="0,25.3690522599074">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.3690522599074" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

@@ -11,11 +11,26 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Registration"
   DTS:PackageType="5"
-  DTS:VersionBuild="67"
-  DTS:VersionGUID="{B7BEFA1F-027F-4A5D-BB73-36742CB821F9}">
+  DTS:VersionBuild="68"
+  DTS:VersionGUID="{C2647092-DA96-4AD8-8AA1-3A5CBBBF7134}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="OCDE_STG"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Enregistre les entrées du journal pour les événements dans une base de données SQL Server"
+      DTS:DTSID="{5F89898B-82E8-40C8-9FDF-AF0BBB84330D}"
+      DTS:ObjectName="Module fournisseur d'informations SSIS pour SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
   <DTS:Variables />
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1" />
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\DFT INSERT INTO STG_City"
@@ -27,6 +42,71 @@
       DTS:ObjectName="DFT INSERT INTO STG_City"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1">
+        <DTS:Property
+          DTS:DataType="8"
+          DTS:Name="EventFilter">3,7,OnError,13,OnPostExecute,12,OnPreExecute</DTS:Property>
+        <DTS:Property
+          DTS:EventName="OnError"
+          DTS:Name="ColumnFilter">
+          <DTS:Property
+            DTS:Name="Computer">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="Operator">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceName">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="ExecutionID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="MessageText">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="DataBytes">-1</DTS:Property>
+        </DTS:Property>
+        <DTS:Property
+          DTS:EventName="OnPostExecute"
+          DTS:Name="ColumnFilter">
+          <DTS:Property
+            DTS:Name="Computer">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="Operator">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceName">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="ExecutionID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="MessageText">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="DataBytes">-1</DTS:Property>
+        </DTS:Property>
+        <DTS:Property
+          DTS:EventName="OnPreExecute"
+          DTS:Name="ColumnFilter">
+          <DTS:Property
+            DTS:Name="Computer">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="Operator">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceName">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="ExecutionID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="MessageText">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="DataBytes">-1</DTS:Property>
+        </DTS:Property>
+        <DTS:SelectedLogProviders>
+          <DTS:SelectedLogProvider
+            DTS:InstanceID="{5F89898B-82E8-40C8-9FDF-AF0BBB84330D}" />
+        </DTS:SelectedLogProviders>
+      </DTS:LoggingOptions>
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -358,6 +438,9 @@
       DTS:ObjectName="DFT INSERT INTO STG_CustomerType"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -607,6 +690,9 @@
       DTS:ObjectName="DFT INSERT INTO STG_Registration"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -1268,6 +1354,9 @@
       DTS:ObjectName="DFT INSERT INTO STG_RegistrationType"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -1517,6 +1606,9 @@
       DTS:ObjectName="DFT INSERT INTO STG_Registration_SA"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -2414,6 +2506,9 @@
       DTS:ObjectName="DFT INSERT INTO STG_Registration_SA_Rejected (CustomerType)"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -3245,6 +3340,9 @@
       DTS:ObjectName="DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -4225,6 +4323,9 @@ where [refTable].[identityID] = ?</property>
       DTS:ObjectName="DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -5056,6 +5157,9 @@ where [refTable].[identityID] = ?</property>
       DTS:ObjectName="DFT INSERT INTO STG_Registration_SA_Rejected (Name)"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -5887,6 +5991,9 @@ where [refTable].[identityID] = ?</property>
       DTS:ObjectName="TSQL DELETE Registration_SA (CustomerType)"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
@@ -5903,6 +6010,9 @@ where [refTable].[identityID] = ?</property>
       DTS:ObjectName="TSQL DELETE Registration_SA (Duplicate)"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
@@ -5919,6 +6029,9 @@ where [refTable].[identityID] = ?</property>
       DTS:ObjectName="TSQL DELETE Registration_SA (IdentityID)"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
@@ -5935,6 +6048,9 @@ where [refTable].[identityID] = ?</property>
       DTS:ObjectName="TSQL DELETE Registration_SA (Name)"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
@@ -5951,6 +6067,9 @@ where [refTable].[identityID] = ?</property>
       DTS:ObjectName="TSQL Truncate STG_City"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
@@ -5967,6 +6086,9 @@ where [refTable].[identityID] = ?</property>
       DTS:ObjectName="TSQL Truncate STG_CustomerType"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
@@ -5983,6 +6105,9 @@ where [refTable].[identityID] = ?</property>
       DTS:ObjectName="TSQL Truncate STG_Registration"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
@@ -5999,6 +6124,9 @@ where [refTable].[identityID] = ?</property>
       DTS:ObjectName="TSQL Truncate STG_RegistrationType"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
@@ -6015,6 +6143,9 @@ where [refTable].[identityID] = ?</property>
       DTS:ObjectName="TSQL Truncate STG_Registration_SA"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
@@ -6031,6 +6162,9 @@ where [refTable].[identityID] = ?</property>
       DTS:ObjectName="TSQL Truncate STG_Registration_SA_Rejected"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
@@ -6213,14 +6347,6 @@ where [refTable].[identityID] = ?</property>
           Id="Package\DFT INSERT INTO STG_Registration_SA"
           TopLeft="119.190474496356,500.10792786234" />
         <NodeLayout
-          Size="374.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)"
-          TopLeft="71.6904752041616,568.326974261536" />
-        <NodeLayout
-          Size="354.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name)"
-          TopLeft="84.1904750178972,713.231739127369" />
-        <NodeLayout
           Size="394.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (CustomerType)"
           TopLeft="91.6904749061383,876.336504907543" />
@@ -6229,17 +6355,17 @@ where [refTable].[identityID] = ?</property>
           Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)"
           TopLeft="109.190474645368,1014.30793656403" />
         <NodeLayout
+          Size="374.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)"
+          TopLeft="71.6904752041616,568.326974261536" />
+        <NodeLayout
+          Size="354.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name)"
+          TopLeft="84.1904750178972,713.231739127369" />
+        <NodeLayout
           Size="273.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_RegistrationType"
           TopLeft="158.634918353033,1156.35714408955" />
-        <NodeLayout
-          Size="281.333333333334,42.6666666666667"
-          Id="Package\TSQL DELETE Registration_SA (IdentityID)"
-          TopLeft="120.238093446408,635.698405344618" />
-        <NodeLayout
-          Size="261.333333333334,42.6666666666667"
-          Id="Package\TSQL DELETE Registration_SA (Name)"
-          TopLeft="126.071426692818,790.269834939968" />
         <NodeLayout
           Size="301.333333333334,42.6666666666667"
           Id="Package\TSQL DELETE Registration_SA (CustomerType)"
@@ -6248,6 +6374,14 @@ where [refTable].[identityID] = ?</property>
           Size="277.333333333334,42.6666666666667"
           Id="Package\TSQL DELETE Registration_SA (Duplicate)"
           TopLeft="158.57142620853,1083.41270094945" />
+        <NodeLayout
+          Size="281.333333333334,42.6666666666667"
+          Id="Package\TSQL DELETE Registration_SA (IdentityID)"
+          TopLeft="120.238093446408,635.698405344618" />
+        <NodeLayout
+          Size="261.333333333334,42.6666666666667"
+          Id="Package\TSQL DELETE Registration_SA (Name)"
+          TopLeft="126.071426692818,790.269834939968" />
         <NodeLayout
           Size="196,42.6666666666667"
           Id="Package\TSQL Truncate STG_City"
@@ -6927,186 +7061,6 @@ where [refTable].[identityID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="372,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)\OLE_SRC OCDE_STG_view_Registration_SA_Check_identityID"
-          TopLeft="13.690476185154,40.0380945340794" />
-        <NodeLayout
-          Size="273.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)\OLE_DST STG_Registration_SA_Rejected"
-          TopLeft="68.488094346686,185.623806228439" />
-        <NodeLayout
-          Size="165.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)\IdentityID Reason"
-          TopLeft="119.071426966006,110.809522492261" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID).Paths[Sortie de source OLE DB]"
-          TopLeft="200.714284908913,82.704761200746">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.104761291515"
-              Start="0,0"
-              End="0,20.604761291515">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.604761291515" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID).Paths[Sortie de colonne dérivée]"
-          TopLeft="203.446427323013,153.476189158928">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.1476170695117"
-              Start="0,0"
-              End="0,24.6476170695117">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.6476170695117" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)\OLE_SRC OCDE_STG_view_Registration_SA_Check_identityID">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)\OLE_DST STG_Registration_SA_Rejected">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name)">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="353.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name)\OLE_SRC OCDE_STG_view_Registration_SA_Check_Name"
-          TopLeft="25.0238095184874,38.704761200746" />
-        <NodeLayout
-          Size="273.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name)\OLE_DST STG_Registration_SA_Rejected"
-          TopLeft="67.1547610133526,188.290472895106" />
-        <NodeLayout
-          Size="144,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name)\Name Reason"
-          TopLeft="131.071426966006,115.476189158928" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name).Paths[Sortie de source OLE DB]"
-          TopLeft="202.38095157558,81.3714278674127">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.104761291515"
-              Start="0,0"
-              End="0,26.604761291515">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.604761291515" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name).Paths[Sortie de colonne dérivée]"
-          TopLeft="203.446427323013,158.142855825594">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.1476170695113"
-              Start="0,0"
-              End="0,22.6476170695113">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.6476170695113" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name)\OLE_SRC OCDE_STG_view_Registration_SA_Check_Name">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name)\OLE_DST STG_Registration_SA_Rejected">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
     design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (CustomerType)">
     <LayoutInfo>
       <GraphLayout
@@ -7321,6 +7275,186 @@ where [refTable].[identityID] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="372,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)\OLE_SRC OCDE_STG_view_Registration_SA_Check_identityID"
+          TopLeft="13.690476185154,40.0380945340794" />
+        <NodeLayout
+          Size="273.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)\OLE_DST STG_Registration_SA_Rejected"
+          TopLeft="68.488094346686,185.623806228439" />
+        <NodeLayout
+          Size="165.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)\IdentityID Reason"
+          TopLeft="119.071426966006,110.809522492261" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID).Paths[Sortie de source OLE DB]"
+          TopLeft="200.714284908913,82.704761200746">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.104761291515"
+              Start="0,0"
+              End="0,20.604761291515">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.604761291515" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID).Paths[Sortie de colonne dérivée]"
+          TopLeft="203.446427323013,153.476189158928">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.1476170695117"
+              Start="0,0"
+              End="0,24.6476170695117">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.6476170695117" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)\OLE_SRC OCDE_STG_view_Registration_SA_Check_identityID">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)\OLE_DST STG_Registration_SA_Rejected">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="353.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name)\OLE_SRC OCDE_STG_view_Registration_SA_Check_Name"
+          TopLeft="25.0238095184874,38.704761200746" />
+        <NodeLayout
+          Size="273.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name)\OLE_DST STG_Registration_SA_Rejected"
+          TopLeft="67.1547610133526,188.290472895106" />
+        <NodeLayout
+          Size="144,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name)\Name Reason"
+          TopLeft="131.071426966006,115.476189158928" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name).Paths[Sortie de source OLE DB]"
+          TopLeft="202.38095157558,81.3714278674127">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.104761291515"
+              Start="0,0"
+              End="0,26.604761291515">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.604761291515" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name).Paths[Sortie de colonne dérivée]"
+          TopLeft="203.446427323013,158.142855825594">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.1476170695113"
+              Start="0,0"
+              End="0,22.6476170695113">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.6476170695113" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name)\OLE_SRC OCDE_STG_view_Registration_SA_Check_Name">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name)\OLE_DST STG_Registration_SA_Rejected">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
