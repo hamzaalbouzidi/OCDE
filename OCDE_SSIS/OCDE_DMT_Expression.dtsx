@@ -1,0 +1,1334 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/9/2019 5:03:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CSPE-W-VBISPS01"
+  DTS:CreatorName="CERBA\YMIGEOT"
+  DTS:DTSID="{43AFF3F0-F377-4EB5-9747-A3656AA64639}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="OCDE_DMT_Expression"
+  DTS:PackageType="5"
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{6A45D28E-88E3-4537-9F29-48958DD1B8F9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT INSERT INTO DIM_Expression"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{BC2174BF-FFB1-4A6C-87E7-1BA0E89C945D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT INSERT INTO DIM_Expression"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST DIM_Expression"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[DIM_Expression]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Connections[OleDbConnection]"
+                  connectionManagerID="{DF85A1CB-0DD4-4BDD-BDE8-9C2C5C4FB0CB}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DMT]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[CurExpId]"
+                      cachedDataType="i4"
+                      cachedName="CurExpId"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[CurExpId]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[CurExpId]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - DOI]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="Expression - DOI"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - DOI]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - DOI]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - FullTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Expression - FullTitle"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - FullTitle]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - FullTitle]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - iLibraryURLAlias]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Expression - iLibraryURLAlias"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - iLibraryURLAlias]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - iLibraryURLAlias]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - Directorate ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression - Directorate ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Directorate ID]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Directorate ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - Language ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression - Language ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Language ID]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Language ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - Theme ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression - Theme ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Theme ID]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Theme ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - IGO ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression - IGO ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - IGO ID]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - IGO ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - Object Type ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression - Object Type ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Object Type ID]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Object Type ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - FirstRelease_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Expression - FirstRelease_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - FirstRelease_Date]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - FirstRelease_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - FirstExportDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Expression - FirstExportDate"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - FirstExportDate]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - FirstExportDate]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - LatestDeletionDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Expression - LatestDeletionDate"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - LatestDeletionDate]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - LatestDeletionDate]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - LatestExportDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Expression - LatestExportDate"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - LatestExportDate]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - LatestExportDate]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - Object Type Level1]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="Expression - Object Type Level1"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Object Type Level1]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Object Type Level1]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - Object Type Level2]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="Expression - Object Type Level2"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Object Type Level2]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Object Type Level2]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - Title Level1]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Expression - Title Level1"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Title Level1]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Title Level1]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - Title Level2]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Expression - Title Level2"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Title Level2]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Title Level2]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - DOI Level1]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="Expression - DOI Level1"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - DOI Level1]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - DOI Level1]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - DOI Level2]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="Expression - DOI Level2"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - DOI Level2]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - DOI Level2]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - Theme Level1]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="Expression - Theme Level1"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Theme Level1]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Theme Level1]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - Theme Level2]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="Expression - Theme Level2"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Theme Level2]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Theme Level2]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - Directorate Code Level1]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Expression - Directorate Code Level1"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Directorate Code Level1]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Directorate Code Level1]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - Directorate Code Level2]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Expression - Directorate Code Level2"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Directorate Code Level2]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Directorate Code Level2]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - Directorate Name Level1]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="Expression - Directorate Name Level1"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Directorate Name Level1]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Directorate Name Level1]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - Directorate Name Level2]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="Expression - Directorate Name Level2"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Directorate Name Level2]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Directorate Name Level2]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - iLibraryAccessMode]"
+                      cachedDataType="ui1"
+                      cachedName="Expression - iLibraryAccessMode"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - iLibraryAccessMode]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - iLibraryAccessMode]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - HasEpub]"
+                      cachedDataType="bool"
+                      cachedName="Expression - HasEpub"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - HasEpub]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - HasEpub]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - HasEBook]"
+                      cachedDataType="bool"
+                      cachedName="Expression - HasEBook"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - HasEBook]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - HasEBook]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - HasExcel]"
+                      cachedDataType="bool"
+                      cachedName="Expression - HasExcel"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - HasExcel]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - HasExcel]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - HasRead]"
+                      cachedDataType="bool"
+                      cachedName="Expression - HasRead"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - HasRead]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - HasRead]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].Columns[Expression - HasHTML]"
+                      cachedDataType="bool"
+                      cachedName="Expression - HasHTML"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - HasHTML]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - HasHTML]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[CurExpId]"
+                      dataType="i4"
+                      name="CurExpId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - DOI]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - DOI" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - FullTitle]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Expression - FullTitle" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - iLibraryURLAlias]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Expression - iLibraryURLAlias" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Directorate ID]"
+                      dataType="i4"
+                      name="Expression - Directorate ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Language ID]"
+                      dataType="i4"
+                      name="Expression - Language ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Theme ID]"
+                      dataType="i4"
+                      name="Expression - Theme ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - IGO ID]"
+                      dataType="i4"
+                      name="Expression - IGO ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Object Type ID]"
+                      dataType="i4"
+                      name="Expression - Object Type ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - FirstRelease_Date]"
+                      dataType="dbTimeStamp"
+                      name="Expression - FirstRelease_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - FirstExportDate]"
+                      dataType="dbTimeStamp"
+                      name="Expression - FirstExportDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - LatestDeletionDate]"
+                      dataType="dbTimeStamp"
+                      name="Expression - LatestDeletionDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - LatestExportDate]"
+                      dataType="dbTimeStamp"
+                      name="Expression - LatestExportDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Object Type Level1]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - Object Type Level1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Object Type Level2]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - Object Type Level2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Title Level1]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Expression - Title Level1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Title Level2]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Expression - Title Level2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - DOI Level1]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - DOI Level1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - DOI Level2]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - DOI Level2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Theme Level1]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - Theme Level1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Theme Level2]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - Theme Level2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Directorate Code Level1]"
+                      dataType="wstr"
+                      length="4"
+                      name="Expression - Directorate Code Level1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Directorate Code Level2]"
+                      dataType="wstr"
+                      length="4"
+                      name="Expression - Directorate Code Level2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Directorate Name Level1]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - Directorate Name Level1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - Directorate Name Level2]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - Directorate Name Level2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - iLibraryAccessMode]"
+                      dataType="ui1"
+                      name="Expression - iLibraryAccessMode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - HasEpub]"
+                      dataType="bool"
+                      name="Expression - HasEpub" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - HasEBook]"
+                      dataType="bool"
+                      name="Expression - HasEBook" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - HasExcel]"
+                      dataType="bool"
+                      name="Expression - HasExcel" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - HasRead]"
+                      dataType="bool"
+                      name="Expression - HasRead" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression - HasHTML]"
+                      dataType="bool"
+                      name="Expression - HasHTML" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC OCDE_DWH_Expression_DM"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT DISTINCT 
+                      CurExpId, ISNULL([Expression - DOI], '') AS [Expression - DOI], ISNULL([Expression - FullTitle], '') AS [Expression - FullTitle], ISNULL([Expression - iLibraryURLAlias], 
+                      '') AS [Expression - iLibraryURLAlias], [Expression - Directorate ID], [Expression - Language ID], [Expression - Theme ID], [Expression - IGO ID], 
+                      [Expression - Object Type ID], [Expression - FirstRelease_Date], [Expression - FirstExportDate], [Expression - LatestDeletionDate], [Expression - LatestExportDate], 
+                      ISNULL([Expression - Object Type Level1], '') AS [Expression - Object Type Level1], ISNULL([Expression - Object Type Level2], '') 
+                      AS [Expression - Object Type Level2], ISNULL([Expression - Title Level1], '') AS [Expression - Title Level1], ISNULL([Expression - Title Level2], '') 
+                      AS [Expression - Title Level2], ISNULL([Expression - DOI Level1], '') AS [Expression - DOI Level1], ISNULL([Expression - DOI Level2], '') AS [Expression - DOI Level2], 
+                      ISNULL([Expression - Theme Level1], '') AS [Expression - Theme Level1], ISNULL([Expression - Theme Level2], '') AS [Expression - Theme Level2], 
+                      ISNULL([Expression - Directorate Code Level1], '') AS [Expression - Directorate Code Level1], ISNULL([Expression - Directorate Code Level2], '') 
+                      AS [Expression - Directorate Code Level2], ISNULL([Expression - Directorate Name Level1], '') AS [Expression - Directorate Name Level1], 
+                      ISNULL([Expression - Directorate Name Level2], '') AS [Expression - Directorate Name Level2], CAST([Expression - iLibraryAccessMode] AS tinyint) 
+                      AS [Expression - iLibraryAccessMode],					  
+						isnull([Expression - HasEpub],0) as [Expression - HasEpub],
+						isnull([Expression - HasEBook],0) as [Expression - HasEBook],
+						isnull([Expression - HasExcel],0) as [Expression - HasExcel],
+						isnull([Expression - HasRead],0) as [Expression - HasRead],
+						isnull([Expression - HasHTML],0) as [Expression - HasHTML] 
+
+FROM         dwh.Dim_Expression</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Connections[OleDbConnection]"
+                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[CurExpId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[CurExpId]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[CurExpId]"
+                      name="CurExpId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - DOI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - DOI]"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - DOI]"
+                      name="Expression - DOI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - FullTitle]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - FullTitle]"
+                      length="4000"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - FullTitle]"
+                      name="Expression - FullTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - iLibraryURLAlias]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - iLibraryURLAlias]"
+                      length="4000"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - iLibraryURLAlias]"
+                      name="Expression - iLibraryURLAlias"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Directorate ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Directorate ID]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Directorate ID]"
+                      name="Expression - Directorate ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Language ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Language ID]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Language ID]"
+                      name="Expression - Language ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Theme ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Theme ID]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Theme ID]"
+                      name="Expression - Theme ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - IGO ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - IGO ID]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - IGO ID]"
+                      name="Expression - IGO ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Object Type ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Object Type ID]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Object Type ID]"
+                      name="Expression - Object Type ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - FirstRelease_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - FirstRelease_Date]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - FirstRelease_Date]"
+                      name="Expression - FirstRelease_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - FirstExportDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - FirstExportDate]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - FirstExportDate]"
+                      name="Expression - FirstExportDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - LatestDeletionDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - LatestDeletionDate]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - LatestDeletionDate]"
+                      name="Expression - LatestDeletionDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - LatestExportDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - LatestExportDate]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - LatestExportDate]"
+                      name="Expression - LatestExportDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Object Type Level1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Object Type Level1]"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Object Type Level1]"
+                      name="Expression - Object Type Level1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Object Type Level2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Object Type Level2]"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Object Type Level2]"
+                      name="Expression - Object Type Level2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Title Level1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Title Level1]"
+                      length="4000"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Title Level1]"
+                      name="Expression - Title Level1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Title Level2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Title Level2]"
+                      length="4000"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Title Level2]"
+                      name="Expression - Title Level2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - DOI Level1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - DOI Level1]"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - DOI Level1]"
+                      name="Expression - DOI Level1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - DOI Level2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - DOI Level2]"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - DOI Level2]"
+                      name="Expression - DOI Level2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Theme Level1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Theme Level1]"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Theme Level1]"
+                      name="Expression - Theme Level1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Theme Level2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Theme Level2]"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Theme Level2]"
+                      name="Expression - Theme Level2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Directorate Code Level1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Directorate Code Level1]"
+                      length="4"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Directorate Code Level1]"
+                      name="Expression - Directorate Code Level1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Directorate Code Level2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Directorate Code Level2]"
+                      length="4"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Directorate Code Level2]"
+                      name="Expression - Directorate Code Level2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Directorate Name Level1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Directorate Name Level1]"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Directorate Name Level1]"
+                      name="Expression - Directorate Name Level1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Directorate Name Level2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Directorate Name Level2]"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - Directorate Name Level2]"
+                      name="Expression - Directorate Name Level2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - iLibraryAccessMode]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - iLibraryAccessMode]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - iLibraryAccessMode]"
+                      name="Expression - iLibraryAccessMode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - HasEpub]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - HasEpub]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - HasEpub]"
+                      name="Expression - HasEpub"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - HasEBook]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - HasEBook]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - HasEBook]"
+                      name="Expression - HasEBook"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - HasExcel]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - HasExcel]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - HasExcel]"
+                      name="Expression - HasExcel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - HasRead]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - HasRead]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - HasRead]"
+                      name="Expression - HasRead"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - HasHTML]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - HasHTML]"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].Columns[Expression - HasHTML]"
+                      name="Expression - HasHTML"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[CurExpId]"
+                      dataType="i4"
+                      name="CurExpId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - DOI]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - DOI" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - FullTitle]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Expression - FullTitle" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - iLibraryURLAlias]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Expression - iLibraryURLAlias" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Directorate ID]"
+                      dataType="i4"
+                      name="Expression - Directorate ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Language ID]"
+                      dataType="i4"
+                      name="Expression - Language ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Theme ID]"
+                      dataType="i4"
+                      name="Expression - Theme ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - IGO ID]"
+                      dataType="i4"
+                      name="Expression - IGO ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Object Type ID]"
+                      dataType="i4"
+                      name="Expression - Object Type ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - FirstRelease_Date]"
+                      dataType="dbTimeStamp"
+                      name="Expression - FirstRelease_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - FirstExportDate]"
+                      dataType="dbTimeStamp"
+                      name="Expression - FirstExportDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - LatestDeletionDate]"
+                      dataType="dbTimeStamp"
+                      name="Expression - LatestDeletionDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - LatestExportDate]"
+                      dataType="dbTimeStamp"
+                      name="Expression - LatestExportDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Object Type Level1]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - Object Type Level1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Object Type Level2]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - Object Type Level2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Title Level1]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Expression - Title Level1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Title Level2]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Expression - Title Level2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - DOI Level1]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - DOI Level1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - DOI Level2]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - DOI Level2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Theme Level1]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - Theme Level1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Theme Level2]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - Theme Level2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Directorate Code Level1]"
+                      dataType="wstr"
+                      length="4"
+                      name="Expression - Directorate Code Level1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Directorate Code Level2]"
+                      dataType="wstr"
+                      length="4"
+                      name="Expression - Directorate Code Level2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Directorate Name Level1]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - Directorate Name Level1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - Directorate Name Level2]"
+                      dataType="wstr"
+                      length="150"
+                      name="Expression - Directorate Name Level2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - iLibraryAccessMode]"
+                      dataType="ui1"
+                      name="Expression - iLibraryAccessMode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - HasEpub]"
+                      dataType="bool"
+                      name="Expression - HasEpub" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - HasEBook]"
+                      dataType="bool"
+                      name="Expression - HasEBook" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - HasExcel]"
+                      dataType="bool"
+                      name="Expression - HasExcel" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - HasRead]"
+                      dataType="bool"
+                      name="Expression - HasRead" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Expression - HasHTML]"
+                      dataType="bool"
+                      name="Expression - HasHTML" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[CurExpId]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[CurExpId]"
+                      name="CurExpId" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - DOI]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - DOI]"
+                      name="Expression - DOI" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - FullTitle]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - FullTitle]"
+                      name="Expression - FullTitle" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - iLibraryURLAlias]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - iLibraryURLAlias]"
+                      name="Expression - iLibraryURLAlias" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Directorate ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Directorate ID]"
+                      name="Expression - Directorate ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Language ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Language ID]"
+                      name="Expression - Language ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Theme ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Theme ID]"
+                      name="Expression - Theme ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - IGO ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - IGO ID]"
+                      name="Expression - IGO ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Object Type ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Object Type ID]"
+                      name="Expression - Object Type ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - FirstRelease_Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - FirstRelease_Date]"
+                      name="Expression - FirstRelease_Date" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - FirstExportDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - FirstExportDate]"
+                      name="Expression - FirstExportDate" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - LatestDeletionDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - LatestDeletionDate]"
+                      name="Expression - LatestDeletionDate" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - LatestExportDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - LatestExportDate]"
+                      name="Expression - LatestExportDate" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Object Type Level1]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Object Type Level1]"
+                      name="Expression - Object Type Level1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Object Type Level2]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Object Type Level2]"
+                      name="Expression - Object Type Level2" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Title Level1]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Title Level1]"
+                      name="Expression - Title Level1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Title Level2]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Title Level2]"
+                      name="Expression - Title Level2" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - DOI Level1]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - DOI Level1]"
+                      name="Expression - DOI Level1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - DOI Level2]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - DOI Level2]"
+                      name="Expression - DOI Level2" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Theme Level1]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Theme Level1]"
+                      name="Expression - Theme Level1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Theme Level2]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Theme Level2]"
+                      name="Expression - Theme Level2" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Directorate Code Level1]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Directorate Code Level1]"
+                      name="Expression - Directorate Code Level1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Directorate Code Level2]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Directorate Code Level2]"
+                      name="Expression - Directorate Code Level2" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Directorate Name Level1]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Directorate Name Level1]"
+                      name="Expression - Directorate Name Level1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Directorate Name Level2]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - Directorate Name Level2]"
+                      name="Expression - Directorate Name Level2" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - iLibraryAccessMode]"
+                      dataType="ui1"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - iLibraryAccessMode]"
+                      name="Expression - iLibraryAccessMode" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - HasEpub]"
+                      dataType="bool"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - HasEpub]"
+                      name="Expression - HasEpub" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - HasEBook]"
+                      dataType="bool"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - HasEBook]"
+                      name="Expression - HasEBook" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - HasExcel]"
+                      dataType="bool"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - HasExcel]"
+                      name="Expression - HasExcel" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - HasRead]"
+                      dataType="bool"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - HasRead]"
+                      name="Expression - HasRead" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - HasHTML]"
+                      dataType="bool"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression - HasHTML]"
+                      name="Expression - HasHTML" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT INSERT INTO DIM_Expression.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate DIM_Expression"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{296EDD7E-8130-4CDF-A657-AC69307182B5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate DIM_Expression"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DF85A1CB-0DD4-4BDD-BDE8-9C2C5C4FB0CB}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DIM_Expression" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{887D8BD0-CB14-4383-933E-E1B61AA7E17E}"
+      DTS:From="Package\Truncate DIM_Expression"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\DFT INSERT INTO DIM_Expression" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="245.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DIM_Expression"
+          TopLeft="99.6666652634743,184.466663466493" />
+        <NodeLayout
+          Size="200.666666666667,42.6666666666667"
+          Id="Package\Truncate DIM_Expression"
+          TopLeft="115.083331700415,102.533333434065" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="218.874998481945,145.200000100732">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.2666633657613"
+              Start="0,0"
+              End="0,31.7666633657613">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7666633657613" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO DIM_Expression">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="261.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM"
+          TopLeft="74.166665561497,38.1333326514563" />
+        <NodeLayout
+          Size="202.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression"
+          TopLeft="101.666665151715,129.033331419428" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DIM_Expression.Paths[Sortie de source OLE DB]"
+          TopLeft="203.916665356606,80.799999318123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.2333321013051"
+              Start="0,0"
+              End="0,40.7333321013051">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.7333321013051" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DIM_Expression\OLE_DST DIM_Expression">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DIM_Expression\OLE_SRC OCDE_DWH_Expression_DM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

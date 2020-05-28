@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DMT_IPAddress"
   DTS:PackageType="5"
-  DTS:VersionBuild="50"
-  DTS:VersionGUID="{9EE81D25-B117-4462-AEE8-8584FAEF7A16}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{CC879061-CF08-4749-AA43-57A54C7585F5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -47,7 +47,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset"></property>
+                  name="OpenRowset">[dbo].[DIM_IP_Address]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -69,7 +69,7 @@
                   dataType="System.Int32"
                   description="Spécifie le mode utilisé pour accéder à la base de données."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">3</property>
                 <property
                   dataType="System.Boolean"
                   description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
@@ -81,7 +81,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions"></property>
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                 <property
                   dataType="System.Int32"
                   description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
@@ -90,6 +90,8 @@
               <connections>
                 <connection
                   refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Connections[OleDbConnection]"
+                  connectionManagerID="{DF85A1CB-0DD4-4BDD-BDE8-9C2C5C4FB0CB}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DMT]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -100,8 +102,81 @@
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].Columns[IPAddress_ID]"
+                      cachedDataType="i4"
+                      cachedName="IPAddress_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].Columns[IPAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="IPAddress"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IPAddress]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].Columns[Country_Code]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Country_Code"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Code]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_Code]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].Columns[Country_ISO2Code]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Country_ISO2Code"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ISO2Code]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_ISO2Code]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].Columns[Country_Lib_EN]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="Country_Lib_EN"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Lib_EN]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_Lib_EN]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].Columns[Country_Lib_FR]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="Country_Lib_FR"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Lib_FR]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_Lib_FR]" />
+                  </inputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress_ID]"
+                      dataType="i4"
+                      name="IPAddress_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress]"
+                      dataType="wstr"
+                      length="30"
+                      name="IPAddress" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Country_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ISO2Code]"
+                      dataType="wstr"
+                      length="10"
+                      name="Country_ISO2Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Lib_EN]"
+                      dataType="wstr"
+                      length="150"
+                      name="Country_Lib_EN" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Lib_FR]"
+                      dataType="wstr"
+                      length="150"
+                      name="Country_Lib_FR" />
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
@@ -358,19 +433,19 @@ SELECT     0  asIPAddress_ID, 'N/A' as IPAddress, 'N/A' as Country_Code, 'N/A' a
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Truncate DIM_"
+      DTS:refId="Package\Truncate DIM_IPAddress"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
       DTS:DTSID="{1A6B58CE-995E-4D86-87D3-76AF9390F608}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Truncate DIM_"
+      DTS:ObjectName="Truncate DIM_IPAddress"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE 1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{DF85A1CB-0DD4-4BDD-BDE8-9C2C5C4FB0CB}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DIM_IPAddress" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -379,7 +454,7 @@ SELECT     0  asIPAddress_ID, 'N/A' as IPAddress, 'N/A' as Country_Code, 'N/A' a
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
       DTS:DTSID="{D0720B6E-14FB-48E3-8480-0AA4DB70186E}"
-      DTS:From="Package\Truncate DIM_"
+      DTS:From="Package\Truncate DIM_IPAddress"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte"
       DTS:To="Package\DFT INSERT INTO DIM_IPAddress" />
@@ -401,35 +476,23 @@ SELECT     0  asIPAddress_ID, 'N/A' as IPAddress, 'N/A' as Country_Code, 'N/A' a
           Id="Package\DFT INSERT INTO DIM_IPAddress"
           TopLeft="99.6666652634743,184.466663466493" />
         <NodeLayout
-          Size="149.333333333334,42.6666666666667"
-          Id="Package\Truncate DIM_"
+          Size="196.666666666667,42.6666666666667"
+          Id="Package\Truncate DIM_IPAddress"
           TopLeft="115.083331700415,102.533333434065" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="189.749998367082,145.200000100732">
+          TopLeft="216.874998481945,145.200000100732">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="30.5833335630593,39.2666633657613"
+              EndConnector="0,39.2666633657613"
               Start="0,0"
-              End="30.5833335630593,31.7666633657613">
+              End="0,31.7666633657613">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.6333316828807" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.6333316828807"
-                    Point2="0,19.6333316828807"
-                    Point3="4,19.6333316828807" />
-                  <mssgle:LineSegment
-                    End="26.5833335630593,19.6333316828807" />
-                  <mssgle:CubicBezierSegment
-                    Point1="26.5833335630593,19.6333316828807"
-                    Point2="30.5833335630593,19.6333316828807"
-                    Point3="30.5833335630593,23.6333316828807" />
-                  <mssgle:LineSegment
-                    End="30.5833335630593,31.7666633657613" />
+                    End="0,31.7666633657613" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -453,33 +516,21 @@ SELECT     0  asIPAddress_ID, 'N/A' as IPAddress, 'N/A' as Country_Code, 'N/A' a
         <NodeLayout
           Size="200,42.6666666666667"
           Id="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress"
-          TopLeft="89.5833319984372,130.766664721767" />
+          TopLeft="106.249998416751,126.866664791504" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO DIM_IPAddress.Paths[Sortie de source OLE DB]"
-          TopLeft="202.833332228164,80.799999318123">
+          TopLeft="204.541665322457,80.799999318123">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-13.2500002297265,49.966665403644"
+              EndConnector="0,46.0666654733815"
               Start="0,0"
-              End="-13.2500002297265,42.466665403644">
+              End="0,38.5666654733815">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.983332701822" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.983332701822"
-                    Point2="0,24.983332701822"
-                    Point3="-4,24.983332701822" />
-                  <mssgle:LineSegment
-                    End="-9.25000022972648,24.983332701822" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9.25000022972648,24.983332701822"
-                    Point2="-13.2500002297265,24.983332701822"
-                    Point3="-13.2500002297265,28.983332701822" />
-                  <mssgle:LineSegment
-                    End="-13.2500002297265,42.466665403644" />
+                    End="0,38.5666654733815" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -491,6 +542,19 @@ SELECT     0  asIPAddress_ID, 'N/A' as IPAddress, 'N/A' as Country_Code, 'N/A' a
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM">
     <Properties>

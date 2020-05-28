@@ -1,0 +1,135 @@
+﻿/*
+
+
+CREATE VIEW [stg].[view_DIM_Directorate]  
+AS
+
+SELECT C.Directorate_ID as [Directorate_ID]
+	  ,D.[Directorate_ID] as [ID]
+      ,D.[Directorate_ExternalID]
+      ,D.[ExternalSource]
+      ,D.[Directorate_Code]
+      ,D.[Directorate_Lib_EN]
+      ,D.[Directorate_Lib_FR]
+
+ from 
+
+(SELECT 
+
+	   [Directorate_ID]
+      ,[Directorate_ExternalID]
+      ,[ExternalSource]
+      ,[Directorate_Code]
+      ,[Directorate_Lib_EN]
+      ,[Directorate_Lib_FR]
+      ,[LastUpdate_Date]
+      ,[HideInReport]
+      ,[NA_Import]
+      ,[IsCurrent]
+      ,[ValidFrom]
+      ,[ValidTo]
+	  , CASE [Directorate_ID]
+		WHEN 1 THEN 1
+		WHEN 2 THEN 59
+		WHEN 3 THEN 37
+		WHEN 4 THEN 38
+		WHEN 5 THEN 52
+		WHEN 6 THEN 47
+		WHEN 7 THEN 39
+		WHEN 8 THEN 40
+		WHEN 9 THEN 90
+		WHEN 10 THEN 41
+		WHEN 11 THEN 42
+		WHEN 12 THEN 43
+		WHEN 13 THEN 59
+		WHEN 14 THEN 46
+		WHEN 15 THEN 47
+		WHEN 16 THEN 48
+		WHEN 17 THEN 49
+		WHEN 18 THEN 41
+		WHEN 19 THEN 94
+		WHEN 20 THEN 55
+		WHEN 21 THEN 21
+		WHEN 22 THEN 51
+		WHEN 23 THEN 52
+		WHEN 24 THEN 24
+		WHEN 25 THEN 53
+		WHEN 26 THEN 26
+		WHEN 27 THEN 54
+		WHEN 28 THEN 94
+		WHEN 29 THEN 55
+		WHEN 30 THEN 56
+		WHEN 31 THEN 57
+		WHEN 32 THEN 58
+		WHEN 33 THEN 59
+		WHEN 34 THEN 94
+		WHEN 35 THEN 60
+		WHEN 36 THEN 59
+		WHEN 37 THEN 37
+		WHEN 38 THEN 38
+		WHEN 39 THEN 39
+		WHEN 40 THEN 40
+		WHEN 41 THEN 41
+		WHEN 42 THEN 42
+		WHEN 43 THEN 43
+		WHEN 44 THEN 59
+		WHEN 45 THEN 52
+		WHEN 46 THEN 46
+		WHEN 47 THEN 47
+		WHEN 48 THEN 48
+		WHEN 49 THEN 49
+		WHEN 94 THEN 94
+		WHEN 51 THEN 51
+		WHEN 52 THEN 52
+		WHEN 53 THEN 53
+		WHEN 54 THEN 54
+		WHEN 55 THEN 55
+		WHEN 56 THEN 56
+		WHEN 57 THEN 57
+		WHEN 58 THEN 58
+		WHEN 59 THEN 59
+		WHEN 60 THEN 60
+		WHEN 61 THEN 59
+		WHEN 62 THEN 38
+		WHEN 63 THEN 52
+		WHEN 64 THEN 39
+		WHEN 65 THEN 40
+		WHEN 66 THEN 90
+		WHEN 67 THEN 41
+		WHEN 68 THEN 42
+		WHEN 69 THEN 43
+		WHEN 70 THEN 59
+		WHEN 71 THEN 46
+		WHEN 72 THEN 47
+		WHEN 73 THEN 48
+		WHEN 74 THEN 49
+		WHEN 75 THEN 41
+		WHEN 76 THEN 94
+		WHEN 77 THEN 21
+		WHEN 78 THEN 51
+		WHEN 79 THEN 52
+		WHEN 80 THEN 53
+		WHEN 81 THEN 26
+		WHEN 82 THEN 54
+		WHEN 83 THEN 83
+		WHEN 84 THEN 55
+		WHEN 85 THEN 56
+		WHEN 86 THEN 57
+		WHEN 87 THEN 59
+		WHEN 88 THEN 60
+		WHEN 89 THEN 90
+		WHEN 90 THEN 90
+		WHEN 91 THEN 90
+		WHEN 92 THEN 59
+		WHEN 93 THEN 94
+		ELSE 90 END as ID2
+
+
+  FROM [DWH_UsageStat].[dwh].[Directorate_DM] ) C 
+
+  INNER JOIN [DWH_UsageStat].[dwh].Directorate_DM D on C.ID2=D.Directorate_ID
+GO
+
+
+
+*/

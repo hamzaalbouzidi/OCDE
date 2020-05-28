@@ -1,0 +1,1660 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/9/2019 5:03:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CSPE-W-VBISPS01"
+  DTS:CreatorName="CERBA\YMIGEOT"
+  DTS:DTSID="{218A08ED-962C-41E7-BD00-BDA94B52D6A7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="OCDE_DWH_StatLink_FT"
+  DTS:PackageType="5"
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{7DB82596-AD69-4E5C-942F-8CC5E57002A5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT INSERT INTO DWH_StatLink_FT"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{41045A62-B4A2-4A9D-A361-41EB1F1081FA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT INSERT INTO DWH_StatLink_FT"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="CSPL Mise à jour"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour.Inputs[Conditional Split Input].Columns[Download_Date (1)]"
+                      cachedDataType="dbDate"
+                      cachedName="Download_Date (1)"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Download_Date (1)]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour.Inputs[Conditional Split Input].Columns[Download_Time (1)]"
+                      cachedDataType="dbTime2"
+                      cachedName="Download_Time (1)"
+                      cachedScale="7"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Download_Time (1)]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour.Inputs[Conditional Split Input].Columns[Expression_ID (1)]"
+                      cachedDataType="i4"
+                      cachedName="Expression_ID (1)"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Expression_ID (1)]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour.Outputs[Pas Insert]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Pas Insert"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Download_Date (1)]}) || [ISNULL](#{Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Download_Time (1)]}) || [ISNULL](#{Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Expression_ID (1)]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL([Download_Date (1)]) || ISNULL([Download_Time (1)]) || ISNULL([Expression_ID (1)])</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour.Outputs[Insert]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Insert"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Jointure de fusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Combine deux flux de données triés en un seul à l'aide de la jointure FULL, LEFT ou INNER. Nous recommandons cette transformation lorsque les flux de données peuvent être triés au niveau de leurs sources."
+              name="Jointure de fusion"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de jointure à effectuer."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre de colonnes dans la clé de tri."
+                  name="NumKeyColumns">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs NULL sont traitées comme valeurs égales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indique le nombre maximal de mémoires tampons demandées par entrée avant blocage."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée gauche de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[Download_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Download_Date"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri].Columns[Download_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[Download_Time]"
+                      cachedDataType="dbTime2"
+                      cachedName="Download_Time"
+                      cachedScale="7"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri].Columns[Download_Time]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[Expression_ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression_ID"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri].Columns[Expression_ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée droite de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée droite de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[Download_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Download_Date"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[Download_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[Download_Time]"
+                      cachedDataType="dbTime2"
+                      cachedName="Download_Time"
+                      cachedScale="7"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[Download_Time]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[Expression_ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression_ID"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[Expression_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[IPAddress_ID]"
+                      cachedDataType="i4"
+                      cachedName="IPAddress_ID"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[IPAddress_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[Source_ID]"
+                      cachedDataType="i4"
+                      cachedName="Source_ID"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[Source_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[UserAgent_ID]"
+                      cachedDataType="i4"
+                      cachedName="UserAgent_ID"
+                      cachedSortKeyPosition="6"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[UserAgent_ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion]"
+                  isSorted="true"
+                  name="Sortie de jointure de fusion">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Download_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Download_Date]"
+                      name="Download_Date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[Download_Date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Download_Time]"
+                      dataType="dbTime2"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Download_Time]"
+                      name="Download_Time"
+                      scale="7">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[Download_Time]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Expression_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Expression_ID]"
+                      name="Expression_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[Expression_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[IPAddress_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[IPAddress_ID]"
+                      name="IPAddress_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[IPAddress_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Source_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Source_ID]"
+                      name="Source_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[Source_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[UserAgent_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[UserAgent_ID]"
+                      name="UserAgent_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[UserAgent_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Download_Date (1)]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Download_Date (1)]"
+                      name="Download_Date (1)"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[Download_Date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Download_Time (1)]"
+                      dataType="dbTime2"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Download_Time (1)]"
+                      name="Download_Time (1)"
+                      scale="7"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[Download_Time]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Expression_ID (1)]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Expression_ID (1)]"
+                      name="Expression_ID (1)"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[Expression_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST DWH_StatLink_FT"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dwh].[StatLink_FT]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Connections[OleDbConnection]"
+                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].Columns[Download_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Download_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Download_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].Columns[Download_Time]"
+                      cachedDataType="dbTime2"
+                      cachedName="Download_Time"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].ExternalColumns[Download_Time]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Download_Time]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].Columns[Expression_ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].ExternalColumns[Expression_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Expression_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].Columns[IPAddress_ID]"
+                      cachedDataType="i4"
+                      cachedName="IPAddress_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[IPAddress_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].Columns[Source_ID]"
+                      cachedDataType="i4"
+                      cachedName="Source_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].ExternalColumns[Source_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Source_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].Columns[UserAgent_ID]"
+                      cachedDataType="i4"
+                      cachedName="UserAgent_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].ExternalColumns[UserAgent_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[UserAgent_ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].ExternalColumns[Download_Date]"
+                      dataType="dbDate"
+                      name="Download_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].ExternalColumns[Download_Time]"
+                      dataType="dbTime2"
+                      name="Download_Time"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].ExternalColumns[Expression_ID]"
+                      dataType="i4"
+                      name="Expression_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].ExternalColumns[IPAddress_ID]"
+                      dataType="i4"
+                      name="IPAddress_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].ExternalColumns[Source_ID]"
+                      dataType="i4"
+                      name="Source_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input].ExternalColumns[UserAgent_ID]"
+                      dataType="i4"
+                      name="UserAgent_ID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC OCDE_DWH_StatLink_FT"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dwh].[StatLink_FT]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Connections[OleDbConnection]"
+                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
+                      name="Download_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Download_Time]"
+                      dataType="dbTime2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Time]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Download_Time]"
+                      name="Download_Time"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Expression_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Expression_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Expression_ID]"
+                      name="Expression_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      name="IPAddress_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
+                      name="Source_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
+                      name="UserAgent_ID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
+                      dataType="dbDate"
+                      name="Download_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Time]"
+                      dataType="dbTime2"
+                      name="Download_Time"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Expression_ID]"
+                      dataType="i4"
+                      name="Expression_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      dataType="i4"
+                      name="IPAddress_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
+                      dataType="i4"
+                      name="Source_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
+                      dataType="i4"
+                      name="UserAgent_ID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
+                      name="Download_Date" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Time]"
+                      dataType="dbTime2"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Time]"
+                      name="Download_Time"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression_ID]"
+                      name="Expression_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      name="IPAddress_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
+                      name="Source_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
+                      name="UserAgent_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC OCDE_STG_StatLink_FT_SA"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[stg].[STG_StatLink_FT_SA]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Connections[OleDbConnection]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
+                      name="Download_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Time]"
+                      dataType="dbTime2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Time]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Time]"
+                      name="Download_Time"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[Expression_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Expression_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[Expression_ID]"
+                      name="Expression_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      name="IPAddress_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
+                      name="Source_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
+                      name="UserAgent_ID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
+                      dataType="dbDate"
+                      name="Download_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Time]"
+                      dataType="dbTime2"
+                      name="Download_Time"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Expression_ID]"
+                      dataType="i4"
+                      name="Expression_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      dataType="i4"
+                      name="IPAddress_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
+                      dataType="i4"
+                      name="Source_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
+                      dataType="i4"
+                      name="UserAgent_ID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
+                      name="Download_Date" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Time]"
+                      dataType="dbTime2"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Time]"
+                      name="Download_Time"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Expression_ID]"
+                      name="Expression_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      name="IPAddress_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
+                      name="Source_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
+                      name="UserAgent_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Inputs[Entrée de tri].Columns[Download_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Download_Date"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Inputs[Entrée de tri].Columns[Download_Time]"
+                      cachedDataType="dbTime2"
+                      cachedName="Download_Time"
+                      cachedScale="7"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Time]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Inputs[Entrée de tri].Columns[Expression_ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression_ID"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[Expression_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Inputs[Entrée de tri].Columns[IPAddress_ID]"
+                      cachedDataType="i4"
+                      cachedName="IPAddress_ID"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Inputs[Entrée de tri].Columns[Source_ID]"
+                      cachedDataType="i4"
+                      cachedName="Source_ID"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Inputs[Entrée de tri].Columns[UserAgent_ID]"
+                      cachedDataType="i4"
+                      cachedName="UserAgent_ID"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">6</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[Download_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[Download_Date]"
+                      name="Download_Date"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[Download_Time]"
+                      dataType="dbTime2"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[Download_Time]"
+                      name="Download_Time"
+                      scale="7"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Time]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[Expression_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[Expression_ID]"
+                      name="Expression_ID"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[Expression_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[IPAddress_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[IPAddress_ID]"
+                      name="IPAddress_ID"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[Source_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[Source_ID]"
+                      name="Source_ID"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[UserAgent_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri].Columns[UserAgent_ID]"
+                      name="UserAgent_ID"
+                      sortKeyPosition="6">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Inputs[Entrée de tri].Columns[Download_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Download_Date"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Download_Date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Inputs[Entrée de tri].Columns[Download_Time]"
+                      cachedDataType="dbTime2"
+                      cachedName="Download_Time"
+                      cachedScale="7"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Download_Time]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Inputs[Entrée de tri].Columns[Expression_ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression_ID"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Expression_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Inputs[Entrée de tri].Columns[IPAddress_ID]"
+                      cachedDataType="i4"
+                      cachedName="IPAddress_ID"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Inputs[Entrée de tri].Columns[Source_ID]"
+                      cachedDataType="i4"
+                      cachedName="Source_ID"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Source_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Inputs[Entrée de tri].Columns[UserAgent_ID]"
+                      cachedDataType="i4"
+                      cachedName="UserAgent_ID"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri].Columns[Download_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri].Columns[Download_Date]"
+                      name="Download_Date"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Download_Date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri].Columns[Download_Time]"
+                      dataType="dbTime2"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri].Columns[Download_Time]"
+                      name="Download_Time"
+                      scale="7"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Download_Time]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri].Columns[Expression_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri].Columns[Expression_ID]"
+                      name="Expression_ID"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Expression_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri].Columns[IPAddress_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri].Columns[IPAddress_ID]"
+                      name="IPAddress_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri].Columns[Source_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri].Columns[Source_ID]"
+                      name="Source_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Source_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri].Columns[UserAgent_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri].Columns[UserAgent_ID]"
+                      name="UserAgent_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT INSERT INTO DWH_StatLink_FT.Paths[Insert]"
+              endId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT.Inputs[OLE DB Destination Input]"
+              name="Insert"
+              startId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour.Outputs[Insert]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_StatLink_FT.Paths[Sortie de jointure de fusion]"
+              endId="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour.Inputs[Conditional Split Input]"
+              name="Sortie de jointure de fusion"
+              startId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Outputs[Sortie de jointure de fusion]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_StatLink_FT.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Inputs[Entrée de tri]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_StatLink_FT.Paths[Sortie de source OLE DB1]"
+              endId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Inputs[Entrée de tri]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_StatLink_FT.Paths[Sortie de tri]"
+              endId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\DFT INSERT INTO DWH_StatLink_FT.Paths[Sortie de tri1]"
+              endId="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion.Inputs[Entrée droite de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\DFT INSERT INTO DWH_StatLink_FT\Trier.Outputs[Sortie de tri]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="254.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_StatLink_FT"
+          TopLeft="75.6666684299708,92.9333334418138" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO DWH_StatLink_FT">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="212,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT"
+          TopLeft="252.041663484648,443.583333236475" />
+        <NodeLayout
+          Size="245.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT"
+          TopLeft="366.624995110557,42.083341798683" />
+        <NodeLayout
+          Size="258.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA"
+          TopLeft="65.5416671602678,38.0333327366908" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT INSERT INTO DWH_StatLink_FT\CSPL Mise à jour"
+          TopLeft="277.583333674818,343.749999864399" />
+        <NodeLayout
+          Size="101.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_StatLink_FT\Trier"
+          TopLeft="145.833331160247,132.166664303343" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_StatLink_FT.Paths[Sortie de source OLE DB]"
+          TopLeft="195.687499160258,80.6999994033575">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.4666648999851"
+              Start="0,0"
+              End="0,43.9666648999851">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.9666648999851" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="110.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_StatLink_FT\Trier 1"
+          TopLeft="431.249993573874,135.583331415554" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_StatLink_FT.Paths[Sortie de source OLE DB1]"
+          TopLeft="487.937494342216,84.7500084653497">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.8333229502042"
+              Start="0,0"
+              End="0,43.3333229502042">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.3333229502042" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164,42"
+          Id="Package\DFT INSERT INTO DWH_StatLink_FT\Jointure de fusion"
+          TopLeft="273.958329251036,238.333329071601" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_StatLink_FT.Paths[Sortie de tri]"
+          TopLeft="486.583326907208,178.249998082221">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-130.624997656172,60.0833309893807"
+              Start="0,0"
+              End="-130.624997656172,52.5833309893807">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0416654946904" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0416654946904"
+                    Point2="0,30.0416654946904"
+                    Point3="-4,30.0416654946904" />
+                  <mssgle:LineSegment
+                    End="-126.624997656172,30.0416654946904" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-126.624997656172,30.0416654946904"
+                    Point2="-130.624997656172,30.0416654946904"
+                    Point3="-130.624997656172,34.0416654946904" />
+                  <mssgle:LineSegment
+                    End="-130.624997656172,52.5833309893807" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_StatLink_FT.Paths[Sortie de tri1]"
+          TopLeft="196.499997826914,174.833330970009">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="133.458331424122,63.499998101592"
+              Start="0,0"
+              End="133.458331424122,55.999998101592">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.7318829299315" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.7318829299315"
+                    Point2="0,37.7318829299315"
+                    Point3="4,37.7318829299315" />
+                  <mssgle:LineSegment
+                    End="129.458331424122,37.7318829299315" />
+                  <mssgle:CubicBezierSegment
+                    Point1="129.458331424122,37.7318829299315"
+                    Point2="133.458331424122,37.7318829299315"
+                    Point3="133.458331424122,41.7318829299315" />
+                  <mssgle:LineSegment
+                    End="133.458331424122,55.999998101592" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_StatLink_FT.Paths[Sortie de jointure de fusion]"
+          TopLeft="356.270831462927,280.333329071601">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63.4166707927982"
+              Start="0,0"
+              End="0,55.9166707927982">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.9166707927982" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_StatLink_FT.Paths[Insert]"
+          TopLeft="357.312498579733,385.749999864399">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.833333372076"
+              Start="0,0"
+              End="0,50.333333372076">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.333333372076" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-13.75298828125,20.465494811038,27.5059765625,9.40234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_DST DWH_StatLink_FT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_DWH_StatLink_FT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_StatLink_FT\OLE_SRC OCDE_STG_StatLink_FT_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
