@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[DIM_IGO]
+(
+	[IGO_ID] INT NOT NULL, 
+    [IGO_ExternalID] NVARCHAR(100) NOT NULL, 
+    [ExternalSource] NCHAR(10) NOT NULL, 
+    [IGO_Lib_EN] NVARCHAR(255) NOT NULL, 
+    [IGO_Lib_FR] NVARCHAR(255) NOT NULL, 
+    [IGO_Code_EN] NVARCHAR(50) NOT NULL, 
+    [IGO_Code_FR] NVARCHAR(50) NOT NULL, 
+    [DOIPrefix] NVARCHAR(8) NOT NULL, 
+    [LastUpdate_Date] DATETIME NOT NULL 
+)
