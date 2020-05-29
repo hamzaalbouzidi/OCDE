@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[DIM_Directorate_ID]
+﻿CREATE TABLE [dbo].[DIM_Directorate]
 (
 	[Directorate_ID] INT NOT NULL, 
     [ID] INT NOT NULL, 
