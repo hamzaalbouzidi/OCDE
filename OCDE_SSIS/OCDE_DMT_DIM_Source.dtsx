@@ -1,0 +1,526 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/9/2019 5:03:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CSPE-W-VBISPS01"
+  DTS:CreatorName="CERBA\YMIGEOT"
+  DTS:DTSID="{6D59A146-4E4A-40DD-94FD-04D087F3246D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="OCDE_DMT_DIM_Source"
+  DTS:PackageType="5"
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{E5E71975-0034-49A2-8EB7-CF8A0C1F12A4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT INSERT INTO DIM_Source"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{9935E2B3-ADB3-4CF0-8357-AC1151C5F005}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT INSERT INTO DIM_Source"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST DIM_Source"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[DIM_Source]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Connections[OleDbConnection]"
+                  connectionManagerID="{DF85A1CB-0DD4-4BDD-BDE8-9C2C5C4FB0CB}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DMT]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Inputs[Entrée de destination OLE DB].Columns[SourceLight_Lib]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SourceLight_Lib"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Inputs[Entrée de destination OLE DB].ExternalColumns[SourceLight_Lib]"
+                      lineageId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].Columns[SourceLight_Lib]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Inputs[Entrée de destination OLE DB].Columns[SourceLight_URL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="SourceLight_URL"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Inputs[Entrée de destination OLE DB].ExternalColumns[SourceLight_URL]"
+                      lineageId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].Columns[SourceLight_URL]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Inputs[Entrée de destination OLE DB].Columns[Source]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="900"
+                      cachedName="Source"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Inputs[Entrée de destination OLE DB].ExternalColumns[Source]"
+                      lineageId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].Columns[Source]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Inputs[Entrée de destination OLE DB].Columns[Source_ID]"
+                      cachedDataType="i4"
+                      cachedName="Source_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Inputs[Entrée de destination OLE DB].ExternalColumns[Source_ID]"
+                      lineageId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].Columns[Source_ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Inputs[Entrée de destination OLE DB].ExternalColumns[SourceLight_Lib]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SourceLight_Lib" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Inputs[Entrée de destination OLE DB].ExternalColumns[SourceLight_URL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="SourceLight_URL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Inputs[Entrée de destination OLE DB].ExternalColumns[Source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="900"
+                      name="Source" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Inputs[Entrée de destination OLE DB].ExternalColumns[Source_ID]"
+                      dataType="i4"
+                      name="Source_ID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC OCDE_DWH_Source_DM"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT     SourceLight_Lib, '' as SourceLight_URL, Source, Source_ID
+FROM        
+(Select 
+			(CASE 
+			WHEN charindex( '.oecd.org',[Source])&gt;0 THEN 'OECD.ORG'
+			WHEN charindex('-ilibrary.org',[Source])&gt;0 THEN 'ILIBRARY'
+			WHEN charindex('/dx.doi.org/',[Source])&gt;0 THEN 'DX.DOI.ORG'
+			WHEN charindex('.google.',[Source])&gt;0 THEN 'GOOGLE'  ELSE 'Undefinied' END) as SourceLight_Lib, Source_ID,Source 
+			FROM dwh.Source_DM) S  
+			
+UNION
+SELECT     'N/A' as SourceLight_Lib,  'N/A' as SourceLight_URL,  'N/A' as Source,  0 as Source_ID</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Connections[OleDbConnection]"
+                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].Columns[SourceLight_Lib]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].ExternalColumns[SourceLight_Lib]"
+                      length="10"
+                      lineageId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].Columns[SourceLight_Lib]"
+                      name="SourceLight_Lib"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].Columns[SourceLight_URL]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].ExternalColumns[SourceLight_URL]"
+                      length="3"
+                      lineageId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].Columns[SourceLight_URL]"
+                      name="SourceLight_URL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].Columns[Source]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Source]"
+                      length="900"
+                      lineageId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].Columns[Source]"
+                      name="Source"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
+                      lineageId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
+                      name="Source_ID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].ExternalColumns[SourceLight_Lib]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SourceLight_Lib" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].ExternalColumns[SourceLight_URL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="SourceLight_URL" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="900"
+                      name="Source" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
+                      dataType="i4"
+                      name="Source_ID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[SourceLight_Lib]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[SourceLight_Lib]"
+                      name="SourceLight_Lib" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[SourceLight_URL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[SourceLight_URL]"
+                      name="SourceLight_URL" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Source]"
+                      codePage="1252"
+                      dataType="str"
+                      length="900"
+                      lineageId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Source]"
+                      name="Source" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
+                      name="Source_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT INSERT INTO DIM_Source.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate DIM_Source"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{3725A092-C924-42D4-98DD-142FD19464A1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate DIM_Source"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DF85A1CB-0DD4-4BDD-BDE8-9C2C5C4FB0CB}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DIM_Source" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{C32B59C1-1D56-45D9-BB36-3358387CFE42}"
+      DTS:From="Package\Truncate DIM_Source"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\DFT INSERT INTO DIM_Source" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="226.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DIM_Source"
+          TopLeft="99.6666652634743,184.466663466493" />
+        <NodeLayout
+          Size="181.333333333334,42.6666666666667"
+          Id="Package\Truncate DIM_Source"
+          TopLeft="115.083331700415,102.533333434065" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="209.374998481945,145.200000100732">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.2666633657613"
+              Start="0,0"
+              End="0,31.7666633657613">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7666633657613" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO DIM_Source">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="242.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM"
+          TopLeft="74.166665561497,38.1333326514563" />
+        <NodeLayout
+          Size="184,42.6666666666667"
+          Id="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source"
+          TopLeft="99.9999985098834,130.766664721767" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DIM_Source.Paths[Sortie de source OLE DB]"
+          TopLeft="193.749998702357,80.799999318123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.966665403644"
+              Start="0,0"
+              End="0,42.466665403644">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.466665403644" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DIM_Source\OLE_DST DIM_Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DIM_Source\OLE_SRC OCDE_DWH_Source_DM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

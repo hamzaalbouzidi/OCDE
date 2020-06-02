@@ -6,10 +6,55 @@
     <Name>Mult_UsageStat.database</Name>
     <FullPath>Mult_UsageStat.database</FullPath>
   </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>Cube_UsageStat.cube</Name>
+      <FullPath>Cube_UsageStat.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Cube_UsageStat.partitions</Name>
+          <FullPath>Cube_UsageStat.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
+  <Dimensions>
+    <ProjectItem>
+      <Name>DIM Date.dim</Name>
+      <FullPath>DIM Date.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
+  <DataSources>
+    <ProjectItem>
+      <Name>DS_UsageStat_SQLDB.ds</Name>
+      <FullPath>DS_UsageStat_SQLDB.ds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSourceViews>
+    <ProjectItem>
+      <Name>DSV_UsageStat_iLibrary.dsv</Name>
+      <FullPath>DSV_UsageStat_iLibrary.dsv</FullPath>
+    </ProjectItem>
+  </DataSourceViews>
   <Configurations>
     <Configuration>
       <Name>Development</Name>
-      <Options />
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>DS_UsageStat_SQLDB</Id>
+            <Name>DS_UsageStat_SQLDB</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=DESKTOP-JJGLBKE;Integrated Security=SSPI;Initial Catalog=DMT_UsageStat</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>DS_UsageStat_SQLDB</Id>
+            <Name>DS_UsageStat_SQLDB</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+      </Options>
     </Configuration>
   </Configurations>
 </Project>

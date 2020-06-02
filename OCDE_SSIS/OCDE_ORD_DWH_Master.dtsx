@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="OCDE_ORD_DWH_Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="58"
-  DTS:VersionGUID="{8EFF9B04-EA2D-4605-8439-3ABD09C092ED}">
+  DTS:VersionBuild="59"
+  DTS:VersionGUID="{B0C50C3B-31C5-416A-A7E6-3973004668B7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -346,6 +346,23 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Process_Kappa_Metadata\Pack_OCDE_DWH_DIM_Expression"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{66c5902f-bd34-4ecb-8555-095087fd2257}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Pack_OCDE_DWH_DIM_Expression"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>OCDE_DWH_DIM_Expression.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Process_Kappa_Metadata\Pack_OCDE_DWH_Directorate"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Tâche d'exécution de package"
@@ -522,7 +539,44 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Contrainte 6"
           DTS:To="Package\Process_Kappa_Metadata\Pack_OCDE_DWH_Manifestation" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Process_Kappa_Metadata.PrecedenceConstraints[Contrainte 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{7E3DC882-AC65-4155-ADA6-BE040A294002}"
+          DTS:From="Package\Process_Kappa_Metadata\Pack_OCDE_DWH_Manifestation"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 7"
+          DTS:To="Package\Process_Kappa_Metadata\Pack_OCDE_DWH_DIM_Expression" />
       </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Process_StatLink_Data"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Conteneur de séquences"
+      DTS:DTSID="{8afb5a9b-a378-46ff-9d9c-ab9813ecd1b8}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Process_StatLink_Data">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Process_StatLink_Data\Pack_OCDE_DWH_StatLink"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{457ce083-d1ac-4a6a-a3b4-bcb3b6d09932}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Pack_OCDE_DWH_StatLink"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>OCDE_DWH_StatLink_FT.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
@@ -545,10 +599,18 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 2]"
       DTS:CreationName=""
-      DTS:DTSID="{A5710167-DBFF-48EF-A2CB-6A8F1E81F17C}"
+      DTS:DTSID="{4EFF1D85-66C9-48FF-A2E7-AD6D9E2FAE50}"
       DTS:From="Package\Process_FreePreview_Data"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 2"
+      DTS:To="Package\Process_StatLink_Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{AEE69CF2-001A-449F-AB0F-574AC933F0D6}"
+      DTS:From="Package\Process_StatLink_Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 3"
       DTS:To="Package\Process_Counter_Data" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 4]"
@@ -597,7 +659,7 @@
           PanelSize="323.333333333334,120"
           Size="323.333333333334,162.666666666667"
           Id="Package\Process_BrowseIt_Data"
-          TopLeft="1164.34720948897,742.305579156508" />
+          TopLeft="1126.84721004776,1053.43890692634" />
         <NodeLayout
           Size="190.666666666667,42.6666666666667"
           Id="Package\Process_CCM\Pack_OCDE_DWH_CCM"
@@ -608,7 +670,7 @@
           PanelSize="323.333333333334,120"
           Size="323.333333333334,162.666666666667"
           Id="Package\Process_CCM"
-          TopLeft="641.777772831422,987.583360511558" />
+          TopLeft="183.444446327788,1047.38335944225" />
         <NodeLayout
           Size="244,42.6666666666667"
           Id="Package\Process_Counter_Data\Pack_OCDE_DWH_CounterMonthly"
@@ -619,7 +681,7 @@
           PanelSize="323.333333333334,120"
           Size="323.333333333334,162.666666666667"
           Id="Package\Process_Counter_Data"
-          TopLeft="642.81943948257,748.583352840442" />
+          TopLeft="1126.48609902151,781.300018922089" />
         <NodeLayout
           Size="250.666666666667,42.6666666666667"
           Id="Package\Process_FreePreview_Data\Pack_OCDE_DWH_FreePreviewDaily"
@@ -630,7 +692,7 @@
           PanelSize="291.333333333334,122.666666666667"
           Size="291.333333333334,166"
           Id="Package\Process_FreePreview_Data"
-          TopLeft="172.361113398026,753.472233619127" />
+          TopLeft="172.361113398026,774.272233247194" />
         <NodeLayout
           Size="268,42.6666666666667"
           Id="Package\Process_GoogleBooks_Data\Pack_OCDE_DWH_GoogleBooksMonthly"
@@ -641,7 +703,7 @@
           PanelSize="323.333333333334,120"
           Size="323.333333333334,162.666666666667"
           Id="Package\Process_GoogleBooks_Data"
-          TopLeft="1165.73609835717,989.888912044296" />
+          TopLeft="678.236105621486,1054.02224423084" />
         <NodeLayout
           Size="222.666666666667,42.6666666666667"
           Id="Package\Process_iLibraryLog_Data\Pack_OCDE_DWH_ILibraryLog"
@@ -782,7 +844,7 @@
           PanelSize="945.333333333334,249.333333333334"
           Size="945.333333333334,292"
           Id="Package\Process_iLibraryLog_Data"
-          TopLeft="194.833335485724,362.25000718683" />
+          TopLeft="194.833335485724,383.050006814897" />
         <NodeLayout
           Size="206.666666666667,42.6666666666667"
           Id="Package\Process_Kappa_Metadata\Pack_OCDE_DWH_Country"
@@ -969,27 +1031,53 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="1199.33333333334,236"
-          Size="1199.33333333334,278.666666666667"
-          Id="Package\Process_Kappa_Metadata"
-          TopLeft="65.6527815703306,34.7499994769695" />
+        <NodeLayout
+          Size="245.333333333334,42.6666666666667"
+          Id="Package\Process_Kappa_Metadata\Pack_OCDE_DWH_DIM_Expression"
+          TopLeft="28.9444418574374,172.911113347875" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="666.409725194694,313.416666143636">
+          Id="Package\Process_Kappa_Metadata.PrecedenceConstraints[Contrainte 7]"
+          TopLeft="149.236108514791,132.527785171237">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,48.8333410431938"
+              EndConnector="0,40.3833281766379"
               Start="0,0"
-              End="0,41.3333410431938">
+              End="0,32.8833281766379">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.3333410431938" />
+                    End="0,32.8833281766379" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="1199.33333333334,271.333333333334"
+          Size="1199.33333333334,314.666666666667"
+          Id="Package\Process_Kappa_Metadata"
+          TopLeft="65.6527815703306,34.7499994769695" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="666.409725194694,349.416666143636">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.6333406712608"
+              Start="0,0"
+              End="0,26.1333406712608">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.1333406712608" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1000,7 +1088,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 1]"
-          TopLeft="667.500002152391,654.25000718683">
+          TopLeft="667.500002152391,675.050006814897">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1033,41 +1121,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 2]"
-          TopLeft="463.694446731359,833.194459896451">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="179.124992751211,0"
-              Start="0,0"
-              End="171.624992751211,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="171.624992751211,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 4]"
-          TopLeft="966.152772815904,826.777799331809">
+          TopLeft="1288.33332120131,943.966685588756">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="198.194436673066,0"
+              EndConnector="0,109.472221337589"
               Start="0,0"
-              End="190.694436673066,0">
+              End="0,101.972221337589">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="190.694436673066,0" />
+                    End="0,101.972221337589" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1078,18 +1144,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 5]"
-          TopLeft="1326.70832058974,904.972245823175">
+          TopLeft="1126.84721004776,1135.06390891192">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,84.9166662211207"
+              EndConnector="-125.277771092944,0"
               Start="0,0"
-              End="0,77.4166662211207">
+              End="-117.777771092944,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,77.4166662211207" />
+                    End="-117.777771092944,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1100,18 +1166,73 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 6]"
-          TopLeft="1165.73609835717,1070.06946961126">
+          TopLeft="678.236105621486,1132.03613516988">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-200.624992192415,0"
+              EndConnector="-171.458325960365,0"
               Start="0,0"
-              End="-193.124992192415,0">
+              End="-163.958325960365,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-193.124992192415,0" />
+                    End="-163.958325960365,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="208,42.6666666666667"
+          Id="Package\Process_StatLink_Data\Pack_OCDE_DWH_StatLink"
+          TopLeft="32.5416554131856,25.4999971717596" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="291.333333333334,122.666666666667"
+          Size="291.333333333334,166"
+          Id="Package\Process_StatLink_Data"
+          TopLeft="661.486106025056,780.522253102987" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 2]"
+          TopLeft="463.694446731359,860.397243175091">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="197.791659293696,0"
+              Start="0,0"
+              End="190.291659293696,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="190.291659293696,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 3]"
+          TopLeft="952.819439358389,863.077802679205">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="173.666659663126,0"
+              Start="0,0"
+              End="166.166659663126,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="166.166659663126,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

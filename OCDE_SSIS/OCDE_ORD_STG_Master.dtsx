@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="OCDE_ORD_STG_Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="52"
-  DTS:VersionGUID="{DC9E9A7C-1B06-4FFE-8697-FA662AA15032}">
+  DTS:VersionBuild="53"
+  DTS:VersionGUID="{8FA09F8A-CD32-4741-9AF2-6BD47FEA9D06}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -375,6 +375,23 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Process_Kappa_Metadata\Pack_OCDE_STG_DIM_Expression"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{851f10bd-0213-407d-9174-b512acf5639d}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Pack_OCDE_STG_DIM_Expression"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>OCDE_STG_DIM_Expression.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Process_Kappa_Metadata\Pack_OCDE_STG_Directorate"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Tâche d'exécution de package"
@@ -551,6 +568,14 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Contrainte 6"
           DTS:To="Package\Process_Kappa_Metadata\Pack_OCDE_STG_Manifestation" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Process_Kappa_Metadata.PrecedenceConstraints[Contrainte 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{E1588EF9-DFD5-4361-84BB-391EC1AA6980}"
+          DTS:From="Package\Process_Kappa_Metadata\Pack_OCDE_STG_Manifestation"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Contrainte 7"
+          DTS:To="Package\Process_Kappa_Metadata\Pack_OCDE_STG_DIM_Expression" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -889,7 +914,7 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="945.333333333334,248.666666666667"
+          PanelSize="945.333333333334,249.333333333334"
           Size="945.333333333334,292"
           Id="Package\Process_iLibraryLog_Data"
           TopLeft="194.833335485724,362.25000718683" />
@@ -1114,11 +1139,37 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="241.333333333334,42.6666666666667"
+          Id="Package\Process_Kappa_Metadata\Pack_OCDE_STG_DIM_Expression"
+          TopLeft="25.6111085737746,176.377779952553" />
+        <EdgeLayout
+          Id="Package\Process_Kappa_Metadata.PrecedenceConstraints[Contrainte 7]"
+          TopLeft="145.236108539626,132.527785171237">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.8499947813158"
+              Start="0,0"
+              End="0,36.3499947813158">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.3499947813158" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="1199.33333333334,235.333333333334"
-          Size="1199.33333333334,278.666666666667"
+          PanelSize="1199.33333333334,254"
+          Size="1199.33333333334,297.333333333334"
           Id="Package\Process_Kappa_Metadata"
           TopLeft="65.6527815703306,34.7499994769695" />
         <NodeLayout
@@ -1134,18 +1185,18 @@
           TopLeft="566.777773949008,756.305570942991" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="666.409725194694,313.416666143636">
+          TopLeft="666.409725194694,332.083332810303">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,48.8333410431942"
+              EndConnector="0,30.1666743765272"
               Start="0,0"
-              End="0,41.3333410431942">
+              End="0,22.6666743765272">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.3333410431942" />
+                    End="0,22.6666743765272" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

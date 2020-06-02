@@ -5,26 +5,26 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="CSPE-W-VBISPS01"
   DTS:CreatorName="CERBA\YMIGEOT"
-  DTS:DTSID="{8E11E990-DBC8-4277-9038-648E30DD4BE8}"
+  DTS:DTSID="{467FDA60-51BE-478E-95E5-8B54E39CE5D6}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
-  DTS:ObjectName="OCDE_DMT_Format"
+  DTS:ObjectName="OCDE_DMT_DIM_IPAddress"
   DTS:PackageType="5"
   DTS:VersionBuild="52"
-  DTS:VersionGUID="{B22393E7-4A8C-409F-B454-4ECD54F436C9}">
+  DTS:VersionGUID="{4D647BE5-75DA-427B-BB62-265EF053017B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO DIM_Format"
+      DTS:refId="Package\DFT INSERT INTO DIM_IPAddress"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{8E378EC2-865A-4230-84A7-CC9C8DE70BD6}"
+      DTS:DTSID="{F4430A15-CB94-4B5F-9918-79D920FC14E9}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO DIM_Format"
+      DTS:ObjectName="DFT INSERT INTO DIM_IPAddress"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -32,11 +32,11 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format"
+              refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
               description="Destination OLE DB"
-              name="OLE_DST DIM_Format"
+              name="OLE_DST DIM_IPAddress"
               usesDispositions="true"
               version="4">
               <properties>
@@ -47,7 +47,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[dbo].[DIM_Format]</property>
+                  name="OpenRowset">[dbo].[DIM_IP_Address]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -89,7 +89,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Connections[OleDbConnection]"
+                  refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Connections[OleDbConnection]"
                   connectionManagerID="{DF85A1CB-0DD4-4BDD-BDE8-9C2C5C4FB0CB}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OCDE_DMT]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -97,116 +97,106 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB]"
+                  refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB]"
                   errorOrTruncationOperation="Insérer"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].Columns[Format_ID]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].Columns[IPAddress_ID]"
                       cachedDataType="i4"
-                      cachedName="Format_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].ExternalColumns[Format_ID]"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[Format_ID]" />
+                      cachedName="IPAddress_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].Columns[Format_ExternalID]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].Columns[IPAddress]"
                       cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="Format_ExternalID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].ExternalColumns[Format_ExternalID]"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[Format_ExternalID]" />
+                      cachedLength="30"
+                      cachedName="IPAddress"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IPAddress]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].Columns[ExternalSource]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].Columns[Country_Code]"
                       cachedDataType="wstr"
                       cachedLength="10"
-                      cachedName="ExternalSource"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
+                      cachedName="Country_Code"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Code]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_Code]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].Columns[MimeType]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].Columns[Country_ISO2Code]"
                       cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="MimeType"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].ExternalColumns[MimeType]"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[MimeType]" />
+                      cachedLength="10"
+                      cachedName="Country_ISO2Code"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ISO2Code]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_ISO2Code]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].Columns[Format_Lib_EN]"
-                      cachedDataType="wstr"
-                      cachedLength="150"
-                      cachedName="Format_Lib_EN"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].ExternalColumns[Format_Lib_EN]"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[Format_Lib_EN]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].Columns[Format_Lib_FR]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].Columns[Country_Lib_EN]"
                       cachedDataType="wstr"
                       cachedLength="150"
-                      cachedName="Format_Lib_FR"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].ExternalColumns[Format_Lib_FR]"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[Format_Lib_FR]" />
+                      cachedName="Country_Lib_EN"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Lib_EN]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_Lib_EN]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].Columns[LastUpdate_Date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="LastUpdate_Date"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].ExternalColumns[LastUpdate_Date]"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[LastUpdate_Date]" />
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].Columns[Country_Lib_FR]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="Country_Lib_FR"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Lib_FR]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_Lib_FR]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].ExternalColumns[Format_ID]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress_ID]"
                       dataType="i4"
-                      name="Format_ID" />
+                      name="IPAddress_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].ExternalColumns[Format_ExternalID]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress]"
                       dataType="wstr"
-                      length="100"
-                      name="Format_ExternalID" />
+                      length="30"
+                      name="IPAddress" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Code]"
                       dataType="wstr"
                       length="10"
-                      name="ExternalSource" />
+                      name="Country_Code" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].ExternalColumns[MimeType]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ISO2Code]"
                       dataType="wstr"
-                      length="50"
-                      name="MimeType" />
+                      length="10"
+                      name="Country_ISO2Code" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].ExternalColumns[Format_Lib_EN]"
-                      dataType="wstr"
-                      length="150"
-                      name="Format_Lib_EN" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].ExternalColumns[Format_Lib_FR]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Lib_EN]"
                       dataType="wstr"
                       length="150"
-                      name="Format_Lib_FR" />
+                      name="Country_Lib_EN" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB].ExternalColumns[LastUpdate_Date]"
-                      dataType="dbTimeStamp"
-                      name="LastUpdate_Date" />
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Lib_FR]"
+                      dataType="wstr"
+                      length="150"
+                      name="Country_Lib_FR" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Outputs[Sortie d'erreur de destination OLE DB]"
+                  refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Outputs[Sortie d'erreur de destination OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB]">
+                  synchronousInputId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -215,11 +205,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM"
+              refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
               description="Source OLE DB"
-              name="OLE_SRC OCDE_DWH_Format_DM"
+              name="OLE_SRC OCDE_DWH_IPAddress_DM"
               usesDispositions="true"
               version="7">
               <properties>
@@ -239,14 +229,13 @@
                   dataType="System.String"
                   description="Commande SQL à exécuter."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [Format_ID]
-      ,[Format_ExternalID]
-      ,[ExternalSource]
-      ,[MimeType]
-      ,[Format_Lib_EN]
-      ,[Format_Lib_FR]
-      ,[LastUpdate_Date] 
-  FROM [dWH].[Format_DM]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT     dwh.IPAddress_DM.IPAddress_ID, left(dwh.IPAddress_DM.IPAddress,30) as IPAddress, dwh.Country_DM.Country_Code, dwh.Country_DM.Country_ISO2Code, 
+                      dwh.Country_DM.Country_Lib_EN, dwh.Country_DM.Country_Lib_FR 
+FROM         dwh.IPAddress_DM LEFT OUTER JOIN
+                      dwh.Country_DM ON dwh.IPAddress_DM.Country_ID = dwh.Country_DM.Country_ID
+					  UNION 
+SELECT     0  asIPAddress_ID, 'N/A' as IPAddress, 'N/A' as Country_Code, 'N/A' as Country_ISO2Code, 
+                      'N/A' as Country_Lib_EN, 'N/A' as Country_Lib_FR</property>
                 <property
                   dataType="System.String"
                   description="Variable contenant la commande SQL à exécuter."
@@ -271,7 +260,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Connections[OleDbConnection]"
+                  refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Connections[OleDbConnection]"
                   connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -279,170 +268,152 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB]"
+                  refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[Format_ID]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Format_ID]"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[Format_ID]"
-                      name="Format_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      name="IPAddress_ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[Format_ExternalID]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IPAddress]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Format_ExternalID]"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[Format_ExternalID]"
-                      name="Format_ExternalID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress]"
+                      length="30"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[IPAddress]"
+                      name="IPAddress"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_Code]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Code]"
                       length="10"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
-                      name="ExternalSource"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_Code]"
+                      name="Country_Code"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[MimeType]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_ISO2Code]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].ExternalColumns[MimeType]"
-                      length="50"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[MimeType]"
-                      name="MimeType"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ISO2Code]"
+                      length="10"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_ISO2Code]"
+                      name="Country_ISO2Code"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[Format_Lib_EN]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_Lib_EN]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Format_Lib_EN]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Lib_EN]"
                       length="150"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[Format_Lib_EN]"
-                      name="Format_Lib_EN"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_Lib_EN]"
+                      name="Country_Lib_EN"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[Format_Lib_FR]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_Lib_FR]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Format_Lib_FR]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Lib_FR]"
                       length="150"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[Format_Lib_FR]"
-                      name="Format_Lib_FR"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[LastUpdate_Date]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].ExternalColumns[LastUpdate_Date]"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].Columns[LastUpdate_Date]"
-                      name="LastUpdate_Date"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].Columns[Country_Lib_FR]"
+                      name="Country_Lib_FR"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Format_ID]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
                       dataType="i4"
-                      name="Format_ID" />
+                      name="IPAddress_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Format_ExternalID]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress]"
                       dataType="wstr"
-                      length="100"
-                      name="Format_ExternalID" />
+                      length="30"
+                      name="IPAddress" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Code]"
                       dataType="wstr"
                       length="10"
-                      name="ExternalSource" />
+                      name="Country_Code" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].ExternalColumns[MimeType]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ISO2Code]"
                       dataType="wstr"
-                      length="50"
-                      name="MimeType" />
+                      length="10"
+                      name="Country_ISO2Code" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Format_Lib_EN]"
-                      dataType="wstr"
-                      length="150"
-                      name="Format_Lib_EN" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Format_Lib_FR]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Lib_EN]"
                       dataType="wstr"
                       length="150"
-                      name="Format_Lib_FR" />
+                      name="Country_Lib_EN" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB].ExternalColumns[LastUpdate_Date]"
-                      dataType="dbTimeStamp"
-                      name="LastUpdate_Date" />
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Country_Lib_FR]"
+                      dataType="wstr"
+                      length="150"
+                      name="Country_Lib_FR" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB]"
+                  refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Format_ID]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Format_ID]"
-                      name="Format_ID" />
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      name="IPAddress_ID" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Format_ExternalID]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress]"
                       dataType="wstr"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Format_ExternalID]"
-                      name="Format_ExternalID" />
+                      length="30"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress]"
+                      name="IPAddress" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Code]"
                       dataType="wstr"
                       length="10"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
-                      name="ExternalSource" />
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Code]"
+                      name="Country_Code" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[MimeType]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ISO2Code]"
                       dataType="wstr"
-                      length="50"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[MimeType]"
-                      name="MimeType" />
+                      length="10"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ISO2Code]"
+                      name="Country_ISO2Code" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Format_Lib_EN]"
-                      dataType="wstr"
-                      length="150"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Format_Lib_EN]"
-                      name="Format_Lib_EN" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Format_Lib_FR]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Lib_EN]"
                       dataType="wstr"
                       length="150"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Format_Lib_FR]"
-                      name="Format_Lib_FR" />
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Lib_EN]"
+                      name="Country_Lib_EN" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[LastUpdate_Date]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[LastUpdate_Date]"
-                      name="LastUpdate_Date" />
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Lib_FR]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_Lib_FR]"
+                      name="Country_Lib_FR" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -453,28 +424,28 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT INSERT INTO DIM_Format.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format.Inputs[Entrée de destination OLE DB]"
+              refId="Package\DFT INSERT INTO DIM_IPAddress.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress.Inputs[Entrée de destination OLE DB]"
               name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM.Outputs[Sortie de source OLE DB]" />
+              startId="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM.Outputs[Sortie de source OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Truncate DIM_Format"
+      DTS:refId="Package\Truncate DIM_IPAddress"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{4145D756-274A-48EE-8804-03BD1C6F8F00}"
+      DTS:DTSID="{1A6B58CE-995E-4D86-87D3-76AF9390F608}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Truncate DIM_Format"
+      DTS:ObjectName="Truncate DIM_IPAddress"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{DF85A1CB-0DD4-4BDD-BDE8-9C2C5C4FB0CB}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DIM_Format" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DIM_IPAddress" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -482,11 +453,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
-      DTS:DTSID="{2D60779C-FC74-4E13-918B-57B5E4F9C40B}"
-      DTS:From="Package\Truncate DIM_Format"
+      DTS:DTSID="{D0720B6E-14FB-48E3-8480-0AA4DB70186E}"
+      DTS:From="Package\Truncate DIM_IPAddress"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte"
-      DTS:To="Package\DFT INSERT INTO DIM_Format" />
+      DTS:To="Package\DFT INSERT INTO DIM_IPAddress" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
@@ -501,16 +472,16 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="228,42.6666666666667"
-          Id="Package\DFT INSERT INTO DIM_Format"
+          Size="241.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DIM_IPAddress"
           TopLeft="99.6666652634743,184.466663466493" />
         <NodeLayout
-          Size="182.666666666667,42.6666666666667"
-          Id="Package\Truncate DIM_Format"
+          Size="196.666666666667,42.6666666666667"
+          Id="Package\Truncate DIM_IPAddress"
           TopLeft="115.083331700415,102.533333434065" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="210.041665148611,145.200000100732">
+          TopLeft="216.874998481945,145.200000100732">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -534,32 +505,32 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\DFT INSERT INTO DIM_Format">
+    design-time-name="Package\DFT INSERT INTO DIM_IPAddress">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="244,42.6666666666667"
-          Id="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM"
+          Size="257.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM"
           TopLeft="74.166665561497,38.1333326514563" />
         <NodeLayout
-          Size="185.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format"
-          TopLeft="101.249998491257,130.766664721767" />
+          Size="200,42.6666666666667"
+          Id="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress"
+          TopLeft="106.249998416751,126.866664791504" />
         <EdgeLayout
-          Id="Package\DFT INSERT INTO DIM_Format.Paths[Sortie de source OLE DB]"
-          TopLeft="195.04166535971,80.799999318123">
+          Id="Package\DFT INSERT INTO DIM_IPAddress.Paths[Sortie de source OLE DB]"
+          TopLeft="204.541665322457,80.799999318123">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.966665403644"
+              EndConnector="0,46.0666654733815"
               Start="0,0"
-              End="0,42.466665403644">
+              End="0,38.5666654733815">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.466665403644" />
+                    End="0,38.5666654733815" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -572,7 +543,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DIM_Format\OLE_DST DIM_Format">
+    design-time-name="Package\DFT INSERT INTO DIM_IPAddress\OLE_DST DIM_IPAddress">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -585,7 +556,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DIM_Format\OLE_SRC OCDE_DWH_Format_DM">
+    design-time-name="Package\DFT INSERT INTO DIM_IPAddress\OLE_SRC OCDE_DWH_IPAddress_DM">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

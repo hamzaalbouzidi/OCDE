@@ -5,26 +5,26 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="CSPE-W-VBISPS01"
   DTS:CreatorName="CERBA\YMIGEOT"
-  DTS:DTSID="{8EDEAB1E-189C-4CEA-B0A8-561AA3C7D7DF}"
+  DTS:DTSID="{965E2848-39D4-420C-A251-D19EA2DBB4D7}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
-  DTS:ObjectName="OCDE_DMT_"
+  DTS:ObjectName="OCDE_DMT_FACT_StatLink"
   DTS:PackageType="5"
-  DTS:VersionBuild="50"
-  DTS:VersionGUID="{9F49566C-A24D-4F5E-8C55-9BF168F95F01}">
+  DTS:VersionBuild="52"
+  DTS:VersionGUID="{BBBD6DA5-5643-466A-8BD0-62F3E2AC8D96}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO DIM_"
+      DTS:refId="Package\DFT INSERT INTO FACT_StatLink"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{B08934A9-A9DD-465F-95BA-D7076AC7FE35}"
+      DTS:DTSID="{5480B076-8780-4294-B8C4-08CE18C62E65}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO DIM_"
+      DTS:ObjectName="DFT INSERT INTO FACT_StatLink"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -32,11 +32,11 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT INSERT INTO DIM_\OLE_DST DIM_"
+              refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
               description="Destination OLE DB"
-              name="OLE_DST DIM_"
+              name="OLE_DST FACT_StatLink"
               usesDispositions="true"
               version="4">
               <properties>
@@ -89,13 +89,13 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO DIM_\OLE_DST DIM_.Connections[OleDbConnection]"
+                  refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Connections[OleDbConnection]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT INSERT INTO DIM_\OLE_DST DIM_.Inputs[Entrée de destination OLE DB]"
+                  refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB]"
                   errorOrTruncationOperation="Insérer"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
@@ -106,22 +106,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO DIM_\OLE_DST DIM_.Outputs[Sortie d'erreur de destination OLE DB]"
+                  refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Outputs[Sortie d'erreur de destination OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO DIM_\OLE_DST DIM_.Inputs[Entrée de destination OLE DB]">
+                  synchronousInputId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_\OLE_DST DIM_.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DIM_\OLE_DST DIM_.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_\OLE_DST DIM_.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DIM_\OLE_DST DIM_.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -130,11 +130,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT INSERT INTO DIM_\OLE_SRC OCDE_DWH__DM"
+              refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
               description="Source OLE DB"
-              name="OLE_SRC OCDE_DWH__DM"
+              name="OLE_SRC OCDE_DWH_StatLink_FT"
               usesDispositions="true"
               version="7">
               <properties>
@@ -179,7 +179,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO DIM_\OLE_SRC OCDE_DWH__DM.Connections[OleDbConnection]"
+                  refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Connections[OleDbConnection]"
                   connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -187,26 +187,26 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO DIM_\OLE_SRC OCDE_DWH__DM.Outputs[Sortie de source OLE DB]"
+                  refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
                   <externalMetadataColumns
                     isUsed="True" />
                 </output>
                 <output
-                  refId="Package\DFT INSERT INTO DIM_\OLE_SRC OCDE_DWH__DM.Outputs[Sortie d'erreur de source OLE DB]"
+                  refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_\OLE_SRC OCDE_DWH__DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DIM_\OLE_SRC OCDE_DWH__DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_\OLE_SRC OCDE_DWH__DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DIM_\OLE_SRC OCDE_DWH__DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -217,22 +217,22 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT INSERT INTO DIM_.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO DIM_\OLE_DST DIM_.Inputs[Entrée de destination OLE DB]"
+              refId="Package\DFT INSERT INTO FACT_StatLink.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB]"
               name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO DIM_\OLE_SRC OCDE_DWH__DM.Outputs[Sortie de source OLE DB]" />
+              startId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Truncate DIM_"
+      DTS:refId="Package\Truncate FACT_StatLink"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{30BD69A7-E4C2-4580-832B-DCB7D5B867FC}"
+      DTS:DTSID="{6DFBEA66-3024-49EE-840E-4794A1EE7164}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Truncate DIM_"
+      DTS:ObjectName="Truncate FACT_StatLink"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -246,11 +246,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
-      DTS:DTSID="{52DEB167-027C-4B53-A84E-57975016595C}"
-      DTS:From="Package\Truncate DIM_"
+      DTS:DTSID="{5F0DBBE1-87D8-4BF3-B365-8D25957CF9FA}"
+      DTS:From="Package\Truncate FACT_StatLink"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte"
-      DTS:To="Package\DFT INSERT INTO DIM_" />
+      DTS:To="Package\DFT INSERT INTO FACT_StatLink" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
@@ -265,16 +265,16 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="194.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DIM_"
+          Size="237.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO FACT_StatLink"
           TopLeft="99.6666652634743,184.466663466493" />
         <NodeLayout
-          Size="149.333333333334,42.6666666666667"
-          Id="Package\Truncate DIM_"
+          Size="193.333333333334,42.6666666666667"
+          Id="Package\Truncate FACT_StatLink"
           TopLeft="115.083331700415,102.533333434065" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="193.374998481945,145.200000100732">
+          TopLeft="215.041665148611,145.200000100732">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -298,44 +298,32 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\DFT INSERT INTO DIM_">
+    design-time-name="Package\DFT INSERT INTO FACT_StatLink">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="210.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DIM_\OLE_SRC OCDE_DWH__DM"
+          Size="245.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT"
           TopLeft="74.166665561497,38.1333326514563" />
         <NodeLayout
-          Size="152,42.6666666666667"
-          Id="Package\DFT INSERT INTO DIM_\OLE_DST DIM_"
-          TopLeft="89.5833319984372,130.766664721767" />
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink"
+          TopLeft="103.333331793546,131.199998047352" />
         <EdgeLayout
-          Id="Package\DFT INSERT INTO DIM_.Paths[Sortie de source OLE DB]"
-          TopLeft="179.49999889483,80.799999318123">
+          Id="Package\DFT INSERT INTO FACT_StatLink.Paths[Sortie de source OLE DB]"
+          TopLeft="198.749998677521,80.799999318123">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-13.9166668963931,49.966665403644"
+              EndConnector="0,50.3999987292291"
               Start="0,0"
-              End="-13.9166668963931,42.466665403644">
+              End="0,42.8999987292291">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.983332701822" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.983332701822"
-                    Point2="0,24.983332701822"
-                    Point3="-4,24.983332701822" />
-                  <mssgle:LineSegment
-                    End="-9.91666689639314,24.983332701822" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9.91666689639314,24.983332701822"
-                    Point2="-13.9166668963931,24.983332701822"
-                    Point3="-13.9166668963931,28.983332701822" />
-                  <mssgle:LineSegment
-                    End="-13.9166668963931,42.466665403644" />
+                    End="0,42.8999987292291" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -348,7 +336,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DIM_\OLE_SRC OCDE_DWH__DM">
+    design-time-name="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

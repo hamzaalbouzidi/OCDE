@@ -5,26 +5,26 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="CSPE-W-VBISPS01"
   DTS:CreatorName="CERBA\YMIGEOT"
-  DTS:DTSID="{4C203310-FF0B-4518-875F-C38371C93095}"
+  DTS:DTSID="{5852513C-1046-4812-8BB7-2958F6C228CE}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
-  DTS:ObjectName="OCDE_DMT_Session"
+  DTS:ObjectName="OCDE_DMT_DIM_Hours"
   DTS:PackageType="5"
-  DTS:VersionBuild="53"
-  DTS:VersionGUID="{398B9775-FB8E-448F-8C79-0464E4138EEA}">
+  DTS:VersionBuild="52"
+  DTS:VersionGUID="{416475BD-B810-47CB-A0F8-4C0F0E2E6AA8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO DIM_Session"
+      DTS:refId="Package\DFT INSERT INTO DIM_Hours"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{F7625627-5DBA-4488-86D5-17AF27B7E39E}"
+      DTS:DTSID="{A0C31EB1-2F62-4B75-A6FE-2BBE4E75B266}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO DIM_Session"
+      DTS:ObjectName="DFT INSERT INTO DIM_Hours"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -32,11 +32,11 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session"
+              refId="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
               description="Destination OLE DB"
-              name="OLE_DST DIM_Session"
+              name="OLE_DST DIM_Hours"
               usesDispositions="true"
               version="4">
               <properties>
@@ -47,7 +47,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[dbo].[DIM_Session]</property>
+                  name="OpenRowset">[dbo].[DIM_Hours]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -89,7 +89,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session.Connections[OleDbConnection]"
+                  refId="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours.Connections[OleDbConnection]"
                   connectionManagerID="{DF85A1CB-0DD4-4BDD-BDE8-9C2C5C4FB0CB}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OCDE_DMT]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -97,58 +97,58 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session.Inputs[Entrée de destination OLE DB]"
+                  refId="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours.Inputs[Entrée de destination OLE DB]"
                   errorOrTruncationOperation="Insérer"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session.Inputs[Entrée de destination OLE DB].Columns[Session_ID]"
+                      refId="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours.Inputs[Entrée de destination OLE DB].Columns[Download_hour]"
                       cachedDataType="i4"
-                      cachedName="Session_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session.Inputs[Entrée de destination OLE DB].ExternalColumns[Session_ID]"
-                      lineageId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie de source OLE DB].Columns[Session_ID]" />
+                      cachedName="Download_hour"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_hour]"
+                      lineageId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie de source OLE DB].Columns[Download_hour]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session.Inputs[Entrée de destination OLE DB].Columns[Session]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="Session"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session.Inputs[Entrée de destination OLE DB].ExternalColumns[Session]"
-                      lineageId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie de source OLE DB].Columns[Session]" />
+                      refId="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours.Inputs[Entrée de destination OLE DB].Columns[Download_Time]"
+                      cachedDataType="dbTime2"
+                      cachedName="Download_Time"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Time]"
+                      lineageId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie de source OLE DB].Columns[Download_Time]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session.Inputs[Entrée de destination OLE DB].ExternalColumns[Session_ID]"
+                      refId="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_hour]"
                       dataType="i4"
-                      name="Session_ID" />
+                      name="Download_hour" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session.Inputs[Entrée de destination OLE DB].ExternalColumns[Session]"
-                      dataType="wstr"
-                      length="100"
-                      name="Session" />
+                      refId="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Time]"
+                      dataType="dbTime2"
+                      name="Download_Time"
+                      scale="7" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session.Outputs[Sortie d'erreur de destination OLE DB]"
+                  refId="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours.Outputs[Sortie d'erreur de destination OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session.Inputs[Entrée de destination OLE DB]">
+                  synchronousInputId="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours.Inputs[Entrée de destination OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -157,11 +157,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM"
+              refId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
               description="Source OLE DB"
-              name="OLE_SRC OCDE_DWH_Session_DM"
+              name="OLE_SRC OCDE_DWH_DIM_Hours"
               usesDispositions="true"
               version="7">
               <properties>
@@ -181,10 +181,8 @@
                   dataType="System.String"
                   description="Commande SQL à exécuter."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT     Session_ID, Session
-FROM         dwh.Session_DM
-UNION 
-SELECT     0 as Session_ID, 'N/A' as  Session</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT     Download_hour, Download_Time
+FROM         dwh.DIM_Hours</property>
                 <property
                   dataType="System.String"
                   description="Variable contenant la commande SQL à exécuter."
@@ -209,7 +207,7 @@ SELECT     0 as Session_ID, 'N/A' as  Session</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Connections[OleDbConnection]"
+                  refId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Connections[OleDbConnection]"
                   connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
                   connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -217,68 +215,68 @@ SELECT     0 as Session_ID, 'N/A' as  Session</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie de source OLE DB]"
+                  refId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie de source OLE DB].Columns[Session_ID]"
+                      refId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie de source OLE DB].Columns[Download_hour]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Session_ID]"
-                      lineageId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie de source OLE DB].Columns[Session_ID]"
-                      name="Session_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie de source OLE DB].ExternalColumns[Download_hour]"
+                      lineageId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie de source OLE DB].Columns[Download_hour]"
+                      name="Download_hour"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie de source OLE DB].Columns[Session]"
-                      dataType="wstr"
+                      refId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie de source OLE DB].Columns[Download_Time]"
+                      dataType="dbTime2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Session]"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie de source OLE DB].Columns[Session]"
-                      name="Session"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Time]"
+                      lineageId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie de source OLE DB].Columns[Download_Time]"
+                      name="Download_Time"
+                      scale="7"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Session_ID]"
+                      refId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie de source OLE DB].ExternalColumns[Download_hour]"
                       dataType="i4"
-                      name="Session_ID" />
+                      name="Download_hour" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Session]"
-                      dataType="wstr"
-                      length="100"
-                      name="Session" />
+                      refId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Time]"
+                      dataType="dbTime2"
+                      name="Download_Time"
+                      scale="7" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie d'erreur de source OLE DB]"
+                  refId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Session_ID]"
+                      refId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_hour]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Session_ID]"
-                      name="Session_ID" />
+                      lineageId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_hour]"
+                      name="Download_hour" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Session]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Session]"
-                      name="Session" />
+                      refId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Time]"
+                      dataType="dbTime2"
+                      lineageId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Time]"
+                      name="Download_Time"
+                      scale="7" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -289,28 +287,28 @@ SELECT     0 as Session_ID, 'N/A' as  Session</property>
           </components>
           <paths>
             <path
-              refId="Package\DFT INSERT INTO DIM_Session.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session.Inputs[Entrée de destination OLE DB]"
+              refId="Package\DFT INSERT INTO DIM_Hours.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours.Inputs[Entrée de destination OLE DB]"
               name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM.Outputs[Sortie de source OLE DB]" />
+              startId="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours.Outputs[Sortie de source OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Truncate DIM_Session"
+      DTS:refId="Package\Truncate DIM_Hours"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{D2A79497-6578-4E11-95D3-9BADF53E6E01}"
+      DTS:DTSID="{E722F98F-CCAF-42F2-AC40-B56DDACA775B}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Truncate DIM_Session"
+      DTS:ObjectName="Truncate DIM_Hours"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{DF85A1CB-0DD4-4BDD-BDE8-9C2C5C4FB0CB}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DIM_Session" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DIM_Hours" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -318,11 +316,11 @@ SELECT     0 as Session_ID, 'N/A' as  Session</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
-      DTS:DTSID="{44532D17-C4F0-4683-95DB-40F9C2234183}"
-      DTS:From="Package\Truncate DIM_Session"
+      DTS:DTSID="{9539D9A8-E107-4BC0-B8A9-8A33609A1CCC}"
+      DTS:From="Package\Truncate DIM_Hours"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte"
-      DTS:To="Package\DFT INSERT INTO DIM_Session" />
+      DTS:To="Package\DFT INSERT INTO DIM_Hours" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
@@ -337,16 +335,16 @@ SELECT     0 as Session_ID, 'N/A' as  Session</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="229.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DIM_Session"
+          Size="222.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DIM_Hours"
           TopLeft="99.6666652634743,184.466663466493" />
         <NodeLayout
-          Size="185.333333333334,42.6666666666667"
-          Id="Package\Truncate DIM_Session"
+          Size="177.333333333334,42.6666666666667"
+          Id="Package\Truncate DIM_Hours"
           TopLeft="115.083331700415,102.533333434065" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="211.041665148611,145.200000100732">
+          TopLeft="207.374998481945,145.200000100732">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -370,32 +368,32 @@ SELECT     0 as Session_ID, 'N/A' as  Session</property>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\DFT INSERT INTO DIM_Session">
+    design-time-name="Package\DFT INSERT INTO DIM_Hours">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="246.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM"
-          TopLeft="74.5833322219548,38.1333326514563" />
+          Size="242.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours"
+          TopLeft="74.166665561497,38.1333326514563" />
         <NodeLayout
-          Size="188,42.6666666666667"
-          Id="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session"
-          TopLeft="101.666665151715,129.033331419428" />
+          Size="180,42.6666666666667"
+          Id="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours"
+          TopLeft="110.833331681788,131.199998047352" />
         <EdgeLayout
-          Id="Package\DFT INSERT INTO DIM_Session.Paths[Sortie de source OLE DB]"
-          TopLeft="196.791665353501,80.799999318123">
+          Id="Package\DFT INSERT INTO DIM_Hours.Paths[Sortie de source OLE DB]"
+          TopLeft="198.166665288309,80.799999318123">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,48.2333321013051"
+              EndConnector="0,50.3999987292288"
               Start="0,0"
-              End="0,40.7333321013051">
+              End="0,42.8999987292288">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.7333321013051" />
+                    End="0,42.8999987292288" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -408,7 +406,7 @@ SELECT     0 as Session_ID, 'N/A' as  Session</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DIM_Session\OLE_DST DIM_Session">
+    design-time-name="Package\DFT INSERT INTO DIM_Hours\OLE_DST DIM_Hours">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -421,7 +419,7 @@ SELECT     0 as Session_ID, 'N/A' as  Session</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DIM_Session\OLE_SRC OCDE_DWH_Session_DM">
+    design-time-name="Package\DFT INSERT INTO DIM_Hours\OLE_SRC OCDE_DWH_DIM_Hours">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
