@@ -25,7 +25,7 @@
     [Expression - Directorate Code Level2] NVARCHAR(4) NOT NULL, 
     [Expression - Directorate Name Level1] NVARCHAR(150) NOT NULL, 
     [Expression - Directorate Name Level2] NVARCHAR(150) NOT NULL, 
-    [Expression - iLibraryAccessMode] TINYINT NULL, 
+    [Expression - iLibraryAccessMode] INT NULL, 
     [Expression - HasEpub] BIT NOT NULL, 
     [Expression - HasEBook] BIT NOT NULL, 
     [Expression - HasExcel] BIT NOT NULL, 
