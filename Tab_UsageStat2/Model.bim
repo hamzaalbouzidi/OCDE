@@ -1,0 +1,1403 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1500,
+  "model": {
+    "culture": "fr-FR",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/ocde-sqlsrv database windows net;DMT_UsageStat",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "ocde-sqlsrv.database.windows.net",
+            "database": "DMT_UsageStat"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "options": {},
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "Username": "ocde-sqlsrv",
+          "EncryptConnection": true
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "DIM_Directorate",
+        "columns": [
+          {
+            "name": "Directorate_ID",
+            "dataType": "int64",
+            "sourceColumn": "Directorate_ID"
+          },
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID"
+          },
+          {
+            "name": "Directorate_ExternalID",
+            "dataType": "string",
+            "sourceColumn": "Directorate_ExternalID"
+          },
+          {
+            "name": "ExternalSource",
+            "dataType": "string",
+            "sourceColumn": "ExternalSource"
+          },
+          {
+            "name": "Directorate_Code",
+            "dataType": "string",
+            "sourceColumn": "Directorate_Code"
+          },
+          {
+            "name": "Directorate_Lib_EN",
+            "dataType": "string",
+            "sourceColumn": "Directorate_Lib_EN"
+          },
+          {
+            "name": "Directorate_Lib_FR",
+            "dataType": "string",
+            "sourceColumn": "Directorate_Lib_FR"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_Directorate = Source{[Schema=\"dbo\",Item=\"DIM_Directorate\"]}[Data]",
+                "in",
+                "    dbo_DIM_Directorate"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_Date",
+        "columns": [
+          {
+            "name": "PK_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "PK_Date"
+          },
+          {
+            "name": "Date_Name",
+            "dataType": "string",
+            "sourceColumn": "Date_Name"
+          },
+          {
+            "name": "Year",
+            "dataType": "dateTime",
+            "sourceColumn": "Year"
+          },
+          {
+            "name": "Year_Name",
+            "dataType": "string",
+            "sourceColumn": "Year_Name"
+          },
+          {
+            "name": "Month",
+            "dataType": "dateTime",
+            "sourceColumn": "Month"
+          },
+          {
+            "name": "Month_Name",
+            "dataType": "string",
+            "sourceColumn": "Month_Name"
+          },
+          {
+            "name": "Quater",
+            "dataType": "string",
+            "sourceColumn": "Quater"
+          },
+          {
+            "name": "Day_Of_Year",
+            "dataType": "int64",
+            "sourceColumn": "Day_Of_Year"
+          },
+          {
+            "name": "Day_Of_Year_Name",
+            "dataType": "string",
+            "sourceColumn": "Day_Of_Year_Name"
+          },
+          {
+            "name": "Day_Of_Month",
+            "dataType": "int64",
+            "sourceColumn": "Day_Of_Month"
+          },
+          {
+            "name": "Day_Of_Month_Name",
+            "dataType": "string",
+            "sourceColumn": "Day_Of_Month_Name"
+          },
+          {
+            "name": "Month_Of_Year",
+            "dataType": "int64",
+            "sourceColumn": "Month_Of_Year"
+          },
+          {
+            "name": "Month_Of_Year_Name",
+            "dataType": "string",
+            "sourceColumn": "Month_Of_Year_Name"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_Date = Source{[Schema=\"dbo\",Item=\"DIM_Date\"]}[Data]",
+                "in",
+                "    dbo_DIM_Date"
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Hiérarchie",
+            "levels": [
+              {
+                "name": "Year_Name",
+                "ordinal": 0,
+                "column": "Year_Name"
+              },
+              {
+                "name": "Month_Name",
+                "ordinal": 1,
+                "column": "Month_Name"
+              },
+              {
+                "name": "Date_Name",
+                "ordinal": 2,
+                "column": "Date_Name"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DIM_Expression",
+        "columns": [
+          {
+            "name": "CurExpId",
+            "dataType": "int64",
+            "sourceColumn": "CurExpId"
+          },
+          {
+            "name": "Expression - DOI",
+            "dataType": "string",
+            "sourceColumn": "Expression - DOI"
+          },
+          {
+            "name": "Expression - FullTitle",
+            "dataType": "string",
+            "sourceColumn": "Expression - FullTitle"
+          },
+          {
+            "name": "Expression - iLibraryURLAlias",
+            "dataType": "string",
+            "sourceColumn": "Expression - iLibraryURLAlias"
+          },
+          {
+            "name": "Expression - Directorate ID",
+            "dataType": "int64",
+            "sourceColumn": "Expression - Directorate ID"
+          },
+          {
+            "name": "Expression - Language ID",
+            "dataType": "int64",
+            "sourceColumn": "Expression - Language ID"
+          },
+          {
+            "name": "Expression - Theme ID",
+            "dataType": "int64",
+            "sourceColumn": "Expression - Theme ID"
+          },
+          {
+            "name": "Expression - IGO ID",
+            "dataType": "int64",
+            "sourceColumn": "Expression - IGO ID"
+          },
+          {
+            "name": "Expression - Object Type ID",
+            "dataType": "int64",
+            "sourceColumn": "Expression - Object Type ID"
+          },
+          {
+            "name": "Expression - FirstRelease_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Expression - FirstRelease_Date"
+          },
+          {
+            "name": "Expression - FirstExportDate",
+            "dataType": "dateTime",
+            "sourceColumn": "Expression - FirstExportDate"
+          },
+          {
+            "name": "Expression - LatestDeletionDate",
+            "dataType": "dateTime",
+            "sourceColumn": "Expression - LatestDeletionDate"
+          },
+          {
+            "name": "Expression - LatestExportDate",
+            "dataType": "dateTime",
+            "sourceColumn": "Expression - LatestExportDate"
+          },
+          {
+            "name": "Expression - Object Type Level1",
+            "dataType": "string",
+            "sourceColumn": "Expression - Object Type Level1"
+          },
+          {
+            "name": "Expression - Object Type Level2",
+            "dataType": "string",
+            "sourceColumn": "Expression - Object Type Level2"
+          },
+          {
+            "name": "Expression - Title Level1",
+            "dataType": "string",
+            "sourceColumn": "Expression - Title Level1"
+          },
+          {
+            "name": "Expression - Title Level2",
+            "dataType": "string",
+            "sourceColumn": "Expression - Title Level2"
+          },
+          {
+            "name": "Expression - DOI Level1",
+            "dataType": "string",
+            "sourceColumn": "Expression - DOI Level1"
+          },
+          {
+            "name": "Expression - DOI Level2",
+            "dataType": "string",
+            "sourceColumn": "Expression - DOI Level2"
+          },
+          {
+            "name": "Expression - Theme Level1",
+            "dataType": "string",
+            "sourceColumn": "Expression - Theme Level1"
+          },
+          {
+            "name": "Expression - Theme Level2",
+            "dataType": "string",
+            "sourceColumn": "Expression - Theme Level2"
+          },
+          {
+            "name": "Expression - Directorate Code Level1",
+            "dataType": "string",
+            "sourceColumn": "Expression - Directorate Code Level1"
+          },
+          {
+            "name": "Expression - Directorate Code Level2",
+            "dataType": "string",
+            "sourceColumn": "Expression - Directorate Code Level2"
+          },
+          {
+            "name": "Expression - Directorate Name Level1",
+            "dataType": "string",
+            "sourceColumn": "Expression - Directorate Name Level1"
+          },
+          {
+            "name": "Expression - Directorate Name Level2",
+            "dataType": "string",
+            "sourceColumn": "Expression - Directorate Name Level2"
+          },
+          {
+            "name": "Expression - iLibraryAccessMode",
+            "dataType": "int64",
+            "sourceColumn": "Expression - iLibraryAccessMode"
+          },
+          {
+            "name": "Expression - HasEpub",
+            "dataType": "boolean",
+            "sourceColumn": "Expression - HasEpub"
+          },
+          {
+            "name": "Expression - HasEBook",
+            "dataType": "boolean",
+            "sourceColumn": "Expression - HasEBook"
+          },
+          {
+            "name": "Expression - HasExcel",
+            "dataType": "boolean",
+            "sourceColumn": "Expression - HasExcel"
+          },
+          {
+            "name": "Expression - HasRead",
+            "dataType": "boolean",
+            "sourceColumn": "Expression - HasRead"
+          },
+          {
+            "name": "Expression - HasHTML",
+            "dataType": "boolean",
+            "sourceColumn": "Expression - HasHTML"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_Expression = Source{[Schema=\"dbo\",Item=\"DIM_Expression\"]}[Data]",
+                "in",
+                "    dbo_DIM_Expression"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_Format",
+        "columns": [
+          {
+            "name": "Format_ID",
+            "dataType": "int64",
+            "sourceColumn": "Format_ID"
+          },
+          {
+            "name": "Format_ExternalID",
+            "dataType": "string",
+            "sourceColumn": "Format_ExternalID"
+          },
+          {
+            "name": "ExternalSource",
+            "dataType": "string",
+            "sourceColumn": "ExternalSource"
+          },
+          {
+            "name": "MimeType",
+            "dataType": "string",
+            "sourceColumn": "MimeType"
+          },
+          {
+            "name": "Format_Lib_EN",
+            "dataType": "string",
+            "sourceColumn": "Format_Lib_EN"
+          },
+          {
+            "name": "Format_Lib_FR",
+            "dataType": "string",
+            "sourceColumn": "Format_Lib_FR"
+          },
+          {
+            "name": "LastUpdate_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "LastUpdate_Date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_Format = Source{[Schema=\"dbo\",Item=\"DIM_Format\"]}[Data]",
+                "in",
+                "    dbo_DIM_Format"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_Hours",
+        "columns": [
+          {
+            "name": "Download_hour",
+            "dataType": "int64",
+            "sourceColumn": "Download_hour"
+          },
+          {
+            "name": "Download_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Download_Time"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_Hours = Source{[Schema=\"dbo\",Item=\"DIM_Hours\"]}[Data]",
+                "in",
+                "    dbo_DIM_Hours"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_IGO",
+        "columns": [
+          {
+            "name": "IGO_ID",
+            "dataType": "int64",
+            "sourceColumn": "IGO_ID"
+          },
+          {
+            "name": "IGO_ExternalID",
+            "dataType": "string",
+            "sourceColumn": "IGO_ExternalID"
+          },
+          {
+            "name": "ExternalSource",
+            "dataType": "string",
+            "sourceColumn": "ExternalSource"
+          },
+          {
+            "name": "IGO_Lib_EN",
+            "dataType": "string",
+            "sourceColumn": "IGO_Lib_EN"
+          },
+          {
+            "name": "IGO_Lib_FR",
+            "dataType": "string",
+            "sourceColumn": "IGO_Lib_FR"
+          },
+          {
+            "name": "IGO_Code_EN",
+            "dataType": "string",
+            "sourceColumn": "IGO_Code_EN"
+          },
+          {
+            "name": "IGO_Code_FR",
+            "dataType": "string",
+            "sourceColumn": "IGO_Code_FR"
+          },
+          {
+            "name": "DOIPrefix",
+            "dataType": "string",
+            "sourceColumn": "DOIPrefix"
+          },
+          {
+            "name": "LastUpdate_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "LastUpdate_Date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_IGO = Source{[Schema=\"dbo\",Item=\"DIM_IGO\"]}[Data]",
+                "in",
+                "    dbo_DIM_IGO"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_iLibraryAccessMode",
+        "columns": [
+          {
+            "name": "iLibraryAccessMode",
+            "dataType": "int64",
+            "sourceColumn": "iLibraryAccessMode"
+          },
+          {
+            "name": "EnglishDescription",
+            "dataType": "string",
+            "sourceColumn": "EnglishDescription"
+          },
+          {
+            "name": "FrenchDescription",
+            "dataType": "string",
+            "sourceColumn": "FrenchDescription"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_iLibraryAccessMode = Source{[Schema=\"dbo\",Item=\"DIM_iLibraryAccessMode\"]}[Data]",
+                "in",
+                "    dbo_DIM_iLibraryAccessMode"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_IP_Address",
+        "columns": [
+          {
+            "name": "IPAddress_ID",
+            "dataType": "int64",
+            "sourceColumn": "IPAddress_ID"
+          },
+          {
+            "name": "IPAddress",
+            "dataType": "string",
+            "sourceColumn": "IPAddress"
+          },
+          {
+            "name": "Country_Code",
+            "dataType": "string",
+            "sourceColumn": "Country_Code"
+          },
+          {
+            "name": "Country_ISO2Code",
+            "dataType": "string",
+            "sourceColumn": "Country_ISO2Code"
+          },
+          {
+            "name": "Country_Lib_EN",
+            "dataType": "string",
+            "sourceColumn": "Country_Lib_EN"
+          },
+          {
+            "name": "Country_Lib_FR",
+            "dataType": "string",
+            "sourceColumn": "Country_Lib_FR"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_IP_Address = Source{[Schema=\"dbo\",Item=\"DIM_IP_Address\"]}[Data]",
+                "in",
+                "    dbo_DIM_IP_Address"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_Language",
+        "columns": [
+          {
+            "name": "Language_ID",
+            "dataType": "int64",
+            "sourceColumn": "Language_ID"
+          },
+          {
+            "name": "Language_ExternalID",
+            "dataType": "string",
+            "sourceColumn": "Language_ExternalID"
+          },
+          {
+            "name": "ExternalSource",
+            "dataType": "string",
+            "sourceColumn": "ExternalSource"
+          },
+          {
+            "name": "Language_Lib_EN",
+            "dataType": "string",
+            "sourceColumn": "Language_Lib_EN"
+          },
+          {
+            "name": "Language_Lib_FR",
+            "dataType": "string",
+            "sourceColumn": "Language_Lib_FR"
+          },
+          {
+            "name": "ISOCode",
+            "dataType": "string",
+            "sourceColumn": "ISOCode"
+          },
+          {
+            "name": "ISOCode3",
+            "dataType": "string",
+            "sourceColumn": "ISOCode3"
+          },
+          {
+            "name": "LastUpdate_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "LastUpdate_Date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_Language = Source{[Schema=\"dbo\",Item=\"DIM_Language\"]}[Data]",
+                "in",
+                "    dbo_DIM_Language"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_Manifestation",
+        "columns": [
+          {
+            "name": "Manifestation - Manifestation_ID",
+            "dataType": "int64",
+            "sourceColumn": "Manifestation - Manifestation_ID"
+          },
+          {
+            "name": "Manifestation - Expression_ID",
+            "dataType": "int64",
+            "sourceColumn": "Manifestation - Expression_ID"
+          },
+          {
+            "name": "Manifestation - Format_ID",
+            "dataType": "int64",
+            "sourceColumn": "Manifestation - Format_ID"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_Manifestation = Source{[Schema=\"dbo\",Item=\"DIM_Manifestation\"]}[Data]",
+                "in",
+                "    dbo_DIM_Manifestation"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_ObjectType",
+        "columns": [
+          {
+            "name": "ObjectType_ID",
+            "dataType": "int64",
+            "sourceColumn": "ObjectType_ID"
+          },
+          {
+            "name": "ObjectType_ExternalID",
+            "dataType": "string",
+            "sourceColumn": "ObjectType_ExternalID"
+          },
+          {
+            "name": "ExternalSource",
+            "dataType": "string",
+            "sourceColumn": "ExternalSource"
+          },
+          {
+            "name": "ObjectType",
+            "dataType": "string",
+            "sourceColumn": "ObjectType"
+          },
+          {
+            "name": "CatalogueType",
+            "dataType": "string",
+            "sourceColumn": "CatalogueType"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_ObjectType = Source{[Schema=\"dbo\",Item=\"DIM_ObjectType\"]}[Data]",
+                "in",
+                "    dbo_DIM_ObjectType"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_Plateform",
+        "columns": [
+          {
+            "name": "Plateform",
+            "dataType": "string",
+            "sourceColumn": "Plateform"
+          },
+          {
+            "name": "PlateformDesc",
+            "dataType": "string",
+            "sourceColumn": "PlateformDesc"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_Plateform = Source{[Schema=\"dbo\",Item=\"DIM_Plateform\"]}[Data]",
+                "in",
+                "    dbo_DIM_Plateform"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_Registration",
+        "columns": [
+          {
+            "name": "Registration_ID",
+            "dataType": "int64",
+            "sourceColumn": "Registration_ID"
+          },
+          {
+            "name": "InstitutionName",
+            "dataType": "string",
+            "sourceColumn": "InstitutionName"
+          },
+          {
+            "name": "IdentityID",
+            "dataType": "string",
+            "sourceColumn": "IdentityID"
+          },
+          {
+            "name": "CustomerType",
+            "dataType": "string",
+            "sourceColumn": "CustomerType"
+          },
+          {
+            "name": "RegistrationType",
+            "dataType": "string",
+            "sourceColumn": "RegistrationType"
+          },
+          {
+            "name": "Country",
+            "dataType": "string",
+            "sourceColumn": "Country"
+          },
+          {
+            "name": "ManagerName",
+            "dataType": "string",
+            "sourceColumn": "ManagerName"
+          },
+          {
+            "name": "CCM",
+            "dataType": "string",
+            "sourceColumn": "CCM"
+          },
+          {
+            "name": "ChildRegistration_ID",
+            "dataType": "int64",
+            "sourceColumn": "ChildRegistration_ID"
+          },
+          {
+            "name": "Parent_InstitutionName",
+            "dataType": "string",
+            "sourceColumn": "Parent_InstitutionName"
+          },
+          {
+            "name": "Parent_IdentityID",
+            "dataType": "string",
+            "sourceColumn": "Parent_IdentityID"
+          },
+          {
+            "name": "Parent_CustomerType",
+            "dataType": "string",
+            "sourceColumn": "Parent_CustomerType"
+          },
+          {
+            "name": "Parent_RegistrationType",
+            "dataType": "string",
+            "sourceColumn": "Parent_RegistrationType"
+          },
+          {
+            "name": "Parent_Country",
+            "dataType": "string",
+            "sourceColumn": "Parent_Country"
+          },
+          {
+            "name": "UserType",
+            "dataType": "string",
+            "sourceColumn": "UserType"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_Registration = Source{[Schema=\"dbo\",Item=\"DIM_Registration\"]}[Data]",
+                "in",
+                "    dbo_DIM_Registration"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_Session",
+        "columns": [
+          {
+            "name": "Session_ID",
+            "dataType": "int64",
+            "sourceColumn": "Session_ID"
+          },
+          {
+            "name": "Session",
+            "dataType": "string",
+            "sourceColumn": "Session"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_Session = Source{[Schema=\"dbo\",Item=\"DIM_Session\"]}[Data]",
+                "in",
+                "    dbo_DIM_Session"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_Source",
+        "columns": [
+          {
+            "name": "SourceLight_Lib",
+            "dataType": "string",
+            "sourceColumn": "SourceLight_Lib"
+          },
+          {
+            "name": "SourceLight_URL",
+            "dataType": "string",
+            "sourceColumn": "SourceLight_URL"
+          },
+          {
+            "name": "Source",
+            "dataType": "string",
+            "sourceColumn": "Source"
+          },
+          {
+            "name": "Source_ID",
+            "dataType": "int64",
+            "sourceColumn": "Source_ID"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_Source = Source{[Schema=\"dbo\",Item=\"DIM_Source\"]}[Data]",
+                "in",
+                "    dbo_DIM_Source"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_Theme",
+        "columns": [
+          {
+            "name": "Theme_ID",
+            "dataType": "int64",
+            "sourceColumn": "Theme_ID"
+          },
+          {
+            "name": "Theme_ExternalID",
+            "dataType": "string",
+            "sourceColumn": "Theme_ExternalID"
+          },
+          {
+            "name": "ExternalSource",
+            "dataType": "string",
+            "sourceColumn": "ExternalSource"
+          },
+          {
+            "name": "Theme_Lib_EN",
+            "dataType": "string",
+            "sourceColumn": "Theme_Lib_EN"
+          },
+          {
+            "name": "Theme_Lib_FR",
+            "dataType": "string",
+            "sourceColumn": "Theme_Lib_FR"
+          },
+          {
+            "name": "LastUpdate_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "LastUpdate_Date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_Theme = Source{[Schema=\"dbo\",Item=\"DIM_Theme\"]}[Data]",
+                "in",
+                "    dbo_DIM_Theme"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_UserAgent",
+        "columns": [
+          {
+            "name": "UserAgent_ID",
+            "dataType": "int64",
+            "sourceColumn": "UserAgent_ID"
+          },
+          {
+            "name": "UserAgent",
+            "dataType": "string",
+            "sourceColumn": "UserAgent"
+          },
+          {
+            "name": "IsBot",
+            "dataType": "string",
+            "sourceColumn": "IsBot"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_DIM_UserAgent = Source{[Schema=\"dbo\",Item=\"DIM_UserAgent\"]}[Data]",
+                "in",
+                "    dbo_DIM_UserAgent"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FACT_BrowseIt",
+        "columns": [
+          {
+            "name": "Download_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Download_Date"
+          },
+          {
+            "name": "CurExpId",
+            "dataType": "int64",
+            "sourceColumn": "CurExpId"
+          },
+          {
+            "name": "Plateform",
+            "dataType": "string",
+            "sourceColumn": "Plateform"
+          },
+          {
+            "name": "Format_ID",
+            "dataType": "int64",
+            "sourceColumn": "Format_ID"
+          },
+          {
+            "name": "Downloads",
+            "dataType": "int64",
+            "sourceColumn": "Downloads"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_FACT_BrowseIt = Source{[Schema=\"dbo\",Item=\"FACT_BrowseIt\"]}[Data]",
+                "in",
+                "    dbo_FACT_BrowseIt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FACT_FreePreview",
+        "columns": [
+          {
+            "name": "Download_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Download_Date"
+          },
+          {
+            "name": "CurExpId",
+            "dataType": "int64",
+            "sourceColumn": "CurExpId"
+          },
+          {
+            "name": "Plateform",
+            "dataType": "string",
+            "sourceColumn": "Plateform"
+          },
+          {
+            "name": "Format_ID",
+            "dataType": "int64",
+            "sourceColumn": "Format_ID"
+          },
+          {
+            "name": "Downloads",
+            "dataType": "int64",
+            "sourceColumn": "Downloads"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_FACT_FreePreview = Source{[Schema=\"dbo\",Item=\"FACT_FreePreview\"]}[Data]",
+                "in",
+                "    dbo_FACT_FreePreview"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FACT_GoogleBooks",
+        "columns": [
+          {
+            "name": "Download_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Download_Date"
+          },
+          {
+            "name": "CurExpId",
+            "dataType": "int64",
+            "sourceColumn": "CurExpId"
+          },
+          {
+            "name": "Plateform",
+            "dataType": "string",
+            "sourceColumn": "Plateform"
+          },
+          {
+            "name": "Format_ID",
+            "dataType": "int64",
+            "sourceColumn": "Format_ID"
+          },
+          {
+            "name": "Downloads",
+            "dataType": "int64",
+            "sourceColumn": "Downloads"
+          },
+          {
+            "name": "BV_w_pages_viewed",
+            "dataType": "int64",
+            "sourceColumn": "BV_w_pages_viewed"
+          },
+          {
+            "name": "pages_viewed",
+            "dataType": "int64",
+            "sourceColumn": "pages_viewed"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_FACT_GoogleBooks = Source{[Schema=\"dbo\",Item=\"FACT_GoogleBooks\"]}[Data]",
+                "in",
+                "    dbo_FACT_GoogleBooks"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FACT_iLibraryCounter",
+        "columns": [
+          {
+            "name": "Download_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Download_Date"
+          },
+          {
+            "name": "CurExpId",
+            "dataType": "int64",
+            "sourceColumn": "CurExpId"
+          },
+          {
+            "name": "Plateform",
+            "dataType": "string",
+            "sourceColumn": "Plateform"
+          },
+          {
+            "name": "Format_ID",
+            "dataType": "int64",
+            "sourceColumn": "Format_ID"
+          },
+          {
+            "name": "Registration_ID",
+            "dataType": "int64",
+            "sourceColumn": "Registration_ID"
+          },
+          {
+            "name": "Downloads",
+            "dataType": "int64",
+            "sourceColumn": "Downloads"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_FACT_iLibraryCounter = Source{[Schema=\"dbo\",Item=\"FACT_iLibraryCounter\"]}[Data]",
+                "in",
+                "    dbo_FACT_iLibraryCounter"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FACT_iLibraryLog",
+        "columns": [
+          {
+            "name": "Download_Date_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Download_Date_Time"
+          },
+          {
+            "name": "Download_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Download_Date"
+          },
+          {
+            "name": "Download_hour",
+            "dataType": "int64",
+            "sourceColumn": "Download_hour"
+          },
+          {
+            "name": "CurExpId",
+            "dataType": "int64",
+            "sourceColumn": "CurExpId"
+          },
+          {
+            "name": "Plateform",
+            "dataType": "string",
+            "sourceColumn": "Plateform"
+          },
+          {
+            "name": "Format_ID",
+            "dataType": "int64",
+            "sourceColumn": "Format_ID"
+          },
+          {
+            "name": "Registration_ID",
+            "dataType": "int64",
+            "sourceColumn": "Registration_ID"
+          },
+          {
+            "name": "IPAddress_ID",
+            "dataType": "int64",
+            "sourceColumn": "IPAddress_ID"
+          },
+          {
+            "name": "Source_ID",
+            "dataType": "int64",
+            "sourceColumn": "Source_ID"
+          },
+          {
+            "name": "UserAgent_ID",
+            "dataType": "int64",
+            "sourceColumn": "UserAgent_ID"
+          },
+          {
+            "name": "Session_ID",
+            "dataType": "int64",
+            "sourceColumn": "Session_ID"
+          },
+          {
+            "name": "Downloads",
+            "dataType": "int64",
+            "sourceColumn": "Downloads"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_FACT_iLibraryLog = Source{[Schema=\"dbo\",Item=\"FACT_iLibraryLog\"]}[Data]",
+                "in",
+                "    dbo_FACT_iLibraryLog"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FACT_StatLink",
+        "columns": [
+          {
+            "name": "Download_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Download_Date"
+          },
+          {
+            "name": "Download_Time",
+            "dataType": "int64",
+            "sourceColumn": "Download_Time"
+          },
+          {
+            "name": "CurExpId",
+            "dataType": "int64",
+            "sourceColumn": "CurExpId"
+          },
+          {
+            "name": "Plateform",
+            "dataType": "string",
+            "sourceColumn": "Plateform"
+          },
+          {
+            "name": "IPAddress_ID",
+            "dataType": "int64",
+            "sourceColumn": "IPAddress_ID"
+          },
+          {
+            "name": "Source_ID",
+            "dataType": "int64",
+            "sourceColumn": "Source_ID"
+          },
+          {
+            "name": "UserAgent_ID",
+            "dataType": "int64",
+            "sourceColumn": "UserAgent_ID"
+          },
+          {
+            "name": "Format_ID",
+            "dataType": "int64",
+            "sourceColumn": "Format_ID"
+          },
+          {
+            "name": "Downloads",
+            "dataType": "int64",
+            "sourceColumn": "Downloads"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    dbo_FACT_StatLink = Source{[Schema=\"dbo\",Item=\"FACT_StatLink\"]}[Data]",
+                "in",
+                "    dbo_FACT_StatLink"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "b2791f34-351f-4a26-b4f2-fbf9656e0282",
+        "fromCardinality": "one",
+        "fromTable": "DIM_Expression",
+        "fromColumn": "Expression - IGO ID",
+        "toTable": "DIM_IGO",
+        "toColumn": "IGO_ID",
+        "crossFilteringBehavior": "bothDirections"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "600"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
