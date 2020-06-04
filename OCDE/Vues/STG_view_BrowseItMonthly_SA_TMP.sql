@@ -1,11 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-
-
-
-CREATE VIEW [stg].[view_BrowseItMonthly_SA_TMP]
+﻿CREATE VIEW [stg].[view_BrowseItMonthly_SA_TMP]
 AS
 SELECT     Expression_ID, item,substring([Date],1,4)+'-'+ substring([Date],5,2)+'-01' as [Date], SUM(Downloads) AS Downloads
 FROM         (SELECT     TMP.item, TMP.[Date], TMP.Downloads, E.Expression_ID
@@ -24,14 +17,10 @@ FROM         (SELECT     REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE
 					   
 					    LEFT OUTER JOIN
                                               stg.STG_BrowseIt_OPKV2  LEFT OUTER  JOIN
-                                              [DWH_UsageStat].dwh.Manifestation_DM AS M  LEFT OUTER  JOIN
-                                             [DWH_UsageStat].dwh.Expression_DM AS E ON E.Expression_ID = M.Expression_ID ON [stg].STG_BrowseIt_OPKV2.ProductId = M.Manifestation_ExternalID ON 
+                                              stg.Manifestation_DM AS M  LEFT OUTER  JOIN
+                                              stg.Expression_DM AS E ON E.Expression_ID = M.Expression_ID ON [stg].STG_BrowseIt_OPKV2.ProductId = M.Manifestation_ExternalID ON 
                                               [stg].STG_BrowseIt_OPKV2.DI = TMP.item
                        WHERE      (E.IsCurrent = 1 OR E.IsCurrent IS NULL) AND (M.ExternalSource = 'KV2' OR M.ExternalSource IS NULL ) AND (M.IsCurrent = 1 OR M.IsCurrent IS NULL)
                        ) AS BrowseItDL
 GROUP BY Expression_ID, item,[Date]
 GO
-
-
-
-*/
