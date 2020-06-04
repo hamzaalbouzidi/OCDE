@@ -6,12 +6,12 @@
     "dataSources": [
       {
         "type": "structured",
-        "name": "SQL/ocde-sqlsrv database windows net;DMT_UsageStat",
+        "name": "SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST",
         "connectionDetails": {
           "protocol": "tds",
           "address": {
             "server": "ocde-sqlsrv.database.windows.net",
-            "database": "DMT_UsageStat"
+            "database": "DMT_UsageStat_TEST"
           },
           "authentication": null,
           "query": null
@@ -19,68 +19,14 @@
         "options": {},
         "credential": {
           "AuthenticationKind": "UsernamePassword",
+          "kind": "SQL",
+          "path": "ocde-sqlsrv.database.windows.net;DMT_UsageStat_TEST",
           "Username": "ocde-sqlsrv",
           "EncryptConnection": true
         }
       }
     ],
     "tables": [
-      {
-        "name": "DIM_Directorate",
-        "columns": [
-          {
-            "name": "Directorate_ID",
-            "dataType": "int64",
-            "sourceColumn": "Directorate_ID"
-          },
-          {
-            "name": "ID",
-            "dataType": "int64",
-            "sourceColumn": "ID"
-          },
-          {
-            "name": "Directorate_ExternalID",
-            "dataType": "string",
-            "sourceColumn": "Directorate_ExternalID"
-          },
-          {
-            "name": "ExternalSource",
-            "dataType": "string",
-            "sourceColumn": "ExternalSource"
-          },
-          {
-            "name": "Directorate_Code",
-            "dataType": "string",
-            "sourceColumn": "Directorate_Code"
-          },
-          {
-            "name": "Directorate_Lib_EN",
-            "dataType": "string",
-            "sourceColumn": "Directorate_Lib_EN"
-          },
-          {
-            "name": "Directorate_Lib_FR",
-            "dataType": "string",
-            "sourceColumn": "Directorate_Lib_FR"
-          }
-        ],
-        "partitions": [
-          {
-            "name": "Partition",
-            "dataView": "full",
-            "source": {
-              "type": "m",
-              "expression": [
-                "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
-                "    dbo_DIM_Directorate = Source{[Schema=\"dbo\",Item=\"DIM_Directorate\"]}[Data]",
-                "in",
-                "    dbo_DIM_Directorate"
-              ]
-            }
-          }
-        ]
-      },
       {
         "name": "DIM_Date",
         "columns": [
@@ -158,7 +104,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_DIM_Date = Source{[Schema=\"dbo\",Item=\"DIM_Date\"]}[Data]",
                 "in",
                 "    dbo_DIM_Date"
@@ -168,7 +114,7 @@
         ],
         "hierarchies": [
           {
-            "name": "Hiérarchie",
+            "name": "Hierarchy",
             "levels": [
               {
                 "name": "Year_Name",
@@ -186,6 +132,62 @@
                 "column": "Date_Name"
               }
             ]
+          }
+        ]
+      },
+      {
+        "name": "DIM_Directorate",
+        "columns": [
+          {
+            "name": "Directorate_ID",
+            "dataType": "int64",
+            "sourceColumn": "Directorate_ID"
+          },
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID"
+          },
+          {
+            "name": "Directorate_ExternalID",
+            "dataType": "string",
+            "sourceColumn": "Directorate_ExternalID"
+          },
+          {
+            "name": "ExternalSource",
+            "dataType": "string",
+            "sourceColumn": "ExternalSource"
+          },
+          {
+            "name": "Directorate_Code",
+            "dataType": "string",
+            "sourceColumn": "Directorate_Code"
+          },
+          {
+            "name": "Directorate_Lib_EN",
+            "dataType": "string",
+            "sourceColumn": "Directorate_Lib_EN"
+          },
+          {
+            "name": "Directorate_Lib_FR",
+            "dataType": "string",
+            "sourceColumn": "Directorate_Lib_FR"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
+                "    dbo_DIM_Directorate = Source{[Schema=\"dbo\",Item=\"DIM_Directorate\"]}[Data]",
+                "in",
+                "    dbo_DIM_Directorate"
+              ]
+            }
           }
         ]
       },
@@ -356,7 +358,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_DIM_Expression = Source{[Schema=\"dbo\",Item=\"DIM_Expression\"]}[Data]",
                 "in",
                 "    dbo_DIM_Expression"
@@ -412,7 +414,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_DIM_Format = Source{[Schema=\"dbo\",Item=\"DIM_Format\"]}[Data]",
                 "in",
                 "    dbo_DIM_Format"
@@ -443,7 +445,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_DIM_Hours = Source{[Schema=\"dbo\",Item=\"DIM_Hours\"]}[Data]",
                 "in",
                 "    dbo_DIM_Hours"
@@ -509,7 +511,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_DIM_IGO = Source{[Schema=\"dbo\",Item=\"DIM_IGO\"]}[Data]",
                 "in",
                 "    dbo_DIM_IGO"
@@ -545,7 +547,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_DIM_iLibraryAccessMode = Source{[Schema=\"dbo\",Item=\"DIM_iLibraryAccessMode\"]}[Data]",
                 "in",
                 "    dbo_DIM_iLibraryAccessMode"
@@ -596,7 +598,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_DIM_IP_Address = Source{[Schema=\"dbo\",Item=\"DIM_IP_Address\"]}[Data]",
                 "in",
                 "    dbo_DIM_IP_Address"
@@ -657,46 +659,10 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_DIM_Language = Source{[Schema=\"dbo\",Item=\"DIM_Language\"]}[Data]",
                 "in",
                 "    dbo_DIM_Language"
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "name": "DIM_Manifestation",
-        "columns": [
-          {
-            "name": "Manifestation - Manifestation_ID",
-            "dataType": "int64",
-            "sourceColumn": "Manifestation - Manifestation_ID"
-          },
-          {
-            "name": "Manifestation - Expression_ID",
-            "dataType": "int64",
-            "sourceColumn": "Manifestation - Expression_ID"
-          },
-          {
-            "name": "Manifestation - Format_ID",
-            "dataType": "int64",
-            "sourceColumn": "Manifestation - Format_ID"
-          }
-        ],
-        "partitions": [
-          {
-            "name": "Partition",
-            "dataView": "full",
-            "source": {
-              "type": "m",
-              "expression": [
-                "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
-                "    dbo_DIM_Manifestation = Source{[Schema=\"dbo\",Item=\"DIM_Manifestation\"]}[Data]",
-                "in",
-                "    dbo_DIM_Manifestation"
               ]
             }
           }
@@ -739,7 +705,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_DIM_ObjectType = Source{[Schema=\"dbo\",Item=\"DIM_ObjectType\"]}[Data]",
                 "in",
                 "    dbo_DIM_ObjectType"
@@ -770,7 +736,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_DIM_Plateform = Source{[Schema=\"dbo\",Item=\"DIM_Plateform\"]}[Data]",
                 "in",
                 "    dbo_DIM_Plateform"
@@ -866,41 +832,10 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_DIM_Registration = Source{[Schema=\"dbo\",Item=\"DIM_Registration\"]}[Data]",
                 "in",
                 "    dbo_DIM_Registration"
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "name": "DIM_Session",
-        "columns": [
-          {
-            "name": "Session_ID",
-            "dataType": "int64",
-            "sourceColumn": "Session_ID"
-          },
-          {
-            "name": "Session",
-            "dataType": "string",
-            "sourceColumn": "Session"
-          }
-        ],
-        "partitions": [
-          {
-            "name": "Partition",
-            "dataView": "full",
-            "source": {
-              "type": "m",
-              "expression": [
-                "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
-                "    dbo_DIM_Session = Source{[Schema=\"dbo\",Item=\"DIM_Session\"]}[Data]",
-                "in",
-                "    dbo_DIM_Session"
               ]
             }
           }
@@ -938,7 +873,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_DIM_Source = Source{[Schema=\"dbo\",Item=\"DIM_Source\"]}[Data]",
                 "in",
                 "    dbo_DIM_Source"
@@ -989,7 +924,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_DIM_Theme = Source{[Schema=\"dbo\",Item=\"DIM_Theme\"]}[Data]",
                 "in",
                 "    dbo_DIM_Theme"
@@ -1025,7 +960,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_DIM_UserAgent = Source{[Schema=\"dbo\",Item=\"DIM_UserAgent\"]}[Data]",
                 "in",
                 "    dbo_DIM_UserAgent"
@@ -1071,12 +1006,18 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_FACT_BrowseIt = Source{[Schema=\"dbo\",Item=\"FACT_BrowseIt\"]}[Data]",
                 "in",
                 "    dbo_FACT_BrowseIt"
               ]
             }
+          }
+        ],
+        "measures": [
+          {
+            "name": "BrowseIt Downloads",
+            "expression": "SUM(FACT_BrowseIt[Downloads])"
           }
         ]
       },
@@ -1117,12 +1058,18 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_FACT_FreePreview = Source{[Schema=\"dbo\",Item=\"FACT_FreePreview\"]}[Data]",
                 "in",
                 "    dbo_FACT_FreePreview"
               ]
             }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Freepreview Downloads",
+            "expression": "SUM(FACT_FreePreview[Downloads])"
           }
         ]
       },
@@ -1173,12 +1120,22 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_FACT_GoogleBooks = Source{[Schema=\"dbo\",Item=\"FACT_GoogleBooks\"]}[Data]",
                 "in",
                 "    dbo_FACT_GoogleBooks"
               ]
             }
+          }
+        ],
+        "measures": [
+          {
+            "name": "GoogleBooks Downloads",
+            "expression": "SUM(FACT_GoogleBooks[Downloads])"
+          },
+          {
+            "name": "GoogleBooks Pages Viewed",
+            "expression": "SUM(FACT_GoogleBooks[pages_viewed])"
           }
         ]
       },
@@ -1224,12 +1181,18 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_FACT_iLibraryCounter = Source{[Schema=\"dbo\",Item=\"FACT_iLibraryCounter\"]}[Data]",
                 "in",
                 "    dbo_FACT_iLibraryCounter"
               ]
             }
+          }
+        ],
+        "measures": [
+          {
+            "name": "iLibraryCounter Downloads",
+            "expression": "SUM(FACT_iLibraryCounter[Downloads])"
           }
         ]
       },
@@ -1305,12 +1268,22 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_FACT_iLibraryLog = Source{[Schema=\"dbo\",Item=\"FACT_iLibraryLog\"]}[Data]",
                 "in",
                 "    dbo_FACT_iLibraryLog"
               ]
             }
+          }
+        ],
+        "measures": [
+          {
+            "name": "IlibraryLog Downloads",
+            "expression": "SUM(FACT_iLibraryLog[Downloads])"
+          },
+          {
+            "name": "iLibraryLog Unique Visits",
+            "expression": "COUNT(FACT_iLibraryLog[Session_ID])"
           }
         ]
       },
@@ -1371,24 +1344,274 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat\",",
+                "    Source = #\"SQL/ocde-sqlsrv database windows net;DMT_UsageStat_TEST\",",
                 "    dbo_FACT_StatLink = Source{[Schema=\"dbo\",Item=\"FACT_StatLink\"]}[Data]",
                 "in",
                 "    dbo_FACT_StatLink"
               ]
             }
           }
+        ],
+        "measures": [
+          {
+            "name": "StatLink Downloads",
+            "expression": "SUM(FACT_StatLink[Downloads])"
+          }
         ]
       }
     ],
     "relationships": [
       {
-        "name": "b2791f34-351f-4a26-b4f2-fbf9656e0282",
-        "fromCardinality": "one",
+        "name": "91e7ef1e-7317-4929-a122-de597258094b",
+        "fromTable": "DIM_Expression",
+        "fromColumn": "Expression - Directorate ID",
+        "toTable": "DIM_Directorate",
+        "toColumn": "Directorate_ID"
+      },
+      {
+        "name": "f813869f-3817-4fb1-a3f1-a4374e42b681",
         "fromTable": "DIM_Expression",
         "fromColumn": "Expression - IGO ID",
         "toTable": "DIM_IGO",
-        "toColumn": "IGO_ID",
+        "toColumn": "IGO_ID"
+      },
+      {
+        "name": "ac753157-9a39-4a51-bd49-b2dc2c0c4b21",
+        "fromTable": "DIM_Expression",
+        "fromColumn": "Expression - Language ID",
+        "toTable": "DIM_Language",
+        "toColumn": "Language_ID"
+      },
+      {
+        "name": "ead5fd72-6c67-4e2f-9ac4-c615f820458e",
+        "fromTable": "DIM_Expression",
+        "fromColumn": "Expression - Object Type ID",
+        "toTable": "DIM_ObjectType",
+        "toColumn": "ObjectType_ID"
+      },
+      {
+        "name": "0dadecce-0dc3-49f4-9ab1-38e30dd16e67",
+        "fromTable": "DIM_Expression",
+        "fromColumn": "Expression - Theme ID",
+        "toTable": "DIM_Theme",
+        "toColumn": "Theme_ID"
+      },
+      {
+        "name": "20030e06-e191-4c47-bbe7-89f208b79882",
+        "fromTable": "DIM_Expression",
+        "fromColumn": "Expression - iLibraryAccessMode",
+        "toTable": "DIM_iLibraryAccessMode",
+        "toColumn": "iLibraryAccessMode"
+      },
+      {
+        "name": "994c8725-a36f-44cf-87cf-33c1d32941e7",
+        "fromCardinality": "one",
+        "fromTable": "FACT_FreePreview",
+        "fromColumn": "CurExpId",
+        "toTable": "DIM_Expression",
+        "toColumn": "CurExpId",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "70ff762a-9c0d-494c-b115-9de780bf374e",
+        "fromCardinality": "one",
+        "fromTable": "FACT_BrowseIt",
+        "fromColumn": "CurExpId",
+        "toTable": "DIM_Expression",
+        "toColumn": "CurExpId",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "1019bc6b-4776-407c-83a8-4ddca8e890aa",
+        "fromCardinality": "one",
+        "fromTable": "FACT_StatLink",
+        "fromColumn": "CurExpId",
+        "toTable": "DIM_Expression",
+        "toColumn": "CurExpId",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "97016b17-9f72-4e8e-b065-b247b865d56c",
+        "fromCardinality": "one",
+        "fromTable": "FACT_iLibraryLog",
+        "fromColumn": "CurExpId",
+        "toTable": "DIM_Expression",
+        "toColumn": "CurExpId",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "855fca40-d99f-4992-b0d7-99a54e3055c9",
+        "fromCardinality": "one",
+        "fromTable": "FACT_GoogleBooks",
+        "fromColumn": "CurExpId",
+        "toTable": "DIM_Expression",
+        "toColumn": "CurExpId",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "6893a38d-fbfa-4ba7-92fb-fe250c63b21e",
+        "fromTable": "FACT_iLibraryCounter",
+        "fromColumn": "CurExpId",
+        "toTable": "DIM_Expression",
+        "toColumn": "CurExpId"
+      },
+      {
+        "name": "3724b8ae-1806-4737-9882-d82a9314e752",
+        "fromTable": "FACT_FreePreview",
+        "fromColumn": "Format_ID",
+        "toTable": "DIM_Format",
+        "toColumn": "Format_ID"
+      },
+      {
+        "name": "55083a5f-1b7c-4a1e-8489-f49dfe3d4e35",
+        "fromTable": "FACT_BrowseIt",
+        "fromColumn": "Format_ID",
+        "toTable": "DIM_Format",
+        "toColumn": "Format_ID",
+        "isActive": false
+      },
+      {
+        "name": "a2f30d96-3656-4ea4-984f-492ab0723d7d",
+        "fromCardinality": "one",
+        "fromTable": "FACT_StatLink",
+        "fromColumn": "Format_ID",
+        "toTable": "DIM_Format",
+        "toColumn": "Format_ID",
+        "isActive": false,
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "b3afaccb-a8cd-48b0-8776-40910f2dd74a",
+        "fromCardinality": "one",
+        "fromTable": "FACT_iLibraryLog",
+        "fromColumn": "Format_ID",
+        "toTable": "DIM_Format",
+        "toColumn": "Format_ID",
+        "isActive": false,
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "c7f2d3fb-6d2b-4f47-a5bb-c241943e7601",
+        "fromCardinality": "one",
+        "fromTable": "FACT_GoogleBooks",
+        "fromColumn": "Format_ID",
+        "toTable": "DIM_Format",
+        "toColumn": "Format_ID",
+        "isActive": false,
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "89b63972-eafb-4666-b6a3-41581a5cdcb2",
+        "fromTable": "FACT_iLibraryCounter",
+        "fromColumn": "Format_ID",
+        "toTable": "DIM_Format",
+        "toColumn": "Format_ID",
+        "isActive": false
+      },
+      {
+        "name": "c9734664-cafe-4c0e-8a00-4db2c8e5791c",
+        "fromCardinality": "one",
+        "fromTable": "FACT_iLibraryLog",
+        "fromColumn": "Download_hour",
+        "toTable": "DIM_Hours",
+        "toColumn": "Download_hour",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "c923f2bf-9578-4e5e-91e1-3c8d505698c4",
+        "fromCardinality": "one",
+        "fromTable": "FACT_iLibraryLog",
+        "fromColumn": "IPAddress_ID",
+        "toTable": "DIM_IP_Address",
+        "toColumn": "IPAddress_ID",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "3e383a52-ed95-45b0-a378-2148ed921a48",
+        "fromTable": "FACT_FreePreview",
+        "fromColumn": "Plateform",
+        "toTable": "DIM_Plateform",
+        "toColumn": "Plateform"
+      },
+      {
+        "name": "8dee59fb-55f9-4c6a-80ea-0615bf2ce90f",
+        "fromTable": "FACT_BrowseIt",
+        "fromColumn": "Plateform",
+        "toTable": "DIM_Plateform",
+        "toColumn": "Plateform",
+        "isActive": false
+      },
+      {
+        "name": "04fc7e76-b805-4bfe-be05-194f96423ce3",
+        "fromCardinality": "one",
+        "fromTable": "FACT_StatLink",
+        "fromColumn": "Plateform",
+        "toTable": "DIM_Plateform",
+        "toColumn": "Plateform",
+        "isActive": false,
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "ab39511f-2350-4d51-9b78-e922ee177b08",
+        "fromCardinality": "one",
+        "fromTable": "FACT_iLibraryLog",
+        "fromColumn": "Plateform",
+        "toTable": "DIM_Plateform",
+        "toColumn": "Plateform",
+        "isActive": false,
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "eccf2edb-c305-4923-8bbb-7a89ae36afbd",
+        "fromCardinality": "one",
+        "fromTable": "FACT_GoogleBooks",
+        "fromColumn": "Plateform",
+        "toTable": "DIM_Plateform",
+        "toColumn": "Plateform",
+        "isActive": false,
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "2af7556c-20d1-4b1d-b4ae-e2ca8408721f",
+        "fromTable": "FACT_iLibraryCounter",
+        "fromColumn": "Plateform",
+        "toTable": "DIM_Plateform",
+        "toColumn": "Plateform",
+        "isActive": false
+      },
+      {
+        "name": "40d9556f-662f-4031-b619-e0eab838f37d",
+        "fromTable": "FACT_iLibraryCounter",
+        "fromColumn": "Registration_ID",
+        "toTable": "DIM_Registration",
+        "toColumn": "Registration_ID"
+      },
+      {
+        "name": "8737d9b1-ed16-4611-9036-58aa93ed575d",
+        "fromCardinality": "one",
+        "fromTable": "FACT_iLibraryLog",
+        "fromColumn": "Registration_ID",
+        "toTable": "DIM_Registration",
+        "toColumn": "Registration_ID",
+        "isActive": false,
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "4bea179d-24b0-4872-b5ae-9944b72ada94",
+        "fromCardinality": "one",
+        "fromTable": "FACT_iLibraryLog",
+        "fromColumn": "Source_ID",
+        "toTable": "DIM_Source",
+        "toColumn": "Source_ID",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "73a67069-d80c-470a-b1fe-bfd00b71f77a",
+        "fromCardinality": "one",
+        "fromTable": "FACT_iLibraryLog",
+        "fromColumn": "UserAgent_ID",
+        "toTable": "DIM_UserAgent",
+        "toColumn": "UserAgent_ID",
         "crossFilteringBehavior": "bothDirections"
       }
     ],

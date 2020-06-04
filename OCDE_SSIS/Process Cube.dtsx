@@ -1,0 +1,78 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/4/2020 11:15:12 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-7LCUDRHF"
+  DTS:CreatorName="AzureAD\AlonaHruba"
+  DTS:DTSID="{A237DBCB-C4D1-4330-98B4-C127CD115524}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Process Cube"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{25FFDF12-CAF2-4E76-9225-972C7DA0E4A0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[asazure://westeurope.asazure.windows.net/ocdessas.Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{E4557C8E-B25B-4F8C-A93C-5E137ED821B3}"
+      DTS:ObjectName="asazure://westeurope.asazure.windows.net/ocdessas.Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=asazure://westeurope.asazure.windows.net/ocdessas;User ID=alona.hruba@viseo.com;Initial Catalog=Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56;Provider=MSOLAP.8;Impersonation Level=Impersonate;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+j6ixcU/dEmSeHiqY4TAKgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABfdUku7CthrmaOM5xagz8vzpZZM0mNXG+BJQTNTZqA0wAAAAAOgAAAAAIAACAAAAB1QalF22C+PkB82yhnNcIrI3AIx7BXzd57ireYeEktwiAAAADQx08T3b4MDGK++zL0eyru2AJAQu50EhRpGvucy5lSDEAAAAChecMQwgnO00CKpTgaF3NWLBWVM5pJLT56zW0lQCPINj/GGLRbf7tF5hsIqNKGOzeOR32ZvpbUQAkjT2wXMEo8</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Analysis Services Processing Task"
+      DTS:CreationName="Microsoft.DTSProcessingTask"
+      DTS:Description="Analysis Services Processing Task"
+      DTS:DTSID="{090CBF6C-2A29-41CD-9FAE-B785CD0B002A}"
+      DTS:ExecutableType="Microsoft.DTSProcessingTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Analysis Services Processing Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ASProcessingData
+          ConnectionName="asazure://westeurope.asazure.windows.net/ocdessas.Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56"
+          ProcessingCommands="{&#xA;  &quot;sequence&quot;: {&#xA;    &quot;operations&quot;: [&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;DIM_UserAgent&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;DIM_Plateform&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;DIM_Directorate&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;DIM_Theme&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;DIM_Registration&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;DIM_Hours&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;DIM_IP_Address&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;FACT_BrowseIt&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;FACT_iLibraryCounter&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;DIM_Source&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;DIM_Expression&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;FACT_GoogleBooks&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;DIM_Language&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;DIM_Format&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;DIM_ObjectType&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;DIM_IGO&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;DIM_Date&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;FACT_StatLink&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;DIM_iLibraryAccessMode&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;FACT_FreePreview&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56&quot;,&#xA;              &quot;table&quot;: &quot;FACT_iLibraryLog&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      }&#xA;    ]&#xA;  }&#xA;}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="237.333333333334,42.6666666666667"
+          Id="Package\Analysis Services Processing Task"
+          TopLeft="154.166664369404,72.3666653726498" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[asazure://westeurope.asazure.windows.net/ocdessas.Tab_UsageStat2_AlonaHruba_0fa35a17-c0df-4bbe-a401-ab85fc5dfe56]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
