@@ -1,9 +1,4 @@
-﻿/* 
-USE [STG_UsageStat]
-GO
-
-
-CREATE view [stg].[view_Theme_DM_SA] as
+﻿CREATE view [stg].[view_Theme_DM_SA] as
 
 SELECT [Theme_ExternalID] collate Latin1_General_CI_AS as [Theme_ExternalID]
       ,[ExternalSource] collate Latin1_General_CI_AS as [ExternalSource]
@@ -17,11 +12,6 @@ SELECT [Theme_ExternalID] collate Latin1_General_CI_AS as [Theme_ExternalID]
 			,'KV3' as ExternalSource
 			,[EnglishDesc] as [Theme_Lib_EN]
 			,[FrenchDesc] as [Theme_Lib_FR]
-		FROM [KappaV3_Daily].[dbo].[view_US_Theme]	
+		FROM [stg].[view_US_Theme]	
 		 
 		) SourceThemes
-GO
-
-
-
-*/

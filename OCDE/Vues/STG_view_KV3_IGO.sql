@@ -1,9 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-
-create view [stg].[view_KV3_IGO] as
+﻿create view [stg].[view_KV3_IGO] as
 
 SELECT [IGOId]
       ,[EnglishDesc] as [EnglishDescription]
@@ -12,9 +7,4 @@ SELECT [IGOId]
       ,ISNULL([FrenchDesc], [EnglishDesc]) as [FrenchAcronym]
       ,[DOIPrefix]
       ,NULL as [iLibraryLogoFile]
-  FROM [KappaV3_Daily].[dbo].[KV3_IGO]
-GO
-
-
-
-*/
+  FROM [stg].[KV3_IGO]

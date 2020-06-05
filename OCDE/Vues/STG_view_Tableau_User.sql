@@ -1,7 +1,4 @@
-﻿/*
-
-
-CREATE view [stg].[view_Tableau_User]
+﻿CREATE view [stg].[view_Tableau_User]
 --WITH SCHEMABINDING
 as
 
@@ -17,19 +14,14 @@ SELECT
 	END AS Country
 	,CCMZone_DM.ManagerName
 	,CCMZone_DM.CCMZone as CCM
-FROM [DWH_UsageStat].dwh.Registration_DM
-INNER JOIN [DWH_UsageStat].dwh.CustomerType_DM
+FROM stg.Registration_DM
+INNER JOIN stg.CustomerType_DM
 	ON CustomerType_DM.CustomerType_ID = Registration_DM.CustomerType_ID
-INNER JOIN [DWH_UsageStat].dwh.RegistrationType_DM
+INNER JOIN stg.RegistrationType_DM
 	ON RegistrationType_DM.RegistrationType_ID = Registration_DM.RegistrationType_ID 
-INNER JOIN [DWH_UsageStat].dwh.Location_DM 
+INNER JOIN stg.Location_DM 
 	ON Location_DM.Location_ID = Registration_DM.Location_ID
-INNER JOIN [DWH_UsageStat].dwh.Country_DM
+INNER JOIN stg.Country_DM
 	ON Country_DM.Country_ID = Location_DM.Country_ID
-LEFT OUTER JOIN [DWH_UsageStat].dwh.CCMZone_DM
+LEFT OUTER JOIN stg.CCMZone_DM
 	ON CCMZone_DM.CCMZone_ID = Country_DM.CCMZone_ID
-GO
-
-
-
-*/

@@ -1,9 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-
-create view [stg].[view_Update_Expression_DM_Part1] as
+﻿create view [stg].[view_Update_Expression_DM_Part1] as
 
 		SELECT 
 			EXPD.[FirstReleaseDate],
@@ -11,7 +6,7 @@ create view [stg].[view_Update_Expression_DM_Part1] as
 			EXPD.[LatestExportDate],
 			EXPD.[LatestDeletionDate],
 			cast(EXPD.DOI as [nvarchar](255) ) as  DOI
-		FROM [DWH_UsageStat].[dwh].Expression_DM LEFT OUTER JOIN 
+		FROM [stg].Expression_DM LEFT OUTER JOIN 
 
 		(
 				select * from (SELECT 
@@ -40,8 +35,3 @@ create view [stg].[view_Update_Expression_DM_Part1] as
 				) EXPD on Expression_DM.DOI=EXPD.DOI 
 
 		
-GO
-
-
-
-*/

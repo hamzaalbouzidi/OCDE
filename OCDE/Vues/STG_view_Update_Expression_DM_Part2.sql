@@ -1,10 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-
-
-	   create view [stg].[view_Update_Expression_DM_Part2] as
+﻿create view [stg].[view_Update_Expression_DM_Part2] as
 
 	   SELECT
 	   EXPD.[ISSN],             
@@ -14,7 +8,7 @@ GO
 	   EXPD.[iLibraryAccessMode],
 	   cast(EXPD.DOI as [nvarchar](255) ) as  DOI
 			 
-		FROM [DWH_UsageStat].[dwh].Expression_DM INNER JOIN 
+		FROM [stg].Expression_DM INNER JOIN 
  
 		(
 				select * from (SELECT DOI
@@ -40,9 +34,3 @@ GO
 		
 				)t)t2 where t2.rn2=1) EXPD on Expression_DM.DOI=EXPD.DOI  
 		
-
-GO
-
-
-
-*/

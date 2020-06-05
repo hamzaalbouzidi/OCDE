@@ -1,5 +1,4 @@
-﻿/*
-CREATE VIEW [stg].[view_Expression_SA_Check_Required]
+﻿CREATE VIEW [stg].[view_Expression_SA_Check_Required]
 AS
 SELECT [Expression_ExternalID]
       ,[ExternalSource]
@@ -26,6 +25,3 @@ SELECT [Expression_ExternalID]
 	  OR ISNULL ([Theme_ExternalID],'') = ''
 	  OR ISNULL ([Igo_ExternalID],'') = ''
 	  OR ISNULL ([ObjectType_ExternalID],'') = ''
-GO
-
-*/

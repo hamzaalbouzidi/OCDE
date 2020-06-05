@@ -1,10 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-
-
-CREATE view [stg].[view_Registration_SA_FI_2]
+﻿CREATE view [stg].[view_Registration_SA_FI_2]
 AS
 
 SELECT 
@@ -217,6 +211,3 @@ FROM
 )AS Filtre_Active
 
 WHERE row =1
-
-GO
-*/

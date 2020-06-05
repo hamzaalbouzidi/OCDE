@@ -1,7 +1,4 @@
-﻿/*
-
-
-CREATE view [stg].[view_Registration_SA_Check_Duplicate] as
+﻿CREATE view [stg].[view_Registration_SA_Check_Duplicate] as
 
 SELECT
 	[identityID]
@@ -15,8 +12,3 @@ GROUP BY
 	--,isActive
 	--,DoNotCountDL	
 HAVING COUNT([identityID])>1
-GO
-
-
-
-*/

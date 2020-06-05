@@ -1,8 +1,4 @@
-﻿ /*
- USE [STG_UsageStat]
-GO
-
- CREATE view [stg].[view_Manifestation_DM_SA]
+﻿CREATE view [stg].[view_Manifestation_DM_SA]
 AS
 
 --MANIFESTATION FROM KAPPA
@@ -51,20 +47,20 @@ FROM
 			,PEC.LatestExportDate
 			,RANK() OVER (PARTITION BY   P.DOI,P.Medium ORDER BY P.ProductId desc  ) AS RankManif
 		FROM 
-		KappaV3_Daily.dbo.KV3_Product P
-		INNER JOIN KappaV3_Daily.dbo.KV3_ProductExportChannel PEC
+		stg.KV3_Product P
+		INNER JOIN stg.KV3_ProductExportChannel PEC
 			ON P.ProductId = PEC.ProductId
 	
 		WHERE PEC.ExportChannelId = 1 ) Manif where Manif.RankManif=1
   ) KV3 
 
 ) SA
-INNER JOIN [DWH_UsageStat].[dwh].Expression_DM Expression
+INNER JOIN [stg].Expression_DM Expression
 	ON Expression.Expression_ExternalID = SA.Expression_ExternalID
 	AND Expression.ExternalSource = SA.ExternalSource
 	AND Expression.IsCurrent = 1
 	AND Expression.NA_Import = 0
-INNER JOIN [DWH_UsageStat].[dwh].Format_DM Format
+INNER JOIN [stg].Format_DM Format
 	ON Format.Format_ExternalID = SA.Format_ExternalID
 	AND Format.ExternalSource = SA.ExternalSource
 	AND Format.IsCurrent = 1
@@ -130,20 +126,20 @@ FROM
 			,PEC.LatestExportDate
 			,RANK() OVER (PARTITION BY   P.DOI,P.Medium ORDER BY P.ProductId desc  ) AS RankManif
 		FROM 
-		KappaV3_Daily.dbo.KV3_Product P
-		INNER JOIN KappaV3_Daily.dbo.KV3_ProductExportChannel PEC
+		stg.KV3_Product P
+		INNER JOIN stg.KV3_ProductExportChannel PEC
 			ON P.ProductId = PEC.ProductId
 	
 		WHERE PEC.ExportChannelId = 1 ) Manif where Manif.RankManif=1
   ) KV3 
 
  ) SA
-INNER JOIN [DWH_UsageStat].[dwh].Expression_DM Expression
+INNER JOIN [stg].Expression_DM Expression
 	ON Expression.Expression_ExternalID = SA.Expression_ExternalID
 	AND Expression.ExternalSource = SA.ExternalSource
 	AND Expression.IsCurrent = 1
 	AND Expression.NA_Import = 0
-INNER JOIN [DWH_UsageStat].[dwh].Format_DM Format
+INNER JOIN [stg].Format_DM Format
 	ON Format.Format_ExternalID = SA.Format_ExternalID
 	AND Format.ExternalSource = SA.ExternalSource
 	AND Format.IsCurrent = 1
@@ -157,8 +153,3 @@ GROUP BY
 	,Format.Format_ID 
 	,SA.[FirstReleaseDate]
 	,SA.ISBN13 
-GO
-
-
-
- */

@@ -1,11 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-
-
-
-CREATE VIEW [stg].[view_FreePreview_TMP_SA] AS
+﻿CREATE VIEW [stg].[view_FreePreview_TMP_SA] AS
 SELECT  TMP.iLibraryURLAlias
 		,E.Expression_ID
 		,Downloads
@@ -60,13 +53,6 @@ FROM(
 
 		LEFT OUTER JOIN 
 		
-		(SELECT Expression_ID,iLibraryURLAlias FROM (SELECT Expression_ID,iLibraryURLAlias, RANK() OVER (PARTITION BY iLibraryURLAlias ORDER BY Expression_ID DESC) as Rank  FROM [DWH_UsageStat].[dwh].Expression_DM)T 
+		(SELECT Expression_ID,iLibraryURLAlias FROM (SELECT Expression_ID,iLibraryURLAlias, RANK() OVER (PARTITION BY iLibraryURLAlias ORDER BY Expression_ID DESC) as Rank  FROM [stg].Expression_DM)T 
 		where T.Rank=1 )E on TMP.iLibraryURLAlias=E.iLibraryURLAlias
 
-
-GO
-
-
-
-
-*/

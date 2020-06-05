@@ -1,7 +1,4 @@
-﻿/*
-
-
-CREATE view [stg].[view_Registration_SA_Check_CustomerType] as
+﻿CREATE view [stg].[view_Registration_SA_Check_CustomerType] as
 
 SELECT
 	[identityID]
@@ -24,8 +21,3 @@ SELECT
 FROM
 [stg].STG_Registration_SA
 WHERE CustomerType IS NULL
-GO
-
-
-
-*/

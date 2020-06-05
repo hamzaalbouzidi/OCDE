@@ -1,10 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-
-
-CREATE view [stg].[view_CounterMonthly_SA_TMP] AS
+﻿CREATE view [stg].[view_CounterMonthly_SA_TMP] AS
 
 
 	select 
@@ -53,22 +47,13 @@ CREATE view [stg].[view_CounterMonthly_SA_TMP] AS
 			)TMP
 			LEFT OUTER JOIN 
 			(SELECT DOI, Expression_ID FROM  (SELECT DOI, Expression_ID, RANK() OVER (PARTITION BY DOI ORDER BY Expression_ID DESC) as rank 
-			from [DWH_UsageStat].[dwh].Expression_DM where doi is not null and doi<>'')t where t.rank=1) E 
+			from [stg].Expression_DM where doi is not null and doi<>'')t where t.rank=1) E 
 			ON TMP.DOI=E.DOI
 
 		
 			LEFT OUTER JOIN 
 			(SELECT [identityID],[Registration_ID]  FROM  (SELECT [identityID], [Registration_ID], RANK() OVER (PARTITION BY [identityID] ORDER BY [Registration_ID] DESC) as rank 
-			from [DWH_UsageStat].[dwh].[Registration_DM] where [identityID] is not null and [identityID]<>'')t where t.rank=1) R
+			from [stg].[Registration_DM] where [identityID] is not null and [identityID]<>'')t where t.rank=1) R
 			ON TMP.IdentityID=R.identityID 
 
 
-
-
-
-
-GO
-
-
-
-*/

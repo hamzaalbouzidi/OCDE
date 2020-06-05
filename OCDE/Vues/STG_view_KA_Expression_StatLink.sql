@@ -1,10 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-
-
-CREATE view [stg].[view_KA_Expression_StatLink] as
+﻿CREATE view [stg].[view_KA_Expression_StatLink] as
 
 
 SELECT 
@@ -33,21 +27,18 @@ FROM (
 		[Metadata-Title],
 		V_Exp.ExpressionIdentifier as ExpressionId
 	FROM 
-	Kappim.dbo.Statlink Stat
-	LEFT OUTER JOIN [KappaV3_Daily].[dbo].[view_US_Expression] V_Exp
+	stg.Statlink Stat
+	LEFT OUTER JOIN [stg].[view_US_Expression] V_Exp
 		ON V_Exp.ExpressionIdentifier = Stat.ProductCode	
 	WHERE 
 	[Metadata-Location] like '%/%.%'
 	AND isInKappa = 1
 ) DOI_Item 
-LEFT OUTER JOIN [KappaV3_Daily].[dbo].[view_US_ExpressionParent] Parent_Exp
+LEFT OUTER JOIN [stg].[view_US_ExpressionParent] Parent_Exp
 	ON DOI_Item.DOI= Parent_Exp.ChildDOI
-LEFT OUTER JOIN [KappaV3_Daily].[dbo].[view_US_Expression] Parent_Item 
+LEFT OUTER JOIN [stg].[view_US_Expression] Parent_Item 
 	ON Parent_Item.DOI= Parent_Exp.ParentDoi
 WHERE 
 ISNULL(Parent_Item.DOI,'') <>''
 GO
 
-
-
-*/

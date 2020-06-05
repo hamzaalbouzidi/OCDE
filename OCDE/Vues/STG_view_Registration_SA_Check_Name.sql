@@ -1,7 +1,4 @@
-﻿/*
-
-
-CREATE view [stg].[view_Registration_SA_Check_Name] as
+﻿CREATE view [stg].[view_Registration_SA_Check_Name] as
 
 SELECT
 	[identityID]
@@ -24,8 +21,3 @@ SELECT
 FROM
 [stg].STG_Registration_SA
 WHERE Name IS NULL
-GO
-
-
-
-*/

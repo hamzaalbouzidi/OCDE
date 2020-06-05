@@ -1,9 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-
-CREATE view [stg].[view_Expression_StatLinks_DM_SA]
+﻿CREATE view [stg].[view_Expression_StatLinks_DM_SA]
 AS
 
 SELECT [Expression_ExternalID]
@@ -49,28 +44,27 @@ SELECT [Expression_ExternalID]
 	 SA
 
 
-	INNER JOIN [DWH_UsageStat].[dwh].Language_DM [Language]
+	INNER JOIN [stg].Language_DM [Language]
 		ON [Language].Language_ExternalID = (SA.[Language_ExternalID] collate Latin1_General_CI_AS)
 		AND [Language].ExternalSource = 'KV3'
 		AND [Language].IsCurrent = 1
 		AND [Language].NA_Import = 0
-	INNER JOIN [DWH_UsageStat].[dwh].Directorate_DM Directorate
+	INNER JOIN [stg].Directorate_DM Directorate
 		ON Directorate.Directorate_ExternalID = (SA.Directorate_ExternalID collate Latin1_General_CI_AS)
 		AND Directorate.ExternalSource = 'KV3'
 		AND Directorate.IsCurrent = 1 
 		AND Directorate.NA_Import = 0
-	INNER JOIN [DWH_UsageStat].[dwh].Theme_DM Theme
+	INNER JOIN [stg].Theme_DM Theme
 		ON Theme.Theme_ExternalID = (SA.Theme_ExternalID collate Latin1_General_CI_AS)
 		AND Theme.ExternalSource  = 'KV3'
 		AND Theme.IsCurrent = 1
 		AND Theme.NA_Import = 0
-	INNER JOIN [DWH_UsageStat].[dwh].IGO_DM IGO
+	INNER JOIN [stg].IGO_DM IGO
 		ON IGO.IGO_ExternalID = SA.Igo_ExternalID
 		AND IGO.ExternalSource = 'KV3'
 		AND IGO.IsCurrent = 1
 		AND IGO.NA_Import = 0
-GO
 
 
 
-*/
+

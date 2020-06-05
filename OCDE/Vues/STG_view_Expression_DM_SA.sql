@@ -1,8 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-CREATE view [stg].[view_Expression_DM_SA]
+﻿CREATE view [stg].[view_Expression_DM_SA]
 AS
 
 SELECT [Expression_ExternalID]
@@ -24,34 +20,29 @@ SELECT [Expression_ExternalID]
 
 	FROM
 		[stg].STG_Expression_DM_SA_OPKV3 SA
-	INNER JOIN [DWH_UsageStat].[dwh].Language_DM [Language]
+	INNER JOIN [stg].Language_DM [Language]
 		ON [Language].Language_ExternalID = SA.[Language_ExternalID]
 		AND [Language].ExternalSource = SA.ExternalSource
 		AND [Language].IsCurrent = 1
 		AND [Language].NA_Import = 0
-	INNER JOIN [DWH_UsageStat].[dwh].Directorate_DM Directorate
+	INNER JOIN [stg].Directorate_DM Directorate
 		ON Directorate.Directorate_ExternalID = SA.Directorate_ExternalID
 		AND Directorate.ExternalSource = SA.ExternalSource
 		AND Directorate.IsCurrent = 1
 		AND Directorate.NA_Import = 0
-	INNER JOIN [DWH_UsageStat].[dwh].Theme_DM Theme
+	INNER JOIN [stg].Theme_DM Theme
 		ON Theme.Theme_ExternalID = SA.Theme_ExternalID
 		AND Theme.ExternalSource = SA.ExternalSource
 		AND Theme.IsCurrent = 1
 		AND Theme.NA_Import = 0
-	INNER JOIN [DWH_UsageStat].[dwh].IGO_DM IGO
+	INNER JOIN [stg].IGO_DM IGO
 		ON IGO.IGO_ExternalID = SA.Igo_ExternalID
 		AND IGO.ExternalSource = SA.ExternalSource
 		AND IGO.IsCurrent = 1
 		AND IGO.NA_Import = 0
-	INNER JOIN [DWH_UsageStat].[dwh].ObjectType_DM ObjectType
+	INNER JOIN [stg].ObjectType_DM ObjectType
 		ON ObjectType.ObjectType_ExternalID = CAST(SA.ObjectType_ExternalID as nvarchar(100))
 		AND ObjectType.ExternalSource = SA.ExternalSource
 		AND ObjectType.IsCurrent = 1
 		AND ObjectType.NA_Import = 0
  
-GO
-
-
-
- */

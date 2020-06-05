@@ -7,12 +7,12 @@
   DTS:CreatorName="CERBA\YMIGEOT"
   DTS:DTSID="{190B7EAF-5A73-47E8-AE87-E465F4DE45BB}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Country"
   DTS:PackageType="5"
-  DTS:VersionBuild="55"
-  DTS:VersionGUID="{3045ACB2-267F-43E5-8E91-7178B57D4A63}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{4E308A12-1446-47C9-B117-A8CE9D922426}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -191,8 +191,8 @@
               <connections>
                 <connection
                   refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Connections[OleDbConnection]"
-                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -243,24 +243,25 @@
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ExternalID]"
                       lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[Country_ExternalID]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].Columns[Copie de ExternalSource]"
-                      cachedDataType="wstr"
+                      refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].Columns[ExternalSource]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="3"
-                      cachedName="Copie de ExternalSource"
+                      cachedName="ExternalSource"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
-                      lineageId="Package\DFT INSERT INTO STG_Country\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de ExternalSource]" />
+                      lineageId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ExternalID]"
-                      dataType="wstr"
-                      length="100"
+                      dataType="i4"
                       name="Country_ExternalID" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
-                      dataType="wstr"
-                      length="10"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
                       name="ExternalSource" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_Code]"
@@ -365,8 +366,8 @@
               <connections>
                 <connection
                   refId="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA.Connections[OleDbConnection]"
-                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -629,7 +630,7 @@
       </DTS:LoggingOptions>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
+          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE [stg].STG_Country_DM_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -645,12 +646,12 @@
       DTS:To="Package\DFT INSERT INTO STG_Country" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
-<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
-<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -693,7 +694,7 @@
     design-time-name="Package\DFT INSERT INTO STG_Country">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="288,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA"
@@ -725,9 +726,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -749,14 +748,25 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_Country\OLE_SRC OCDE_STG_view_Country_DM_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO STG_Country\OLE_DST STG_Country">
     <Properties>

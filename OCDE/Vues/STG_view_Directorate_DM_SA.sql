@@ -1,8 +1,4 @@
-﻿/*USE [STG_UsageStat]
-GO
-
-
-CREATE view [stg].[view_Directorate_DM_SA]
+﻿CREATE view [stg].[view_Directorate_DM_SA]
 AS
 
 SELECT [Directorate_ExternalID] collate Latin1_General_CI_AS  as [Directorate_ExternalID]
@@ -20,8 +16,4 @@ SELECT [Directorate] AS Directorate_ExternalID
 	  ,UPPER([Directorate]) AS Directorate_Code
       ,[EnglishDesc] as Directorate_Lib_EN
       ,[FrenchDesc] as Directorate_Lib_FR
-  FROM [KappaV3_Daily].[dbo].[view_US_Directorate]) DirectorateSource
-GO
-
-
- */
+  FROM [stg].[view_US_Directorate]) DirectorateSource

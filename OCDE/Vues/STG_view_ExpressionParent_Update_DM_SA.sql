@@ -1,12 +1,4 @@
-﻿/*
-
-USE [STG_UsageStat]
-GO
-
-
-
-
-CREATE view [stg].[view_ExpressionParent_Update_DM_SA] as
+﻿CREATE view [stg].[view_ExpressionParent_Update_DM_SA] as
 
 
 	select 
@@ -27,7 +19,7 @@ CREATE view [stg].[view_ExpressionParent_Update_DM_SA] as
 					SELECT  [ChildDOI]  collate Latin1_General_CI_AS as [ChildDOI0]
 							,[ParentDOI] collate Latin1_General_CI_AS as [ParentDOI0]
 							, 'KV3' as Sys0
-					FROM [KappaV3_Daily].[dbo].[view_US_ExpressionParent]  
+					FROM stg.[view_US_ExpressionParent]  
 				
 					UNION 
 
@@ -43,7 +35,7 @@ CREATE view [stg].[view_ExpressionParent_Update_DM_SA] as
 				(select * from (SELECT [Expression_ID]
 						,[DOI] 
 						,RANK() OVER (PARTITION BY  DOI ORDER BY expression_id desc   ) AS RankExp 
-					FROM [DWH_UsageStat].[dwh].[Expression_DM]
+					FROM [stg].[Expression_DM]
 					where doi is not null and doi <>'') d where d.RankExp=1
 					) SourceExp 
 					on SourceDOI.ParentDOI0=SourceExp.DOI				
@@ -54,7 +46,7 @@ CREATE view [stg].[view_ExpressionParent_Update_DM_SA] as
 					select * from (SELECT [Expression_ID] as Expression_ID0
 						,[DOI]  as DOI0
 						,RANK() OVER (PARTITION BY  DOI ORDER BY expression_id desc   ) AS RankExp0
-					FROM [DWH_UsageStat].[dwh].[Expression_DM]
+					FROM [stg].[Expression_DM]
 					where doi is not null and doi <>'') d where d.RankExp0=1
 				) SourceExp2 
 					on SourceDOI.[ChildDOI0]=SourceExp2.DOI0
@@ -73,7 +65,7 @@ CREATE view [stg].[view_ExpressionParent_Update_DM_SA] as
 						SELECT  [ChildDOI] collate Latin1_General_CI_AS as  [ChildDOI1]
 								,[ParentDOI]  collate Latin1_General_CI_AS as [ParentDOI1]
 								, 'KV3' as Sys1
-						FROM [KappaV3_Daily].[dbo].[view_US_ExpressionParent]  
+						FROM [stg].[view_US_ExpressionParent]  
 
 						UNION
 				-- STATLINK
@@ -88,7 +80,7 @@ CREATE view [stg].[view_ExpressionParent_Update_DM_SA] as
 					select * from (SELECT [Expression_ID]
 						,[DOI] 
 						,RANK() OVER (PARTITION BY  DOI ORDER BY expression_id desc   ) AS RankExp 
-					FROM [DWH_UsageStat].[dwh].[Expression_DM]
+					FROM [stg].[Expression_DM]
 					where doi is not null and doi <>'') d where d.RankExp=1
 				) SourceExp 
 				on SourceDOI.ParentDOI1=SourceExp.DOI
@@ -98,7 +90,7 @@ CREATE view [stg].[view_ExpressionParent_Update_DM_SA] as
 					select * from (SELECT [Expression_ID] as Expression_ID1
 						,[DOI]  as DOI1
 						,RANK() OVER (PARTITION BY  DOI ORDER BY expression_id desc   ) AS RankExp1
-					FROM [DWH_UsageStat].[dwh].[Expression_DM]
+					FROM [stg].[Expression_DM]
 					where doi is not null and doi <>'') d where d.RankExp1=1
 				) SourceExp2 
 				on  SourceDOI.ParentDOI1=SourceExp2.DOI1
@@ -106,12 +98,3 @@ CREATE view [stg].[view_ExpressionParent_Update_DM_SA] as
 			on Level0.ParentDOI0=Level1.ChildDOI1 
 
 	) Levels
-GO
-
-
-
-GO
-
-
-
-*/

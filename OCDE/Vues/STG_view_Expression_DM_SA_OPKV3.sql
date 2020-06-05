@@ -1,9 +1,4 @@
-﻿/* 
-USE [STG_UsageStat]
-GO
-
-
-CREATE view [stg].[view_Expression_DM_SA_OPKV3]
+﻿CREATE view [stg].[view_Expression_DM_SA_OPKV3]
 AS
 
 SELECT CAST([Exp].DOI  as nvarchar(100)) collate Latin1_General_CI_AS as  Expression_ExternalID  
@@ -41,7 +36,7 @@ SELECT CAST([Exp].DOI  as nvarchar(100)) collate Latin1_General_CI_AS as  Expres
 				,Dates.LatestExportDate
 				,P.iLibraryURLAlias
 			FROM 
-			 [KappaV3_Daily].dbo.KV3_Product P
+			 stg.KV3_Product P
 			INNER JOIN 
 			(
 				SELECT 
@@ -53,7 +48,7 @@ SELECT CAST([Exp].DOI  as nvarchar(100)) collate Latin1_General_CI_AS as  Expres
 											WHEN 'e' THEN 1
 											WHEN 'k' THEN 2
 											ELSE ASCII(Medium) END ASC) ROW
-				FROM  [KappaV3_Daily].dbo.KV3_Product
+				FROM  stg.KV3_Product
 			) Eligible ON Eligible.ProductId = P.ProductId
 			LEFT OUTER JOIN 
 			(
@@ -65,14 +60,14 @@ SELECT CAST([Exp].DOI  as nvarchar(100)) collate Latin1_General_CI_AS as  Expres
 				  ,MIN(FirstExportDate) as FirstExportDate
 				  ,MAX(LatestDeletionDate) as LatestDeletionDate
 				  ,MAX(LatestExportDate) as LatestExportDate
-				FROM [KappaV3_Daily].dbo.view_US_Manifestation
+				FROM stg.view_US_Manifestation
 				WHERE Medium <> 'FP'
 				GROUP BY  DOI
 			)AS [Dates]
 				ON [Dates].DOI = P.DOI
-			INNER JOIN [KappaV3_Daily].dbo.KV3_ObjectType 
+			INNER JOIN stg.KV3_ObjectType 
 				ON KV3_ObjectType.ObjectTypeId = P.ObjectTypeId
-			INNER JOIN [KappaV3_Daily].dbo.KV3_ProductTheme
+			INNER JOIN stg.KV3_ProductTheme
 				ON KV3_ProductTheme.ProductId = P.ProductId
 				AND KV3_ProductTheme.Main = 1
 			INNER JOIN	
@@ -85,17 +80,12 @@ SELECT CAST([Exp].DOI  as nvarchar(100)) collate Latin1_General_CI_AS as  Expres
 										CASE [Language]
 											WHEN 'en' THEN 1
 											ELSE ASCII([Language]) END ASC) ROW
-				FROM  [KappaV3_Daily].dbo.KV3_ProductLanguage
+				FROM  stg.KV3_ProductLanguage
 			) ProductLanguage ON ProductLanguage.ProductId = P.ProductId	
 
-			INNER JOIN  [KappaV3_Daily].dbo.KV3_ProductDirectorate
+			INNER JOIN  stg.KV3_ProductDirectorate
 				ON KV3_ProductDirectorate.ProductId = P.ProductId
 				AND KV3_ProductDirectorate.Main = 1
 			WHERE Eligible.ROW = 1 AND ProductLanguage.ROW = 1)
   
 			  [Exp]
-GO
-
-
-
-*/

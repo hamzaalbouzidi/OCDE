@@ -1,10 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-
-
-CREATE view [stg].[view_GoogleBooksMonthly_FT_SA] AS
+﻿CREATE view [stg].[view_GoogleBooksMonthly_FT_SA] AS
 
 SELECT   
 	 [Download_Date]	
@@ -15,15 +9,8 @@ SELECT
 FROM [stg].[STG_GoogleBooksMonthly_SA] SA
 INNER JOIN 
 
-	 (SELECT Manifestation_Id,ISBN13,Expression_Id from (SELECT Manifestation_Id,ISBN13,Expression_Id, RANK() OVER (PARTITION BY ISBN13 ORDER BY Manifestation_Id desc) as rk  FROM  [DWH_UsageStat].[dwh].Manifestation_DM) t where t.rk=1) M
+	 (SELECT Manifestation_Id,ISBN13,Expression_Id from (SELECT Manifestation_Id,ISBN13,Expression_Id, RANK() OVER (PARTITION BY ISBN13 ORDER BY Manifestation_Id desc) as rk  FROM  [stg].Manifestation_DM) t where t.rk=1) M
 	 ON M.ISBN13 = SA.ISBN13 
 GROUP BY 
 	[Download_Date]
 	,Expression_ID
-
-
-GO
-
-
-
-*/

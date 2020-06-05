@@ -1,5 +1,4 @@
-﻿/*
-CREATE VIEW [stg].[view_Expression_SA_Check_ExternalIDs]
+﻿CREATE VIEW [stg].[view_Expression_SA_Check_ExternalIDs]
 AS
 SELECT   CASE
 			WHEN Language_DM.Language_ExternalID IS NULL		THEN 'Language_ExternalID not matched'
@@ -26,20 +25,18 @@ SELECT   CASE
 		,[Parent]
 		,[TopParent]
 	FROM [stg].[STG_Expression_SA]
-	LEFT OUTER JOIN [DWH_UsageStat].[dwh].Language_DM 
-		ON [DWH_UsageStat].[dwh].Language_DM.Language_ExternalID			= [stg].[STG_Expression_SA].[Language_ExternalID]
-	LEFT OUTER JOIN [DWH_UsageStat].[dwh].Directorate_DM 
-		ON [DWH_UsageStat].[dwh].Directorate_DM.Directorate_ExternalID	= [stg].[STG_Expression_SA].[Directorate_ExternalID]
-	LEFT OUTER JOIN [DWH_UsageStat].[dwh].Theme_DM 
-		ON [DWH_UsageStat].[dwh].Theme_DM.Theme_ExternalID				= [stg].[STG_Expression_SA].[Theme_ExternalID]
-	LEFT OUTER JOIN [DWH_UsageStat].[dwh].Igo_DM 
-		ON [DWH_UsageStat].[dwh].Igo_DM.Igo_ExternalID					= [stg].[STG_Expression_SA].[Igo_ExternalID]
-	LEFT OUTER JOIN [DWH_UsageStat].[dwh].ObjectType_DM 
-		ON [DWH_UsageStat].[dwh].ObjectType_DM.ObjectType_ExternalID		= [stg].[STG_Expression_SA].[ObjectType_ExternalID]
+	LEFT OUTER JOIN [stg].Language_DM 
+		ON [stg].Language_DM.Language_ExternalID			= [stg].[STG_Expression_SA].[Language_ExternalID]
+	LEFT OUTER JOIN [stg].Directorate_DM 
+		ON [stg].Directorate_DM.Directorate_ExternalID	= [stg].[STG_Expression_SA].[Directorate_ExternalID]
+	LEFT OUTER JOIN [stg].Theme_DM 
+		ON [stg].Theme_DM.Theme_ExternalID				= [stg].[STG_Expression_SA].[Theme_ExternalID]
+	LEFT OUTER JOIN [stg].Igo_DM 
+		ON [stg].Igo_DM.Igo_ExternalID					= [stg].[STG_Expression_SA].[Igo_ExternalID]
+	LEFT OUTER JOIN [stg].ObjectType_DM 
+		ON [stg].ObjectType_DM.ObjectType_ExternalID		= [stg].[STG_Expression_SA].[ObjectType_ExternalID]
 	WHERE  Language_DM.Language_ExternalID IS NULL
 		OR Directorate_DM.Directorate_ExternalID IS NULL
 		OR Theme_DM.Theme_ExternalID IS NULL
 		OR Igo_DM.Igo_ExternalID IS NULL
 		OR ObjectType_DM.ObjectType_ExternalID IS NULL
-GO
-*/

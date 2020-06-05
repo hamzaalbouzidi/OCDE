@@ -15,7 +15,9 @@ CREATE EXTERNAL TABLE [stg].[Manifestation_DM]
 	[ValidTo] [date] NULL 
 )
 
-WITH 
-( 
-	DATA_SOURCE = ExternalDataSource --Previously created DATA SOURCE
-);
+WITH  
+(  
+	DATA_SOURCE = ExternalDataSource, --Previously created DATA SOURCE
+	SCHEMA_NAME = N'dwh', 
+	OBJECT_NAME = N'Manifestation_DM'
+) 

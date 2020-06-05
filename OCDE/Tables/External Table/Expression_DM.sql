@@ -38,7 +38,9 @@ CREATE EXTERNAL TABLE [stg].[Expression_DM]
 	[HasHTML] [bit] NULL,
 	[HasExcel] [bit] NULL
 )
-WITH 
-( 
-	DATA_SOURCE = ExternalDataSource --Previously created DATA SOURCE
-);
+WITH  
+(  
+	DATA_SOURCE = ExternalDataSource, --Previously created DATA SOURCE
+	SCHEMA_NAME = N'dwh', 
+	OBJECT_NAME = N'Expression_DM'
+) 

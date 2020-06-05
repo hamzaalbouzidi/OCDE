@@ -1,9 +1,4 @@
-﻿/* 
-USE [STG_UsageStat]
-GO
-
-
-CREATE VIEW [stg].[view_ObjectType_DM_SA] as
+﻿CREATE VIEW [stg].[view_ObjectType_DM_SA] as
 
 SELECT  cast([ObjectTypeId] as nvarchar(100))  collate Latin1_General_CI_AS  as   [ObjectType_ExternalID]
       ,cast([ExternalSource] as nchar(10))  collate Latin1_General_CI_AS  as [ExternalSource]
@@ -17,11 +12,6 @@ SELECT  cast([ObjectTypeId] as nvarchar(100))  collate Latin1_General_CI_AS  as 
 			,'' as [ProductType]
 			,[EnglishDesc] as [EnglishDescription]
 			,[FrenchDesc] as [FrenchDescription]
-		FROM [KappaV3_Daily].[dbo].[KV3_ObjectType]
+		FROM [stg].[KV3_ObjectType]
 
 	) AS SourceObjectType
-GO
-
-
-
-*/

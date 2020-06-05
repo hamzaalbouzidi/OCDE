@@ -1,7 +1,4 @@
-﻿/*
-
-
-CREATE view [stg].[view_Tableau_ParentUser]
+﻿CREATE view [stg].[view_Tableau_ParentUser]
 --WITH SCHEMABINDING
 as
 
@@ -12,11 +9,6 @@ SELECT
 	,[view_Tableau_User].CustomerType as Parent_CustomerType
 	,[view_Tableau_User].RegistrationType as Parent_RegistrationType
 	,[view_Tableau_User].Country as Parent_Country 		
-FROM [DWH_UsageStat].dwh.Registration_DM Child
+FROM stg.Registration_DM Child
 LEFT OUTER JOIN stg.[view_Tableau_User]
 	ON [view_Tableau_User].Registration_ID = Child.MainParent_ID
-GO
-
-
-
-*/

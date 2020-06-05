@@ -1,8 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-CREATE view [stg].[view_Language_DM_SA] as
+﻿CREATE view [stg].[view_Language_DM_SA] as
 
 
 
@@ -22,9 +18,4 @@ SELECT [Language] AS Language_ExternalID
       ,[FrenchDesc] as Language_Lib_FR
 	  ,[Language] as [ISOCode] 
 	  ,ISO3 as [ISOCode3] 
-  FROM [KappaV3_Daily].[dbo].[view_US_Language]) Lang
-GO
-
-
-
-*/
+  FROM [stg].[view_US_Language]) Lang

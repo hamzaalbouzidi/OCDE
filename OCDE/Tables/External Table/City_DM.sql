@@ -14,5 +14,7 @@ CREATE EXTERNAL TABLE [stg].[City_DM]
 )
 WITH  
 (  
-DATA_SOURCE = ExternalDataSource --Previously created DATA SOURCE
+	DATA_SOURCE = ExternalDataSource, --Previously created DATA SOURCE
+	SCHEMA_NAME = N'dwh', 
+	OBJECT_NAME = N'City_DM'
 ) 

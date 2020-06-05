@@ -1,10 +1,4 @@
-﻿/*
-USE [STG_UsageStat]
-GO
-
-
-
-CREATE view [stg].[view_Manifestation_Statlink_DM_SA]
+﻿CREATE view [stg].[view_Manifestation_Statlink_DM_SA]
 AS
 SELECT  
 
@@ -15,11 +9,5 @@ SELECT
 	,FirstRelease_Date
 	,'' as ISBN13	
 
-FROM [DWH_UsageStat].[dwh].[Expression_DM]
+FROM [stg].[Expression_DM]
 where [ExternalSource]='SL' and IsCurrent=1
-
-GO
-
-
-
-*/

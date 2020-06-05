@@ -8,5 +8,5 @@
 	[Buy Link CTR] [nvarchar](50) NULL,
 	[Pages Viewed] [nvarchar](50) NULL,
 	[File_Date] [date] NOT NULL,
-	[Date_Time] DATETIME NOT NULL DEFAULT GETUTCDATE()
+	[Import_Date] DATETIME NOT NULL DEFAULT GETUTCDATE()
 ) 

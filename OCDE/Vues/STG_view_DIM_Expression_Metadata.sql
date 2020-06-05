@@ -1,7 +1,4 @@
-﻿/*
-
-
-CREATE VIEW [stg].[view_DIM_Expression_Metadata] 
+﻿CREATE VIEW [stg].[view_DIM_Expression_Metadata] 
 --WITH SCHEMABINDING
 AS
 
@@ -37,9 +34,9 @@ SELECT
       ,Correspondance.[HasHTML]
       ,Correspondance.[HasExcel]
 
-FROM [DWH_UsageStat].[dwh].Expression_DM
+FROM [stg].Expression_DM
 
-INNER JOIN (SELECT t.* from  (SELECT * ,RANK() OVER (PARTITION BY  DOI ORDER BY expression_id desc   ) AS RankExp  FROM [DWH_UsageStat].[dwh].[Expression_DM] where doi is not null and doi<>'') t where t.RankExp=1) Correspondance
+INNER JOIN (SELECT t.* from  (SELECT * ,RANK() OVER (PARTITION BY  DOI ORDER BY expression_id desc   ) AS RankExp  FROM [stg].[Expression_DM] where doi is not null and doi<>'') t where t.RankExp=1) Correspondance
 
 ON Expression_DM.DOI=Correspondance.DOI
 
@@ -78,13 +75,9 @@ SELECT
       ,Expression_DM.[HasHTML]
       ,Expression_DM.[HasExcel]
 
-FROM [DWH_UsageStat].[dwh].Expression_DM
+FROM [stg].Expression_DM
 
-LEFT OUTER JOIN (SELECT t.* from  (SELECT * ,RANK() OVER (PARTITION BY  DOI ORDER BY expression_id desc   ) AS RankExp  FROM [DWH_UsageStat].[dwh].[Expression_DM] where doi is not null and doi<>'') t where t.RankExp=1) Correspondance
+LEFT OUTER JOIN (SELECT t.* from  (SELECT * ,RANK() OVER (PARTITION BY  DOI ORDER BY expression_id desc   ) AS RankExp  FROM [stg].[Expression_DM] where doi is not null and doi<>'') t where t.RankExp=1) Correspondance
 
 ON Expression_DM.DOI=Correspondance.DOI where Correspondance.Expression_ID is null
 GO
-
-
-
-*/

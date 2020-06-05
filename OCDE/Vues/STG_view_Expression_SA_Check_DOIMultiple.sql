@@ -1,7 +1,5 @@
-﻿/*
-CREATE view [stg].[view_Expression_SA_Check_DOIMultiple]
+﻿CREATE view [stg].[view_Expression_SA_Check_DOIMultiple]
 as
-
 
 SELECT
       'DOI appears ' + cast(DOIMultiple.occurence  as varchar(10)) + ' times' as Reason
@@ -35,6 +33,3 @@ INNER JOIN (
 	HAVING Count(*)>1
 	
 )DOIMultiple ON DOIMultiple.DOI = SA.DOI
-GO
-
-*/

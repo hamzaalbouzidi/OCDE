@@ -1,7 +1,4 @@
-﻿/*
-
-
-CREATE VIEW [stg].[view_DIM_Directorate]  
+﻿CREATE VIEW [stg].[view_DIM_Directorate]  
 AS
 
 SELECT C.Directorate_ID as [Directorate_ID]
@@ -125,11 +122,6 @@ SELECT C.Directorate_ID as [Directorate_ID]
 		ELSE 90 END as ID2
 
 
-  FROM [DWH_UsageStat].[dwh].[Directorate_DM] ) C 
+  FROM [stg].[Directorate_DM] ) C 
 
-  INNER JOIN [DWH_UsageStat].[dwh].Directorate_DM D on C.ID2=D.Directorate_ID
-GO
-
-
-
-*/
+  INNER JOIN [stg].Directorate_DM D on C.ID2=D.Directorate_ID
