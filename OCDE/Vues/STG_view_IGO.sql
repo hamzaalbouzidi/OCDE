@@ -1,4 +1,4 @@
-﻿create view [stg].[view_KV3_IGO] as
+﻿create view [stg].[view_IGO] as
 
 SELECT [IGOId]
       ,[EnglishDesc] as [EnglishDescription]

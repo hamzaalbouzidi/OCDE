@@ -1,4 +1,4 @@
-﻿create view [stg].[view_KV3_Manifestation] as
+﻿create view [stg].[view_Manifestation] as
 
 SELECT [ProductId]
       ,[DOI]

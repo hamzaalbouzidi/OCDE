@@ -1,4 +1,4 @@
-﻿CREATE TABLE [stg].[STG_Expression_StatLink_OPKV3](
+﻿CREATE TABLE [stg].[STG_Expression_StatLink_OP](
 	[ExpressionId] [varchar](100) NULL,
 	[DOI] [varchar](50) NULL,
 	[ISSN] [int] NULL,

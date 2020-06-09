@@ -1,4 +1,4 @@
-﻿CREATE view [stg].[view_Expression_DM_SA_OPKV3]
+﻿CREATE view [stg].[view_Expression_DM_SA_OP]
 AS
 
 SELECT CAST([Exp].DOI  as nvarchar(100)) collate Latin1_General_CI_AS as  Expression_ExternalID  

@@ -1,4 +1,4 @@
-﻿CREATE TABLE [stg].[STG_Expression_OPKV3](
+﻿CREATE TABLE [stg].[STG_Expression_OP](
 	[DOI] [varchar](255) NULL,
 	[ProductId] [varchar](30) NULL,
 	[Title] [nvarchar](2000) NULL,

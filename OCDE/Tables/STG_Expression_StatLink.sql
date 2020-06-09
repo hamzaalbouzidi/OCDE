@@ -1,4 +1,4 @@
-﻿CREATE TABLE [stg].STG_KA_Expression_StatLink(
+﻿CREATE TABLE [stg].STG_Expression_StatLink(
 	
 	ExpressionId [varchar](100) NULL,
 	DOI [varchar](50) NULL,

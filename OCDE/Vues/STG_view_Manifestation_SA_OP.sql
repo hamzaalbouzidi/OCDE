@@ -1,4 +1,4 @@
-﻿CREATE VIEW [stg].[view_Manifestation_SA_OPKV3] 
+﻿CREATE VIEW [stg].[view_Manifestation_SA_OP] 
 AS
 
 SELECT   [ProductId] AS Manifestation_ExternalID
@@ -6,4 +6,4 @@ SELECT   [ProductId] AS Manifestation_ExternalID
 		,DOI AS Expression_ExternalID
 		,[Medium] AS Format_ExternalID		
 		,[FirstReleaseDate]
-  FROM [stg].[STG_Manifestation_OPKV3]
+  FROM [stg].[STG_Manifestation_OP]

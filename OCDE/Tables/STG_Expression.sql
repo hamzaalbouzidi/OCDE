@@ -1,5 +1,5 @@
 ﻿
-CREATE TABLE [stg].[STG_KV3_Expression] 
+CREATE TABLE [stg].[STG_Expression] 
 
 (		[DOI] [nvarchar](255) null
       ,[ProductId] [varchar](30) not null

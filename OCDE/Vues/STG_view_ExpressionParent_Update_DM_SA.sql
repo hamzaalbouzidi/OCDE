@@ -27,7 +27,7 @@
 					SELECT DOI as [ChildDOI0],
 							ParentDOI as [ParentDOI0] 
 						,'SL' as Sys0
-						FROM [stg].[view_KA_ExpressionParent_StatLink]
+						FROM [stg].[view_ExpressionParent_StatLink]
 
 				) SourceDOI
 
@@ -72,7 +72,7 @@
 					SELECT DOI as [ChildDOI1],
 							ParentDOI as [ParentDOI1] 
 						,'SL' as Sys1
-						FROM [stg].[view_KA_ExpressionParent_StatLink]
+						FROM [stg].[view_ExpressionParent_StatLink]
 				) SourceDOI
 
 				INNER JOIN 

@@ -19,7 +19,7 @@ SELECT [Expression_ExternalID]
       ,[LatestDeletionDate] 
 
 	FROM
-		[stg].STG_Expression_DM_SA_OPKV3 SA
+		[stg].STG_Expression_DM_SA_OP SA
 	INNER JOIN [stg].Language_DM [Language]
 		ON [Language].Language_ExternalID = SA.[Language_ExternalID]
 		AND [Language].ExternalSource = SA.ExternalSource

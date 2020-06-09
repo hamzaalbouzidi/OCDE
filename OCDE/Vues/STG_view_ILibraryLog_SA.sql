@@ -1,4 +1,4 @@
-﻿CREATE VIEW [stg].[view_ILibraryLog_SA_TMP2]
+﻿CREATE VIEW [stg].[view_ILibraryLog_SA]
 
 AS
 	
@@ -21,7 +21,7 @@ AS
 		  (SELECT SA2.*, M.Manifestation_ID, RANK() OVER (PARTITION BY SA2.[EventLogID] ORDER BY Manifestation_ID DESC) as Rank FROM
 		  (SELECT SA.*,E.Expression_ID,F.Format_ID FROM
 		  (SELECT *
-		  from [stg].[STG_ILibraryLog_TMP2]) SA
+		  from [stg].[STG_ILibraryLog]) SA
 		   LEFT OUTER JOIN [stg].Expression_DM E on SA.DOI= E.DOI
 		   LEFT OUTER JOIN [stg].FORMAT_DM F on SA.MimeType=F.MimeType where E.DOI is not null and E.DOI<>'') SA2
 		   LEFT OUTER JOIN [stg].Manifestation_DM M ON SA2.Format_ID=M.Format_ID and SA2.Expression_ID=M.Expression_ID where M.IsCurrent=1) SA3

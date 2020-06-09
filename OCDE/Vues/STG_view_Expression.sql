@@ -1,4 +1,4 @@
-﻿CREATE VIEW [stg].[view_KV3_Expression] as
+﻿CREATE VIEW [stg].[view_Expression] as
 
 SELECT [DOI]
       ,[ProductId]

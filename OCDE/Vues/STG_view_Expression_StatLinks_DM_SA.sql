@@ -37,7 +37,7 @@ SELECT [Expression_ExternalID]
 				  ,[Exp].[LatestExportDate] as [LatestExportDate]
 				  ,[Exp].[LatestDeletionDate] as [LatestDeletionDate]
 				  ,[Exp].[iLibraryURLAlias]
-			  FROM  [stg].[STG_Expression_StatLink_OPKV3]  [Exp]
+			  FROM  [stg].[STG_Expression_StatLink_OP]  [Exp]
 
 			)	
 

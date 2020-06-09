@@ -1,4 +1,4 @@
-﻿CREATE view [stg].[view_KA_ExpressionParent_StatLink] as
+﻿CREATE view [stg].[view_ExpressionParent_StatLink] as
 
 
 SELECT

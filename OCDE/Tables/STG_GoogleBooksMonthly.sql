@@ -1,4 +1,4 @@
-﻿CREATE TABLE [stg].[STG_GoogleBooksMonthly_TMP2](
+﻿CREATE TABLE [stg].[STG_GoogleBooksMonthly](
 	[Download_Date] [date] NULL,
 	[ISBN13] [nvarchar](100) NULL,
 	[books_visits] [nvarchar](100) NULL,

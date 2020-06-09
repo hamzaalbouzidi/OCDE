@@ -16,10 +16,10 @@ FROM         (SELECT     REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE
 					   
 					   
 					    LEFT OUTER JOIN
-                                              stg.STG_BrowseIt_OPKV2  LEFT OUTER  JOIN
+                                              stg.STG_BrowseIt_OP  LEFT OUTER  JOIN
                                               stg.Manifestation_DM AS M  LEFT OUTER  JOIN
-                                              stg.Expression_DM AS E ON E.Expression_ID = M.Expression_ID ON [stg].STG_BrowseIt_OPKV2.ProductId = M.Manifestation_ExternalID ON 
-                                              [stg].STG_BrowseIt_OPKV2.DI = TMP.item
+                                              stg.Expression_DM AS E ON E.Expression_ID = M.Expression_ID ON [stg].STG_BrowseIt_OP.ProductId = M.Manifestation_ExternalID ON 
+                                              [stg].STG_BrowseIt_OP.DI = TMP.item
                        WHERE      (E.IsCurrent = 1 OR E.IsCurrent IS NULL) AND (M.ExternalSource = 'KV2' OR M.ExternalSource IS NULL ) AND (M.IsCurrent = 1 OR M.IsCurrent IS NULL)
                        ) AS BrowseItDL
 GROUP BY Expression_ID, item,[Date]

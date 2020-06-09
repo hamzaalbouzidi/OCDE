@@ -28,7 +28,7 @@
 					  ,max(case when [LatestExportDate] is not null then [LatestExportDate] end) as [LatestExportDate]
 					  ,max(case when [LatestDeletionDate] is not null then [LatestDeletionDate] end) as [LatestDeletionDate]
 					  ,1 as rn
-				  FROM [stg].[view_Expression_SA_OPKV3] where DOI is not null and DOI <>'' and [FirstExportDate]is not null
+				  FROM [stg].[view_Expression_SA_OP] where DOI is not null and DOI <>'' and [FirstExportDate]is not null
 
 				  Group By DOI  ) t) t2 where t2.rn2=1
 		

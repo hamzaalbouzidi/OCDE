@@ -1,4 +1,4 @@
-﻿CREATE TABLE [stg].STG_Expression_DM_SA_OPKV3(
+﻿CREATE TABLE [stg].STG_Expression_DM_SA_OP(
 	Expression_ExternalID [varchar](100) NULL,
 	[ExternalSource] [varchar](3) NOT NULL,
 	DOI [varchar](255) NULL,

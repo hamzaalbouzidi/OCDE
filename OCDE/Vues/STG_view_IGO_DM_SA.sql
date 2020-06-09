@@ -7,4 +7,4 @@
 				,[EnglishAcronym] collate Latin1_General_CI_AS as [IGO_Code_EN]
 				,[FrenchAcronym] collate Latin1_General_CI_AS as [IGO_Code_FR]
 				,[DOIPrefix] collate Latin1_General_CI_AS as [DOIPrefix]
-			FROM [stg].[view_KV3_IGO]
+			FROM [stg].[view_IGO]

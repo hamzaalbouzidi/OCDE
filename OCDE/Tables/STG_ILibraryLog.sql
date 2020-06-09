@@ -1,4 +1,4 @@
-﻿CREATE TABLE [stg].[STG_ILibraryLog_TMP2](
+﻿CREATE TABLE [stg].[STG_ILibraryLog](
 	[EventLogID] [int] NULL,
 	[IdentityID] [nvarchar](30) NULL,
 	[Download_Date] [datetime] NULL,

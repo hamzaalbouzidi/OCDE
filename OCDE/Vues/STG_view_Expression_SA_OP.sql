@@ -1,4 +1,4 @@
-﻿CREATE VIEW [stg].[view_Expression_SA_OPKV3] AS
+﻿CREATE VIEW [stg].[view_Expression_SA_OP] AS
 
 SELECT [Exp].DOI as Expression_ExternalID
       ,'KV3' as ExternalSource
@@ -18,4 +18,4 @@ SELECT [Exp].DOI as Expression_ExternalID
       ,[Exp].[FirstExportDate] as [FirstExportDate]
       ,[Exp].[LatestExportDate] as [LatestExportDate]
       ,[Exp].[LatestDeletionDate] as [LatestDeletionDate]
-  FROM [stg].[STG_Expression_OPKV3] [Exp]
+  FROM [stg].[STG_Expression_OP] [Exp]
