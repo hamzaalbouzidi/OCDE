@@ -11,13 +11,13 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_IPCountry"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{AE596D31-A46C-4E81-BC82-B9D51CDEC3DD}">
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{B5B4755B-7668-45CF-8EC3-5D789E137BE6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
     <DTS:LogProvider
-      DTS:ConfigString="OCDE_STG"
+      DTS:ConfigString="Azure_OCDE_STG"
       DTS:CreationName="Microsoft.LogProviderSQLServer"
       DTS:Description="Enregistre les entrées du journal pour les événements dans une base de données SQL Server"
       DTS:DTSID="{83D15BE4-1A75-49DF-9BFA-70FC941BD009}"
@@ -30,7 +30,12 @@
   <DTS:Variables />
   <DTS:LoggingOptions
     DTS:FilterKind="0"
-    DTS:LoggingMode="1" />
+    DTS:LoggingMode="1">
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{83D15BE4-1A75-49DF-9BFA-70FC941BD009}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry"
@@ -355,8 +360,8 @@ WHERE IPAddress_ID=?</property>
               <connections>
                 <connection
                   refId="Package\DFT UPDATE IPAddress_DM\Commande OLE DB.Connections[OleDbConnection]"
-                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
+                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:invalid"
+                  connectionManagerRefId="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:invalid"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>

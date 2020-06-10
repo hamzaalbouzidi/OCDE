@@ -11,13 +11,13 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_StatLink"
   DTS:PackageType="5"
-  DTS:VersionBuild="78"
-  DTS:VersionGUID="{E43C1623-DA5E-4BDE-A6C8-F6E08D8EDD7B}">
+  DTS:VersionBuild="79"
+  DTS:VersionGUID="{6BDE2F05-304C-4E8A-AA3E-3C0B4D46EB1F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
     <DTS:LogProvider
-      DTS:ConfigString="OCDE_STG"
+      DTS:ConfigString="Azure_OCDE_STG"
       DTS:CreationName="Microsoft.LogProviderSQLServer"
       DTS:Description="Enregistre les entrées du journal pour les événements dans une base de données SQL Server"
       DTS:DTSID="{802987ED-85EA-4661-9973-1986F96FE96A}"
@@ -40,7 +40,12 @@
   </DTS:Variables>
   <DTS:LoggingOptions
     DTS:FilterKind="0"
-    DTS:LoggingMode="1" />
+    DTS:LoggingMode="1">
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{802987ED-85EA-4661-9973-1986F96FE96A}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\DFT INSERT INTO STG_StatLink_File_SA"
@@ -679,6 +684,8 @@
       DTS:ObjectName="DFT INSERT INTO STG_StatLink_FT_SA"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -3167,6 +3174,8 @@ on 1=1</property>
       DTS:ObjectName="Truncate STG_StatLink_FT_SA"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
@@ -4019,7 +4028,7 @@ on 1=1</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -4029,7 +4038,7 @@ on 1=1</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

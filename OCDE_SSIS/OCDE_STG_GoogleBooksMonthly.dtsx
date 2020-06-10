@@ -11,13 +11,13 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_GoogleBooksMonthly"
   DTS:PackageType="5"
-  DTS:VersionBuild="60"
-  DTS:VersionGUID="{63365F49-2786-443C-9114-66EFFC6FD566}">
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{06F56ACD-3A8D-44CF-887C-15C980346421}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
     <DTS:LogProvider
-      DTS:ConfigString="OCDE_STG"
+      DTS:ConfigString="Azure_OCDE_STG"
       DTS:CreationName="Microsoft.LogProviderSQLServer"
       DTS:Description="Enregistre les entrées du journal pour les événements dans une base de données SQL Server"
       DTS:DTSID="{38B9B1DB-32A3-497D-A5BE-CF5C42E10345}"
@@ -30,7 +30,12 @@
   <DTS:Variables />
   <DTS:LoggingOptions
     DTS:FilterKind="0"
-    DTS:LoggingMode="1" />
+    DTS:LoggingMode="1">
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{38B9B1DB-32A3-497D-A5BE-CF5C42E10345}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly"
@@ -2911,70 +2916,13 @@ on 1=1</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\TSQL Truncate STG_GoogleBooksMonthly_FT_SA"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{8fec4123-d74d-4af4-833f-2e545dcba86f}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL Truncate STG_GoogleBooksMonthly_FT_SA"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_GoogleBooksMonthly_FT_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\TSQL Truncate STG_GoogleBooksMonthly_SA"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{eec702c2-1f7f-4a61-ae70-b8a733770517}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL Truncate STG_GoogleBooksMonthly_SA"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_GoogleBooksMonthly_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\TSQL Truncate STG_GoogleBooksMonthly_SA_Rejected"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{1a4bcb0a-f3b7-4c29-a696-730b36e77631}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL Truncate STG_GoogleBooksMonthly_SA_Rejected"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_GoogleBooksMonthly_SA_Rejected" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\TSQL Truncate STG_GoogleBooksMonthly_TMP2"
+      DTS:refId="Package\TSQL Truncate STG_GoogleBooksMonthly"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
       DTS:DTSID="{9810599E-6C73-4F09-8CFC-FD6CEBC824C9}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL Truncate STG_GoogleBooksMonthly_TMP2"
+      DTS:ObjectName="TSQL Truncate STG_GoogleBooksMonthly"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
@@ -3045,7 +2993,64 @@ on 1=1</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_GoogleBooksMonthly_TMP2" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_GoogleBooksMonthly" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL Truncate STG_GoogleBooksMonthly_FT_SA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{8fec4123-d74d-4af4-833f-2e545dcba86f}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL Truncate STG_GoogleBooksMonthly_FT_SA"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_GoogleBooksMonthly_FT_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL Truncate STG_GoogleBooksMonthly_SA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{eec702c2-1f7f-4a61-ae70-b8a733770517}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL Truncate STG_GoogleBooksMonthly_SA"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_GoogleBooksMonthly_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL Truncate STG_GoogleBooksMonthly_SA_Rejected"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{1a4bcb0a-f3b7-4c29-a696-730b36e77631}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL Truncate STG_GoogleBooksMonthly_SA_Rejected"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_GoogleBooksMonthly_SA_Rejected" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -3054,7 +3059,7 @@ on 1=1</property>
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
       DTS:DTSID="{0E6C9702-F898-40A4-B658-286938207722}"
-      DTS:From="Package\TSQL Truncate STG_GoogleBooksMonthly_TMP2"
+      DTS:From="Package\TSQL Truncate STG_GoogleBooksMonthly"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte"
       DTS:To="Package\TSQL Truncate STG_GoogleBooksMonthly_SA" />
@@ -3112,6 +3117,10 @@ on 1=1</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="292,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly"
+          TopLeft="102.791665216908,406.549992828667" />
+        <NodeLayout
           Size="328,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_FT_SA"
           TopLeft="99.6666652634743,553.666656864683" />
@@ -3119,10 +3128,6 @@ on 1=1</property>
           Size="310.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA"
           TopLeft="103.833331868053,481.733324817617" />
-        <NodeLayout
-          Size="292,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly"
-          TopLeft="102.791665216908,406.549992828667" />
         <NodeLayout
           Size="312,42.6666666666667"
           Id="Package\TSQL Truncate STG_GoogleBooksMonthly_FT_SA"
@@ -3136,23 +3141,35 @@ on 1=1</property>
           Id="Package\TSQL Truncate STG_GoogleBooksMonthly_SA_Rejected"
           TopLeft="96.3333319798116,325.266662784616" />
         <NodeLayout
-          Size="308,42.6666666666667"
-          Id="Package\TSQL Truncate STG_GoogleBooksMonthly_TMP2"
+          Size="276,42.6666666666667"
+          Id="Package\TSQL Truncate STG_GoogleBooksMonthly"
           TopLeft="115.083331700415,102.533333434065" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="266.270831692654,145.200000100732">
+          TopLeft="253.083331700415,145.200000100732">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.433332008322"
+              EndConnector="10.3749999844783,31.4333320083223"
               Start="0,0"
-              End="0,23.933332008322">
+              End="10.3749999844783,23.9333320083223">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.933332008322" />
+                    End="0,11.7166660041612" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.7166660041612"
+                    Point2="0,15.7166660041612"
+                    Point3="4,15.7166660041612" />
+                  <mssgle:LineSegment
+                    End="6.37499998447834,15.7166660041612" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.37499998447834,15.7166660041612"
+                    Point2="10.3749999844783,15.7166660041612"
+                    Point3="10.3749999844783,19.7166660041612" />
+                  <mssgle:LineSegment
+                    End="10.3749999844783,23.9333320083223" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3298,6 +3315,108 @@ on 1=1</property>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="250.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly\OLE_DST STG_GoogleBooksMonthly"
+          TopLeft="99.722220736245,147.233331093987" />
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly\Conversion de données"
+          TopLeft="145.416664499789,75.3777768272823" />
+        <NodeLayout
+          Size="382.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly\OLE_SRC OCDE_STG_view_View_GoogleBooksMonthly_TMP_SA"
+          TopLeft="42.0486104845378,7.43888875587129" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly.Paths[Sortie de source OLE DB]"
+          TopLeft="236.732637492163,50.105555422538">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.2722214047444"
+              Start="0,0"
+              End="0,17.7722214047444">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.7722214047444" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly.Paths[Sortie de conversion de données]"
+          TopLeft="240.083331166456,118.044443493949">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.0277770968773,29.188887600038"
+              Start="0,0"
+              End="-15.0277770968773,21.688887600038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.594443800019" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.594443800019"
+                    Point2="0,14.594443800019"
+                    Point3="-4,14.594443800019" />
+                  <mssgle:LineSegment
+                    End="-11.0277770968773,14.594443800019" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.0277770968773,14.594443800019"
+                    Point2="-15.0277770968773,14.594443800019"
+                    Point3="-15.0277770968773,18.594443800019" />
+                  <mssgle:LineSegment
+                    End="-15.0277770968773,21.688887600038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly\OLE_DST STG_GoogleBooksMonthly">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly\OLE_SRC OCDE_STG_view_View_GoogleBooksMonthly_TMP_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly_FT_SA">
     <LayoutInfo>
@@ -3678,108 +3797,6 @@ on 1=1</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="250.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly\OLE_DST STG_GoogleBooksMonthly"
-          TopLeft="99.722220736245,147.233331093987" />
-        <NodeLayout
-          Size="189.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly\Conversion de données"
-          TopLeft="145.416664499789,75.3777768272823" />
-        <NodeLayout
-          Size="382.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly\OLE_SRC OCDE_STG_view_View_GoogleBooksMonthly_TMP_SA"
-          TopLeft="42.0486104845378,7.43888875587129" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly.Paths[Sortie de source OLE DB]"
-          TopLeft="236.732637492163,50.105555422538">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,25.2722214047444"
-              Start="0,0"
-              End="0,17.7722214047444">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.7722214047444" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly.Paths[Sortie de conversion de données]"
-          TopLeft="240.083331166456,118.044443493949">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-15.0277770968773,29.188887600038"
-              Start="0,0"
-              End="-15.0277770968773,21.688887600038">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10.594443800019" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.594443800019"
-                    Point2="0,14.594443800019"
-                    Point3="-4,14.594443800019" />
-                  <mssgle:LineSegment
-                    End="-11.0277770968773,14.594443800019" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-11.0277770968773,14.594443800019"
-                    Point2="-15.0277770968773,14.594443800019"
-                    Point3="-15.0277770968773,18.594443800019" />
-                  <mssgle:LineSegment
-                    End="-15.0277770968773,21.688887600038" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly\OLE_DST STG_GoogleBooksMonthly">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly\OLE_SRC OCDE_STG_view_View_GoogleBooksMonthly_TMP_SA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

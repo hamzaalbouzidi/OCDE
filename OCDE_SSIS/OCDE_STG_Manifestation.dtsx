@@ -11,13 +11,13 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Manifestation"
   DTS:PackageType="5"
-  DTS:VersionBuild="67"
-  DTS:VersionGUID="{D56D43B6-96FE-49EF-BBB0-08CAFEC18EF3}">
+  DTS:VersionBuild="69"
+  DTS:VersionGUID="{BB259B7C-97A7-4C2F-8576-CB429C914FDC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
     <DTS:LogProvider
-      DTS:ConfigString="OCDE_STG"
+      DTS:ConfigString="Azure_OCDE_STG"
       DTS:CreationName="Microsoft.LogProviderSQLServer"
       DTS:Description="Enregistre les entrées du journal pour les événements dans une base de données SQL Server"
       DTS:DTSID="{1D258387-FFCB-48F5-85CD-0AC2636A0FB6}"
@@ -30,7 +30,12 @@
   <DTS:Variables />
   <DTS:LoggingOptions
     DTS:FilterKind="0"
-    DTS:LoggingMode="1" />
+    DTS:LoggingMode="1">
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{1D258387-FFCB-48F5-85CD-0AC2636A0FB6}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\DFT INSERT INTO STG_Manifestation"
@@ -2387,7 +2392,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_Manifestation_OPKV3" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_Manifestation_OP" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable

@@ -11,13 +11,13 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Registration"
   DTS:PackageType="5"
-  DTS:VersionBuild="76"
-  DTS:VersionGUID="{CAAFED52-416F-401D-852C-74D721003017}">
+  DTS:VersionBuild="77"
+  DTS:VersionGUID="{82B677D5-939A-42EA-9106-B96FAAB4F309}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
     <DTS:LogProvider
-      DTS:ConfigString="OCDE_STG"
+      DTS:ConfigString="Azure_OCDE_STG"
       DTS:CreationName="Microsoft.LogProviderSQLServer"
       DTS:Description="Enregistre les entrées du journal pour les événements dans une base de données SQL Server"
       DTS:DTSID="{5F89898B-82E8-40C8-9FDF-AF0BBB84330D}"
@@ -30,7 +30,12 @@
   <DTS:Variables />
   <DTS:LoggingOptions
     DTS:FilterKind="0"
-    DTS:LoggingMode="1" />
+    DTS:LoggingMode="1">
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{5F89898B-82E8-40C8-9FDF-AF0BBB84330D}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\DFT INSERT INTO STG_City"
@@ -3491,8 +3496,8 @@ where [refTable].[identityID] = ?</property>
               <connections>
                 <connection
                   refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate.Connections[OleDbConnection]"
-                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OCDE_STG]"
+                  connectionManagerID="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:invalid"
+                  connectionManagerRefId="{D3AFEC24-1CBD-4B15-9B31-A57948544639}:invalid"
                   description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
                   name="OleDbConnection" />
               </connections>
@@ -7342,7 +7347,7 @@ where [refTable].[identityID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -7352,7 +7357,7 @@ where [refTable].[identityID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">1</Value>
+          type="q4:string">1</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
