@@ -7,12 +7,12 @@
   DTS:CreatorName="CERBA\YMIGEOT"
   DTS:DTSID="{BF8314B6-61D9-4A23-842E-AC476D719C0D}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DMT_FACT_iLibraryLog"
   DTS:PackageType="5"
-  DTS:VersionBuild="52"
-  DTS:VersionGUID="{38B234CD-D42E-48A9-BC6D-D44D7050C5BF}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{DF5E1AD1-136B-42A4-85B0-0413304A3203}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -47,7 +47,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset"></property>
+                  name="OpenRowset">[dbo].[FACT_iLibraryLog]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -69,7 +69,7 @@
                   dataType="System.Int32"
                   description="Spécifie le mode utilisé pour accéder à la base de données."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">3</property>
                 <property
                   dataType="System.Boolean"
                   description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
@@ -81,7 +81,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions"></property>
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                 <property
                   dataType="System.Int32"
                   description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
@@ -90,6 +90,8 @@
               <connections>
                 <connection
                   refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Connections[OleDbConnection]"
+                  connectionManagerID="{5D71E778-303F-4703-AEE0-1473D328C742}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DMT]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -100,8 +102,135 @@
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].Columns[Download_Date_Time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Download_Date_Time"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date_Time]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Download_Date_Time]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].Columns[Download_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Download_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Download_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].Columns[Download_hour]"
+                      cachedDataType="i4"
+                      cachedName="Download_hour"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_hour]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Download_hour]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].Columns[CurExpId]"
+                      cachedDataType="i4"
+                      cachedName="CurExpId"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[CurExpId]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[CurExpId]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].Columns[Plateform]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="11"
+                      cachedName="Plateform"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Plateform]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Plateform]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].Columns[Format_ID]"
+                      cachedDataType="i4"
+                      cachedName="Format_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Format_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Format_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].Columns[Registration_ID]"
+                      cachedDataType="i4"
+                      cachedName="Registration_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Registration_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Registration_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].Columns[IPAddress_ID]"
+                      cachedDataType="i4"
+                      cachedName="IPAddress_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].Columns[Source_ID]"
+                      cachedDataType="i4"
+                      cachedName="Source_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Source_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Source_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].Columns[UserAgent_ID]"
+                      cachedDataType="i4"
+                      cachedName="UserAgent_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[UserAgent_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].Columns[Session_ID]"
+                      cachedDataType="i4"
+                      cachedName="Session_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Session_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Session_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].Columns[Downloads]"
+                      cachedDataType="i4"
+                      cachedName="Downloads"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Downloads]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Downloads]" />
+                  </inputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date_Time]"
+                      dataType="dbTimeStamp"
+                      name="Download_Date_Time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
+                      dataType="dbDate"
+                      name="Download_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_hour]"
+                      dataType="i4"
+                      name="Download_hour" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[CurExpId]"
+                      dataType="i4"
+                      name="CurExpId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Plateform]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="Plateform" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Format_ID]"
+                      dataType="i4"
+                      name="Format_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Registration_ID]"
+                      dataType="i4"
+                      name="Registration_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress_ID]"
+                      dataType="i4"
+                      name="IPAddress_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Source_ID]"
+                      dataType="i4"
+                      name="Source_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[UserAgent_ID]"
+                      dataType="i4"
+                      name="UserAgent_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Session_ID]"
+                      dataType="i4"
+                      name="Session_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog.Inputs[Entrée de destination OLE DB].ExternalColumns[Downloads]"
+                      dataType="i4"
+                      name="Downloads" />
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
@@ -154,7 +283,26 @@
                   dataType="System.String"
                   description="Commande SQL à exécuter."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT     I.DownloadDate as Download_Date_Time,cast(I.DownloadDate as Date) as Download_Date,DATEPART(HOUR,cast([DownloadDate] as Time)) as Download_hour,
+        E.[CurExpId]
+      ,'iLibraryLog' as Plateform,
+       M.Format_ID, 
+I.Registration_ID, I.IPAddress_ID, I.Source_ID, I.UserAgent_ID, I.Session_ID, 
+                      1 AS Downloads
+FROM         dwh.ILibraryLog_FT I
+ INNER JOIN
+                      dwh.Manifestation_DM AS M ON I.Manifestation_ID = M.Manifestation_ID
+             INNER JOIN dwh.DIM_Expression E on M.Expression_ID=E.[Expression - ID]
+UNION 
+SELECT     I2.DownloadDate as Download_Date_Time,I2.DownloadDate as Download_Date,NULL as Download_hour,
+        E.[CurExpId]
+      ,'iLibraryLog' as Plateform,
+       M.Format_ID, 
+I2.Registration_ID, 0 as IPAddress_ID, 0 Source_ID, 0 UserAgent_ID, 0 AS Session_ID, 
+                      Downloads
+FROM          [dwh].[iLibraryMonthly_to_20141231] AS I2 INNER JOIN
+                      dwh.Manifestation_DM AS M ON I2.Manifestation_ID = M.Manifestation_ID
+             INNER JOIN dwh.DIM_Expression E on M.Expression_ID=E.[Expression - ID]</property>
                 <property
                   dataType="System.String"
                   description="Variable contenant la commande SQL à exécuter."
@@ -171,7 +319,7 @@
                   dataType="System.Int32"
                   description="Spécifie le mode utilisé pour accéder à la base de données."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="Mappages entre les paramètres de la commande SQL et les variables."
@@ -180,8 +328,8 @@
               <connections>
                 <connection
                   refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Connections[OleDbConnection]"
-                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
+                  connectionManagerID="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DWH]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -189,14 +337,239 @@
                 <output
                   refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Download_Date_Time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date_Time]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Download_Date_Time]"
+                      name="Download_Date_Time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
+                      name="Download_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Download_hour]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Download_hour]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Download_hour]"
+                      name="Download_hour"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[CurExpId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[CurExpId]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[CurExpId]"
+                      name="CurExpId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Plateform]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Plateform]"
+                      length="11"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Plateform]"
+                      name="Plateform"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Format_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Format_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Format_ID]"
+                      name="Format_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Registration_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Registration_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Registration_ID]"
+                      name="Registration_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      name="IPAddress_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
+                      name="Source_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
+                      name="UserAgent_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Session_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Session_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Session_ID]"
+                      name="Session_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Downloads]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Downloads]"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].Columns[Downloads]"
+                      name="Downloads"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date_Time]"
+                      dataType="dbTimeStamp"
+                      name="Download_Date_Time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
+                      dataType="dbDate"
+                      name="Download_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Download_hour]"
+                      dataType="i4"
+                      name="Download_hour" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[CurExpId]"
+                      dataType="i4"
+                      name="CurExpId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Plateform]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="Plateform" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Format_ID]"
+                      dataType="i4"
+                      name="Format_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Registration_ID]"
+                      dataType="i4"
+                      name="Registration_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      dataType="i4"
+                      name="IPAddress_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
+                      dataType="i4"
+                      name="Source_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
+                      dataType="i4"
+                      name="UserAgent_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Session_ID]"
+                      dataType="i4"
+                      name="Session_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Downloads]"
+                      dataType="i4"
+                      name="Downloads" />
+                  </externalMetadataColumns>
                 </output>
                 <output
                   refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date_Time]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date_Time]"
+                      name="Download_Date_Time" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
+                      name="Download_Date" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_hour]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_hour]"
+                      name="Download_hour" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[CurExpId]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[CurExpId]"
+                      name="CurExpId" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Plateform]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Plateform]"
+                      name="Plateform" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Format_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Format_ID]"
+                      name="Format_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Registration_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Registration_ID]"
+                      name="Registration_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      name="IPAddress_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
+                      name="Source_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
+                      name="UserAgent_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Session_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Session_ID]"
+                      name="Session_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Downloads]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Downloads]"
+                      name="Downloads" />
                     <outputColumn
                       refId="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -237,8 +610,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE 1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{5D71E778-303F-4703-AEE0-1473D328C742}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.FACT_iLibraryLog" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -253,12 +626,12 @@
       DTS:To="Package\DFT INSERT INTO FACT_iLibraryLog" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
-<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
-<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -309,21 +682,33 @@
         <NodeLayout
           Size="209.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog"
-          TopLeft="103.333331793546,131.199998047352" />
+          TopLeft="73.7499989010387,125.133331489166" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO FACT_iLibraryLog.Paths[Sortie de source OLE DB]"
-          TopLeft="205.749998677522,80.799999318123">
+          TopLeft="203.49999889483,80.799999318123">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,50.3999987292291"
+              EndConnector="-25.083333327125,44.3333321710428"
               Start="0,0"
-              End="0,42.8999987292291">
+              End="-25.083333327125,36.8333321710428">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.8999987292291" />
+                    End="0,18.1666660855214" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1666660855214"
+                    Point2="0,22.1666660855214"
+                    Point3="-4,22.1666660855214" />
+                  <mssgle:LineSegment
+                    End="-21.083333327125,22.1666660855214" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.083333327125,22.1666660855214"
+                    Point2="-25.083333327125,22.1666660855214"
+                    Point3="-25.083333327125,26.1666660855214" />
+                  <mssgle:LineSegment
+                    End="-25.083333327125,36.8333321710428" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -335,6 +720,19 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_DST FACT_iLibraryLog">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO FACT_iLibraryLog\OLE_SRC OCDE_DWH_iLibraryLog_FT">
     <Properties>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DMT_DIM_ILibraryAccessMode"
   DTS:PackageType="5"
-  DTS:VersionBuild="53"
-  DTS:VersionGUID="{5F71FCAF-F31E-4140-9098-44A1A8E25A99}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{867E26AE-AFDC-4FB7-8C59-C43325250E91}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -47,7 +47,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset"></property>
+                  name="OpenRowset">[dbo].[DIM_iLibraryAccessMode]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -69,7 +69,7 @@
                   dataType="System.Int32"
                   description="Spécifie le mode utilisé pour accéder à la base de données."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">3</property>
                 <property
                   dataType="System.Boolean"
                   description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
@@ -81,7 +81,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions"></property>
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                 <property
                   dataType="System.Int32"
                   description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
@@ -90,6 +90,8 @@
               <connections>
                 <connection
                   refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_DST DIM_ILibraryAccessMode.Connections[OleDbConnection]"
+                  connectionManagerID="{5D71E778-303F-4703-AEE0-1473D328C742}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DMT]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -100,8 +102,49 @@
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_DST DIM_ILibraryAccessMode.Inputs[Entrée de destination OLE DB].Columns[iLibraryAccessMode]"
+                      cachedDataType="i4"
+                      cachedName="iLibraryAccessMode"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_DST DIM_ILibraryAccessMode.Inputs[Entrée de destination OLE DB].ExternalColumns[iLibraryAccessMode]"
+                      lineageId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie de source OLE DB].Columns[iLibraryAccessMode]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_DST DIM_ILibraryAccessMode.Inputs[Entrée de destination OLE DB].Columns[EnglishDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EnglishDescription"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_DST DIM_ILibraryAccessMode.Inputs[Entrée de destination OLE DB].ExternalColumns[EnglishDescription]"
+                      lineageId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie de source OLE DB].Columns[EnglishDescription]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_DST DIM_ILibraryAccessMode.Inputs[Entrée de destination OLE DB].Columns[FrenchDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FrenchDescription"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_DST DIM_ILibraryAccessMode.Inputs[Entrée de destination OLE DB].ExternalColumns[FrenchDescription]"
+                      lineageId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie de source OLE DB].Columns[FrenchDescription]" />
+                  </inputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_DST DIM_ILibraryAccessMode.Inputs[Entrée de destination OLE DB].ExternalColumns[iLibraryAccessMode]"
+                      dataType="i4"
+                      name="iLibraryAccessMode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_DST DIM_ILibraryAccessMode.Inputs[Entrée de destination OLE DB].ExternalColumns[EnglishDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EnglishDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_DST DIM_ILibraryAccessMode.Inputs[Entrée de destination OLE DB].ExternalColumns[FrenchDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FrenchDescription" />
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
@@ -154,7 +197,18 @@
                   dataType="System.String"
                   description="Commande SQL à exécuter."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT
+    [iLibraryAccessMode_ID] as iLibraryAccessMode,
+    EnglishDescription,
+    FrenchDescription
+    FROM
+      
+  [dwh].[iLibraryAccessMode_DM]
+
+UNION
+
+SELECT    0 as iLibraryAccessMode, 'N/A' as EnglishDescription,  'N/A' as EnFrenchDescriptionglishDescription
+  FROM [dwh].[DIM_DATE]</property>
                 <property
                   dataType="System.String"
                   description="Variable contenant la commande SQL à exécuter."
@@ -171,7 +225,7 @@
                   dataType="System.Int32"
                   description="Spécifie le mode utilisé pour accéder à la base de données."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="Mappages entre les paramètres de la commande SQL et les variables."
@@ -180,8 +234,8 @@
               <connections>
                 <connection
                   refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Connections[OleDbConnection]"
-                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
+                  connectionManagerID="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DWH]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -189,14 +243,83 @@
                 <output
                   refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie de source OLE DB].Columns[iLibraryAccessMode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie de source OLE DB].ExternalColumns[iLibraryAccessMode]"
+                      lineageId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie de source OLE DB].Columns[iLibraryAccessMode]"
+                      name="iLibraryAccessMode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie de source OLE DB].Columns[EnglishDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie de source OLE DB].ExternalColumns[EnglishDescription]"
+                      length="50"
+                      lineageId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie de source OLE DB].Columns[EnglishDescription]"
+                      name="EnglishDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie de source OLE DB].Columns[FrenchDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie de source OLE DB].ExternalColumns[FrenchDescription]"
+                      length="50"
+                      lineageId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie de source OLE DB].Columns[FrenchDescription]"
+                      name="FrenchDescription"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie de source OLE DB].ExternalColumns[iLibraryAccessMode]"
+                      dataType="i4"
+                      name="iLibraryAccessMode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie de source OLE DB].ExternalColumns[EnglishDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EnglishDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie de source OLE DB].ExternalColumns[FrenchDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FrenchDescription" />
+                  </externalMetadataColumns>
                 </output>
                 <output
                   refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie d'erreur de source OLE DB].Columns[iLibraryAccessMode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie d'erreur de source OLE DB].Columns[iLibraryAccessMode]"
+                      name="iLibraryAccessMode" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie d'erreur de source OLE DB].Columns[EnglishDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie d'erreur de source OLE DB].Columns[EnglishDescription]"
+                      name="EnglishDescription" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie d'erreur de source OLE DB].Columns[FrenchDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie d'erreur de source OLE DB].Columns[FrenchDescription]"
+                      name="FrenchDescription" />
                     <outputColumn
                       refId="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -335,6 +458,19 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_DST DIM_ILibraryAccessMode">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO DIM_ILibraryAccessMode\OLE_SRC OCDE_DWH_DIM_DATE">
     <Properties>

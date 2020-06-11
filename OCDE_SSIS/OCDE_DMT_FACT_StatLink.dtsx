@@ -7,12 +7,12 @@
   DTS:CreatorName="CERBA\YMIGEOT"
   DTS:DTSID="{965E2848-39D4-420C-A251-D19EA2DBB4D7}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DMT_FACT_StatLink"
   DTS:PackageType="5"
-  DTS:VersionBuild="52"
-  DTS:VersionGUID="{BBBD6DA5-5643-466A-8BD0-62F3E2AC8D96}">
+  DTS:VersionBuild="53"
+  DTS:VersionGUID="{2169EE14-23A3-4730-92D5-C0F05096E41F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -47,7 +47,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset"></property>
+                  name="OpenRowset">[dbo].[FACT_StatLink]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -69,7 +69,7 @@
                   dataType="System.Int32"
                   description="Spécifie le mode utilisé pour accéder à la base de données."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">3</property>
                 <property
                   dataType="System.Boolean"
                   description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
@@ -81,7 +81,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions"></property>
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                 <property
                   dataType="System.Int32"
                   description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
@@ -90,6 +90,8 @@
               <connections>
                 <connection
                   refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Connections[OleDbConnection]"
+                  connectionManagerID="{5D71E778-303F-4703-AEE0-1473D328C742}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DMT]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -100,8 +102,105 @@
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].Columns[Download_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Download_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Download_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].Columns[Download_Time]"
+                      cachedDataType="i4"
+                      cachedName="Download_Time"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Time]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Download_Time]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].Columns[CurExpId]"
+                      cachedDataType="i4"
+                      cachedName="CurExpId"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[CurExpId]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[CurExpId]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].Columns[Plateform]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="Plateform"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[Plateform]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Plateform]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].Columns[IPAddress_ID]"
+                      cachedDataType="i4"
+                      cachedName="IPAddress_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].Columns[Source_ID]"
+                      cachedDataType="i4"
+                      cachedName="Source_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[Source_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Source_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].Columns[UserAgent_ID]"
+                      cachedDataType="i4"
+                      cachedName="UserAgent_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[UserAgent_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].Columns[Format_ID]"
+                      cachedDataType="i4"
+                      cachedName="Format_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[Format_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Format_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].Columns[Downloads]"
+                      cachedDataType="i4"
+                      cachedName="Downloads"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[Downloads]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Downloads]" />
+                  </inputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
+                      dataType="dbDate"
+                      name="Download_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Time]"
+                      dataType="i4"
+                      name="Download_Time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[CurExpId]"
+                      dataType="i4"
+                      name="CurExpId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[Plateform]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="Plateform" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress_ID]"
+                      dataType="i4"
+                      name="IPAddress_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[Source_ID]"
+                      dataType="i4"
+                      name="Source_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[UserAgent_ID]"
+                      dataType="i4"
+                      name="UserAgent_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[Format_ID]"
+                      dataType="i4"
+                      name="Format_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink.Inputs[Entrée de destination OLE DB].ExternalColumns[Downloads]"
+                      dataType="i4"
+                      name="Downloads" />
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
@@ -154,7 +253,19 @@
                   dataType="System.String"
                   description="Commande SQL à exécuter."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT     F.[Download_Date]as Download_Date,cast(substring(cast([Download_Time] as varchar(12)),1,2) as int) as [Download_Time]
+      ,E.[CurExpId]
+      ,'StatLink' as Plateform,F.IPAddress_ID, F.Source_ID, F.UserAgent_ID,51 as Format_ID,  
+                      1 AS Downloads
+FROM         dwh.StatLink_FT F
+             INNER JOIN dwh.DIM_Expression E on F.Expression_ID=E.[Expression - ID] where [Download_Date]&gt;= '2013-05-01'
+             UNION
+SELECT  [Download_Date] as Download_Date,NULL as [Download_Time] 
+      ,E.[CurExpId]
+      ,'StatLink' as Plateform, 0 as IPAddress_ID, 0 Source_ID, 0 UserAgent_ID,51 as Format_ID,  
+       Downloads
+FROM         [dwh].[StatLinkMonthly_FT_to_2013_05_01]  AS F2 
+             INNER JOIN dwh.DIM_Expression E on F2.Expression_ID=E.[Expression - ID] where [Download_Date]&lt; '2013-05-01'</property>
                 <property
                   dataType="System.String"
                   description="Variable contenant la commande SQL à exécuter."
@@ -171,7 +282,7 @@
                   dataType="System.Int32"
                   description="Spécifie le mode utilisé pour accéder à la base de données."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="Mappages entre les paramètres de la commande SQL et les variables."
@@ -180,8 +291,8 @@
               <connections>
                 <connection
                   refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Connections[OleDbConnection]"
-                  connectionManagerID="{BAD6C3FB-1B9D-4066-BA5B-C5C1BB2AC1C5}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OCDE_DWH]"
+                  connectionManagerID="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DWH]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -189,14 +300,185 @@
                 <output
                   refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
+                      name="Download_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Download_Time]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Time]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Download_Time]"
+                      name="Download_Time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[CurExpId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[CurExpId]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[CurExpId]"
+                      name="CurExpId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Plateform]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Plateform]"
+                      length="8"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Plateform]"
+                      name="Plateform"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      name="IPAddress_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
+                      name="Source_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
+                      name="UserAgent_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Format_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Format_ID]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Format_ID]"
+                      name="Format_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Downloads]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Downloads]"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].Columns[Downloads]"
+                      name="Downloads"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
+                      dataType="dbDate"
+                      name="Download_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Time]"
+                      dataType="i4"
+                      name="Download_Time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[CurExpId]"
+                      dataType="i4"
+                      name="CurExpId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Plateform]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="Plateform" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      dataType="i4"
+                      name="IPAddress_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
+                      dataType="i4"
+                      name="Source_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
+                      dataType="i4"
+                      name="UserAgent_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Format_ID]"
+                      dataType="i4"
+                      name="Format_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie de source OLE DB].ExternalColumns[Downloads]"
+                      dataType="i4"
+                      name="Downloads" />
+                  </externalMetadataColumns>
                 </output>
                 <output
                   refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
+                      name="Download_Date" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Time]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Time]"
+                      name="Download_Time" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[CurExpId]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[CurExpId]"
+                      name="CurExpId" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Plateform]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Plateform]"
+                      name="Plateform" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      name="IPAddress_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
+                      name="Source_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
+                      name="UserAgent_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Format_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Format_ID]"
+                      name="Format_ID" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Downloads]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[Downloads]"
+                      name="Downloads" />
                     <outputColumn
                       refId="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -237,8 +519,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE 1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{5D71E778-303F-4703-AEE0-1473D328C742}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.FACT_StatLink" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -253,12 +535,12 @@
       DTS:To="Package\DFT INSERT INTO FACT_StatLink" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
-<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
-<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -335,6 +617,19 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO FACT_StatLink\OLE_DST FACT_StatLink">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO FACT_StatLink\OLE_SRC OCDE_DWH_StatLink_FT">
     <Properties>
