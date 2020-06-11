@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dwh].[StatLink_FT]
 (
 	[Download_Date] [date] NOT NULL,
-	[Download_Time] [time](7) NOT NULL,
+	[Download_Time] [time](7) NULL,
 	[Expression_ID] [int] NOT NULL,
 	CONSTRAINT [FK_StatLink_Expression_ID] FOREIGN KEY ([Expression_ID])
     REFERENCES [dwh].[Expression_DM] ([Expression_ID]),
@@ -13,6 +13,10 @@
     REFERENCES [dwh].[Source_DM] ([Source_ID]),
 	[UserAgent_ID] [int] NULL
 	CONSTRAINT [FK_StatLink_UserAgent_ID] FOREIGN KEY ([UserAgent_ID])
-    REFERENCES [dwh].[UserAgent_DM] ([UserAgent_ID])
+    REFERENCES [dwh].[UserAgent_DM] ([UserAgent_ID]), 
+    [CurExpId] INT NOT NULL, 
+    [Plateform] VARCHAR(8) NOT NULL, 
+    [Format_ID] INT NOT NULL, 
+    [Downloads] INT NOT NULL
 
 )
