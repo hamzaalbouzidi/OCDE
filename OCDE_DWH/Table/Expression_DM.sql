@@ -46,3 +46,11 @@
 	[HasHTML] [bit] NULL,
 	[HasExcel] [bit] NULL
 )
+
+GO
+
+CREATE NONCLUSTERED INDEX [IX_Expression_DM_DefaultParent_ID] ON [dwh].[Expression_DM] (DefaultParent_ID)
+
+GO
+CREATE NONCLUSTERED INDEX [IX_Expression_DM_DOI] ON [dwh].[Expression_DM] ([DOI])
+

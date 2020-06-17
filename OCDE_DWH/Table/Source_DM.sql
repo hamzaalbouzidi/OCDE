@@ -10,3 +10,7 @@
 	[Proxy_ID] [int] NULL,
 	[source] [varchar](900) NULL
 )
+
+GO
+
+CREATE NONCLUSTERED INDEX [IX_Source_DM_source] ON [dwh].[Source_DM] ([source])

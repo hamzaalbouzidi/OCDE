@@ -11,3 +11,8 @@
 	[ValidFrom] [date] NULL,
 	[ValidTo] [date] NULL
 )
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [IX_Theme_DM_ExternalSource] ON [dwh].[Theme_DM] ([ExternalSource])

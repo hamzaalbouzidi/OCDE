@@ -13,3 +13,4 @@
 	[ValidTo] [date] NULL,
 	[Proxy_ID] [int] NULL
 )
+

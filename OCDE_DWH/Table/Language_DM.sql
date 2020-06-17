@@ -14,3 +14,8 @@
 	[ValidTo] [date] NULL, 
     CONSTRAINT [PK_Language_DM] PRIMARY KEY ([Language_ID])
 )
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [IX_Language_DM_ExternalSource] ON [dwh].[Language_DM] ([ExternalSource])

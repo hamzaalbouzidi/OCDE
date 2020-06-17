@@ -10,3 +10,7 @@
 	[ValidTo] [date] NULL,
 	[Proxy_ID] [int] NULL, 
     CONSTRAINT [PK_CCMZone_DM] PRIMARY KEY ([CCMZone_ID]))
+
+
+
+

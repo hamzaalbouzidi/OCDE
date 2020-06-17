@@ -17,3 +17,8 @@
 	[LatestDeletionDate] [datetime] NULL,
 	[iLibraryURLAlias] [varchar](1003) NULL
 )
+
+
+
+
+

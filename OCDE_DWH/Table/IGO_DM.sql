@@ -15,3 +15,7 @@
 	[ValidFrom] [date] NULL,
 	[ValidTo] [date] NULL
 )
+
+GO
+
+CREATE NONCLUSTERED INDEX [IX_IGO_DM_ExternalSource] ON [dwh].[IGO_DM] ([ExternalSource])

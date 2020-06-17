@@ -16,3 +16,6 @@
 	[ValidTo] [date] NULL,
 	[Proxy_ID] [int] NULL
 )
+GO
+
+CREATE NONCLUSTERED INDEX [IX_Country_DM_CCMZone_ID] ON [dwh].[Country_DM] ([CCMZone_ID])

@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [stg].[SP_US_Expression]
+﻿/*CREATE PROCEDURE [stg].[SP_US_Expression]
 
 AS
 
@@ -131,4 +131,4 @@ INNER JOIN stg.#KV3_ProductDirectorate2
 WHERE Eligible.ROW = 1 AND ProductLanguage.ROW = 1
 GO
 
-
+*/

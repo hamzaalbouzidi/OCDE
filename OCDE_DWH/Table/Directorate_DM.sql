@@ -13,3 +13,8 @@
 	[ValidTo] [date] NULL, 
     CONSTRAINT [PK_Directorate_DM] PRIMARY KEY ([Directorate_ID])
 )
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [IX_Directorate_DM_ExternalSource] ON [dwh].[Directorate_DM] ([ExternalSource])

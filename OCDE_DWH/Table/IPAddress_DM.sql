@@ -11,3 +11,8 @@
 	[Proxy_ID] [int] NULL,
 	[Country_ID] [int] NULL
 )
+
+GO
+
+CREATE NONCLUSTERED INDEX [IX_IPAddress_DM_IPAddress] ON [dwh].[IPAddress_DM] ([IPAddress])
+

@@ -9,3 +9,4 @@
 	[ValidTo] [date] NULL,
 	[Proxy_ID] [int] NULL, 
     CONSTRAINT [PK_RegistrationType_DM] PRIMARY KEY ([RegistrationType_ID]))
+

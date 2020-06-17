@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Expression"
   DTS:PackageType="5"
-  DTS:VersionBuild="135"
-  DTS:VersionGUID="{D158C334-B142-4174-BEFA-18ED09ADF135}">
+  DTS:VersionBuild="140"
+  DTS:VersionGUID="{AF58E22C-CE5C-4779-8883-E8FBA28A60E0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -9264,7 +9264,7 @@ FROM (
 		V_Exp.ExpressionIdentifier as ExpressionId
 	FROM 
 	stg.Statlink Stat
-	LEFT OUTER JOIN [stg].[view_US_Expression] V_Exp
+	LEFT OUTER JOIN [stg].[PS_US_Expression] V_Exp
 		ON V_Exp.ExpressionIdentifier = Stat.ProductCode	
 	WHERE 
 	[Metadata-Location] like '%/%.%'
@@ -9272,7 +9272,7 @@ FROM (
 ) DOI_Item 
 LEFT OUTER JOIN [stg].[view_US_ExpressionParent] Parent_Exp
 	ON DOI_Item.DOI= Parent_Exp.ChildDOI
-LEFT OUTER JOIN [stg].[view_US_Expression] Parent_Item 
+LEFT OUTER JOIN [stg].[PS_US_Expression] Parent_Item 
 	ON Parent_Item.DOI= Parent_Exp.ParentDoi
 WHERE 
 ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
@@ -9505,7 +9505,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
                       refId="Package\DFT INSERT INTO STG_Expression_StatLink_OP\OLE_SRC OCDE_STG_view_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[Theme]"
                       codePage="1252"
                       dataType="str"
-                      length="100"
+                      length="500"
                       name="Theme" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_Expression_StatLink_OP\OLE_SRC OCDE_STG_view_Expression_StatLink.Outputs[Sortie de source OLE DB].ExternalColumns[IGOId]"
@@ -9593,7 +9593,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
                       refId="Package\DFT INSERT INTO STG_Expression_StatLink_OP\OLE_SRC OCDE_STG_view_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[Theme]"
                       codePage="1252"
                       dataType="str"
-                      length="100"
+                      length="500"
                       lineageId="Package\DFT INSERT INTO STG_Expression_StatLink_OP\OLE_SRC OCDE_STG_view_Expression_StatLink.Outputs[Sortie d'erreur de source OLE DB].Columns[Theme]"
                       name="Theme" />
                     <outputColumn
@@ -11602,7 +11602,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
         <NodeLayout
           Size="284,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression_DM_SA"
-          TopLeft="51.5000000000003,2161.5" />
+          TopLeft="50.6666666790846,2161.5" />
         <NodeLayout
           Size="304,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression_DM_SA_OP"
@@ -11660,6 +11660,10 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
           Id="Package\TSQL DELETE STG_Expression_SA_Rejected (ExternalIDs)"
           TopLeft="16.1666666666669,2058.83333333334" />
         <NodeLayout
+          Size="228,42.6666666666667"
+          Id="Package\TSQL Truncate STG_Expression"
+          TopLeft="79.5,108.166666666667" />
+        <NodeLayout
           Size="268,42.6666666666667"
           Id="Package\TSQL Truncate STG_Expression_DM_SA"
           TopLeft="59.5,210.833333333334" />
@@ -11699,6 +11703,50 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
           Size="253.333333333334,42.6666666666667"
           Id="Package\TSQL Truncate STG_KV3_Expression"
           TopLeft="66.8333333333334,313.500000000001" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="193.5,48.1666666666668">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000003"
+              Start="0,0"
+              End="0,52.5000000000003">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="193.5,150.833333333334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000003"
+              Start="0,0"
+              End="0,52.5000000000003">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 1]"
           TopLeft="193.5,356.166666666668">
@@ -11749,14 +11797,14 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,60.0000000000032"
               Start="0,0"
-              End="0,52.5">
+              End="0,52.5000000000032">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,52.5000000000032" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11877,18 +11925,18 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 17]"
-          TopLeft="193.5,2101.5">
+          TopLeft="193.083333339542,2101.50000000001">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,59.9999999999936"
               Start="0,0"
-              End="0,52.5">
+              End="0,52.4999999999936">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,52.4999999999936" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11899,18 +11947,18 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 18]"
-          TopLeft="193.5,2204.16666666667">
+          TopLeft="193.083333339542,2204.16666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,60.0000000000036"
               Start="0,0"
-              End="0,52.5">
+              End="0,52.5000000000036">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,52.5000000000036" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11969,14 +12017,14 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000005"
+              EndConnector="0,60.0000000000036"
               Start="0,0"
-              End="0,52.5000000000005">
+              End="0,52.5000000000036">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000005" />
+                    End="0,52.5000000000036" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12208,54 +12256,6 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 9]"
           TopLeft="193.5,664.166666666669">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000003"
-              Start="0,0"
-              End="0,52.5000000000003">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000003" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="228,42.6666666666667"
-          Id="Package\TSQL Truncate STG_Expression"
-          TopLeft="79.5,108.166666666667" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="193.5,48.1666666666668">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000003"
-              Start="0,0"
-              End="0,52.5000000000003">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000003" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="193.5,150.833333333334">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -12524,7 +12524,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
     design-time-name="Package\DFT INSERT INTO STG_Expression_DM_SA_OP">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="261.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression_DM_SA_OP\OLE_DST STG_Expression_DM_SA_OP"
@@ -12568,9 +12568,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12592,9 +12590,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12846,7 +12842,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
     design-time-name="Package\DFT INSERT INTO STG_Expression_SA_Rejected (DOIMultiple)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="376,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression_SA_Rejected (DOIMultiple)\OLE_SRC OCDE_STG_view_Expression_SA_Check_DOIMultiple"
@@ -12878,7 +12874,9 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12900,7 +12898,9 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12936,7 +12936,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
     design-time-name="Package\DFT INSERT INTO STG_Expression_SA_Rejected (ExternalIDs)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="374.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression_SA_Rejected (ExternalIDs)\OLE_SRC OCDE_STG_view_Expression_SA_Check_ExternalIDs"
@@ -12968,7 +12968,9 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12990,7 +12992,9 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13142,7 +13146,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
     design-time-name="Package\DFT INSERT INTO STG_Expression_StatLink_OP">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="265.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression_StatLink_OP\OLE_DST STG_Expression_StatLink_OP"
@@ -13170,9 +13174,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13203,7 +13205,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
     design-time-name="Package\DFT INSERT INTO STG_Expression_StatLinks">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="349.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression_StatLinks\OLE_SRC OCDE_STG_view_Expression_StatLinks_DM_SA"
@@ -13214,26 +13216,24 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
           TopLeft="106.583331923931,122.866663861672" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO STG_Expression_StatLinks.Paths[Sortie de source OLE DB]"
-          TopLeft="233.49999884516,80.799999318123">
+          TopLeft="233.499998845159,80.799999318123">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42.0666645435491"
+              EndConnector="0,42.066664543549"
               Start="0,0"
-              End="0,34.5666645435491">
+              End="0,34.566664543549">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5666645435491" />
+                    End="0,34.566664543549" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13269,7 +13269,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
     design-time-name="Package\DFT INSERT INTO STG_ExpressionParent_Update">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="272,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_ExpressionParent_Update\OLE_DST STG_ExpressionParent_Update"
@@ -13301,9 +13301,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13325,9 +13323,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13427,7 +13423,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
     design-time-name="Package\DFT INSERT Update_Expression_DM_Part1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="293.333333333334,42.6666666666667"
           Id="Package\DFT INSERT Update_Expression_DM_Part1\OLE_DST STG_Update_Expression_DM_Part1"
@@ -13455,7 +13451,9 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

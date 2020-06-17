@@ -15,3 +15,8 @@
 	[ValidTo] [date] NULL, 
     CONSTRAINT [PK_ObjectType_DM] PRIMARY KEY ([ObjectType_ID])
 )
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [IX_ObjectType_DM_ExternalSource] ON [dwh].[ObjectType_DM] ([ExternalSource])

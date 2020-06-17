@@ -16,3 +16,17 @@
 	[LatestDeletionDate] [datetime] NULL,
 	[iLibraryURLAlias] [varchar](1003) NULL
 	)
+GO
+
+CREATE CLUSTERED INDEX [IX_STG_ExternalSource] ON [stg].[STG_Expression_DM_SA_OP] ([ExternalSource])
+GO
+CREATE NONCLUSTERED INDEX [IX_STG_Language_ExternalID] ON [stg].[STG_Expression_DM_SA_OP] ([Language_ExternalID])
+GO
+CREATE NONCLUSTERED INDEX [IX_STG_Directorate_ExternalID] ON [stg].[STG_Expression_DM_SA_OP] ([Directorate_ExternalID])
+GO
+CREATE NONCLUSTERED INDEX [IX_STG_Theme_ExternalID] ON [stg].[STG_Expression_DM_SA_OP] ([Theme_ExternalID])
+GO
+CREATE NONCLUSTERED INDEX [IX_STG_Igo_ExternalID] ON [stg].[STG_Expression_DM_SA_OP] ([Igo_ExternalID])
+GO
+CREATE NONCLUSTERED INDEX [IX_STG_ObjectType_ExternalID] ON [stg].[STG_Expression_DM_SA_OP] ([ObjectType_ExternalID])
+

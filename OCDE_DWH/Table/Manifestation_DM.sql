@@ -18,3 +18,7 @@
 	[ValidFrom] [date] NULL,
 	[ValidTo] [date] NULL, 
 )
+
+GO
+
+CREATE NONCLUSTERED INDEX [IX_Manifestation_DM_ISBN13] ON [dwh].[Manifestation_DM] ([ISBN13])

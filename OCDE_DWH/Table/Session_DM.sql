@@ -11,3 +11,6 @@
 	[ValidTo] [date] NULL,
 	[Proxy_ID] [int] NULL
 	)
+GO
+
+CREATE NONCLUSTERED INDEX [IX_Session_DM_Session] ON [dwh].[Session_DM] ([Session])

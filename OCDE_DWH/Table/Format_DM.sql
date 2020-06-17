@@ -13,3 +13,7 @@
 	[ValidTo] [date] NULL, 
     CONSTRAINT [PK_Format_DM] PRIMARY KEY ([Format_ID])
 )
+
+GO
+
+CREATE NONCLUSTERED INDEX [IX_Format_DM_MimeType] ON [dwh].[Format_DM] ([MimeType])

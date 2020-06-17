@@ -20,3 +20,8 @@ DOI [Varchar](255) NULL
     ,iLibraryURLAlias [Varchar](2000) NULL
     ,iLibraryAccessTypeId [INT] NOT NULL
 )
+
+
+GO
+
+CREATE CLUSTERED INDEX [IX_PS_US_Expression_DOI] ON [stg].[PS_US_Expression] ([DOI])

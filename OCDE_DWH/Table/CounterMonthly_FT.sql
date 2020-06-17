@@ -9,3 +9,9 @@
 	[Exclude] [bit] NOT NULL,
 	[Downloads] [int] NOT NULL
 )
+GO
+
+CREATE NONCLUSTERED INDEX [IX_CounterMonthly_FT_Expression_ID] ON [dwh].[CounterMonthly_FT] ([Expression_ID])
+GO
+
+CREATE NONCLUSTERED INDEX [IX_CounterMonthly_FT_Registration_ID] ON [dwh].[CounterMonthly_FT] ([Registration_ID])

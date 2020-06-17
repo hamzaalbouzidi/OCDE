@@ -11,3 +11,7 @@
 	[ValidTo] [date] NULL,
 	[Proxy_ID] [int] NULL
 )
+
+GO
+
+CREATE NONCLUSTERED INDEX [IX_UserAgent_DM_UserAgent] ON [dwh].[UserAgent_DM] ([UserAgent])

@@ -1,6 +1,8 @@
 ﻿/*CREATE PROCEDURE [stg].[SP_Expression]
 AS
 
+TRUNCATE TABLE [stg].[PS_Expression]
+
 SELECT [ProductId] ,
    [Directorate] ,
     [Main]  
