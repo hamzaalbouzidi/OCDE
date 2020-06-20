@@ -49,8 +49,14 @@
 
 GO
 
-CREATE NONCLUSTERED INDEX [IX_Expression_DM_DefaultParent_ID] ON [dwh].[Expression_DM] (DefaultParent_ID)
+CREATE NONCLUSTERED INDEX [IX_Expression_DM_Expression_ExternalID] ON [dwh].[Expression_DM] (Expression_ExternalID)
 
 GO
 CREATE NONCLUSTERED INDEX [IX_Expression_DM_DOI] ON [dwh].[Expression_DM] ([DOI])
+GO
+CREATE NONCLUSTERED INDEX [IX_Expression_DM_ExternalSource] ON [dwh].[Expression_DM] (ExternalSource)
+
+
+
+
 
