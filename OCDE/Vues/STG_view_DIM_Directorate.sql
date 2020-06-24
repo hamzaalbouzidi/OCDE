@@ -14,17 +14,7 @@ SELECT C.Directorate_ID as [Directorate_ID]
 (SELECT 
 
 	   [Directorate_ID]
-      ,[Directorate_ExternalID]
-      ,[ExternalSource]
-      ,[Directorate_Code]
-      ,[Directorate_Lib_EN]
-      ,[Directorate_Lib_FR]
-      ,[LastUpdate_Date]
-      ,[HideInReport]
-      ,[NA_Import]
-      ,[IsCurrent]
-      ,[ValidFrom]
-      ,[ValidTo]
+      
 	  , CASE [Directorate_ID]
 		WHEN 1 THEN 1
 		WHEN 2 THEN 59
@@ -124,4 +114,8 @@ SELECT C.Directorate_ID as [Directorate_ID]
 
   FROM [stg].[Directorate_DM] ) C 
 
-  INNER JOIN [stg].Directorate_DM D on C.ID2=D.Directorate_ID
+  INNER JOIN (
+  select [Directorate_ID],[Directorate_ExternalID],[ExternalSource] ,
+		 [Directorate_Code],[Directorate_Lib_EN],[Directorate_Lib_FR]
+		 From [stg].Directorate_DM) D on C.ID2=D.Directorate_ID
+GO

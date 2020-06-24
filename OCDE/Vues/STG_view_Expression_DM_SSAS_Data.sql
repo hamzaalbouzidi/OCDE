@@ -128,25 +128,21 @@ SELECT  distinct         
  
  
 FROM         stg.[view_DIM_Expression_Metadata] AS Expression   LEFT OUTER JOIN
-                      stg.[view_DIM_Expression_Metadata] AS TopExpression ON Expression.TopParent_ID = TopExpression.Expression_ID LEFT OUTER JOIN
-                      stg.[view_DIM_Expression_Metadata] AS Top2Expression ON Expression.Top2Parent_ID = Top2Expression.Expression_ID LEFT OUTER JOIN
-                      stg.[view_DIM_Expression_Metadata] AS Top3Expression ON Expression.Top3Parent_ID = Top3Expression.Expression_ID
+                      (select Directorate_ID,Theme_ID,ObjectType_ID,Expression_ID,FullTitle, doi from stg.[view_DIM_Expression_Metadata]) AS TopExpression ON Expression.TopParent_ID = TopExpression.Expression_ID LEFT OUTER JOIN
+                      (select Directorate_ID,Theme_ID,ObjectType_ID,Expression_ID,FullTitle, doi from stg.[view_DIM_Expression_Metadata]) AS Top2Expression ON Expression.Top2Parent_ID = Top2Expression.Expression_ID LEFT OUTER JOIN
+                      (select Directorate_ID,Theme_ID,ObjectType_ID,Expression_ID,FullTitle, doi from stg.[view_DIM_Expression_Metadata]) AS Top3Expression ON Expression.Top3Parent_ID = Top3Expression.Expression_ID
                       
-                      LEFT OUTER JOIN  [stg].ObjectType_DM OBJ0 on Expression.ObjectType_ID=OBJ0.ObjectType_ID
-                       LEFT OUTER JOIN [stg].ObjectType_DM OBJ1 on TopExpression.ObjectType_ID=OBJ1.ObjectType_ID
-                       LEFT OUTER JOIN [stg].ObjectType_DM OBJ2 on Top2Expression.ObjectType_ID=OBJ2.ObjectType_ID
-                       LEFT OUTER JOIN [stg].ObjectType_DM OBJ3 on Top3Expression.ObjectType_ID=OBJ3.ObjectType_ID
+                      LEFT OUTER JOIN  (select ObjectType_ID,ObjectType_Lib_EN from [stg].ObjectType_DM) OBJ0 on Expression.ObjectType_ID=OBJ0.ObjectType_ID
+                       LEFT OUTER JOIN (select ObjectType_ID,ObjectType_Lib_EN from [stg].ObjectType_DM) OBJ1 on TopExpression.ObjectType_ID=OBJ1.ObjectType_ID
+                       LEFT OUTER JOIN (select ObjectType_ID,ObjectType_Lib_EN from [stg].ObjectType_DM) OBJ2 on Top2Expression.ObjectType_ID=OBJ2.ObjectType_ID
+                       LEFT OUTER JOIN (select ObjectType_ID,ObjectType_Lib_EN from [stg].ObjectType_DM) OBJ3 on Top3Expression.ObjectType_ID=OBJ3.ObjectType_ID
                       					
-                      LEFT OUTER JOIN  [stg].Theme_DM TH0 on Expression.Theme_ID=TH0.Theme_ID
-                      LEFT OUTER JOIN  [stg].Theme_DM TH1 on TopExpression.Theme_ID=TH1.Theme_ID
-                      LEFT OUTER JOIN  [stg].Theme_DM TH2 on Top2Expression.Theme_ID=TH2.Theme_ID
+                      LEFT OUTER JOIN  (select Theme_ID,Theme_Lib_EN from [stg].Theme_DM) TH0 on Expression.Theme_ID=TH0.Theme_ID 
+                      LEFT OUTER JOIN  (select Theme_ID,Theme_Lib_EN from [stg].Theme_DM) TH1 on TopExpression.Theme_ID=TH1.Theme_ID
+                      LEFT OUTER JOIN  (select Theme_ID,Theme_Lib_EN from [stg].Theme_DM) TH2 on Top2Expression.Theme_ID=TH2.Theme_ID
  
-                      LEFT OUTER JOIN stg.view_DIM_Directorate D0 on Expression.Directorate_ID=D0.Directorate_ID
-                      LEFT OUTER JOIN stg.view_DIM_Directorate D1 on TopExpression.Directorate_ID=D1.Directorate_ID
-                      LEFT OUTER JOIN stg.view_DIM_Directorate D2 on Top2Expression.Directorate_ID=D2.Directorate_ID
+                      LEFT OUTER JOIN (select Directorate_ID,Directorate_Lib_EN,Directorate_Code from stg.view_DIM_Directorate) D0 on Expression.Directorate_ID=D0.Directorate_ID 
+                      LEFT OUTER JOIN (select Directorate_ID,Directorate_Lib_EN,Directorate_Code from stg.view_DIM_Directorate) D1 on TopExpression.Directorate_ID=D1.Directorate_ID
+                      LEFT OUTER JOIN (select Directorate_ID,Directorate_Lib_EN,Directorate_Code from stg.view_DIM_Directorate) D2 on Top2Expression.Directorate_ID=D2.Directorate_ID
  
                       WHERE Expression.DOI<>'' and Expression.DOI is not null
-GO
- 
-
-

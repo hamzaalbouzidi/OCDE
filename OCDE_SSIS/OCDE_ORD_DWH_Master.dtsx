@@ -7,12 +7,12 @@
   DTS:CreatorName="AzureAD\AurélieAtta"
   DTS:DTSID="{59F3E497-B7D5-4895-93C6-142382709152}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
   DTS:LocaleID="1036"
   DTS:ObjectName="OCDE_ORD_DWH_Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="60"
-  DTS:VersionGUID="{05CCF473-2395-4CDE-9474-5EE04E0E86C1}">
+  DTS:VersionBuild="63"
+  DTS:VersionGUID="{7C1BA5E3-0FBA-47D9-97E2-4976E914EE72}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -176,7 +176,7 @@
           DTS:refId="Package\Process_iLibraryLog_Data\Pack_OCDE_DWH_ILibraryLog"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Tâche d'exécution de package"
-          DTS:DTSID="{B9F2DE54-FE96-435A-B36A-3E4FBB0B98B2}"
+          DTS:DTSID="{9870c380-29ee-4b71-a6d1-17a9b328c7e3}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Pack_OCDE_DWH_ILibraryLog"
@@ -203,6 +203,23 @@
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
               <PackageName>OCDE_DWH_IPAddress_DM.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Process_iLibraryLog_Data\Pack_OCDE_DWH_Location"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Tâche d'exécution de package"
+          DTS:DTSID="{B9F2DE54-FE96-435A-B36A-3E4FBB0B98B2}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Pack_OCDE_DWH_Location"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>OCDE_DWH_Location_DM.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -277,6 +294,14 @@
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
+          DTS:refId="Package\Process_iLibraryLog_Data.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{071B46DF-2267-4AF9-B0A3-80CA65DBE7F9}"
+          DTS:From="Package\Process_iLibraryLog_Data\Pack_OCDE_DWH_Location"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Process_iLibraryLog_Data\Pack_OCDE_DWH_ILibraryLog" />
+        <DTS:PrecedenceConstraint
           DTS:refId="Package\Process_iLibraryLog_Data.PrecedenceConstraints[Contrainte]"
           DTS:CreationName=""
           DTS:DTSID="{8D2BD153-3657-490E-B04E-4C53822A41D9}"
@@ -315,7 +340,7 @@
           DTS:From="Package\Process_iLibraryLog_Data\Pack_OCDE_DWH_Registration"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Contrainte 4"
-          DTS:To="Package\Process_iLibraryLog_Data\Pack_OCDE_DWH_ILibraryLog" />
+          DTS:To="Package\Process_iLibraryLog_Data\Pack_OCDE_DWH_Location" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -638,12 +663,12 @@
       DTS:To="Package\Process_CCM" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
-<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
-<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -707,15 +732,19 @@
         <NodeLayout
           Size="222.666666666667,42.6666666666667"
           Id="Package\Process_iLibraryLog_Data\Pack_OCDE_DWH_ILibraryLog"
-          TopLeft="20.8095181151515,114.111117335823" />
+          TopLeft="26.3650735879229,204.484129757019" />
         <NodeLayout
           Size="217.333333333334,42.6666666666667"
           Id="Package\Process_iLibraryLog_Data\Pack_OCDE_DWH_IPAddress"
           TopLeft="647.396810365575,124.928573788205" />
         <NodeLayout
+          Size="209.333333333334,42.6666666666667"
+          Id="Package\Process_iLibraryLog_Data\Pack_OCDE_DWH_Location"
+          TopLeft="20.8095181151515,114.111117335823" />
+        <NodeLayout
           Size="226.666666666667,42.6666666666667"
           Id="Package\Process_iLibraryLog_Data\Pack_OCDE_DWH_Registration"
-          TopLeft="302.55554566284,119.777782065338" />
+          TopLeft="305.333323399226,119.777782065338" />
         <NodeLayout
           Size="205.333333333334,42.6666666666667"
           Id="Package\Process_iLibraryLog_Data\Pack_OCDE_DWH_Session"
@@ -728,6 +757,40 @@
           Size="218.666666666667,42.6666666666667"
           Id="Package\Process_iLibraryLog_Data\Pack_OCDE_DWH_UserAgent"
           TopLeft="313.666656608383,16.8888895087771" />
+        <EdgeLayout
+          Id="Package\Process_iLibraryLog_Data.PrecedenceConstraints[Constraint]"
+          TopLeft="125.476184781818,156.77778400249">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.222222139438,47.7063457545297"
+              Start="0,0"
+              End="12.222222139438,40.2063457545297">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.8531728772648" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.8531728772648"
+                    Point2="0,23.8531728772648"
+                    Point3="4,23.8531728772648" />
+                  <mssgle:LineSegment
+                    End="8.22222213943803,23.8531728772648" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.22222213943803,23.8531728772648"
+                    Point2="12.222222139438,23.8531728772648"
+                    Point3="12.222222139438,27.8531728772648" />
+                  <mssgle:LineSegment
+                    End="12.222222139438,40.2063457545297" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Process_iLibraryLog_Data.PrecedenceConstraints[Contrainte]"
           TopLeft="249.666660582026,38.1666663696368">
@@ -800,14 +863,14 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-118.174598036068,0"
+              EndConnector="-115.396820299683,0"
               Start="0,0"
-              End="-110.674598036068,0">
+              End="-107.896820299683,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-110.674598036068,0" />
+                    End="-107.896820299683,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -818,18 +881,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Process_iLibraryLog_Data.PrecedenceConstraints[Contrainte 4]"
-          TopLeft="302.55554566284,138.277783033914">
+          TopLeft="305.333323399226,138.277783033914">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-59.0793608810219,0"
+              EndConnector="-75.1904719507407,0"
               Start="0,0"
-              End="-51.5793608810219,0">
+              End="-67.6904719507407,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-51.5793608810219,0" />
+                    End="-67.6904719507407,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -841,8 +904,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="945.333333333334,249.333333333334"
-          Size="945.333333333334,292"
+          PanelSize="945.333333333334,302"
+          Size="945.333333333334,345.333333333334"
           Id="Package\Process_iLibraryLog_Data"
           TopLeft="194.833335485724,383.050006814897" />
         <NodeLayout
@@ -872,7 +935,7 @@
         <NodeLayout
           Size="233.333333333334,42.6666666666667"
           Id="Package\Process_Kappa_Metadata\Pack_OCDE_DWH_Manifestation"
-          TopLeft="30.1944418388109,89.8611185045703" />
+          TopLeft="30.1944418388109,88.1277852022314" />
         <NodeLayout
           Size="224,42.6666666666667"
           Id="Package\Process_Kappa_Metadata\Pack_OCDE_DWH_ObjectType"
@@ -1015,18 +1078,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Process_Kappa_Metadata.PrecedenceConstraints[Contrainte 6]"
-          TopLeft="308.666659911474,114.930561964297">
+          TopLeft="308.666659911474,118.66667209069">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-45.1388847393298,0"
+              EndConnector="-45.1388847393298,-9.20555355512515"
               Start="0,0"
-              End="-37.6388847393298,0">
+              End="-37.6388847393298,-9.20555355512515">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-37.6388847393298,0" />
+                    End="-18.5694423696649,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5694423696649,0"
+                    Point2="-22.5694423696649,0"
+                    Point3="-22.5694423696649,-4" />
+                  <mssgle:LineSegment
+                    End="-22.5694423696649,-5.20555355512515" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5694423696649,-5.20555355512515"
+                    Point2="-22.5694423696649,-9.20555355512515"
+                    Point3="-26.5694423696649,-9.20555355512515" />
+                  <mssgle:LineSegment
+                    End="-37.6388847393298,-9.20555355512515" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1037,18 +1112,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Process_Kappa_Metadata.PrecedenceConstraints[Contrainte 7]"
-          TopLeft="149.236108514791,132.527785171237">
+          TopLeft="149.236108514791,130.794451868898">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40.3833281766379"
+              EndConnector="0,42.116661478977"
               Start="0,0"
-              End="0,32.8833281766379">
+              End="0,34.616661478977">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.8833281766379" />
+                    End="0,34.616661478977" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1081,14 +1156,14 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33.6333406712608"
+              EndConnector="0,33.6333406712609"
               Start="0,0"
-              End="0,26.1333406712608">
+              End="0,26.1333406712609">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.1333406712608" />
+                    End="0,26.1333406712609" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1099,30 +1174,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 1]"
-          TopLeft="667.500002152391,675.050006814897">
+          TopLeft="667.500002152391,728.38334014823">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-349.472222087698,99.222226432297"
+              EndConnector="-349.472222087698,45.8888930989635"
               Start="0,0"
-              End="-349.472222087698,91.722226432297">
+              End="-349.472222087698,38.3888930989635">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.6111132161485" />
+                    End="0,18.9444465494818" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,45.6111132161485"
-                    Point2="0,49.6111132161485"
-                    Point3="-4,49.6111132161485" />
+                    Point1="0,18.9444465494818"
+                    Point2="0,22.9444465494818"
+                    Point3="-4,22.9444465494818" />
                   <mssgle:LineSegment
-                    End="-345.472222087698,49.6111132161485" />
+                    End="-345.472222087698,22.9444465494818" />
                   <mssgle:CubicBezierSegment
-                    Point1="-345.472222087698,49.6111132161485"
-                    Point2="-349.472222087698,49.6111132161485"
-                    Point3="-349.472222087698,53.6111132161485" />
+                    Point1="-345.472222087698,22.9444465494818"
+                    Point2="-349.472222087698,22.9444465494818"
+                    Point3="-349.472222087698,26.9444465494818" />
                   <mssgle:LineSegment
-                    End="-349.472222087698,91.722226432297" />
+                    End="-349.472222087698,38.3888930989635" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
