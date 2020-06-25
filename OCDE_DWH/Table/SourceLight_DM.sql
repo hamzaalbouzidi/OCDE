@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dwh].[SourceLight_DM]
 (
-	[SourceLight_ID] [int] IDENTITY(1,1) NOT NULL,
+	[SourceLight_ID] [int] NOT NULL,
 	CONSTRAINT [PK_SourceLight_DM] PRIMARY KEY ([SourceLight_ID]),
 	[SourceLight_Lib] [nvarchar](150) NOT NULL,
 	[SourceLight_URL] [nvarchar](150) NOT NULL,

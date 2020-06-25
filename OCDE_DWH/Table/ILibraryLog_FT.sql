@@ -25,11 +25,5 @@
 	[EventLogID] [int] NULL,
 	[Exclude] [bit] NOT NULL,
 	[Agg_Daily] [bit] NOT NULL,
-	[Agg_Monthly] [bit] NOT NULL, 
-    [Download_Date_Time] DATETIME NOT NULL, 
-    [Download_hour] INT NULL, 
-    [CurExpId] INT NOT NULL, 
-    [Plateform] VARCHAR(11) NOT NULL, 
-    [Format_ID] INT NOT NULL, 
-    [Downloads] INT NULL
+	[Agg_Monthly] [bit] NOT NULL
 )

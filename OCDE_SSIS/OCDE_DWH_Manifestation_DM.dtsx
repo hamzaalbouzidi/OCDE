@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_Manifestation_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{F82F676D-EC04-4E01-9C61-06EE5DFB635D}">
+  DTS:VersionBuild="58"
+  DTS:VersionGUID="{E6199954-F503-4D36-A314-FB9FE78994F9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -592,6 +592,22 @@ where [refTable].[Expression_ID] = ?</property>
                   exclusionGroup="1"
                   name="Sortie de recherche avec correspondance"
                   synchronousInputId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Outputs[Sortie de recherche avec correspondance].Columns[Expression_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Outputs[Sortie de recherche avec correspondance].Columns[Expression_ID]"
+                      name="Expression_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Expression_ID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -735,6 +751,22 @@ where [refTable].[Format_ID] = ?</property>
                   exclusionGroup="1"
                   name="Sortie de recherche avec correspondance"
                   synchronousInputId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Outputs[Sortie de recherche avec correspondance].Columns[Format_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Outputs[Sortie de recherche avec correspondance].Columns[Format_ID]"
+                      name="Format_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Format_ID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -802,7 +834,7 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
                   name="CacheType"
-                  typeConverter="CacheType">1</property>
+                  typeConverter="CacheType">2</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
@@ -1247,18 +1279,6 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM.Inputs[OLE DB Destination Input].ExternalColumns[Manifestation_ExternalID]"
                       lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Manifestation_ExternalID]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM.Inputs[OLE DB Destination Input].Columns[Expression_ID]"
-                      cachedDataType="i4"
-                      cachedName="Expression_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM.Inputs[OLE DB Destination Input].ExternalColumns[Expression_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_SRC OCDE_STG_Manifestation_DM_SA.Outputs[Sortie de source OLE DB].Columns[Expression_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM.Inputs[OLE DB Destination Input].Columns[Format_ID]"
-                      cachedDataType="i4"
-                      cachedName="Format_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM.Inputs[OLE DB Destination Input].ExternalColumns[Format_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_SRC OCDE_STG_Manifestation_DM_SA.Outputs[Sortie de source OLE DB].Columns[Format_ID]" />
-                    <inputColumn
                       refId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM.Inputs[OLE DB Destination Input].Columns[FirstRelease_Date]"
                       cachedDataType="dbDate"
                       cachedName="FirstRelease_Date"
@@ -1301,6 +1321,18 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
                       cachedName="ValidFrom"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
                       lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM.Inputs[OLE DB Destination Input].Columns[Expression_ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM.Inputs[OLE DB Destination Input].ExternalColumns[Expression_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Outputs[Sortie de recherche avec correspondance].Columns[Expression_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM.Inputs[OLE DB Destination Input].Columns[Format_ID]"
+                      cachedDataType="i4"
+                      cachedName="Format_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM.Inputs[OLE DB Destination Input].ExternalColumns[Format_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Outputs[Sortie de recherche avec correspondance].Columns[Format_ID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1474,18 +1506,6 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[Manifestation_ExternalID]"
                       lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\DC Conversioon type de données.Outputs[Sortie de conversion de données].Columns[Copie de Manifestation_ExternalID]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM 1.Inputs[OLE DB Destination Input].Columns[Expression_ID]"
-                      cachedDataType="i4"
-                      cachedName="Expression_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[Expression_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Manifestation_DM.Outputs[Lookup Match Output].Columns[Expression_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM 1.Inputs[OLE DB Destination Input].Columns[Format_ID]"
-                      cachedDataType="i4"
-                      cachedName="Format_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[Format_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_SRC OCDE_STG_Manifestation_DM_SA.Outputs[Sortie de source OLE DB].Columns[Format_ID]" />
-                    <inputColumn
                       refId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM 1.Inputs[OLE DB Destination Input].Columns[FirstRelease_Date]"
                       cachedDataType="dbDate"
                       cachedName="FirstRelease_Date"
@@ -1528,6 +1548,18 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
                       cachedName="ValidFrom"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
                       lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[ValidFrom]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM 1.Inputs[OLE DB Destination Input].Columns[Expression_ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[Expression_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM.Outputs[Sortie de recherche avec correspondance].Columns[Expression_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM 1.Inputs[OLE DB Destination Input].Columns[Format_ID]"
+                      cachedDataType="i4"
+                      cachedName="Format_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM 1.Inputs[OLE DB Destination Input].ExternalColumns[Format_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM.Outputs[Sortie de recherche avec correspondance].Columns[Format_ID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3221,37 +3253,37 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
         <NodeLayout
           Size="284,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM"
-          TopLeft="194,99" />
+          TopLeft="193.166666679084,97.2666666976611" />
         <NodeLayout
           Size="329.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM (SatLink)"
-          TopLeft="187.5185186151,201.666666666667" />
+          TopLeft="187.101851954642,202.966666643421" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="336,141.666666666667">
+          TopLeft="335.166666679084,139.933333364328">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="16.1851852817666,60.0000000000003"
+              EndConnector="16.6018519422243,63.0333332790937"
               Start="0,0"
-              End="16.1851852817666,52.5000000000003">
+              End="16.6018519422243,55.5333332790937">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.0000000000002" />
+                    End="0,27.5166666395469" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.0000000000002"
-                    Point2="0,30.0000000000002"
-                    Point3="4,30.0000000000002" />
+                    Point1="0,27.5166666395469"
+                    Point2="0,31.5166666395469"
+                    Point3="4,31.5166666395469" />
                   <mssgle:LineSegment
-                    End="12.1851852817666,30.0000000000002" />
+                    End="12.6018519422243,31.5166666395469" />
                   <mssgle:CubicBezierSegment
-                    Point1="12.1851852817666,30.0000000000002"
-                    Point2="16.1851852817666,30.0000000000002"
-                    Point3="16.1851852817666,34.0000000000002" />
+                    Point1="12.6018519422243,31.5166666395469"
+                    Point2="16.6018519422243,31.5166666395469"
+                    Point3="16.6018519422243,35.5166666395469" />
                   <mssgle:LineSegment
-                    End="16.1851852817666,52.5000000000003" />
+                    End="16.6018519422243,55.5333332790937" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3277,17 +3309,13 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM\DC Conversioon type de données"
           TopLeft="350.138883671412,170.733330280384" />
         <NodeLayout
-          Size="286.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_SRC OCDE_STG_Manifestation_DM_SA"
-          TopLeft="326.374996606882,11.5999998760224" />
+          Size="181.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_CMD Mise à jour"
+          TopLeft="410.87499818392,640.805552126799" />
         <NodeLayout
           Size="201.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM"
           TopLeft="365.833327881992,251.977774662839" />
-        <NodeLayout
-          Size="181.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_CMD Mise à jour"
-          TopLeft="410.87499818392,640.805552126799" />
         <NodeLayout
           Size="214.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Manifestation_DM"
@@ -3297,17 +3325,137 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM 1"
           TopLeft="385.722217048207,736.083328212798" />
         <NodeLayout
-          Size="158.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Manifestation_DM\CSPL Mise à jour"
-          TopLeft="424.458331486209,518.055550673935" />
+          Size="241.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM"
+          TopLeft="46.1388887750601,647.499994627635" />
         <NodeLayout
           Size="185.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM"
           TopLeft="379.999994337559,339.222217547231" />
         <NodeLayout
-          Size="241.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM"
-          TopLeft="46.1388887750601,647.499994627635" />
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM\CSPL Mise à jour"
+          TopLeft="424.458331486209,518.055550673935" />
+        <NodeLayout
+          Size="286.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_SRC OCDE_STG_Manifestation_DM_SA"
+          TopLeft="326.374996606882,11.5999998760224" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Update]"
+          TopLeft="502.666664835064,560.722217340602">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,80.0833347861974"
+              Start="0,0"
+              End="0,72.5833347861974">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.5833347861974" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-16.28029296875,30.4869798930987,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de source OLE DB]"
+          TopLeft="470.923606725099,54.2666665426891">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.222230267856"
+              Start="0,0"
+              End="0,24.722230267856">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.722230267856" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="472.11110790943,381.888884213898">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.1444442739753"
+              Start="0,0"
+              End="0,24.6444442739753">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.6444442739753" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.67701171875,6.51753463698765,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="469.583327776442,294.644441329506">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.5777762177254"
+              Start="0,0"
+              End="0,37.0777762177254">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.0777762177254" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.67701171875,12.7342006088627,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de conversion de données]"
+          TopLeft="467.319439110035,213.399996947051">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.5777777157883"
+              Start="0,0"
+              End="0,31.0777777157883">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.0777777157883" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de colonne dérivée]"
           TopLeft="470.138883590698,129.155563477212">
@@ -3394,156 +3542,27 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,61.3555555193948"
+              EndConnector="0,61.3555555193954"
               Start="0,0"
-              End="0,53.8555555193948">
+              End="0,53.8555555193954">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.8555555193948" />
+                    End="0,53.8555555193954" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,21.1230902596974,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,21.1230902596977,96.3827734375,11.609375"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Update]"
-          TopLeft="502.666664835064,560.722217340602">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,80.0833347861974"
-              Start="0,0"
-              End="0,72.5833347861974">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,72.5833347861974" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-16.28029296875,30.4869798930987,32.5605859375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de source OLE DB]"
-          TopLeft="470.923606725099,54.2666665426891">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.222230267856"
-              Start="0,0"
-              End="0,24.722230267856">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.722230267856" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de recherche avec correspondance1]"
-          TopLeft="472.111107909431,381.888884213898">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.1444442739751"
-              Start="0,0"
-              End="0,24.6444442739751">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.6444442739751" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-91.67701171875,6.51753463698755,183.3540234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de recherche avec correspondance]"
-          TopLeft="469.583327776442,294.644441329506">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44.5777762177254"
-              Start="0,0"
-              End="0,37.0777762177254">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.0777762177254" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-91.67701171875,12.7342006088627,183.3540234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_Manifestation_DM.Paths[Sortie de conversion de données]"
-          TopLeft="467.319439110035,213.399996947051">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.5777777157883"
-              Start="0,0"
-              End="0,31.0777777157883">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.0777777157883" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_SRC OCDE_STG_Manifestation_DM_SA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Expression_DM">
     <Properties>
@@ -3604,6 +3623,19 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO DWH_Manifestation_DM\LKP DWH_Format_DM">
     <Properties>
       <Property>
@@ -3627,7 +3659,7 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_DST DWH_Manifestation_DM">
+    design-time-name="Package\DFT INSERT INTO DWH_Manifestation_DM\OLE_SRC OCDE_STG_Manifestation_DM_SA">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3692,7 +3724,7 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-16.28029296875,71.1119791666672,32.5605859375,11.609375"
+              BoundingBox="-16.28029296875,71.111979166667,32.5605859375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3715,9 +3747,7 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3739,9 +3769,7 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3763,9 +3791,7 @@ where [refTable].[Format_ID] = ? and [refTable].[IsCurrent] = ? and [refTable].[
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
