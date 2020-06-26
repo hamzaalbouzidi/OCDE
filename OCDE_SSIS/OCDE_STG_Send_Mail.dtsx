@@ -7,12 +7,12 @@
   DTS:CreatorName="CERBA\YMIGEOT"
   DTS:DTSID="{5C77BEBE-6ED4-49E8-B580-71CFBE7C2317}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Send_Mail"
   DTS:PackageType="5"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{FA650BE2-58B7-45CB-A471-CEAD6F3DDA7B}">
+  DTS:VersionBuild="58"
+  DTS:VersionGUID="{BBFA35CF-F52F-4B68-8476-C7B7EDF4149F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -42,17 +42,17 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D3AFEC24-1CBD-4B15-9B31-A57948544639}"
-          SQLTask:SqlStatementSource="use STG_UsageStat&#xA;GO&#xA;sp_configure 'show advanced options', 1;  &#xA;GO  &#xA;RECONFIGURE;  &#xA;GO  &#xA;sp_configure 'Database Mail XPs', 1;  &#xA;GO  &#xA;RECONFIGURE  &#xA;GO &#xA;&#xA;&#xA;EXECUTE msdb.dbo.sysmail_delete_profileaccount_sp @profile_name = 'Notifications'&#xA;EXECUTE msdb.dbo.sysmail_delete_principalprofile_sp @profile_name = 'Notifications'&#xA;EXECUTE msdb.dbo.sysmail_delete_account_sp @account_name = 'Office_Viseo'&#xA;EXECUTE msdb.dbo.sysmail_delete_profile_sp @profile_name = 'Notifications'&#xA;&#xA;&#xA;-- Create a Database Mail profile  &#xA;EXECUTE msdb.dbo.sysmail_add_profile_sp  &#xA;    @profile_name = 'Notifications',  &#xA;    @description = 'Profile used for sending outgoing notifications using Gmail.' ;  &#xA;GO&#xA;&#xA;-- Grant access to the profile to the DBMailUsers role  &#xA;EXECUTE msdb.dbo.sysmail_add_principalprofile_sp  &#xA;    @profile_name = 'Notifications',  &#xA;    @principal_name = 'public',  &#xA;    @is_default = 1 ;&#xA;GO&#xA;&#xA;-- Create a Database Mail account  &#xA;EXECUTE msdb.dbo.sysmail_add_account_sp  &#xA;    @account_name = 'Office_Viseo',  &#xA;    @description = 'Mail account for sending outgoing notifications.',  &#xA;    @email_address = 'aurelie.atta@viseo.com',  &#xA;    @display_name = 'Automated Mailer',  &#xA;    @mailserver_name = 'smtp.office365.com',&#xA;    @port = 587,&#xA;    @enable_ssl = 1,&#xA;    @username = 'aurelie.atta@viseo.com', -- Edit cette partie&#xA;    @password = 'gsav@2019' ;  -- Edit cette partie&#xA;GO&#xA;&#xA;-- Add the account to the profile  &#xA;EXECUTE msdb.dbo.sysmail_add_profileaccount_sp  &#xA;    @profile_name = 'Notifications',  &#xA;    @account_name = 'Office_Viseo',  &#xA;    @sequence_number =1 ;  &#xA;GO&#xA;&#xA;EXEC msdb.dbo.sysmail_start_sp; &#xA;&#xA;DECLARE @Query varchar(2048);&#xA;DECLARE @recipList varchar(2048);&#xA;&#xA;&#xA;&#xA;SET @Query = 'SELECT ParameterName, ParameterValue From STG_UsageStat.[dbo].[STG_UsageStat_Config]'&#xA;use STG_UsageStat&#xA;SET @recipList =(SELECT ParameterValue From [dbo].[STG_UsageStat_Config] where ParameterValue LIKE '%@viseo.com%')&#xA;EXECUTE AS LOGIN = 'node'&#xA;EXEC msdb.dbo.sp_send_dbmail&#xA;     @execute_query_database = 'STG_UsageStat',&#xA;     @profile_name = 'Notifications',&#xA;     --@recipients = 'aurelie.atta@viseo.com',&#xA;&#x9; @recipients =  @recipList,&#xA;&#x9; @body = 'The database mail configuration was completed successfully.',&#xA;     @subject = 'Automated Success Message',&#xA;&#x9; @query = @Query,&#xA;&#x9; @attach_query_result_as_file = 1 ,&#xA;&#x9; @query_attachment_filename = 'Test.csv',&#xA;&#x9; @query_result_header=0,&#xA;&#x9; @query_result_width = 32767,&#xA;&#x9; @query_no_truncate=0;&#xA;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="use STG_UsageStat&#xA;GO&#xA;sp_configure 'show advanced options', 1;  &#xA;GO  &#xA;RECONFIGURE;  &#xA;GO  &#xA;sp_configure 'Database Mail XPs', 1;  &#xA;GO  &#xA;RECONFIGURE  &#xA;GO &#xA;&#xA;&#xA;EXECUTE msdb.dbo.sysmail_delete_profileaccount_sp @profile_name = 'Notifications'&#xA;EXECUTE msdb.dbo.sysmail_delete_principalprofile_sp @profile_name = 'Notifications'&#xA;EXECUTE msdb.dbo.sysmail_delete_account_sp @account_name = 'Office_Viseo'&#xA;EXECUTE msdb.dbo.sysmail_delete_profile_sp @profile_name = 'Notifications'&#xA;&#xA;&#xA;-- Create a Database Mail profile  &#xA;EXECUTE msdb.dbo.sysmail_add_profile_sp  &#xA;    @profile_name = 'Notifications',  &#xA;    @description = 'Profile used for sending outgoing notifications using Gmail.' ;  &#xA;GO&#xA;&#xA;-- Grant access to the profile to the DBMailUsers role  &#xA;EXECUTE msdb.dbo.sysmail_add_principalprofile_sp  &#xA;    @profile_name = 'Notifications',  &#xA;    @principal_name = 'public',  &#xA;    @is_default = 1 ;&#xA;GO&#xA;&#xA;-- Create a Database Mail account  &#xA;EXECUTE msdb.dbo.sysmail_add_account_sp  &#xA;    @account_name = 'Office_Viseo',  &#xA;    @description = 'Mail account for sending outgoing notifications.',  &#xA;    @email_address = 'aurelie.atta@viseo.com',  &#xA;    @display_name = 'Automated Mailer',  &#xA;    @mailserver_name = 'smtp.office365.com',&#xA;    @port = 587,&#xA;    @enable_ssl = 1,&#xA;    @username = 'aurelie.atta@viseo.com', -- Edit cette partie&#xA;    @password = '' ;  -- Edit cette partie&#xA;GO&#xA;&#xA;-- Add the account to the profile  &#xA;EXECUTE msdb.dbo.sysmail_add_profileaccount_sp  &#xA;    @profile_name = 'Notifications',  &#xA;    @account_name = 'Office_Viseo',  &#xA;    @sequence_number =1 ;  &#xA;GO&#xA;&#xA;EXEC msdb.dbo.sysmail_start_sp; &#xA;&#xA;DECLARE @Query varchar(2048);&#xA;DECLARE @recipList varchar(2048);&#xA;&#xA;&#xA;&#xA;SET @Query = 'SELECT ParameterName, ParameterValue From STG_UsageStat.[dbo].[STG_UsageStat_Config]'&#xA;use STG_UsageStat&#xA;SET @recipList =(SELECT ParameterValue From [dbo].[STG_UsageStat_Config] where ParameterValue LIKE '%@viseo.com%')&#xA;EXECUTE AS LOGIN = 'node'&#xA;EXEC msdb.dbo.sp_send_dbmail&#xA;     @execute_query_database = 'STG_UsageStat',&#xA;     @profile_name = 'Notifications',&#xA;     --@recipients = 'aurelie.atta@viseo.com',&#xA;&#x9; @recipients =  @recipList,&#xA;&#x9; @body = 'The database mail configuration was completed successfully.',&#xA;     @subject = 'Automated Success Message',&#xA;&#x9; @query = @Query,&#xA;&#x9; @attach_query_result_as_file = 1 ,&#xA;&#x9; @query_attachment_filename = 'Test.csv',&#xA;&#x9; @query_result_header=0,&#xA;&#x9; @query_result_width = 32767,&#xA;&#x9; @query_no_truncate=0;&#xA;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
-<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
-<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>

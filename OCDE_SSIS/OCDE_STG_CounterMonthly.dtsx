@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_CounterMonthly"
   DTS:PackageType="5"
-  DTS:VersionBuild="72"
-  DTS:VersionGUID="{6A747AC5-CC8C-452C-A58A-144EED9137F4}">
+  DTS:VersionBuild="79"
+  DTS:VersionGUID="{8BD6E596-FA39-435F-8E4F-0C62B9359C60}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -27,7 +27,26 @@
       </DTS:ObjectData>
     </DTS:LogProvider>
   </DTS:LogProviders>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9861D676-1FD4-42E6-B53A-FE1A82DCE46F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="NumberOfRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7A2B297E-A594-44BF-A32E-3D2700C8B722}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="test">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:LoggingOptions
     DTS:FilterKind="0"
     DTS:LoggingMode="1">
@@ -2004,6 +2023,35 @@ on 1=1</property>
               </outputs>
             </component>
             <component
+              refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::NumberOfRows</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier"
               componentClassID="Microsoft.Sort"
               contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
@@ -2614,13 +2662,18 @@ on 1=1</property>
               name="Rejet"
               startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\CSPL Mise à jour.Outputs[Rejet]" />
             <path
+              refId="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Row Count Output 1]"
+              endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB]"
+              name="Row Count Output 1"
+              startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Row Count.Outputs[Row Count Output 1]" />
+            <path
               refId="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de conversion de données]"
               endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\CSPL Mise à jour.Inputs[Conditional Split Input]"
               name="Sortie de conversion de données"
               startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Outputs[Sortie de conversion de données]" />
             <path
               refId="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de conversion de données1]"
-              endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB]"
+              endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Row Count.Inputs[Row Count Input 1]"
               name="Sortie de conversion de données"
               startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données]" />
             <path
@@ -2759,26 +2812,26 @@ on 1=1</property>
         <NodeLayout
           Size="305.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_FT_SA"
-          TopLeft="87.8611098838352,339.02221625838" />
+          TopLeft="86.9351839717067,339.02221625838" />
         <NodeLayout
           Size="286.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA"
-          TopLeft="94.111109790703,260.733328769405" />
+          TopLeft="93.1851838785745,260.733328769405" />
         <NodeLayout
           Size="288,42.6666666666667"
           Id="Package\TSQL Truncate STG_CounterMonthly_FT_SA"
-          TopLeft="90.9166653938597,107.58888889922" />
+          TopLeft="89.9907394817312,107.58888889922" />
         <NodeLayout
           Size="270.666666666667,42.6666666666667"
           Id="Package\TSQL Truncate STG_CounterMonthly_SA"
-          TopLeft="92.8611098093297,38.688890131248" />
+          TopLeft="91.9351838972011,38.688890131248" />
         <NodeLayout
           Size="317.333333333334,42.6666666666667"
           Id="Package\TSQL Truncate STG_CounterMonthly_SA_Rejected"
-          TopLeft="78.3472214347377,178.294443190461" />
+          TopLeft="77.4212955226091,178.294443190461" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="231.555554268261,81.3555567979147">
+          TopLeft="230.629628356132,81.3555567979147">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2800,7 +2853,7 @@ on 1=1</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 1]"
-          TopLeft="235.965276747632,150.255555565887">
+          TopLeft="235.039350835503,150.255555565887">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2822,18 +2875,18 @@ on 1=1</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 2]"
-          TopLeft="238.986109837269,303.399995436072">
+          TopLeft="238.060183925141,303.399995436072">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35.6222208223079"
+              EndConnector="0,35.6222208223084"
               Start="0,0"
-              End="0,28.1222208223079">
+              End="0,28.1222208223084">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.1222208223079" />
+                    End="0,28.1222208223084" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2844,7 +2897,7 @@ on 1=1</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 3]"
-          TopLeft="237.22916561272,220.961109857128">
+          TopLeft="236.303239700592,220.961109857128">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2871,7 +2924,7 @@ on 1=1</property>
     design-time-name="Package\DFT INSERT INTO STG_CounterMonthly_FT_SA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="321.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_FT_SA\OLE_SRC OCDE_STG_view_CounterMonthly_FT_SA"
@@ -2899,7 +2952,9 @@ on 1=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2959,7 +3014,7 @@ on 1=1</property>
         <NodeLayout
           Size="292,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected"
-          TopLeft="423.055549251536,615.127770402398" />
+          TopLeft="433.88888242344,714.305548691584" />
         <NodeLayout
           Size="220,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP"
@@ -3115,28 +3170,6 @@ on 1=1</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de conversion de données1]"
-          TopLeft="572.736104404553,568.722217921748">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,46.4055524806502"
-              Start="0,0"
-              End="0,38.9055524806502">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.9055524806502" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de conversion de données]"
           TopLeft="214.083331439644,136.166665233175">
           <EdgeLayout.Curve>
@@ -3190,7 +3223,7 @@ on 1=1</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="56.8383343243142,35.1673137389867,24.1427734375,11.384765625"
+              BoundingBox="56.838334324314,35.1673137389867,24.1427734375,11.384765625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3264,6 +3297,54 @@ on 1=1</property>
             <mssgm:EdgeLabel
               BoundingBox="-39.9127096037114,34.2245131200793,27.5059765625,9.40234375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="131.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\Row Count"
+          TopLeft="509.722214626769,599.499996035298" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de conversion de données1]"
+          TopLeft="575.902770425503,568.722217921748">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.7777781135502"
+              Start="0,0"
+              End="0,23.2777781135502">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.2777781135502" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Row Count Output 1]"
+          TopLeft="577.638881858438,642.166662701964">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72.1388859896191"
+              Start="0,0"
+              End="0,64.6388859896191">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.6388859896191" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

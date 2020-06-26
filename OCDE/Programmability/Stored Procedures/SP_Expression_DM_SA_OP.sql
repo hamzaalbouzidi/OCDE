@@ -1,4 +1,4 @@
-﻿/* CREATE PROCEDURE [stg].[SP_Expression_DM_SA_OP]
+﻿CREATE PROCEDURE [stg].[SP_Expression_DM_SA_OP]
 AS
 TRUNCATE TABLE [stg].[PS_Expression_DM_SA_OP]
 SELECT [ProductId] ,
@@ -146,5 +146,3 @@ SELECT CAST([Exp].DOI  as nvarchar(100)) collate Latin1_General_CI_AS as  Expres
               [Exp]
 
 RETURN 0
-
-*/

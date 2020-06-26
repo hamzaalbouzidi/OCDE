@@ -1,4 +1,4 @@
-﻿/*CREATE PROCEDURE [stg].[SP_Expression]
+﻿CREATE PROCEDURE [stg].[SP_Expression]
 AS
 
 TRUNCATE TABLE [stg].[PS_Expression]
@@ -132,4 +132,3 @@ INNER JOIN stg.#KV3_ProductDirectorate2
 WHERE Eligible.ROW = 1 AND ProductLanguage.ROW = 1
 
 RETURN 0
-*/

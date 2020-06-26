@@ -1,0 +1,18 @@
+﻿CREATE PROCEDURE [stg].[SP_Truncate_STG]
+AS
+	
+TRUNCATE TABLE stg.STG_BrowseIt_TMP
+TRUNCATE TABLE stg.STG_Metadata_TMP_CCM_Countries 
+TRUNCATE TABLE stg.STG_Metadata_TMP_CCM_IDS
+TRUNCATE TABLE stg.STG_Counter_TMP
+TRUNCATE TABLE stg.STG_FreePreview_TMP
+TRUNCATE TABLE stg.STG_GoogleBooksMonthly_TMP
+TRUNCATE TABLE stg.STG_ILibraryLog_TMP
+TRUNCATE TABLE stg.STG_Metadata_TMP_IP_Country_Range
+TRUNCATE TABLE stg.STG_Registration_FI
+TRUNCATE TABLE stg.STG_StatLink_TMP
+TRUNCATE TABLE [stg].[STG_StatLink_TMP] 
+TRUNCATE TABLE [stg].[STG_StatLink_SA] 
+TRUNCATE TABLE [stg].[STG_Statlink_File_SA]
+
+RETURN 0

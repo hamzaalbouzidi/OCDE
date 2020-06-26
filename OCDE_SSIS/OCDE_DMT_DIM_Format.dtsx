@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DMT_DIM_Format"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{042123AA-AD9B-47BF-8768-D3B332AFB3C1}">
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{A25BEA6B-BF87-40F5-B403-F7DCFA8CBF05}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -242,9 +242,15 @@
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [Format_ID]
       ,[Format_ExternalID]
       ,[ExternalSource]
-      ,[MimeType]
-      ,[Format_Lib_EN]
-      ,[Format_Lib_FR]
+      ,CASE WHEN [Format_Lib_EN]='WebBook'     THEN 'text/html' ELSE [MimeType]      END AS [MimeType]
+      ,CASE WHEN [Format_Lib_EN]='WebBook'     THEN 'HTML'   
+			WHEN [Format_Lib_EN]='FreePreview' THEN 'Read'
+			WHEN [Format_Lib_EN]='DotStat'     THEN 'Online'
+	  ELSE [Format_Lib_EN] END AS [Format_Lib_EN]
+      ,CASE WHEN [Format_Lib_EN]='WebBook' THEN 'HTML'      
+			WHEN [Format_Lib_EN]='FreePreview' THEN 'Read'
+			WHEN [Format_Lib_EN]='DotStat'     THEN 'En ligne'
+	  ELSE [Format_Lib_FR] END AS [Format_Lib_FR]
       ,[LastUpdate_Date] 
   FROM [dWH].[Format_DM]</property>
                 <property
