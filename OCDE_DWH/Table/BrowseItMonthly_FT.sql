@@ -3,5 +3,5 @@
 	[Expression_ID] [int] NOT NULL,
 	[Downloads] [int] NULL,
 	[Exclude] [bit] NOT NULL, 
-    CONSTRAINT [PK_BrowseItMonthly_FT] PRIMARY KEY ([Expression_ID])
+    CONSTRAINT [FK_BrowseItMonthly_FT_Expression_DM] FOREIGN KEY ([Expression_ID]) REFERENCES dwh.[Expression_DM]([Expression_ID])
 )
