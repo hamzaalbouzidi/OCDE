@@ -24,5 +24,8 @@
 	[ValidTo] [date] NULL,
 	[Proxy_ID] [int] NULL,
 	[MainParent_ID] [int] NULL,
-	[RegistrationTypeNo] [int] NULL
+	[RegistrationTypeNo] [int] NULL, 
+    CONSTRAINT [FK_Registration_DM_Location_DM] FOREIGN KEY ([Location_ID]) REFERENCES dwh.[Location_DM]([Location_ID]), 
+    CONSTRAINT [FK_Registration_DM_CustomerType_DM] FOREIGN KEY ([CustomerType_ID]) REFERENCES dwh.[CustomerType_DM]([CustomerType_ID]), 
+    CONSTRAINT [FK_Registration_DM_RegistrationType_DM] FOREIGN KEY ([RegistrationType_ID]) REFERENCES dwh.[RegistrationType_DM]([RegistrationType_ID])
 	)
