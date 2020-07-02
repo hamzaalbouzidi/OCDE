@@ -5,6 +5,8 @@
 	CONSTRAINT [FK_Location_City_ID] FOREIGN KEY ([City_ID])
     REFERENCES [dwh].[City_DM] ([City_ID]),
 	[Country_ID] [int] NOT NULL,
+	CONSTRAINT [FK_Location_Country_ID] FOREIGN KEY ([Country_ID])
+    REFERENCES [dwh].[Country_DM] ([Country_ID]),
 	[LastUpdate_Date] [datetime] NOT NULL,
 	[HideInReport] [bit] NOT NULL,
 	[NA_Import] [bit] NOT NULL,

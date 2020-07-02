@@ -11,20 +11,21 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_ILibraryLog_FT"
   DTS:PackageType="5"
-  DTS:VersionBuild="63"
-  DTS:VersionGUID="{65394A0A-DCCE-4A55-A77E-D33EA2C1CAB4}">
+  DTS:VersionBuild="72"
+  DTS:VersionGUID="{06E4E1CB-2F23-4FCE-9558-D0814179A192}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT"
+      DTS:refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA"
       DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{8558462E-11CA-4887-A77B-D63B79850859}"
+      DTS:DTSID="{42e68dee-07e0-465b-be89-73e61730c715}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO DWH_ILibraryLog_FT"
+      DTS:ObjectName="DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -32,1241 +33,11 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
-              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
-              name="DC_ Variables"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Inputs[Entrée de colonne dérivée]"
-                  description="Entrée de la transformation de colonnes dérivées"
-                  name="Entrée de colonne dérivée">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie de colonne dérivée]"
-                  description="Sortie par défaut de la transformation de colonnes dérivées"
-                  exclusionGroup="1"
-                  name="Sortie de colonne dérivée"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Inputs[Entrée de colonne dérivée]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Exclude]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Calcul"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Exclude]"
-                      name="Exclude"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression de colonne dérivée"
-                          name="Expression">(DT_BOOL)0</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression claire de colonne dérivée"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(DT_BOOL)0</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Agg_D]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Agg_D]"
-                      name="Agg_D"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">0</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">0</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Agg_M]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Agg_M]"
-                      name="Agg_M"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">0</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">0</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée]"
-                  description="Sortie d'erreur de la transformation de colonnes dérivées"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de colonne dérivée"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Inputs[Entrée de colonne dérivée]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="LKP DWH_IP_Adress_DM"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT IpAddress_ID 
-FROM   dwh.IPAddress_DM</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT IpAddress_ID 
-FROM   dwh.IPAddress_DM) [refTable]
-where [refTable].[IpAddress_ID] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IpAddress_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Connections[OleDbConnection]"
-                  connectionManagerID="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DWH]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Inputs[Lookup Input].Columns[UserAgent_ID]"
-                      cachedDataType="i4"
-                      cachedName="UserAgent_ID"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">IpAddress_ID</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Outputs[Lookup Match Output].Columns[IpAddress_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Outputs[Lookup Match Output].Columns[IpAddress_ID]"
-                      name="IpAddress_ID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">IpAddress_ID</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
-              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
-              name="LKP DWH_Manifestation_DM"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT Manifestation_ID
-FROM   dwh.Manifestation_DM</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT Manifestation_ID
-FROM   dwh.Manifestation_DM) [refTable]
-where [refTable].[Manifestation_ID] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le type de cache de la table de correspondance."
-                  name="CacheType"
-                  typeConverter="CacheType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indique si les métadonnées sont à référencer en format XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Manifestation_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Spécifie la liste d'identificateurs de lignage se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
-                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Connections[OleDbConnection]"
-                  connectionManagerID="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DWH]"
-                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Inputs[Entrée de recherche]"
-                  name="Entrée de recherche">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Inputs[Entrée de recherche].Columns[Manifestation_ID]"
-                      cachedDataType="i4"
-                      cachedName="Manifestation_ID"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
-                          name="JoinToReferenceColumn">Manifestation_ID</property>
-                        <property
-                          dataType="System.Null"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Outputs[Sortie de recherche avec correspondance]"
-                  errorOrTruncationOperation="Recherche"
-                  exclusionGroup="1"
-                  name="Sortie de recherche avec correspondance"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Inputs[Entrée de recherche]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Outputs[Sortie de recherche avec correspondance].Columns[Manifestation_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Outputs[Sortie de recherche avec correspondance].Columns[Manifestation_ID]"
-                      name="Manifestation_ID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Manifestation_ID</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Outputs[Sortie de recherche sans correspondance]"
-                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
-                  exclusionGroup="1"
-                  name="Sortie de recherche sans correspondance"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Inputs[Entrée de recherche]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Outputs[Sortie d'erreur de recherche]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de recherche"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Inputs[Entrée de recherche]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
-              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
-              name="LKP DWH_Registration_DM"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT Registration_ID
-FROM   dwh.Registration_DM</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT Registration_ID
-FROM   dwh.Registration_DM) [refTable]
-where [refTable].[Registration_ID] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le type de cache de la table de correspondance."
-                  name="CacheType"
-                  typeConverter="CacheType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indique si les métadonnées sont à référencer en format XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Registration_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Spécifie la liste d'identificateurs de lignage se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
-                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Connections[OleDbConnection]"
-                  connectionManagerID="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DWH]"
-                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Inputs[Entrée de recherche]"
-                  name="Entrée de recherche">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Inputs[Entrée de recherche].Columns[Registration_ID]"
-                      cachedDataType="i4"
-                      cachedName="Registration_ID"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
-                          name="JoinToReferenceColumn">Registration_ID</property>
-                        <property
-                          dataType="System.Null"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Outputs[Sortie de recherche avec correspondance]"
-                  errorOrTruncationOperation="Recherche"
-                  exclusionGroup="1"
-                  name="Sortie de recherche avec correspondance"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Inputs[Entrée de recherche]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Outputs[Sortie de recherche avec correspondance].Columns[Registration_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Outputs[Sortie de recherche avec correspondance].Columns[Registration_ID]"
-                      name="Registration_ID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Registration_ID</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Outputs[Sortie de recherche sans correspondance]"
-                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
-                  exclusionGroup="1"
-                  name="Sortie de recherche sans correspondance"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Inputs[Entrée de recherche]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Outputs[Sortie d'erreur de recherche]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de recherche"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Inputs[Entrée de recherche]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="LKP DWH_Session_DM"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT Session_ID 
-FROM   dwh.Session_DM</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT Session_ID 
-FROM   dwh.Session_DM) [refTable]
-where [refTable].[Session_ID] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Session_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Session_ID]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Connections[OleDbConnection]"
-                  connectionManagerID="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DWH]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Inputs[Lookup Input].Columns[Session_ID]"
-                      cachedDataType="i4"
-                      cachedName="Session_ID"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Session_ID]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">Session_ID</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Outputs[Lookup Match Output].Columns[Session_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Outputs[Lookup Match Output].Columns[Session_ID]"
-                      name="Session_ID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Session_ID</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="LKP DWH_SourceLight_DM"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT SourceLight_ID 
-FROM   dwh.SourceLight_DM</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT SourceLight_ID 
-FROM   dwh.SourceLight_DM) [refTable]
-where [refTable].[SourceLight_ID] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SourceLight_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Connections[OleDbConnection]"
-                  connectionManagerID="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DWH]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Inputs[Lookup Input].Columns[SourceLight_ID]"
-                      cachedDataType="i4"
-                      cachedName="SourceLight_ID"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">SourceLight_ID</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Outputs[Lookup Match Output].Columns[SourceLight_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Outputs[Lookup Match Output].Columns[SourceLight_ID]"
-                      name="SourceLight_ID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">SourceLight_ID</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="LKP DWH_Source_DM"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT Source_ID 
-FROM   dwh.Source_DM</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT Source_ID 
-FROM   dwh.Source_DM) [refTable]
-where [refTable].[Source_ID] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Source_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Connections[OleDbConnection]"
-                  connectionManagerID="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DWH]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Inputs[Lookup Input].Columns[Source_ID]"
-                      cachedDataType="i4"
-                      cachedName="Source_ID"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">Source_ID</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Outputs[Lookup Match Output].Columns[Source_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Outputs[Lookup Match Output].Columns[Source_ID]"
-                      name="Source_ID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Source_ID</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="LKP DWH_UserAgent_DM"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT UserAgent_ID 
-FROM   dwh.UserAgent_DM</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT UserAgent_ID 
-FROM   dwh.UserAgent_DM) [refTable]
-where [refTable].[UserAgent_ID] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="UserAgent_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Connections[OleDbConnection]"
-                  connectionManagerID="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DWH]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Inputs[Lookup Input].Columns[UserAgent_ID]"
-                      cachedDataType="i4"
-                      cachedName="UserAgent_ID"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">UserAgent_ID</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Outputs[Lookup Match Output].Columns[UserAgent_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Outputs[Lookup Match Output].Columns[UserAgent_ID]"
-                      name="UserAgent_ID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">UserAgent_ID</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT"
+              refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="OLE_DST DWH_ILibraryLog_FT"
+              name="OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA"
               usesDispositions="true"
               version="4">
               <properties>
@@ -1277,7 +48,7 @@ where [refTable].[UserAgent_ID] = ?</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dwh].[ILibraryLog_FT]</property>
+                  name="OpenRowset">[dwh].[TMP_STG_ILibraryLog_FT_SA]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1319,7 +90,7 @@ where [refTable].[UserAgent_ID] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Connections[OleDbConnection]"
+                  refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Connections[OleDbConnection]"
                   connectionManagerID="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}:external"
                   connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DWH]"
                   description="The OLE DB runtime connection used to access the database."
@@ -1327,156 +98,132 @@ where [refTable].[UserAgent_ID] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input]"
+                  refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[EventLogID]"
-                      cachedDataType="i4"
-                      cachedName="EventLogID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[EventLogID]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[EventLogID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[Exclude]"
-                      cachedDataType="bool"
-                      cachedName="Exclude"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Exclude]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Exclude]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[Download_Date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Download_Date"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[DownloadDate]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[Manifestation_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].Columns[Manifestation_ID]"
                       cachedDataType="i4"
                       cachedName="Manifestation_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Manifestation_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Outputs[Sortie de recherche avec correspondance].Columns[Manifestation_ID]" />
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[Manifestation_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[Registration_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].Columns[Registration_ID]"
                       cachedDataType="i4"
                       cachedName="Registration_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Registration_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Outputs[Sortie de recherche avec correspondance].Columns[Registration_ID]" />
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[Registration_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[IpAddress_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].Columns[IPAddress_ID]"
                       cachedDataType="i4"
-                      cachedName="IpAddress_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[IPAddress_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Outputs[Lookup Match Output].Columns[IpAddress_ID]" />
+                      cachedName="IPAddress_ID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[Source_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].Columns[DOI]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="DOI"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[DOI]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[DOI]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].Columns[Source_ID]"
                       cachedDataType="i4"
                       cachedName="Source_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Source_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Outputs[Lookup Match Output].Columns[Source_ID]" />
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[Source_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[SourceLight_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].Columns[SourceLight_ID]"
                       cachedDataType="i4"
                       cachedName="SourceLight_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[SourceLight_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Outputs[Lookup Match Output].Columns[SourceLight_ID]" />
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[SourceLight_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[UserAgent_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].Columns[UserAgent_ID]"
                       cachedDataType="i4"
                       cachedName="UserAgent_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[UserAgent_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Outputs[Lookup Match Output].Columns[UserAgent_ID]" />
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[UserAgent_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[Session_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].Columns[Session_ID]"
                       cachedDataType="i4"
                       cachedName="Session_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Session_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Outputs[Lookup Match Output].Columns[Session_ID]" />
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[Session_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Session_ID]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[Agg_D]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].Columns[EventLogID]"
                       cachedDataType="i4"
-                      cachedName="Agg_D"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Agg_Daily]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Agg_D]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].Columns[Agg_M]"
-                      cachedDataType="i4"
-                      cachedName="Agg_M"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Agg_Monthly]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie de colonne dérivée].Columns[Agg_M]" />
+                      cachedName="EventLogID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[EventLogID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[EventLogID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Session_ID]"
-                      dataType="i4"
-                      name="Session_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[DownloadDate]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[[Download_Date]"
                       dataType="dbTimeStamp"
-                      name="DownloadDate" />
+                      name="[Download_Date" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Manifestation_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[Manifestation_ID]"
                       dataType="i4"
                       name="Manifestation_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Registration_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[Registration_ID]"
                       dataType="i4"
                       name="Registration_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[IPAddress_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[IPAddress_ID]"
                       dataType="i4"
                       name="IPAddress_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Source_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[DOI]"
+                      dataType="wstr"
+                      length="60"
+                      name="DOI" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[Source_ID]"
                       dataType="i4"
                       name="Source_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[SourceLight_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[SourceLight_ID]"
                       dataType="i4"
                       name="SourceLight_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[UserAgent_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[UserAgent_ID]"
                       dataType="i4"
                       name="UserAgent_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[EventLogID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[Session_ID]"
+                      dataType="i4"
+                      name="Session_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[EventLogID]"
                       dataType="i4"
                       name="EventLogID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Exclude]"
-                      dataType="bool"
-                      name="Exclude" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Agg_Daily]"
-                      dataType="bool"
-                      name="Agg_Daily" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input].ExternalColumns[Agg_Monthly]"
-                      dataType="bool"
-                      name="Agg_Monthly" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1485,7 +232,7 @@ where [refTable].[UserAgent_ID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA"
+              refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
               description="Source OLE DB"
@@ -1534,7 +281,7 @@ where [refTable].[UserAgent_ID] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Connections[OleDbConnection]"
+                  refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Connections[OleDbConnection]"
                   connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
                   connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -1542,212 +289,212 @@ where [refTable].[UserAgent_ID] = ?</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB]"
+                  refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
                       name="Download_Date"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Manifestation_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Manifestation_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]"
                       name="Manifestation_ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Registration_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Registration_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]"
                       name="Registration_ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
                       name="IPAddress_ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[DOI]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[DOI]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
                       length="60"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[DOI]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[DOI]"
                       name="DOI"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
                       name="Source_ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SourceLight_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SourceLight_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]"
                       name="SourceLight_ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
                       name="UserAgent_ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Session_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Session_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Session_ID]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Session_ID]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Session_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Session_ID]"
                       name="Session_ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[EventLogID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[EventLogID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[EventLogID]"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[EventLogID]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[EventLogID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[EventLogID]"
                       name="EventLogID"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
                       dataType="dbTimeStamp"
                       name="Download_Date" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Manifestation_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Manifestation_ID]"
                       dataType="i4"
                       name="Manifestation_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Registration_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Registration_ID]"
                       dataType="i4"
                       name="Registration_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
                       dataType="i4"
                       name="IPAddress_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
                       dataType="wstr"
                       length="60"
                       name="DOI" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
                       dataType="i4"
                       name="Source_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SourceLight_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SourceLight_ID]"
                       dataType="i4"
                       name="SourceLight_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
                       dataType="i4"
                       name="UserAgent_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Session_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Session_ID]"
                       dataType="i4"
                       name="Session_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[EventLogID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[EventLogID]"
                       dataType="i4"
                       name="EventLogID" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB]"
+                  refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
                       dataType="dbTimeStamp"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
                       name="Download_Date" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Manifestation_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Manifestation_ID]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Manifestation_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Manifestation_ID]"
                       name="Manifestation_ID" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Registration_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Registration_ID]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Registration_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Registration_ID]"
                       name="Registration_ID" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
                       name="IPAddress_ID" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
                       dataType="wstr"
                       length="60"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
                       name="DOI" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
                       name="Source_ID" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SourceLight_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SourceLight_ID]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SourceLight_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SourceLight_ID]"
                       name="SourceLight_ID" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
                       name="UserAgent_ID" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Session_ID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Session_ID]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Session_ID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Session_ID]"
                       name="Session_ID" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[EventLogID]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[EventLogID]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[EventLogID]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[EventLogID]"
                       name="EventLogID" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1758,55 +505,89 @@ where [refTable].[UserAgent_ID] = ?</property>
           </components>
           <paths>
             <path
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Lookup Match Output]"
-              endId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Lookup Match Output1]"
-              endId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Lookup Match Output2]"
-              endId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Lookup Match Output3]"
-              endId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Lookup Match Output4]"
-              endId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Inputs[Entrée de colonne dérivée]"
-              name="Lookup Match Output"
-              startId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Sortie de colonne dérivée]"
-              endId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT.Inputs[OLE DB Destination Input]"
-              name="Sortie de colonne dérivée"
-              startId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables.Outputs[Sortie de colonne dérivée]" />
-            <path
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Sortie de recherche avec correspondance]"
-              endId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Inputs[Entrée de recherche]"
-              name="Sortie de recherche avec correspondance"
-              startId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Outputs[Sortie de recherche avec correspondance]" />
-            <path
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Sortie de recherche avec correspondance1]"
-              endId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM.Inputs[Lookup Input]"
-              name="Sortie de recherche avec correspondance"
-              startId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM.Outputs[Sortie de recherche avec correspondance]" />
-            <path
-              refId="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM.Inputs[Entrée de recherche]"
+              refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input]"
               name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB]" />
+              startId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL CREATE DWH_TMP_STG_ILibraryLog_FT_SA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{d8a3df03-4e53-4c1c-94f4-f204f50035db}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL CREATE DWH_TMP_STG_ILibraryLog_FT_SA"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
+          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dwh].[TMP_STG_ILibraryLog_FT_SA]') AND type in (N'U'))&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_ILibraryLog_FT_SA](&#xA; [Download_Date] [datetime] NULL,&#xA;&#x9;[Manifestation_ID] [int] NULL,&#xA;&#x9;[Registration_ID] [int] NULL,&#xA;&#x9;[IPAddress_ID] [int] NULL,&#xA;&#x9;[DOI] [nvarchar](60) NULL,&#xA;&#x9;[Source_ID] [int] NULL,&#xA;&#x9;[SourceLight_ID] [int] NULL,&#xA;&#x9;[UserAgent_ID] [int] NULL,&#xA;&#x9;[Session_ID] [int] NULL,&#xA;&#x9;[EventLogID] [int] NULL&#xA;)ON [PRIMARY]&#xA;END&#xA;ELSE &#xA;Begin&#xA;TRUNCATE TABLE  [dwh].[TMP_STG_ILibraryLog_FT_SA]&#xA;end&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL DROP DWH_TMP_STG_ILibraryLog_FT_SA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9c6b65c5-c729-478c-a427-a2ad3411b3bb}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL DROP DWH_TMP_STG_ILibraryLog_FT_SA"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
+          SQLTask:SqlStatementSource="DROP TABLE [dwh].[TMP_STG_ILibraryLog_FT_SA]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL INSERT INTO DWH_ILibraryLog_FT"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{218f267c-1733-44c5-af45-832f93e0e529}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL INSERT INTO DWH_ILibraryLog_FT"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
+          SQLTask:SqlStatementSource="INSERT INTO [dwh].[ILibraryLog_FT]&#xA;           ([DownloadDate]&#xA;           ,[Manifestation_ID]&#xA;           ,[Registration_ID]&#xA;           ,[IPAddress_ID]&#xA;           ,[Source_ID]&#xA;           ,[SourceLight_ID]&#xA;           ,[UserAgent_ID]&#xA;           ,[Session_ID]&#xA;           ,[EventLogID]&#xA;           ,[Exclude])&#xA;&#x9;&#x9;SELECT &#xA;&#x9;&#x9;   T.[Download_Date]&#xA;&#x9;&#x9;  ,T.[Manifestation_ID]&#xA;&#x9;&#x9;  ,T.[Registration_ID]&#xA;&#x9;&#x9;  ,T.[IPAddress_ID]&#xA;&#x9;&#x9;  ,T.[Source_ID]&#xA;&#x9;&#x9;  ,T.[SourceLight_ID]&#xA;&#x9;&#x9;  ,T.[UserAgent_ID]&#xA;&#x9;&#x9;  ,T.[Session_ID]&#xA;&#x9;&#x9;  ,T.[EventLogID]&#xA;&#x9;&#x9;  ,0&#xA;FROM(&#xA;select A.*&#xA;FROM dwh.TMP_STG_ILibraryLog_FT_SA A&#xA;INNER JOIN dwh.Manifestation_DM B&#xA;ON a.Manifestation_ID=b.Manifestation_ID&#xA;INNER JOIN dwh.Registration_DM c&#xA;on a.Registration_ID = c.Registration_ID&#xA;INNER JOIN[dwh].[IPAddress_DM]  d&#xA;on a.IPAddress_Id = d.IPAddress_Id&#xA;INNER JOIN [dwh].[Source_DM] e&#xA;on a.Source_Id = e.Source_Id&#xA;INNER JOIN [dwh].[SourceLight_DM] f&#xA;on a.SourceLight_ID = f.SourceLight_Id&#xA;INNER JOIN [dwh].[UserAgent_DM] g&#xA;on a.UserAgent_Id = g.UserAgent_Id&#xA;INNER JOIN [dwh].[Session_DM] h&#xA;on a.Session_Id = h.Session_Id&#xA;) T" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{4f55f28c-e998-48b6-a30e-e5a7aace7787}"
+      DTS:From="Package\TSQL CREATE DWH_TMP_STG_ILibraryLog_FT_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{b76eff53-31d4-4ca8-8553-6c0623c6ca5f}"
+      DTS:From="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\TSQL INSERT INTO DWH_ILibraryLog_FT" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{b45d2a31-cf20-4c74-913d-7365253b0ab9}"
+      DTS:From="Package\TSQL INSERT INTO DWH_ILibraryLog_FT"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\TSQL DROP DWH_TMP_STG_ILibraryLog_FT_SA" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -1818,359 +599,132 @@ where [refTable].[UserAgent_ID] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="270.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT"
-          TopLeft="70.6666685044766,95.9666667209069" />
+          Size="340,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA"
+          TopLeft="5.50000000000003,108.166666666667" />
+        <NodeLayout
+          Size="318.666666666667,42.6666666666667"
+          Id="Package\TSQL CREATE DWH_TMP_STG_ILibraryLog_FT_SA"
+          TopLeft="16.1666666666667,5.50000000000004" />
+        <NodeLayout
+          Size="309.333333333334,42.6666666666667"
+          Id="Package\TSQL DROP DWH_TMP_STG_ILibraryLog_FT_SA"
+          TopLeft="20.8333333333334,313.5" />
+        <NodeLayout
+          Size="276,42.6666666666667"
+          Id="Package\TSQL INSERT INTO DWH_ILibraryLog_FT"
+          TopLeft="37.5,210.833333333334" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="175.5,48.1666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="175.5,150.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="175.5,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\DFT INSERT INTO DWH_ILibraryLog_FT">
+    design-time-name="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="297.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA"
+          TopLeft="316.773809492766,115.571423108662" />
         <NodeLayout
           Size="273.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA"
-          TopLeft="50.8888896008334,18.5333330853781" />
-        <NodeLayout
-          Size="214.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM"
-          TopLeft="89.9999986588954,99.666665194432" />
-        <NodeLayout
-          Size="228,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT"
-          TopLeft="52.6666664555684,735.04444317109" />
-        <NodeLayout
-          Size="145.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT\DC_ Variables"
-          TopLeft="95.9374985704199,651.849991216957" />
-        <NodeLayout
-          Size="208,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM"
-          TopLeft="99.9999985098839,185.466663660208" />
+          Id="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA"
+          TopLeft="324.1071428261,22.9047564419957" />
         <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Sortie de source OLE DB]"
-          TopLeft="187.5555562675,61.1999997520448">
+          Id="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA.Paths[Sortie de source OLE DB]"
+          TopLeft="463.107142826099,65.5714231086623">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="9.77777572472866,38.4666654423872"
+              EndConnector="0,50"
               Start="0,0"
-              End="9.77777572472866,30.9666654423872">
+              End="0,42.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.2333327211936" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.2333327211936"
-                    Point2="0,19.2333327211936"
-                    Point3="4,19.2333327211936" />
-                  <mssgle:LineSegment
-                    End="5.77777572472866,19.2333327211936" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5.77777572472866,19.2333327211936"
-                    Point2="9.77777572472866,19.2333327211936"
-                    Point3="9.77777572472866,23.2333327211936" />
-                  <mssgle:LineSegment
-                    End="9.77777572472866,30.9666654423872" />
+                    End="0,42.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Sortie de recherche avec correspondance]"
-          TopLeft="200.666665251056,142.333331861099">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43.1333317991094"
-              Start="0,0"
-              End="0,35.6333317991094">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.6333317991094" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-91.67701171875,12.0119783995547,183.3540234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Sortie de colonne dérivée]"
-          TopLeft="167.635415846328,694.516657883624">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,40.5277852874663"
-              Start="0,0"
-              End="0,33.0277852874663">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.0277852874663" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="198.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM"
-          TopLeft="81.6666654497385,274.466663117806" />
-        <NodeLayout
-          Size="184,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM"
-          TopLeft="75.8888892283043,357.844446673459" />
-        <NodeLayout
-          Size="206.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM"
-          TopLeft="69.2222226609787,432.777780502703" />
-        <NodeLayout
-          Size="200.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM"
-          TopLeft="67.5555560191473,505.977781029608" />
-        <NodeLayout
-          Size="186.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM"
-          TopLeft="64.2222227354845,579.177781556513" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Sortie de recherche avec correspondance1]"
-          TopLeft="203.999998509884,228.133330326875">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-22.999999726812,46.3333327909314"
-              Start="0,0"
-              End="-22.999999726812,38.8333327909314">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.1666663954657" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.1666663954657"
-                    Point2="0,23.1666663954657"
-                    Point3="-4,23.1666663954657" />
-                  <mssgle:LineSegment
-                    End="-18.999999726812,23.1666663954657" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.999999726812,23.1666663954657"
-                    Point2="-22.999999726812,23.1666663954657"
-                    Point3="-22.999999726812,27.1666663954657" />
-                  <mssgle:LineSegment
-                    End="-22.999999726812,38.8333327909314" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-103.177011582156,28.1666663954657,183.3540234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Lookup Match Output]"
-          TopLeft="180.999998783072,317.133329784473">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-13.1111095547676,40.7111168889865"
-              Start="0,0"
-              End="-13.1111095547676,33.2111168889865">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.3555584444932" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.3555584444932"
-                    Point2="0,20.3555584444932"
-                    Point3="-4,20.3555584444932" />
-                  <mssgle:LineSegment
-                    End="-9.11110955476761,20.3555584444932" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9.11110955476761,20.3555584444932"
-                    Point2="-13.1111095547676,20.3555584444932"
-                    Point3="-13.1111095547676,24.3555584444932" />
-                  <mssgle:LineSegment
-                    End="-13.1111095547676,33.2111168889865" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-54.7469414961338,25.3555584444932,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Lookup Match Output1]"
-          TopLeft="170.222222611308,400.511113340126">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.2666671625769"
-              Start="0,0"
-              End="0,24.7666671625769">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.7666671625769" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,6.57864608128847,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Lookup Match Output2]"
-          TopLeft="170.222222673396,475.44444716937">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.5333338602388"
-              Start="0,0"
-              End="0,23.0333338602388">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.0333338602388" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,5.71197943011941,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Lookup Match Output3]"
-          TopLeft="167.888889352481,548.644447696275">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-10.3333332836629,30.5333338602379"
-              Start="0,0"
-              End="-10.3333332836629,23.0333338602379">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.266666930119" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.266666930119"
-                    Point2="0,15.266666930119"
-                    Point3="-4,15.266666930119" />
-                  <mssgle:LineSegment
-                    End="-6.33333328366285,15.266666930119" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-6.33333328366285,15.266666930119"
-                    Point2="-10.3333332836629,15.266666930119"
-                    Point3="-10.3333332836629,19.266666930119" />
-                  <mssgle:LineSegment
-                    End="-10.3333332836629,23.0333338602379" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-53.3580533605814,20.266666930119,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO DWH_ILibraryLog_FT.Paths[Lookup Match Output4]"
-          TopLeft="157.555556068818,621.84444822318">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="11.0486091682687,30.0055429937777"
-              Start="0,0"
-              End="11.0486091682687,22.5055429937777">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.0027714968888" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.0027714968888"
-                    Point2="0,15.0027714968888"
-                    Point3="4,15.0027714968888" />
-                  <mssgle:LineSegment
-                    End="7.04860916826871,15.0027714968888" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7.04860916826871,15.0027714968888"
-                    Point2="11.0486091682687,15.0027714968888"
-                    Point3="11.0486091682687,19.0027714968888" />
-                  <mssgle:LineSegment
-                    End="11.0486091682687,22.5055429937777" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-42.6670821346156,20.0027714968888,96.3827734375,11.609375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Registration_DM">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_SRC OCDE_STG_ILibraryLog_FT_SA">
+    design-time-name="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2179,157 +733,6 @@ where [refTable].[UserAgent_ID] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Manifestation_DM">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_ILibraryLog_FT\OLE_DST DWH_ILibraryLog_FT">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_IP_Adress_DM">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Source_DM">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_SourceLight_DM">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_UserAgent_DM">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO DWH_ILibraryLog_FT\LKP DWH_Session_DM">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

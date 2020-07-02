@@ -11,41 +11,12 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="OCDE_ORD_STG_Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="60"
-  DTS:VersionGUID="{A6904081-4988-4061-A94F-A444F80EB9B2}">
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{37E0A2D8-AF57-49D4-AD5C-85885622D922}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
-    <DTS:Executable
-      DTS:refId="Package\Process_CCM"
-      DTS:CreationName="STOCK:SEQUENCE"
-      DTS:Description="Conteneur de séquences"
-      DTS:DTSID="{330bed3a-779f-4924-9c11-d76e689b3f48}"
-      DTS:ExecutableType="STOCK:SEQUENCE"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Process_CCM">
-      <DTS:Variables />
-      <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package\Process_CCM\Pack_OCDE_STG_CCM"
-          DTS:CreationName="Microsoft.ExecutePackageTask"
-          DTS:Description="Tâche d'exécution de package"
-          DTS:DTSID="{7d0262aa-8d08-445c-bddf-c51523c6bd12}"
-          DTS:ExecutableType="Microsoft.ExecutePackageTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Pack_OCDE_STG_CCM"
-          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <ExecutePackageTask>
-              <UseProjectReference>True</UseProjectReference>
-              <PackageName>OCDE_STG_CCM.dtsx</PackageName>
-            </ExecutePackageTask>
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
-    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Process_Counter_Data"
       DTS:CreationName="STOCK:SEQUENCE"
@@ -374,6 +345,7 @@
           DTS:refId="Package\Process_Kappa_Metadata\Pack_OCDE_STG_DIM_Expression"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Tâche d'exécution de package"
+          DTS:Disabled="True"
           DTS:DTSID="{851f10bd-0213-407d-9174-b512acf5639d}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
@@ -622,6 +594,14 @@
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Process_GoogleBooks_Data" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{1989D114-41D7-42D3-A231-E014ED8BE678}"
+      DTS:From="Package\Process_GoogleBooks_Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Process_IPCountry" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 1]"
       DTS:CreationName=""
       DTS:DTSID="{9DC5F4F6-FED5-4183-BDDA-BA16D5E56497}"
@@ -645,22 +625,6 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 3"
       DTS:To="Package\Process_Counter_Data" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 6]"
-      DTS:CreationName=""
-      DTS:DTSID="{E9F7548D-EAC9-4092-A6E7-06D76E8D36BC}"
-      DTS:From="Package\Process_GoogleBooks_Data"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 6"
-      DTS:To="Package\Process_CCM" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 7]"
-      DTS:CreationName=""
-      DTS:DTSID="{92E27861-116A-4935-980F-E76ED1409274}"
-      DTS:From="Package\Process_CCM"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 7"
-      DTS:To="Package\Process_IPCountry" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -674,17 +638,6 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="186.666666666667,42.6666666666667"
-          Id="Package\Process_CCM\Pack_OCDE_STG_CCM"
-          TopLeft="35.7083227628223,24.4166602934401" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="323.333333333334,120"
-          Size="323.333333333334,162.666666666667"
-          Id="Package\Process_CCM"
-          TopLeft="1125.11109896253,1009.25002679079" />
         <NodeLayout
           Size="240,42.6666666666667"
           Id="Package\Process_Counter_Data\Pack_OCDE_STG_CounterMonthly"
@@ -717,7 +670,7 @@
           PanelSize="323.333333333334,120"
           Size="323.333333333334,162.666666666667"
           Id="Package\Process_GoogleBooks_Data"
-          TopLeft="1611.56942504707,1007.22224506769" />
+          TopLeft="1130.31943221825,1006.13891175373" />
         <NodeLayout
           Size="218.666666666667,42.6666666666667"
           Id="Package\Process_iLibraryLog_Data\Pack_OCDE_STG_ILibraryLog"
@@ -1152,14 +1105,14 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43.8499947813157"
+              EndConnector="0,43.8499947813164"
               Start="0,0"
-              End="0,36.3499947813157">
+              End="0,36.3499947813164">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.3499947813157" />
+                    End="0,36.3499947813164" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1172,7 +1125,7 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="1101.33333333334,306"
-          Size="1101.33333333334,348.666666666667"
+          Size="1101.33333333334,349.333333333334"
           Id="Package\Process_Kappa_Metadata"
           TopLeft="149.999997764826,6.49999988377087" />
         <NodeLayout
@@ -1212,6 +1165,40 @@
                     Point3="30.7222256577681,34.9861142718963" />
                   <mssgle:LineSegment
                     End="30.7222256577681,54.4722285437925" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="1283.65276567577,937.250019042193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.33333320915358,68.8888927115355"
+              Start="0,0"
+              End="8.33333320915358,61.3888927115355">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.4444463557678" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.4444463557678"
+                    Point2="0,34.4444463557678"
+                    Point3="4,34.4444463557678" />
+                  <mssgle:LineSegment
+                    End="4.33333320915358,34.4444463557678" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.33333320915358,34.4444463557678"
+                    Point2="8.33333320915358,34.4444463557678"
+                    Point3="8.33333320915358,38.4444463557678" />
+                  <mssgle:LineSegment
+                    End="8.33333320915358,61.3888927115355" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1293,75 +1280,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 6]"
-          TopLeft="1611.56942504707,1089.56946926257">
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="1130.31943221825,1086.43058242061">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-163.124992751206,0"
+              EndConnector="-152.361104022716,0"
               Start="0,0"
-              End="-155.624992751206,0">
+              End="-144.861104022716,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-155.624992751206,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 7]"
-          TopLeft="1125.11109896253,1087.98613993914">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-147.152770766993,0"
-              Start="0,0"
-              End="-139.652770766993,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-139.652770766993,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="1283.65276567577,937.250019042193">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="489.58332603797,69.9722260254972"
-              Start="0,0"
-              End="489.58332603797,62.4722260254972">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.9861130127486" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.9861130127486"
-                    Point2="0,34.9861130127486"
-                    Point3="4,34.9861130127486" />
-                  <mssgle:LineSegment
-                    End="485.58332603797,34.9861130127486" />
-                  <mssgle:CubicBezierSegment
-                    Point1="485.58332603797,34.9861130127486"
-                    Point2="489.58332603797,34.9861130127486"
-                    Point3="489.58332603797,38.9861130127486" />
-                  <mssgle:LineSegment
-                    End="489.58332603797,62.4722260254972" />
+                    End="-144.861104022716,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
