@@ -3,7 +3,7 @@
 SELECT
 	SA.CustomerType
 FROM
-STG_Registration_SA SA
+stg.STG_Registration_SA SA
 LEFT OUTER JOIN [stg].CustomerType_DM DM 
 	ON DM.CustomerType = SA.CustomerType 
 WHERE DM.CustomerType_ID IS NULL
