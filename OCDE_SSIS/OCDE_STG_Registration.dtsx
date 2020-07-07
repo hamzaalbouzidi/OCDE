@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Registration"
   DTS:PackageType="5"
-  DTS:VersionBuild="83"
-  DTS:VersionGUID="{7D79BDF1-C7E2-474E-A3FC-A5338DB412E5}">
+  DTS:VersionBuild="84"
+  DTS:VersionGUID="{B3D3D905-55B8-4735-A2DC-6706BECEADA3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -37,402 +37,6 @@
     </DTS:SelectedLogProviders>
   </DTS:LoggingOptions>
   <DTS:Executables>
-    <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO STG_City"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{af1fc861-99d3-4b68-836a-3c12fcd680dc}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO STG_City"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1">
-        <DTS:Property
-          DTS:DataType="8"
-          DTS:Name="EventFilter">3,7,OnError,13,OnPostExecute,12,OnPreExecute</DTS:Property>
-        <DTS:Property
-          DTS:EventName="OnError"
-          DTS:Name="ColumnFilter">
-          <DTS:Property
-            DTS:Name="Computer">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="Operator">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceName">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="ExecutionID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="MessageText">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="DataBytes">-1</DTS:Property>
-        </DTS:Property>
-        <DTS:Property
-          DTS:EventName="OnPostExecute"
-          DTS:Name="ColumnFilter">
-          <DTS:Property
-            DTS:Name="Computer">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="Operator">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceName">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="ExecutionID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="MessageText">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="DataBytes">-1</DTS:Property>
-        </DTS:Property>
-        <DTS:Property
-          DTS:EventName="OnPreExecute"
-          DTS:Name="ColumnFilter">
-          <DTS:Property
-            DTS:Name="Computer">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="Operator">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceName">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="ExecutionID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="MessageText">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="DataBytes">-1</DTS:Property>
-        </DTS:Property>
-        <DTS:SelectedLogProviders>
-          <DTS:SelectedLogProvider
-            DTS:InstanceID="{5F89898B-82E8-40C8-9FDF-AF0BBB84330D}" />
-        </DTS:SelectedLogProviders>
-      </DTS:LoggingOptions>
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\DFT INSERT INTO STG_City\Conversion de données"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
-              description="Conversion de données"
-              name="Conversion de données"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_City\Conversion de données.Inputs[Entrée de conversion de données]"
-                  name="Entrée de conversion de données">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_City\Conversion de données.Inputs[Entrée de conversion de données].Columns[City]"
-                      cachedDataType="wstr"
-                      cachedLength="500"
-                      cachedName="City"
-                      lineageId="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA.Outputs[Sortie de source OLE DB].Columns[City]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_City\Conversion de données.Outputs[Sortie de conversion de données]"
-                  exclusionGroup="1"
-                  name="Sortie de conversion de données"
-                  synchronousInputId="Package\DFT INSERT INTO STG_City\Conversion de données.Inputs[Entrée de conversion de données]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_City\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de City]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\DFT INSERT INTO STG_City\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de City]"
-                      name="Copie de City"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA.Outputs[Sortie de source OLE DB].Columns[City]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_City\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de conversion de données"
-                  synchronousInputId="Package\DFT INSERT INTO STG_City\Conversion de données.Inputs[Entrée de conversion de données]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_City\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_City\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_City\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_City\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_City\OLE_DST STG_City"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
-              description="Destination OLE DB"
-              name="OLE_DST STG_City"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_City_DM_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_City\OLE_DST STG_City.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_City\OLE_DST STG_City.Inputs[Entrée de destination OLE DB]"
-                  errorOrTruncationOperation="Insérer"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrée de destination OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_City\OLE_DST STG_City.Inputs[Entrée de destination OLE DB].Columns[Copie de City]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="Copie de City"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_City\OLE_DST STG_City.Inputs[Entrée de destination OLE DB].ExternalColumns[City]"
-                      lineageId="Package\DFT INSERT INTO STG_City\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de City]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_City\OLE_DST STG_City.Inputs[Entrée de destination OLE DB].ExternalColumns[City]"
-                      dataType="wstr"
-                      length="50"
-                      name="City" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_City\OLE_DST STG_City.Outputs[Sortie d'erreur de destination OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_City\OLE_DST STG_City.Inputs[Entrée de destination OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_City\OLE_DST STG_City.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_City\OLE_DST STG_City.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_City\OLE_DST STG_City.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_City\OLE_DST STG_City.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
-              description="Source OLE DB"
-              name="OLE_SRC OCDE_STG_view_City_DM_SA"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[view_City_DM_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.String"
-                  description="Variable contenant la commande SQL à exécuter."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="Mappages entre les paramètres de la commande SQL et les variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA.Outputs[Sortie de source OLE DB]"
-                  name="Sortie de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA.Outputs[Sortie de source OLE DB].Columns[City]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[City]"
-                      length="500"
-                      lineageId="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA.Outputs[Sortie de source OLE DB].Columns[City]"
-                      name="City"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[City]"
-                      dataType="wstr"
-                      length="500"
-                      name="City" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA.Outputs[Sortie d'erreur de source OLE DB]"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[City]"
-                      dataType="wstr"
-                      length="500"
-                      lineageId="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[City]"
-                      name="City" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\DFT INSERT INTO STG_City.Paths[Sortie de conversion de données]"
-              endId="Package\DFT INSERT INTO STG_City\OLE_DST STG_City.Inputs[Entrée de destination OLE DB]"
-              name="Sortie de conversion de données"
-              startId="Package\DFT INSERT INTO STG_City\Conversion de données.Outputs[Sortie de conversion de données]" />
-            <path
-              refId="Package\DFT INSERT INTO STG_City.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO STG_City\Conversion de données.Inputs[Entrée de conversion de données]"
-              name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA.Outputs[Sortie de source OLE DB]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\DFT INSERT INTO STG_CustomerType"
       DTS:CreationName="Microsoft.Pipeline"
@@ -5096,25 +4700,6 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\TSQL Truncate STG_City"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{7e8ca218-b130-4e26-ad5f-141b347ee669}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL Truncate STG_City"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_City_DM_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\TSQL Truncate STG_CustomerType"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
@@ -5214,27 +4799,19 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{11D06A18-A3ED-46BB-B6C3-C6144974AC42}"
-      DTS:From="Package\DFT INSERT INTO STG_Registration_SA"
+      DTS:DTSID="{881F9E61-66D7-4698-8E40-B01C1D2C7883}"
+      DTS:From="Package\TSQL Truncate STG_CustomerType"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\DFT INSERT INTO STG_City" />
+      DTS:To="Package\DFT INSERT INTO STG_Registration_SA" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{7509E429-7EF6-42C0-AAB2-83877FB12011}"
-      DTS:From="Package\DFT INSERT INTO STG_City"
+      DTS:DTSID="{2B88F52C-D5C6-49A1-A7C2-FD820370C942}"
+      DTS:From="Package\DFT INSERT INTO STG_Registration_SA"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
-      DTS:CreationName=""
-      DTS:DTSID="{A947C621-2BAB-4ADD-977F-D803B2834E6A}"
-      DTS:From="Package\TSQL Truncate STG_City"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 2"
-      DTS:To="Package\DFT INSERT INTO STG_Registration_SA" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
@@ -5308,14 +4885,6 @@
       DTS:ObjectName="Contrainte 14"
       DTS:To="Package\TSQL Truncate STG_CustomerType" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 16]"
-      DTS:CreationName=""
-      DTS:DTSID="{0D2D778C-076B-41CA-AD29-B421BB5D11FE}"
-      DTS:From="Package\TSQL Truncate STG_CustomerType"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 16"
-      DTS:To="Package\TSQL Truncate STG_City" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 3]"
       DTS:CreationName=""
       DTS:DTSID="{28481601-1D47-4AEC-BB57-0E207E188FB6}"
@@ -5369,10 +4938,6 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="212,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_City"
-          TopLeft="140.232140849478,502.279376588994" />
-        <NodeLayout
           Size="262.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CustomerType"
           TopLeft="171.690473714045,1227.42380948544" />
@@ -5417,9 +4982,9 @@
           Id="Package\TSQL DELETE Registration_SA (Name)"
           TopLeft="126.071426692818,790.269834939968" />
         <NodeLayout
-          Size="196,42.6666666666667"
-          Id="Package\TSQL Truncate STG_City"
-          TopLeft="154.815473965503,362.712714253797" />
+          Size="376,42.6666666666667"
+          Id="Package\TSQL INSERT INTO STG_Registration_SA_Rejected (Duplicate)"
+          TopLeft="115.624998277053,1012.99999434352" />
         <NodeLayout
           Size="246.666666666667,42.6666666666667"
           Id="Package\TSQL Truncate STG_CustomerType"
@@ -5441,19 +5006,31 @@
           Id="Package\TSQL Truncate STG_RegistrationType"
           TopLeft="123.287696657526,203.034937165645" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="245.877974401672,476.474595714543">
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="289.23809317322,989.84126926197">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,25.8047808744514"
+              EndConnector="14.3869051038334,23.1587250815498"
               Start="0,0"
-              End="0,18.3047808744514">
+              End="14.3869051038334,15.6587250815498">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.3047808744514" />
+                    End="0,7.57936254077492" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.57936254077492"
+                    Point2="0,11.5793625407749"
+                    Point3="4,11.5793625407749" />
+                  <mssgle:LineSegment
+                    End="10.3869051038334,11.5793625407749" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.3869051038334,11.5793625407749"
+                    Point2="14.3869051038334,11.5793625407749"
+                    Point3="14.3869051038334,15.5793625407749" />
+                  <mssgle:LineSegment
+                    End="14.3869051038334,15.6587250815498" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5463,53 +5040,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="246.232140849478,544.946043255661">
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="300.431545576125,1055.66666101019">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="12.791667688017,23.3809310058749"
+              EndConnector="0,27.7460399392639"
               Start="0,0"
-              End="12.791667688017,15.8809310058749">
+              End="0,20.2460399392639">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,7.69046550293746" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,7.69046550293746"
-                    Point2="0,11.6904655029375"
-                    Point3="4,11.6904655029375" />
-                  <mssgle:LineSegment
-                    End="8.79166768801701,11.6904655029375" />
-                  <mssgle:CubicBezierSegment
-                    Point1="8.79166768801701,11.6904655029375"
-                    Point2="12.791667688017,11.6904655029375"
-                    Point3="12.791667688017,15.6904655029375" />
-                  <mssgle:LineSegment
-                    End="12.791667688017,15.8809310058749" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="249.169640959684,405.379380920464">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.4285481274126"
-              Start="0,0"
-              End="0,20.9285481274126">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.9285481274126" />
+                    End="0,20.2460399392639" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5673,28 +5216,6 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 16]"
-          TopLeft="249.301585317723,321.101602484057">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.6111117697407"
-              Start="0,0"
-              End="0,34.1111117697407">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.1111117697407" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 3]"
           TopLeft="259.964284325285,610.993640928202">
           <EdgeLayout.Curve>
@@ -5816,36 +5337,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="376,42.6666666666667"
-          Id="Package\TSQL INSERT INTO STG_Registration_SA_Rejected (Duplicate)"
-          TopLeft="115.624998277053,1012.99999434352" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="289.23809317322,989.84126926197">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="245.655752311905,321.101602484057">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14.3869051038334,23.1587250815498"
+              EndConnector="0,112.706326563819"
               Start="0,0"
-              End="14.3869051038334,15.6587250815498">
+              End="0,105.206326563819">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,7.57936254077492" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,7.57936254077492"
-                    Point2="0,11.5793625407749"
-                    Point3="4,11.5793625407749" />
-                  <mssgle:LineSegment
-                    End="10.3869051038334,11.5793625407749" />
-                  <mssgle:CubicBezierSegment
-                    Point1="10.3869051038334,11.5793625407749"
-                    Point2="14.3869051038334,11.5793625407749"
-                    Point3="14.3869051038334,15.5793625407749" />
-                  <mssgle:LineSegment
-                    End="14.3869051038334,15.6587250815498" />
+                    End="0,105.206326563819" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5855,19 +5360,31 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="300.431545576125,1055.66666101019">
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="245.523807953866,476.474595714543">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,27.7460399392639"
+              EndConnector="13.5000005836293,91.8523785469933"
               Start="0,0"
-              End="0,20.2460399392639">
+              End="13.5000005836293,84.3523785469933">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2460399392639" />
+                    End="0,41.9261892734966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.9261892734966"
+                    Point2="0,45.9261892734966"
+                    Point3="4,45.9261892734966" />
+                  <mssgle:LineSegment
+                    End="9.50000058362926,45.9261892734966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.50000058362926,45.9261892734966"
+                    Point2="13.5000005836293,45.9261892734966"
+                    Point3="13.5000005836293,49.9261892734966" />
+                  <mssgle:LineSegment
+                    End="13.5000005836293,84.3523785469933" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5879,100 +5396,6 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_City">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="169.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_City\OLE_DST STG_City"
-          TopLeft="128.571426655565,175.709521060983" />
-        <NodeLayout
-          Size="269.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA"
-          TopLeft="74.166665561497,38.1333326514563" />
-        <NodeLayout
-          Size="189.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_City\Conversion de données"
-          TopLeft="121.249998193234,108.966665636102" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_City.Paths[Sortie de source OLE DB]"
-          TopLeft="212.374998544032,80.799999318123">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.1666663179794"
-              Start="0,0"
-              End="0,20.6666663179794">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.6666663179794" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_City.Paths[Sortie de conversion de données]"
-          TopLeft="214.577379091066,151.633332302769">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,24.0761887582142"
-              Start="0,0"
-              End="0,16.5761887582142">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5761887582142" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_City\OLE_DST STG_City">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_City\OLE_SRC OCDE_STG_view_City_DM_SA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\DFT INSERT INTO STG_CustomerType">
     <LayoutInfo>
@@ -6107,7 +5530,7 @@
     design-time-name="Package\DFT INSERT INTO STG_Registration_SA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="226.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Registration_SA\OLE_DST STG_Registration_SA"
@@ -6139,9 +5562,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6163,9 +5584,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6201,7 +5620,7 @@
     design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (CustomerType)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="393.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (CustomerType)\OLE_SRC OCDE_STG_view_Registration_SA_Check_CustomerType"
@@ -6233,7 +5652,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6255,7 +5676,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

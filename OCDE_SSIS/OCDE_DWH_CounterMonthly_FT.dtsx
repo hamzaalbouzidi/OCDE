@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_CounterMonthly_FT"
   DTS:PackageType="5"
-  DTS:VersionBuild="38"
-  DTS:VersionGUID="{74D29475-3A55-4770-A4E7-DCEF2F998A58}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{1845ABA7-0BE0-419F-84FA-A92024287664}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -359,7 +359,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dwh].[TMP_STG_CounterMonthly_FT_SA]') AND type in (N'U'))&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_CounterMonthly_FT_SA](&#xA;&#x9;[Download_Date] [date] NULL,&#xA;&#x9;[Expression_ID] [int] NULL,&#xA;&#x9;[Registration_ID] [int] NULL,&#xA;&#x9;[Downloads] [int] NULL&#xA;)ON [PRIMARY]&#xA;END&#xA;ELSE &#xA;Begin&#xA;TRUNCATE TABLE  [dwh].[TMP_STG_CounterMonthly_FT_SA]&#xA;end&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_CounterMonthly_FT_SA')&#xA;drop TABLE [dwh].[TMP_STG_CounterMonthly_FT_SA]&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_CounterMonthly_FT_SA](&#xA;&#x9;[Download_Date] [date] NULL,&#xA;&#x9;[Expression_ID] [int] NULL,&#xA;&#x9;[Registration_ID] [int] NULL,&#xA;&#x9;[Downloads] [int] NULL&#xA;)ON [PRIMARY]&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -375,7 +375,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="DROP TABLE [dwh].[TMP_STG_CounterMonthly_FT_SA]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_CounterMonthly_FT_SA')&#xA;&#xA;DROP TABLE [dwh].[TMP_STG_CounterMonthly_FT_SA]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -391,7 +391,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="&#xA;INSERT INTO dwh.[CounterMonthly_FT]&#xA;&#x9;&#x9;&#x9;([Download_Date]&#xA;&#x9;&#x9;&#x9;,[Expression_ID]&#xA;&#x9;&#x9;&#x9;,[Registration_ID]&#xA;&#x9;&#x9;&#x9;,[Exclude]&#xA;&#x9;&#x9;&#x9;,[Downloads])&#xA;&#x9;&#x9;SELECT &#xA;&#x9;&#x9;&#x9; T.[Download_Date]&#xA;&#x9;&#x9;&#x9;,T.[Expression_ID]&#xA;&#x9;&#x9;&#x9;,T.[Registration_ID]&#xA;&#x9;&#x9;&#x9;,0&#xA;&#x9;&#x9;&#x9;,T.[Downloads]&#xA;FROM(&#xA;select A.*&#xA;FROM[dwh].[TMP_STG_CounterMonthly_FT_SA]  A&#xA;INNER JOIN dwh.Registration_DM c&#xA;on a.Registration_ID =c.Registration_ID&#xA;INNER JOIN dwh.Expression_DM B&#xA;ON a.Expression_ID=b.Expression_ID&#xA;) T" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="INSERT INTO dwh.[CounterMonthly_FT]&#xA;&#x9;&#x9;&#x9;([Download_Date]&#xA;&#x9;&#x9;&#x9;,[Expression_ID]&#xA;&#x9;&#x9;&#x9;,[Registration_ID]&#xA;&#x9;&#x9;&#x9;,[Exclude]&#xA;&#x9;&#x9;&#x9;,[Downloads])&#xA;&#x9;&#x9;SELECT &#xA;&#x9;&#x9;&#x9; T.[Download_Date]&#xA;&#x9;&#x9;&#x9;,T.[Expression_ID]&#xA;&#x9;&#x9;&#x9;,T.[Registration_ID]&#xA;&#x9;&#x9;&#x9;,0&#xA;&#x9;&#x9;&#x9;,T.[Downloads]&#xA;FROM(&#xA;select A.*&#xA;FROM[dwh].[TMP_STG_CounterMonthly_FT_SA]  A&#xA;INNER JOIN dwh.Registration_DM c&#xA;on a.Registration_ID =c.Registration_ID&#xA;INNER JOIN dwh.Expression_DM B&#xA;ON a.Expression_ID=b.Expression_ID&#xA;left join [dwh].[CounterMonthly_FT] co on co.Download_Date=A.download_date and co.Expression_ID =A.Expression_ID&#xA;and co.Registration_ID=A.Registration_ID&#xA;where co.Download_Date is null&#xA;) T" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>

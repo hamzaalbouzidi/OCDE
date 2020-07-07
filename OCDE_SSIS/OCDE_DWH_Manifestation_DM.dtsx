@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_Manifestation_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="83"
-  DTS:VersionGUID="{B4F0B0AB-68A2-479D-950B-F5D90CC50060}">
+  DTS:VersionBuild="87"
+  DTS:VersionGUID="{01479581-2C52-41DD-A8E7-E7A886524806}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -887,7 +887,7 @@ on a.Format_Id=c.Format_Id</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dwh].[TMP_STG_Manifestation_DM_SA_Merge]') AND type in (N'U'))&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_Manifestation_DM_SA_Merge](&#xA;&#x9;[Manifestation_ExternalID] [nvarchar](100) NULL,&#xA;&#x9;[ExternalSource] [varchar](3) NOT NULL,&#xA;&#x9;[Expression_ID] [int] NOT NULL,&#xA;&#x9;[Format_ID] [int] NOT NULL,&#xA;&#x9;[FirstRelease_Date] [date] NULL,&#xA;&#x9;[ISBN13] [int] NULL&#xA;) ON [PRIMARY]&#xA;END&#xA;ELSE &#xA;Begin&#xA;TRUNCATE TABLE [dwh].[TMP_STG_Manifestation_DM_SA_Merge]&#xA;end&#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_Manifestation_DM_SA_Merge')&#xA;drop TABLE [dwh].[TMP_STG_Manifestation_DM_SA_Merge]&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_Manifestation_DM_SA_Merge](&#xA;&#x9;[Manifestation_ExternalID] [nvarchar](100) NULL,&#xA;&#x9;[ExternalSource] [varchar](3) NOT NULL,&#xA;&#x9;[Expression_ID] [int] NOT NULL,&#xA;&#x9;[Format_ID] [int] NOT NULL,&#xA;&#x9;[FirstRelease_Date] [date] NULL,&#xA;&#x9;[ISBN13] [int] NULL&#xA;) ON [PRIMARY]&#xA;END&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -903,7 +903,7 @@ on a.Format_Id=c.Format_Id</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dwh].[TMP_STG_Manifestation_StatLink_DM_SA_Merge]') AND type in (N'U'))&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_Manifestation_StatLink_DM_SA_Merge](&#xA;&#x9;[Manifestation_ExternalID] [nvarchar](100) NULL,&#xA;&#x9;[ExternalSource] [varchar](10) NOT NULL,&#xA;&#x9;[Expression_ID] [int] NOT NULL,&#xA;&#x9;[Format_ID] [int] NOT NULL,&#xA;&#x9;[FirstRelease_Date] [datetime] NULL,&#xA;&#x9;[ISBN13] [int] NULL&#xA;) ON [PRIMARY]&#xA;END&#xA;ELSE &#xA;Begin&#xA;TRUNCATE TABLE [dwh].[TMP_STG_Manifestation_StatLink_DM_SA_Merge]&#xA;end&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_Manifestation_StatLink_DM_SA_Merge')&#xA;drop TABLE  [dwh].[TMP_STG_Manifestation_StatLink_DM_SA_Merge]&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_Manifestation_StatLink_DM_SA_Merge](&#xA;&#x9;[Manifestation_ExternalID] [nvarchar](100) NULL,&#xA;&#x9;[ExternalSource] [varchar](10) NOT NULL,&#xA;&#x9;[Expression_ID] [int] NOT NULL,&#xA;&#x9;[Format_ID] [int] NOT NULL,&#xA;&#x9;[FirstRelease_Date] [datetime] NULL,&#xA;&#x9;[ISBN13] [int] NULL&#xA;) ON [PRIMARY]&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -919,7 +919,7 @@ on a.Format_Id=c.Format_Id</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="DROP TABLE [dwh].[TMP_STG_Manifestation_DM_SA_Merge]&#xA;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_Manifestation_DM_SA_Merge')&#xA;DROP TABLE [dwh].[TMP_STG_Manifestation_DM_SA_Merge]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -935,7 +935,7 @@ on a.Format_Id=c.Format_Id</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="DROP TABLE [dwh].[TMP_STG_Manifestation_StatLink_DM_SA_Merge]&#xA;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_Manifestation_StatLink_DM_SA_Merge')&#xA;DROP TABLE [dwh].[TMP_STG_Manifestation_StatLink_DM_SA_Merge]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable

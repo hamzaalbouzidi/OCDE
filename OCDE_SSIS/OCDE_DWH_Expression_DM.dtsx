@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_Expression_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="140"
-  DTS:VersionGUID="{4E2125AD-6598-43EC-8A94-21931E46E099}">
+  DTS:VersionBuild="144"
+  DTS:VersionGUID="{E325A3EC-C107-4122-B3A2-1E6535A00BB9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -4721,7 +4721,7 @@ on a.IGOId_ID= e.IGO_ID</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dwh].[TMP_STG_ExpressionParent_Update_DM_SA]') AND type in (N'U'))&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_ExpressionParent_Update_DM_SA](&#xA;&#x9;[doi] [nvarchar](225) NULL,&#xA;&#x9;[TopParent_ID] [int] NULL,&#xA;&#x9;[Top2Parent_ID] [int] NULL,&#xA;&#x9;[Top3Parent_ID] [int] NULL&#xA;) ON [PRIMARY]&#xA;END&#xA;ELSE &#xA;Begin&#xA;TRUNCATE TABLE [dwh].[TMP_STG_ExpressionParent_Update_DM_SA]&#xA;end&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_ExpressionParent_Update_DM_SA')&#xA;drop TABLE  [dwh].[TMP_STG_ExpressionParent_Update_DM_SA]&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_ExpressionParent_Update_DM_SA](&#xA;&#x9;[doi] [nvarchar](225) NULL,&#xA;&#x9;[TopParent_ID] [int] NULL,&#xA;&#x9;[Top2Parent_ID] [int] NULL,&#xA;&#x9;[Top3Parent_ID] [int] NULL&#xA;) ON [PRIMARY]&#xA;END&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4737,7 +4737,7 @@ on a.IGOId_ID= e.IGO_ID</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dwh].[TMP_STG_Update_Expression_DM_Part1]') AND type in (N'U'))&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_Update_Expression_DM_Part1](&#xA;&#x9;[FirstReleaseDate] [datetime] NULL,&#xA;&#x9;[FirstExportDate] [datetime] NULL,&#xA;&#x9;[LatestExportDate] [datetime] NULL,&#xA;&#x9;[LatestDeletionDate] [datetime] NULL,&#xA;&#x9;[DOI] [nvarchar](255) NULL&#xA;) ON [PRIMARY]&#xA;END&#xA;ELSE &#xA;Begin&#xA;TRUNCATE TABLE [dwh].[TMP_STG_Update_Expression_DM_Part1]&#xA;end&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF EXISTS (SELECT * FROM sys.objects WHERE name= 'TMP_STG_Update_Expression_DM_Part1')&#xA;drop TABLE  [dwh].TMP_STG_Update_Expression_DM_Part1&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_Update_Expression_DM_Part1](&#xA;&#x9;[FirstReleaseDate] [datetime] NULL,&#xA;&#x9;[FirstExportDate] [datetime] NULL,&#xA;&#x9;[LatestExportDate] [datetime] NULL,&#xA;&#x9;[LatestDeletionDate] [datetime] NULL,&#xA;&#x9;[DOI] [nvarchar](255) NULL&#xA;) ON [PRIMARY]&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4753,7 +4753,7 @@ on a.IGOId_ID= e.IGO_ID</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dwh].[TMP_STG_Expression_DM_SA_Merge]') AND type in (N'U'))&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_Expression_DM_SA_Merge](&#xA;&#x9;[Expression_ExternalID] [nvarchar](100) NULL,&#xA;&#x9;[ExternalSource] [varchar](3) NOT NULL,&#xA;&#x9;[DOI] [varchar](255) NULL,&#xA;&#x9;[ISSN] [varchar](10) NULL,&#xA;&#x9;[EISSN] [varchar](10) NOT NULL,&#xA;&#x9;[Title] [nvarchar](2000) NULL,&#xA;&#x9;[SubTitle] [nvarchar](2000) NULL,&#xA;&#x9;[Language_ID] [int] NULL,&#xA;&#x9;[Directorate_lID] [varchar](4) NULL,&#xA;&#x9;[Theme_ID] [int] NULL,&#xA;&#x9;[IGO_ID] [int] NULL,&#xA;&#x9;[ObjectType_ID] [int] NULL,&#xA;&#x9;[FirstRelease_Date] [datetime] NULL,&#xA;&#x9;[iLibraryURLAlias] [varchar](1003) NULL,&#xA;&#x9;[FirstExportDate] [datetime] NULL,&#xA;&#x9;[LatestExportDate] [datetime] NULL,&#xA;&#x9;[LatestDeletionDate] [datetime] NULL,&#xA;&#x9;[src_Language_ID] [int] NULL,&#xA;&#x9;[src_Directorate_ID] [varchar](4) NULL,&#xA;&#x9;[src_Theme_ID] [int] NULL,&#xA;&#x9;[src_IGO_ID] [int] NULL,&#xA;&#x9;[src_ObjectType_ID] [int] NULL&#xA;)ON [PRIMARY]&#xA;END&#xA;ELSE &#xA;Begin&#xA;TRUNCATE TABLE [dwh].[TMP_STG_Expression_DM_SA_Merge]&#xA;end&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF EXISTS (SELECT * FROM sys.objects WHERE name= 'TMP_STG_Expression_DM_SA_Merge')&#xA;drop TABLE  [dwh].[TMP_STG_Expression_DM_SA_Merge]&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_Expression_DM_SA_Merge](&#xA;&#x9;[Expression_ExternalID] [nvarchar](100) NULL,&#xA;&#x9;[ExternalSource] [varchar](3) NOT NULL,&#xA;&#x9;[DOI] [varchar](255) NULL,&#xA;&#x9;[ISSN] [varchar](10) NULL,&#xA;&#x9;[EISSN] [varchar](10) NOT NULL,&#xA;&#x9;[Title] [nvarchar](2000) NULL,&#xA;&#x9;[SubTitle] [nvarchar](2000) NULL,&#xA;&#x9;[Language_ID] [int] NULL,&#xA;&#x9;[Directorate_lID] [varchar](4) NULL,&#xA;&#x9;[Theme_ID] [int] NULL,&#xA;&#x9;[IGO_ID] [int] NULL,&#xA;&#x9;[ObjectType_ID] [int] NULL,&#xA;&#x9;[FirstRelease_Date] [datetime] NULL,&#xA;&#x9;[iLibraryURLAlias] [varchar](1003) NULL,&#xA;&#x9;[FirstExportDate] [datetime] NULL,&#xA;&#x9;[LatestExportDate] [datetime] NULL,&#xA;&#x9;[LatestDeletionDate] [datetime] NULL,&#xA;&#x9;[src_Language_ID] [int] NULL,&#xA;&#x9;[src_Directorate_ID] [varchar](4) NULL,&#xA;&#x9;[src_Theme_ID] [int] NULL,&#xA;&#x9;[src_IGO_ID] [int] NULL,&#xA;&#x9;[src_ObjectType_ID] [int] NULL&#xA;)ON [PRIMARY]&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4769,7 +4769,7 @@ on a.IGOId_ID= e.IGO_ID</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dwh].[TMP_STG_Expression_StatLinks_DM_SA_Merge]') AND type in (N'U'))&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_Expression_StatLinks_DM_SA_Merge](&#xA;&#x9;[Expression_ExternalID] [nvarchar](100) NULL,&#xA;&#x9;[ExternalSource] [varchar](2) NOT NULL,&#xA;&#x9;[DOI] [varchar](50) NULL,&#xA;&#x9;[ISSN] [int] NULL,&#xA;&#x9;[Title] [varchar](255) NULL,&#xA;&#x9;[SubTitle] [int] NULL,&#xA;&#x9;[Language_ID] [int] NOT NULL,&#xA;&#x9;[Directorate_ID] [int] NOT NULL,&#xA;&#x9;[Theme_ID] [int] NOT NULL,&#xA;&#x9;[IGOId_ID] [int] NOT NULL,&#xA;&#x9;[ObjectType_ID] [int] NOT NULL,&#xA;&#x9;[FirstRelease_Date] [datetime] NULL,&#xA;&#x9;[iLibraryURLAlias] [varchar](255) NULL,&#xA;&#x9;[FirstExportDate] [datetime] NULL,&#xA;&#x9;[LatestExportDate] [datetime] NULL,&#xA;&#x9;[LatestDeletionDate] [datetime] NULL&#xA;) ON [PRIMARY]&#xA;END&#xA;ELSE &#xA;Begin&#xA;TRUNCATE TABLE [dwh].[TMP_STG_Expression_StatLinks_DM_SA_Merge]&#xA;end&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_Expression_StatLinks_DM_SA_Merge')&#xA;drop TABLE  [dwh].[TMP_STG_Expression_StatLinks_DM_SA_Merge]&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_Expression_StatLinks_DM_SA_Merge](&#xA;&#x9;[Expression_ExternalID] [nvarchar](100) NULL,&#xA;&#x9;[ExternalSource] [varchar](2) NOT NULL,&#xA;&#x9;[DOI] [varchar](50) NULL,&#xA;&#x9;[ISSN] [int] NULL,&#xA;&#x9;[Title] [varchar](255) NULL,&#xA;&#x9;[SubTitle] [int] NULL,&#xA;&#x9;[Language_ID] [int] NOT NULL,&#xA;&#x9;[Directorate_ID] [int] NOT NULL,&#xA;&#x9;[Theme_ID] [int] NOT NULL,&#xA;&#x9;[IGOId_ID] [int] NOT NULL,&#xA;&#x9;[ObjectType_ID] [int] NOT NULL,&#xA;&#x9;[FirstRelease_Date] [datetime] NULL,&#xA;&#x9;[iLibraryURLAlias] [varchar](255) NULL,&#xA;&#x9;[FirstExportDate] [datetime] NULL,&#xA;&#x9;[LatestExportDate] [datetime] NULL,&#xA;&#x9;[LatestDeletionDate] [datetime] NULL&#xA;) ON [PRIMARY]&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4785,7 +4785,7 @@ on a.IGOId_ID= e.IGO_ID</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dwh].[TMP_STG_Update_Expression_DM_Part2]') AND type in (N'U'))&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_Update_Expression_DM_Part2](&#xA;&#x9;[ISSN] [nvarchar](10) NULL,&#xA;&#x9;[Title] [nvarchar](2000) NULL,&#xA;&#x9;[SubTitle] [nvarchar](2000) NULL,&#xA;&#x9;[iLibraryURLAlias] [nvarchar](1003) NULL,&#xA;&#x9;[iLibraryAccessMode] [int] NULL,&#xA;&#x9;[DOI] [nvarchar](255) NULL&#xA;) ON [PRIMARY]&#xA;END&#xA;ELSE &#xA;Begin&#xA;TRUNCATE TABLE [dwh].[TMP_STG_Update_Expression_DM_Part2]&#xA;end&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF EXISTS (SELECT * FROM sys.objects WHERE name= 'TMP_STG_Update_Expression_DM_Part2')&#xA;drop TABLE  [dwh].[TMP_STG_Update_Expression_DM_Part2]&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_Update_Expression_DM_Part2](&#xA;&#x9;[ISSN] [nvarchar](10) NULL,&#xA;&#x9;[Title] [nvarchar](2000) NULL,&#xA;&#x9;[SubTitle] [nvarchar](2000) NULL,&#xA;&#x9;[iLibraryURLAlias] [nvarchar](1003) NULL,&#xA;&#x9;[iLibraryAccessMode] [int] NULL,&#xA;&#x9;[DOI] [nvarchar](255) NULL&#xA;) ON [PRIMARY]&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4801,7 +4801,7 @@ on a.IGOId_ID= e.IGO_ID</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="DROP TABLE [dwh].[TMP_STG_ExpressionParent_Update_DM_SA]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_ExpressionParent_Update_DM_SA')&#xA;DROP TABLE [dwh].[TMP_STG_ExpressionParent_Update_DM_SA]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4817,7 +4817,7 @@ on a.IGOId_ID= e.IGO_ID</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="DROP TABLE [dwh].[TMP_STG_Update_Expression_DM_Part1]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_Update_Expression_DM_Part1')&#xA;DROP TABLE [dwh].[TMP_STG_Update_Expression_DM_Part1]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4833,7 +4833,7 @@ on a.IGOId_ID= e.IGO_ID</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="DROP TABLE [dwh].[TMP_STG_Update_Expression_DM_Part2]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_Update_Expression_DM_Part2')&#xA;DROP TABLE [dwh].[TMP_STG_Update_Expression_DM_Part2]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4849,7 +4849,7 @@ on a.IGOId_ID= e.IGO_ID</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="DROP TABLE [dwh].[TMP_STG_Expression_DM_SA_Merge]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_Expression_DM_SA_Merge')&#xA;DROP TABLE [dwh].[TMP_STG_Expression_DM_SA_Merge]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4865,7 +4865,7 @@ on a.IGOId_ID= e.IGO_ID</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="DROP TABLE [dwh].[TMP_STG_Expression_StatLinks_DM_SA_Merge]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_Expression_StatLinks_DM_SA_Merge')&#xA;DROP TABLE [dwh].[TMP_STG_Expression_StatLinks_DM_SA_Merge]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable

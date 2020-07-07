@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_FreePreviewDaily_FT"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{55C7159F-7D09-42DF-AC9F-EC8E1608ADDE}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{1E8A63D3-018A-474D-943B-73C9E493F07E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -359,7 +359,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N' [dwh].[TMP_STG_FreePreviewDaily_FT_SA]') AND type in (N'U'))&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_FreePreviewDaily_FT_SA](&#xA; [Download_Date] [date] NOT NULL,&#xA;&#x9;[Expression_ID] [int] NOT NULL,&#xA;&#x9;[Embed] [bit] NOT NULL,&#xA;&#x9;[Downloads] [int] NOT NULL&#xA;)ON [PRIMARY]&#xA;END&#xA;ELSE &#xA;Begin&#xA;TRUNCATE TABLE   [dwh].[TMP_STG_FreePreviewDaily_FT_SA]&#xA;end&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_FreePreviewDaily_FT_SA')&#xA;drop TABLE  [dwh].[TMP_STG_FreePreviewDaily_FT_SA]&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_FreePreviewDaily_FT_SA](&#xA; [Download_Date] [date] NOT NULL,&#xA;&#x9;[Expression_ID] [int] NOT NULL,&#xA;&#x9;[Embed] [bit] NOT NULL,&#xA;&#x9;[Downloads] [int] NOT NULL&#xA;)ON [PRIMARY]&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -375,7 +375,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="DROP TABLE [dwh].[TMP_STG_FreePreviewDaily_FT_SA]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_FreePreviewDaily_FT_SA')&#xA;DROP TABLE [dwh].[TMP_STG_FreePreviewDaily_FT_SA]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -391,7 +391,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="&#x9;INSERT INTO [dwh].[FreePreviewDaily_FT]&#xA;           ([Download_Date]&#xA;           ,[Expression_ID]&#xA;           ,[Embed]&#xA;           ,[Downloads]&#xA;           ,[Exclude]&#xA;&#x9;&#x9;   ,[Agg_Monthly])&#xA;&#x9;&#x9;SELECT &#xA;&#x9;&#x9;&#x9; T.[Download_Date]&#xA;&#x9;&#x9;&#x9;,T.[Expression_ID]&#xA;&#x9;&#x9;&#x9;,T.[Embed]&#xA;&#x9;&#x9;&#x9;,T.[Downloads]&#xA;&#x9;&#x9;&#x9;,0&#xA;&#x9;&#x9;&#x9;,0&#xA;FROM(&#xA;select A.*&#xA;FROM dwh.TMP_STG_FreePreviewDaily_FT_SA A&#xA;INNER JOIN dwh.Expression_DM B&#xA;ON a.Expression_ID=b.Expression_ID&#xA;) T" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#x9;INSERT INTO [dwh].[FreePreviewDaily_FT]&#xA;           ([Download_Date]&#xA;           ,[Expression_ID]&#xA;           ,[Embed]&#xA;           ,[Downloads]&#xA;           ,[Exclude]&#xA;&#x9;&#x9;   ,[Agg_Monthly])&#xA;&#x9;&#x9;SELECT &#xA;&#x9;&#x9;&#x9; T.[Download_Date]&#xA;&#x9;&#x9;&#x9;,T.[Expression_ID]&#xA;&#x9;&#x9;&#x9;,T.[Embed]&#xA;&#x9;&#x9;&#x9;,T.[Downloads]&#xA;&#x9;&#x9;&#x9;,0&#xA;&#x9;&#x9;&#x9;,0&#xA;FROM(&#xA;select A.*&#xA;FROM dwh.TMP_STG_FreePreviewDaily_FT_SA A&#xA;INNER JOIN dwh.Expression_DM B&#xA;ON a.Expression_ID=b.Expression_ID&#xA;left join [dwh].[FreePreviewDaily_FT] co on co.Download_Date=A.download_date and co.Expression_ID =A.Expression_ID&#xA;where co.Download_Date is null&#xA;) T" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -524,13 +524,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="324,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_TMP_STG_FreePreviewDaily_FT_SA\OLE_DST DWH_TMP_STG_FreePreviewDaily_FT_SA"
-          TopLeft="316.773809492766,115.571423108662" />
-        <NodeLayout
           Size="301.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_TMP_STG_FreePreviewDaily_FT_SA\OLE_SRC OCDE_STG_FreePreviewDaily_FT_SA"
           TopLeft="312.773809492766,37.571423108662" />
+        <NodeLayout
+          Size="324,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_TMP_STG_FreePreviewDaily_FT_SA\OLE_DST DWH_TMP_STG_FreePreviewDaily_FT_SA"
+          TopLeft="316.773809492766,115.571423108662" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_TMP_STG_FreePreviewDaily_FT_SA.Paths[Sortie de source OLE DB]"
           TopLeft="463.440476159433,80.2380897753287">

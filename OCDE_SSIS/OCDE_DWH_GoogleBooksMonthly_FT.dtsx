@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_GoogleBooksMonthly_FT"
   DTS:PackageType="5"
-  DTS:VersionBuild="38"
-  DTS:VersionGUID="{1B467B93-5740-41F6-A467-93798B4A1600}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{53C8C874-6542-4F24-AC0D-DC0F001AC173}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -387,7 +387,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dwh].[TMP_STG_GoogleBooksMonthly_FT_SA]') AND type in (N'U'))&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_GoogleBooksMonthly_FT_SA](&#xA;&#x9;[Download_Date] [date] NULL,&#xA;&#x9;[Expression_ID] [int] NOT NULL,&#xA;&#x9;[books_visits] [int] NULL,&#xA;&#x9;[BV_w_pages_viewed] [int] NULL,&#xA;&#x9;[pages_viewed] [int] NULL&#xA;)ON [PRIMARY]&#xA;END&#xA;ELSE &#xA;Begin&#xA;TRUNCATE TABLE  [dwh].[TMP_STG_GoogleBooksMonthly_FT_SA]&#xA;end&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_GoogleBooksMonthly_FT_SA')&#xA;drop TABLE  [dwh].[TMP_STG_GoogleBooksMonthly_FT_SA]&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_GoogleBooksMonthly_FT_SA](&#xA;&#x9;[Download_Date] [date] NULL,&#xA;&#x9;[Expression_ID] [int] NOT NULL,&#xA;&#x9;[books_visits] [int] NULL,&#xA;&#x9;[BV_w_pages_viewed] [int] NULL,&#xA;&#x9;[pages_viewed] [int] NULL&#xA;)ON [PRIMARY]&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -403,7 +403,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="DROP TABLE [dwh].[TMP_STG_GoogleBooksMonthly_FT_SA]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_GoogleBooksMonthly_FT_SA')&#xA;DROP TABLE [dwh].[TMP_STG_GoogleBooksMonthly_FT_SA]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -419,7 +419,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="&#x9;INSERT INTO dwh.[GoogleBooksMonthly_FT]&#xA;&#x9;&#x9;&#x9;([Download_Date]&#xA;&#x9;&#x9;&#x9;,[Expression_ID]&#xA;&#x9;&#x9;&#x9;,[books_visits]&#xA;&#x9;&#x9;&#x9;,[BV_w_pages_viewed]&#xA;&#x9;&#x9;&#x9;,[pages_viewed]&#xA;&#x9;&#x9;&#x9;,Exclude)&#xA;&#x9;&#x9;SELECT &#xA;&#x9;&#x9;&#x9; T.[Download_Date]&#xA;&#x9;&#x9;&#x9;,T.[Expression_ID]&#xA;&#x9;&#x9;&#x9;,T.[books_visits]&#xA;&#x9;&#x9;&#x9;,T.[BV_w_pages_viewed]&#xA;&#x9;&#x9;&#x9;,T.[pages_viewed]&#xA;&#x9;&#x9;&#x9;,0&#xA;FROM(&#xA;select A.*&#xA;FROM [dwh].[TMP_STG_GoogleBooksMonthly_FT_SA]  A&#xA;INNER JOIN dwh.Expression_DM B&#xA;ON a.Expression_ID=b.Expression_ID&#xA;) T" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#x9;INSERT INTO dwh.[GoogleBooksMonthly_FT]&#xA;&#x9;&#x9;&#x9;([Download_Date]&#xA;&#x9;&#x9;&#x9;,[Expression_ID]&#xA;&#x9;&#x9;&#x9;,[books_visits]&#xA;&#x9;&#x9;&#x9;,[BV_w_pages_viewed]&#xA;&#x9;&#x9;&#x9;,[pages_viewed]&#xA;&#x9;&#x9;&#x9;,Exclude)&#xA;&#x9;&#x9;SELECT &#xA;&#x9;&#x9;&#x9; T.[Download_Date]&#xA;&#x9;&#x9;&#x9;,T.[Expression_ID]&#xA;&#x9;&#x9;&#x9;,T.[books_visits]&#xA;&#x9;&#x9;&#x9;,T.[BV_w_pages_viewed]&#xA;&#x9;&#x9;&#x9;,T.[pages_viewed]&#xA;&#x9;&#x9;&#x9;,0&#xA;FROM(&#xA;select A.*&#xA;FROM [dwh].[TMP_STG_GoogleBooksMonthly_FT_SA]  A&#xA;INNER JOIN dwh.Expression_DM B&#xA;ON a.Expression_ID=b.Expression_ID&#xA;left join [dwh].[GoogleBooksMonthly_FT] co on co.Download_Date=A.download_date and co.Expression_ID =A.Expression_ID&#xA;where co.Download_Date is null&#xA;) T" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>

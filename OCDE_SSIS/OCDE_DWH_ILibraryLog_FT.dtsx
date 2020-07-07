@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_ILibraryLog_FT"
   DTS:PackageType="5"
-  DTS:VersionBuild="72"
-  DTS:VersionGUID="{06E4E1CB-2F23-4FCE-9558-D0814179A192}">
+  DTS:VersionBuild="77"
+  DTS:VersionGUID="{DD40FAE1-2122-4583-A530-A781233825E8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -159,13 +159,15 @@
                       cachedName="EventLogID"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[EventLogID]"
                       lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[EventLogID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].Columns[Download_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Download_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[[Download_Date]"
-                      dataType="dbTimeStamp"
-                      name="[Download_Date" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[Manifestation_ID]"
                       dataType="i4"
@@ -203,6 +205,10 @@
                       refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[EventLogID]"
                       dataType="i4"
                       name="EventLogID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA.Inputs[OLE DB Destination Input].ExternalColumns[Download_Date]"
+                      dataType="dbTimeStamp"
+                      name="Download_Date" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -526,7 +532,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dwh].[TMP_STG_ILibraryLog_FT_SA]') AND type in (N'U'))&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_ILibraryLog_FT_SA](&#xA; [Download_Date] [datetime] NULL,&#xA;&#x9;[Manifestation_ID] [int] NULL,&#xA;&#x9;[Registration_ID] [int] NULL,&#xA;&#x9;[IPAddress_ID] [int] NULL,&#xA;&#x9;[DOI] [nvarchar](60) NULL,&#xA;&#x9;[Source_ID] [int] NULL,&#xA;&#x9;[SourceLight_ID] [int] NULL,&#xA;&#x9;[UserAgent_ID] [int] NULL,&#xA;&#x9;[Session_ID] [int] NULL,&#xA;&#x9;[EventLogID] [int] NULL&#xA;)ON [PRIMARY]&#xA;END&#xA;ELSE &#xA;Begin&#xA;TRUNCATE TABLE  [dwh].[TMP_STG_ILibraryLog_FT_SA]&#xA;end&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_ILibraryLog_FT_SA')&#xA;drop TABLE  [dwh].[TMP_STG_ILibraryLog_FT_SA]&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_ILibraryLog_FT_SA](&#xA; [Download_Date] [datetime] NULL,&#xA;&#x9;[Manifestation_ID] [int] NULL,&#xA;&#x9;[Registration_ID] [int] NULL,&#xA;&#x9;[IPAddress_ID] [int] NULL,&#xA;&#x9;[DOI] [nvarchar](60) NULL,&#xA;&#x9;[Source_ID] [int] NULL,&#xA;&#x9;[SourceLight_ID] [int] NULL,&#xA;&#x9;[UserAgent_ID] [int] NULL,&#xA;&#x9;[Session_ID] [int] NULL,&#xA;&#x9;[EventLogID] [int] NULL&#xA;)ON [PRIMARY]&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -542,7 +548,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="DROP TABLE [dwh].[TMP_STG_ILibraryLog_FT_SA]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_ILibraryLog_FT_SA')&#xA;&#xA;DROP TABLE [dwh].[TMP_STG_ILibraryLog_FT_SA]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -558,7 +564,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="INSERT INTO [dwh].[ILibraryLog_FT]&#xA;           ([DownloadDate]&#xA;           ,[Manifestation_ID]&#xA;           ,[Registration_ID]&#xA;           ,[IPAddress_ID]&#xA;           ,[Source_ID]&#xA;           ,[SourceLight_ID]&#xA;           ,[UserAgent_ID]&#xA;           ,[Session_ID]&#xA;           ,[EventLogID]&#xA;           ,[Exclude])&#xA;&#x9;&#x9;SELECT &#xA;&#x9;&#x9;   T.[Download_Date]&#xA;&#x9;&#x9;  ,T.[Manifestation_ID]&#xA;&#x9;&#x9;  ,T.[Registration_ID]&#xA;&#x9;&#x9;  ,T.[IPAddress_ID]&#xA;&#x9;&#x9;  ,T.[Source_ID]&#xA;&#x9;&#x9;  ,T.[SourceLight_ID]&#xA;&#x9;&#x9;  ,T.[UserAgent_ID]&#xA;&#x9;&#x9;  ,T.[Session_ID]&#xA;&#x9;&#x9;  ,T.[EventLogID]&#xA;&#x9;&#x9;  ,0&#xA;FROM(&#xA;select A.*&#xA;FROM dwh.TMP_STG_ILibraryLog_FT_SA A&#xA;INNER JOIN dwh.Manifestation_DM B&#xA;ON a.Manifestation_ID=b.Manifestation_ID&#xA;INNER JOIN dwh.Registration_DM c&#xA;on a.Registration_ID = c.Registration_ID&#xA;INNER JOIN[dwh].[IPAddress_DM]  d&#xA;on a.IPAddress_Id = d.IPAddress_Id&#xA;INNER JOIN [dwh].[Source_DM] e&#xA;on a.Source_Id = e.Source_Id&#xA;INNER JOIN [dwh].[SourceLight_DM] f&#xA;on a.SourceLight_ID = f.SourceLight_Id&#xA;INNER JOIN [dwh].[UserAgent_DM] g&#xA;on a.UserAgent_Id = g.UserAgent_Id&#xA;INNER JOIN [dwh].[Session_DM] h&#xA;on a.Session_Id = h.Session_Id&#xA;) T" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="INSERT INTO [dwh].[ILibraryLog_FT]&#xA;           ([DownloadDate]&#xA;           ,[Manifestation_ID]&#xA;           ,[Registration_ID]&#xA;           ,[IPAddress_ID]&#xA;           ,[Source_ID]&#xA;           ,[SourceLight_ID]&#xA;           ,[UserAgent_ID]&#xA;           ,[Session_ID]&#xA;           ,[EventLogID]&#xA;           ,[Exclude]&#xA;&#x9;&#x9;   ,Agg_Daily&#xA;&#x9;&#x9;   ,Agg_Monthly)&#xA;&#x9;&#x9;SELECT &#xA;&#x9;&#x9;   T.[Download_Date]&#xA;&#x9;&#x9;  ,T.[Manifestation_ID]&#xA;&#x9;&#x9;  ,T.[Registration_ID]&#xA;&#x9;&#x9;  ,T.[IPAddress_ID]&#xA;&#x9;&#x9;  ,T.[Source_ID]&#xA;&#x9;&#x9;  ,T.[SourceLight_ID]&#xA;&#x9;&#x9;  ,T.[UserAgent_ID]&#xA;&#x9;&#x9;  ,T.[Session_ID]&#xA;&#x9;&#x9;  ,T.[EventLogID]&#xA;&#x9;&#x9;  ,0&#xA;&#x9;&#x9;  ,0&#xA;&#x9;&#x9;  ,0&#xA;FROM(&#xA;select A.*&#xA;FROM dwh.TMP_STG_ILibraryLog_FT_SA A&#xA;INNER JOIN dwh.Manifestation_DM B&#xA;ON a.Manifestation_ID=b.Manifestation_ID&#xA;INNER JOIN dwh.Registration_DM c&#xA;on a.Registration_ID = c.Registration_ID&#xA;INNER JOIN[dwh].[IPAddress_DM]  d&#xA;on a.IPAddress_Id = d.IPAddress_Id&#xA;INNER JOIN [dwh].[Source_DM] e&#xA;on a.Source_Id = e.Source_Id&#xA;INNER JOIN [dwh].[SourceLight_DM] f&#xA;on a.SourceLight_ID = f.SourceLight_Id&#xA;INNER JOIN [dwh].[UserAgent_DM] g&#xA;on a.UserAgent_Id = g.UserAgent_Id&#xA;INNER JOIN [dwh].[Session_DM] h&#xA;on a.Session_Id = h.Session_Id&#xA;left join [dwh].[ILibraryLog_FT] co on co.DownloadDate=A.download_date and co.Manifestation_ID =A.Manifestation_ID &#xA;and co.Registration_ID=A.Registration_ID and co.IPAddress_ID=A.IPAddress_ID&#xA;where co.DownloadDate is null&#xA;) T" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -662,18 +668,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="175.5,253.5">
+          TopLeft="175.5,253.500000000001">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,59.9999999999993"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,52.4999999999993">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,52.4999999999993" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -691,13 +697,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="297.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA"
-          TopLeft="316.773809492766,115.571423108662" />
-        <NodeLayout
           Size="273.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_SRC OCDE_STG_ILibraryLog_FT_SA"
           TopLeft="324.1071428261,22.9047564419957" />
+        <NodeLayout
+          Size="297.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA\OLE_DST DWH_TMP_STG_ILibraryLog_FT_SA"
+          TopLeft="316.773809492766,115.571423108662" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_TMP_STG_ILibraryLog_FT_SA.Paths[Sortie de source OLE DB]"
           TopLeft="463.107142826099,65.5714231086623">
