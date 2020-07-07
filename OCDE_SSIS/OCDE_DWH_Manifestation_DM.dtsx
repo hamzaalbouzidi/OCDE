@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_Manifestation_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="80"
-  DTS:VersionGUID="{E4C3E82D-627C-4FBB-808C-7C6D7380C256}">
+  DTS:VersionBuild="83"
+  DTS:VersionGUID="{B4F0B0AB-68A2-479D-950B-F5D90CC50060}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -871,7 +871,7 @@ on a.Format_Id=c.Format_Id</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="ALTER TABLE [dwh].[Manifestation_DM]  WITH NOCHECK ADD  CONSTRAINT [FK_Manifestation_Expression_ID] FOREIGN KEY([Expression_ID])&#xA;REFERENCES [dwh].[Expression_DM] ([Expression_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Manifestation_DM] CHECK CONSTRAINT [FK_Manifestation_Expression_ID]&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Manifestation_DM]  WITH CHECK ADD  CONSTRAINT [FK_Manifestation_Format_ID] FOREIGN KEY([Format_ID])&#xA;REFERENCES [dwh].[Format_DM] ([Format_ID])&#xA;ON DELETE CASCADE&#xA;ON UPDATE CASCADE&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Manifestation_DM] CHECK CONSTRAINT [FK_Manifestation_Format_ID]&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[ILibraryLog_FT]  WITH CHECK ADD  CONSTRAINT [FK_ILibraryLog_Manifestation_ID] FOREIGN KEY([Manifestation_ID])&#xA;REFERENCES [dwh].[Manifestation_DM] ([Manifestation_ID])&#xA;ON DELETE CASCADE&#xA;ON UPDATE CASCADE&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[ILibraryLog_FT] CHECK CONSTRAINT [FK_ILibraryLog_Manifestation_ID]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;IF NOT  EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_Manifestation_Expression_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[Manifestation_DM]  WITH NOCHECK ADD  CONSTRAINT [FK_Manifestation_Expression_ID] FOREIGN KEY([Expression_ID])&#xA;REFERENCES [dwh].[Expression_DM] ([Expression_ID])&#xA;end;&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Manifestation_DM] CHECK CONSTRAINT [FK_Manifestation_Expression_ID]&#xA;GO&#xA;&#xA;&#xA;IF NOT EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_Manifestation_Format_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[Manifestation_DM]  WITH CHECK ADD  CONSTRAINT [FK_Manifestation_Format_ID] FOREIGN KEY([Format_ID])&#xA;REFERENCES [dwh].[Format_DM] ([Format_ID])&#xA;end;&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Manifestation_DM] CHECK CONSTRAINT [FK_Manifestation_Format_ID]&#xA;GO&#xA;&#xA;&#xA;&#xA;IF NOT EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_ILibraryLog_Manifestation_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[ILibraryLog_FT]  WITH CHECK ADD  CONSTRAINT [FK_ILibraryLog_Manifestation_ID] FOREIGN KEY([Manifestation_ID])&#xA;REFERENCES [dwh].[Manifestation_DM] ([Manifestation_ID])&#xA;end;&#xA;GO&#xA;&#xA;&#xA;ALTER TABLE [dwh].[ILibraryLog_FT] CHECK CONSTRAINT [FK_ILibraryLog_Manifestation_ID]&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -951,7 +951,7 @@ on a.Format_Id=c.Format_Id</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="ALTER TABLE [dwh].[Manifestation_DM] DROP CONSTRAINT [FK_Manifestation_Expression_ID]&#xA;GO&#xA;ALTER TABLE [dwh].[Manifestation_DM] DROP CONSTRAINT [FK_Manifestation_Format_ID]&#xA;GO&#xA;ALTER TABLE [dwh].[ILibraryLog_FT] DROP CONSTRAINT [FK_ILibraryLog_Manifestation_ID]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_Manifestation_Expression_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[Manifestation_DM] DROP CONSTRAINT [FK_Manifestation_Expression_ID]&#xA;end;&#xA;GO&#xA;&#xA;IF EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_Manifestation_Format_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[Manifestation_DM] DROP CONSTRAINT [FK_Manifestation_Format_ID]&#xA;end;&#xA;GO&#xA;&#xA;&#xA;IF EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_ILibraryLog_Manifestation_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[ILibraryLog_FT] DROP CONSTRAINT [FK_ILibraryLog_Manifestation_ID]&#xA;end;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -967,7 +967,7 @@ on a.Format_Id=c.Format_Id</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="&#x9;&#x9;INSERT INTO [dwh].[Manifestation_DM]&#xA;           ([Manifestation_ExternalID]&#xA;           ,[ExternalSource]&#xA;           ,[Expression_ID]&#xA;           ,[Format_ID] &#xA;           ,[FirstRelease_Date]&#xA;           ,[LastUpdate_Date]&#xA;           ,[HideInReport]&#xA;           ,[NA_Import]&#xA;           ,[IsCurrent]&#xA;           ,[ValidFrom]&#xA;           ,[ValidTo])&#xA;        SELECT&#xA;&#x9;&#x9;&#x9; [Manifestation_ExternalID]&#xA;&#x9;&#x9;&#x9;,[ExternalSource]&#xA;&#x9;&#x9;&#x9;,[Expression_ID]&#xA;&#x9;&#x9;&#x9;,[Format_ID] &#xA;&#x9;&#x9;&#x9;,[FirstRelease_Date]&#xA;&#x9;&#x9;&#x9;,GETDATE()&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,0&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,0&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,1&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,GETDATE()&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,NULL&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;FROM (&#xA;&#x9;&#x9;  MERGE dwh.Manifestation_DM&#x9;&#x9;&#x9;&#x9;&#x9;AS [Target]&#xA;&#x9;&#x9;  USING [dwh].[TMP_STG_Manifestation_DM_SA_Merge]&#x9;AS [Source]&#xA;&#x9;&#x9;&#x9; ON&#x9; Target.[Manifestation_ExternalID]&#x9;&#x9;&#x9;= Source.[Manifestation_ExternalID]&#xA;&#x9;&#x9;&#x9; AND Target.[ExternalSource]&#x9;&#x9;&#x9;&#x9;&#x9;= Source.[ExternalSource]&#xA;&#x9;&#x9;&#x9; AND Target.[Format_ID]&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;= Source.[Format_ID] &#x9;&#xA;&#x9;&#x9;&#x9; AND Target.IsCurrent = 1&#xA;&#x9;&#x9;  WHEN MATCHED AND&#xA;&#x9;&#x9;&#x9;  (&#xA;&#x9;&#x9;&#x9;&#x9;   Target.[Expression_ID]&#x9;&#x9;&#x9;&#x9;&lt;&gt; Source.[Expression_ID]&#xA;&#x9;&#x9;&#x9;  )&#xA;&#x9;&#x9;&#x9;  &#xA;&#x9;&#x9;&#x9;  THEN UPDATE SET&#xA;&#x9;&#x9;&#x9;&#x9; LastUpdate_Date    = GETDATE()&#xA;&#x9;&#x9;&#x9;&#x9;,NA_Import&#x9;&#x9;&#x9;= 1 &#xA;&#x9;&#x9;&#x9;&#x9;,IsCurrent   &#x9;&#x9;= 0&#xA;&#x9;&#x9;&#x9;&#x9;,ValidTo&#x9;&#x9;&#x9;= GETDATE()&#xA;&#x9;&#x9;  WHEN NOT MATCHED BY TARGET&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;  THEN INSERT (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; [Manifestation_ExternalID]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[ExternalSource]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[Expression_ID]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[Format_ID] &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[FirstRelease_Date]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[LastUpdate_Date]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[HideInReport]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[NA_Import]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[IsCurrent]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[ValidFrom]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[ValidTo]&#xA;&#x9;&#x9;&#x9;&#x9;) VALUES (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; Source.[Manifestation_ExternalID]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,Source.[ExternalSource]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,Source.[Expression_ID]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,Source.[Format_ID] &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,Source.[FirstRelease_Date]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,GETDATE()&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,0&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,0&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,1&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,GETDATE()&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,NULL&#x9;&#x9;    &#xA;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;  &#xA;&#x9;&#x9;  OUTPUT $action AS Action&#xA;&#x9;&#x9;&#x9;&#x9;,[Source].*&#xA;&#x9;&#x9;) AS MergeOutput&#xA;&#x9;&#x9;WHERE MergeOutput.Action = 'UPDATE'&#xA;&#x9;&#x9;  AND [Manifestation_ExternalID] IS NOT NULL&#xA;&#x9;&#x9;;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#x9;&#x9;INSERT INTO [dwh].[Manifestation_DM]&#xA;           ([Manifestation_ExternalID]&#xA;           ,[ExternalSource]&#xA;           ,[Expression_ID]&#xA;           ,[Format_ID] &#xA;           ,[FirstRelease_Date]&#xA;           ,[LastUpdate_Date]&#xA;           ,[HideInReport]&#xA;           ,[NA_Import]&#xA;           ,[IsCurrent]&#xA;           ,[ValidFrom]&#xA;           ,[ValidTo])&#xA;        SELECT&#xA;&#x9;&#x9;&#x9; [Manifestation_ExternalID]&#xA;&#x9;&#x9;&#x9;,[ExternalSource]&#xA;&#x9;&#x9;&#x9;,[Expression_ID]&#xA;&#x9;&#x9;&#x9;,[Format_ID] &#xA;&#x9;&#x9;&#x9;,[FirstRelease_Date]&#xA;&#x9;&#x9;&#x9;,GETDATE()&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,0&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,0&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,1&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,GETDATE()&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,NULL&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;FROM (&#xA;&#x9;&#x9;  MERGE dwh.Manifestation_DM&#x9;&#x9;&#x9;&#x9;&#x9;AS [Target]&#xA;&#x9;&#x9;  USING (select A.* &#xA;from [dwh].[TMP_STG_Manifestation_DM_SA_Merge] A &#xA;inner join dwh.expression_DM B &#xA;on a.Expression_ID =b.Expression_ID&#xA;INNER JOIN dwh.Format_DM C&#xA;on a.Format_ID=c.Format_ID)&#x9;AS [Source]&#xA;&#x9;&#x9;&#x9; ON&#x9; Target.[Manifestation_ExternalID]&#x9;&#x9;&#x9;= Source.[Manifestation_ExternalID]&#xA;&#x9;&#x9;&#x9; AND Target.[ExternalSource]&#x9;&#x9;&#x9;&#x9;&#x9;= Source.[ExternalSource]&#xA;&#x9;&#x9;&#x9; AND Target.[Format_ID]&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;= Source.[Format_ID] &#x9;&#xA;&#x9;&#x9;&#x9; AND Target.IsCurrent = 1&#xA;&#x9;&#x9;  WHEN MATCHED AND&#xA;&#x9;&#x9;&#x9;  (&#xA;&#x9;&#x9;&#x9;&#x9;   Target.[Expression_ID]&#x9;&#x9;&#x9;&#x9;&lt;&gt; Source.[Expression_ID]&#xA;&#x9;&#x9;&#x9;  )&#xA;&#x9;&#x9;&#x9;  &#xA;&#x9;&#x9;&#x9;  THEN UPDATE SET&#xA;&#x9;&#x9;&#x9;&#x9; LastUpdate_Date    = GETDATE()&#xA;&#x9;&#x9;&#x9;&#x9;,NA_Import&#x9;&#x9;&#x9;= 1 &#xA;&#x9;&#x9;&#x9;&#x9;,IsCurrent   &#x9;&#x9;= 0&#xA;&#x9;&#x9;&#x9;&#x9;,ValidTo&#x9;&#x9;&#x9;= GETDATE()&#xA;&#x9;&#x9;  WHEN NOT MATCHED BY TARGET&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;  THEN INSERT (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; [Manifestation_ExternalID]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[ExternalSource]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[Expression_ID]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[Format_ID] &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[FirstRelease_Date]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[LastUpdate_Date]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[HideInReport]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[NA_Import]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[IsCurrent]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[ValidFrom]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[ValidTo]&#xA;&#x9;&#x9;&#x9;&#x9;) VALUES (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; Source.[Manifestation_ExternalID]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,Source.[ExternalSource]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,Source.[Expression_ID]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,Source.[Format_ID] &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,Source.[FirstRelease_Date]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,GETDATE()&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,0&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,0&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,1&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,GETDATE()&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,NULL&#x9;&#x9;    &#xA;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;  &#xA;&#x9;&#x9;  OUTPUT $action AS Action&#xA;&#x9;&#x9;&#x9;&#x9;,[Source].*&#xA;&#x9;&#x9;) AS MergeOutput&#xA;&#x9;&#x9;WHERE MergeOutput.Action = 'UPDATE'&#xA;&#x9;&#x9;  AND [Manifestation_ExternalID] IS NOT NULL&#xA;&#x9;&#x9;;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -983,7 +983,7 @@ on a.Format_Id=c.Format_Id</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="&#x9;&#x9;INSERT INTO [dwh].[Manifestation_DM]&#xA;           ([Manifestation_ExternalID]&#xA;           ,[ExternalSource]&#xA;           ,[Expression_ID]&#xA;           ,[Format_ID] &#xA;           ,[FirstRelease_Date]&#xA;           ,[LastUpdate_Date]&#xA;           ,[HideInReport]&#xA;           ,[NA_Import]&#xA;           ,[IsCurrent]&#xA;           ,[ValidFrom]&#xA;           ,[ValidTo])&#xA;        SELECT&#xA;&#x9;&#x9;&#x9; [Manifestation_ExternalID]&#xA;&#x9;&#x9;&#x9;,[ExternalSource]&#xA;&#x9;&#x9;&#x9;,[Expression_ID]&#xA;&#x9;&#x9;&#x9;,[Format_ID] &#xA;&#x9;&#x9;&#x9;,[FirstRelease_Date]&#xA;&#x9;&#x9;&#x9;,GETDATE()&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,0&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,0&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,1&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,GETDATE()&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,NULL&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;FROM (&#xA;&#x9;&#x9;  MERGE dwh.Manifestation_DM&#x9;&#x9;&#x9;&#x9;&#x9;AS [Target]&#xA;&#x9;&#x9;  USING [dwh].[TMP_STG_Manifestation_StatLink_DM_SA_Merge]&#x9;&#x9;AS [Source]&#xA;&#x9;&#x9;&#x9; ON&#x9; Target.[Manifestation_ExternalID]&#x9;&#x9;&#x9;= Source.[Manifestation_ExternalID]&#xA;&#x9;&#x9;&#x9; AND Target.[ExternalSource]='SL'&#xA;&#x9;&#x9;&#x9; AND Target.IsCurrent = 1&#xA;&#x9;&#x9;  WHEN MATCHED AND&#xA;&#x9;&#x9;&#x9;  (&#xA;&#x9;&#x9;&#x9;&#x9;   Target.[Expression_ID]&#x9;&#x9;&#x9;&#x9;&lt;&gt; Source.[Expression_ID]&#xA;&#x9;&#x9;&#x9;&#x9;OR Target.[Format_ID]&#x9;&#x9;&#x9;&#x9;&#x9;&lt;&gt; Source.[Format_ID] &#x9;&#xA;&#x9;&#x9;&#x9;  )&#xA;&#x9;&#x9;&#x9; &#xA;&#x9;&#x9;&#x9;  THEN UPDATE SET&#xA;&#x9;&#x9;&#x9;&#x9; LastUpdate_Date    = GETDATE()&#xA;&#x9;&#x9;&#x9;&#x9;,NA_Import&#x9;&#x9;&#x9;= 1 &#xA;&#x9;&#x9;&#x9;&#x9;,IsCurrent   &#x9;&#x9;= 0&#xA;&#x9;&#x9;&#x9;&#x9;,ValidTo&#x9;&#x9;&#x9;= GETDATE()&#xA;&#x9;&#x9;  WHEN NOT MATCHED BY TARGET&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;  THEN INSERT (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; [Manifestation_ExternalID]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[ExternalSource]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[Expression_ID]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[Format_ID] &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[FirstRelease_Date]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[LastUpdate_Date]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[HideInReport]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[NA_Import]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[IsCurrent]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[ValidFrom]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[ValidTo]&#xA;&#x9;&#x9;&#x9;&#x9;) VALUES (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; Source.[Manifestation_ExternalID]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,Source.[ExternalSource]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,Source.[Expression_ID]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,Source.[Format_ID] &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,Source.[FirstRelease_Date]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,GETDATE()&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,0&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,0&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,1&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,GETDATE()&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,NULL&#x9;&#x9;   &#xA;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9; &#x9;&#x9;  &#xA;&#x9;&#x9;  OUTPUT $action AS Action&#xA;&#x9;&#x9;&#x9;&#x9;,[Source].*&#xA;&#x9;&#x9;) AS MergeOutput&#xA;&#x9;&#x9;WHERE MergeOutput.Action = 'UPDATE'&#xA;&#x9;&#x9;  AND [Manifestation_ExternalID] IS NOT NULL&#xA;&#x9;&#x9;;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#x9;&#x9;INSERT INTO [dwh].[Manifestation_DM]&#xA;           ([Manifestation_ExternalID]&#xA;           ,[ExternalSource]&#xA;           ,[Expression_ID]&#xA;           ,[Format_ID] &#xA;           ,[FirstRelease_Date]&#xA;           ,[LastUpdate_Date]&#xA;           ,[HideInReport]&#xA;           ,[NA_Import]&#xA;           ,[IsCurrent]&#xA;           ,[ValidFrom]&#xA;           ,[ValidTo])&#xA;        SELECT&#xA;&#x9;&#x9;&#x9; [Manifestation_ExternalID]&#xA;&#x9;&#x9;&#x9;,[ExternalSource]&#xA;&#x9;&#x9;&#x9;,[Expression_ID]&#xA;&#x9;&#x9;&#x9;,[Format_ID] &#xA;&#x9;&#x9;&#x9;,[FirstRelease_Date]&#xA;&#x9;&#x9;&#x9;,GETDATE()&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,0&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,0&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,1&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,GETDATE()&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;,NULL&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;FROM (&#xA;&#x9;&#x9;  MERGE dwh.Manifestation_DM&#x9;&#x9;&#x9;&#x9;&#x9;AS [Target]&#xA;&#x9;&#x9;  USING (select A.* &#xA;from [dwh].[TMP_STG_Manifestation_StatLink_DM_SA_Merge] A &#xA;inner join dwh.expression_DM B &#xA;on a.Expression_ID =b.Expression_ID&#xA;INNER JOIN dwh.Format_DM C&#xA;on a.Format_ID=c.Format_ID)&#x9;&#x9;AS [Source]&#xA;&#x9;&#x9;&#x9; ON&#x9; Target.[Manifestation_ExternalID]&#x9;&#x9;&#x9;= Source.[Manifestation_ExternalID]&#xA;&#x9;&#x9;&#x9; AND Target.[ExternalSource]='SL'&#xA;&#x9;&#x9;&#x9; AND Target.IsCurrent = 1&#xA;&#x9;&#x9;  WHEN MATCHED AND&#xA;&#x9;&#x9;&#x9;  (&#xA;&#x9;&#x9;&#x9;&#x9;   Target.[Expression_ID]&#x9;&#x9;&#x9;&#x9;&lt;&gt; Source.[Expression_ID]&#xA;&#x9;&#x9;&#x9;&#x9;OR Target.[Format_ID]&#x9;&#x9;&#x9;&#x9;&#x9;&lt;&gt; Source.[Format_ID] &#x9;&#xA;&#x9;&#x9;&#x9;  )&#xA;&#x9;&#x9;&#x9; &#xA;&#x9;&#x9;&#x9;  THEN UPDATE SET&#xA;&#x9;&#x9;&#x9;&#x9; LastUpdate_Date    = GETDATE()&#xA;&#x9;&#x9;&#x9;&#x9;,NA_Import&#x9;&#x9;&#x9;= 1 &#xA;&#x9;&#x9;&#x9;&#x9;,IsCurrent   &#x9;&#x9;= 0&#xA;&#x9;&#x9;&#x9;&#x9;,ValidTo&#x9;&#x9;&#x9;= GETDATE()&#xA;&#x9;&#x9;  WHEN NOT MATCHED BY TARGET&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;  THEN INSERT (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; [Manifestation_ExternalID]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[ExternalSource]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[Expression_ID]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[Format_ID] &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[FirstRelease_Date]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[LastUpdate_Date]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[HideInReport]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[NA_Import]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[IsCurrent]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[ValidFrom]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,[ValidTo]&#xA;&#x9;&#x9;&#x9;&#x9;) VALUES (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; Source.[Manifestation_ExternalID]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,Source.[ExternalSource]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,Source.[Expression_ID]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,Source.[Format_ID] &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,Source.[FirstRelease_Date]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,GETDATE()&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,0&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,0&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,1&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,GETDATE()&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;,NULL&#x9;&#x9;   &#xA;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9; &#x9;&#x9;  &#xA;&#x9;&#x9;  OUTPUT $action AS Action&#xA;&#x9;&#x9;&#x9;&#x9;,[Source].*&#xA;&#x9;&#x9;) AS MergeOutput&#xA;&#x9;&#x9;WHERE MergeOutput.Action = 'UPDATE'&#xA;&#x9;&#x9;  AND [Manifestation_ExternalID] IS NOT NULL&#xA;&#x9;&#x9;;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1141,14 +1141,14 @@ on a.Format_Id=c.Format_Id</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,60.0000000000003"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,52.5000000000003">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,52.5000000000003" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1251,14 +1251,14 @@ on a.Format_Id=c.Format_Id</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999998"
+              EndConnector="0,60.0000000000003"
               Start="0,0"
-              End="0,52.4999999999998">
+              End="0,52.5000000000003">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999998" />
+                    End="0,52.5000000000003" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1318,7 +1318,7 @@ on a.Format_Id=c.Format_Id</property>
     design-time-name="Package\DFT INSERT INTO DWH_TMP_STG_Manifestation_DM_SA_Merge">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="268,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_TMP_STG_Manifestation_DM_SA_Merge\TMP_STG_Manifestation_DM_SA_Merge"
@@ -1346,9 +1346,7 @@ on a.Format_Id=c.Format_Id</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1379,7 +1377,7 @@ on a.Format_Id=c.Format_Id</property>
     design-time-name="Package\DFT INSERT INTO DWH_TMP_STG_Manifestation_StatLink_DM_SA_Merge">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="330,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_TMP_STG_Manifestation_StatLink_DM_SA_Merge\OLE_SRC OCDE_STG_Manifestation_StatLink_DM_SA"
@@ -1419,9 +1417,7 @@ on a.Format_Id=c.Format_Id</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

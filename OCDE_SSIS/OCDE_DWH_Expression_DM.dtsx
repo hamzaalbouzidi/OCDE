@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_Expression_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="136"
-  DTS:VersionGUID="{61B51F19-2A72-4C72-A17B-7F01878752B4}">
+  DTS:VersionBuild="140"
+  DTS:VersionGUID="{4E2125AD-6598-43EC-8A94-21931E46E099}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -4705,7 +4705,7 @@ on a.IGOId_ID= e.IGO_ID</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="&#xA;ALTER TABLE [dwh].[BrowseItMonthly_FT]  WITH NOCHECK ADD  CONSTRAINT [FK_BrowseItMonthly_FT_Expression_DM] FOREIGN KEY([Expression_ID])&#xA;REFERENCES [dwh].[Expression_DM] ([Expression_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[BrowseItMonthly_FT] CHECK CONSTRAINT [FK_BrowseItMonthly_FT_Expression_DM]&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Manifestation_DM]  WITH CHECK ADD  CONSTRAINT [FK_Manifestation_Expression_ID] FOREIGN KEY([Expression_ID])&#xA;REFERENCES [dwh].[Expression_DM] ([Expression_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Manifestation_DM] CHECK CONSTRAINT [FK_Manifestation_Expression_ID]&#xA;GO&#xA;&#xA;&#xA;ALTER TABLE [dwh].[CounterMonthly_FT]  WITH NOCHECK ADD  CONSTRAINT [FK_CounterMonthly_FT_Expression_ID] FOREIGN KEY([Expression_ID])&#xA;REFERENCES [dwh].[Expression_DM] ([Expression_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[CounterMonthly_FT] CHECK CONSTRAINT [FK_CounterMonthly_FT_Expression_ID]&#xA;GO&#xA;&#xA;&#xA;ALTER TABLE [dwh].[Expression_DM]  WITH NOCHECK ADD  CONSTRAINT [FK_Expression_Directorate_ID] FOREIGN KEY([Directorate_ID])&#xA;REFERENCES [dwh].[Directorate_DM] ([Directorate_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Expression_DM] CHECK CONSTRAINT [FK_Expression_Directorate_ID]&#xA;GO&#xA;&#xA;&#xA;ALTER TABLE [dwh].[Expression_DM]  WITH NOCHECK ADD  CONSTRAINT [FK_Expression_Language_ID] FOREIGN KEY([Language_ID])&#xA;REFERENCES [dwh].[Language_DM] ([Language_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Expression_DM] CHECK CONSTRAINT [FK_Expression_Language_ID]&#xA;GO&#xA;&#xA;&#xA;ALTER TABLE [dwh].[GoogleBooksMonthly_FT]  WITH NOCHECK ADD  CONSTRAINT [FK_GoogleBooksMonthly_Expression_ID] FOREIGN KEY([Expression_ID])&#xA;REFERENCES [dwh].[Expression_DM] ([Expression_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[GoogleBooksMonthly_FT] CHECK CONSTRAINT [FK_GoogleBooksMonthly_Expression_ID]&#xA;GO&#xA;&#xA;&#xA;ALTER TABLE [dwh].[StatLink_FT]  WITH NOCHECK ADD  CONSTRAINT [FK_StatLink_Expression_ID] FOREIGN KEY([Expression_ID])&#xA;REFERENCES [dwh].[Expression_DM] ([Expression_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[StatLink_FT] CHECK CONSTRAINT [FK_StatLink_Expression_ID]&#xA;GO&#xA;&#xA;&#xA;ALTER TABLE [dwh].[FreePreviewDaily_FT]  WITH NOCHECK ADD  CONSTRAINT [FK_FreePreviewDaily_FT_Expression_ID] FOREIGN KEY([Expression_ID])&#xA;REFERENCES [dwh].[Expression_DM] ([Expression_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[FreePreviewDaily_FT] CHECK CONSTRAINT [FK_FreePreviewDaily_FT_Expression_ID]&#xA;GO&#xA;&#xA;&#xA;ALTER TABLE [dwh].[Expression_DM]  WITH NOCHECK ADD  CONSTRAINT [FK_Expression_Theme_ID] FOREIGN KEY([Theme_ID])&#xA;REFERENCES [dwh].[Theme_DM] ([Theme_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Expression_DM] CHECK CONSTRAINT [FK_Expression_Theme_ID]&#xA;GO&#xA;&#xA;&#xA;ALTER TABLE [dwh].[Expression_DM]  WITH NOCHECK ADD  CONSTRAINT [FK_Expression_ObjectType_ID] FOREIGN KEY([ObjectType_ID])&#xA;REFERENCES [dwh].[ObjectType_DM] ([ObjectType_ID])&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Expression_DM] CHECK CONSTRAINT [FK_Expression_ObjectType_ID]&#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_BrowseItMonthly_FT_Expression_DM')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[BrowseItMonthly_FT]  WITH NOCHECK ADD  CONSTRAINT [FK_BrowseItMonthly_FT_Expression_DM] FOREIGN KEY([Expression_ID])&#xA;REFERENCES [dwh].[Expression_DM] ([Expression_ID])&#xA;end;&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[BrowseItMonthly_FT] CHECK CONSTRAINT [FK_BrowseItMonthly_FT_Expression_DM]&#xA;GO&#xA;&#xA;&#xA;IF NOT EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_Manifestation_Expression_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[Manifestation_DM]  WITH CHECK ADD  CONSTRAINT [FK_Manifestation_Expression_ID] FOREIGN KEY([Expression_ID])&#xA;REFERENCES [dwh].[Expression_DM] ([Expression_ID])&#xA;end;&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Manifestation_DM] CHECK CONSTRAINT [FK_Manifestation_Expression_ID]&#xA;GO&#xA;&#xA;&#xA;IF NOT EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_CounterMonthly_FT_Expression_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[CounterMonthly_FT]  WITH NOCHECK ADD  CONSTRAINT [FK_CounterMonthly_FT_Expression_ID] FOREIGN KEY([Expression_ID])&#xA;REFERENCES [dwh].[Expression_DM] ([Expression_ID])&#xA;end;&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[CounterMonthly_FT] CHECK CONSTRAINT [FK_CounterMonthly_FT_Expression_ID]&#xA;GO&#xA;&#xA;&#xA;IF NOT EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_Expression_Directorate_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[Expression_DM]  WITH NOCHECK ADD  CONSTRAINT [FK_Expression_Directorate_ID] FOREIGN KEY([Directorate_ID])&#xA;REFERENCES [dwh].[Directorate_DM] ([Directorate_ID])&#xA;end;&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Expression_DM] CHECK CONSTRAINT [FK_Expression_Directorate_ID]&#xA;GO&#xA;&#xA;&#xA;IF NOT EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_Expression_Language_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[Expression_DM]  WITH NOCHECK ADD  CONSTRAINT [FK_Expression_Language_ID] FOREIGN KEY([Language_ID])&#xA;REFERENCES [dwh].[Language_DM] ([Language_ID])&#xA;end;&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Expression_DM] CHECK CONSTRAINT [FK_Expression_Language_ID]&#xA;GO&#xA;&#xA;&#xA;IF NOT EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_GoogleBooksMonthly_Expression_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[GoogleBooksMonthly_FT]  WITH NOCHECK ADD  CONSTRAINT [FK_GoogleBooksMonthly_Expression_ID] FOREIGN KEY([Expression_ID])&#xA;REFERENCES [dwh].[Expression_DM] ([Expression_ID])&#xA;end;&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[GoogleBooksMonthly_FT] CHECK CONSTRAINT [FK_GoogleBooksMonthly_Expression_ID]&#xA;GO&#xA;&#xA;&#xA;IF NOT EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_StatLink_Expression_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[StatLink_FT]  WITH NOCHECK ADD  CONSTRAINT [FK_StatLink_Expression_ID] FOREIGN KEY([Expression_ID])&#xA;REFERENCES [dwh].[Expression_DM] ([Expression_ID])&#xA;end;&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[StatLink_FT] CHECK CONSTRAINT [FK_StatLink_Expression_ID]&#xA;GO&#xA;&#xA;&#xA;IF NOT EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_FreePreviewDaily_FT_Expression_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[FreePreviewDaily_FT]  WITH NOCHECK ADD  CONSTRAINT [FK_FreePreviewDaily_FT_Expression_ID] FOREIGN KEY([Expression_ID])&#xA;REFERENCES [dwh].[Expression_DM] ([Expression_ID])&#xA;end;&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[FreePreviewDaily_FT] CHECK CONSTRAINT [FK_FreePreviewDaily_FT_Expression_ID]&#xA;GO&#xA;&#xA;&#xA;IF NOT EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_Expression_Theme_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[Expression_DM]  WITH NOCHECK ADD  CONSTRAINT [FK_Expression_Theme_ID] FOREIGN KEY([Theme_ID])&#xA;REFERENCES [dwh].[Theme_DM] ([Theme_ID])&#xA;end;&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Expression_DM] CHECK CONSTRAINT [FK_Expression_Theme_ID]&#xA;GO&#xA;&#xA;&#xA;IF NOT EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_Expression_ObjectType_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[Expression_DM]  WITH NOCHECK ADD  CONSTRAINT [FK_Expression_ObjectType_ID] FOREIGN KEY([ObjectType_ID])&#xA;REFERENCES [dwh].[ObjectType_DM] ([ObjectType_ID])&#xA;end;&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Expression_DM] CHECK CONSTRAINT [FK_Expression_ObjectType_ID]&#xA;GO&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4881,7 +4881,7 @@ on a.IGOId_ID= e.IGO_ID</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="ALTER TABLE [dwh].[BrowseItMonthly_FT] DROP CONSTRAINT [FK_BrowseItMonthly_FT_Expression_DM]&#xA;GO&#xA;ALTER TABLE [dwh].[Manifestation_DM] DROP CONSTRAINT [FK_Manifestation_Expression_ID]&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[CounterMonthly_FT] DROP CONSTRAINT [FK_CounterMonthly_FT_Expression_ID]&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Expression_DM] DROP CONSTRAINT [FK_Expression_Directorate_ID]&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Expression_DM] DROP CONSTRAINT [FK_Expression_Language_ID]&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Expression_DM] DROP CONSTRAINT [FK_Expression_ObjectType_ID]&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[Expression_DM] DROP CONSTRAINT [FK_Expression_Theme_ID]&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[GoogleBooksMonthly_FT] DROP CONSTRAINT [FK_GoogleBooksMonthly_Expression_ID]&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[StatLink_FT] DROP CONSTRAINT [FK_StatLink_Expression_ID]&#xA;GO&#xA;&#xA;ALTER TABLE [dwh].[FreePreviewDaily_FT] DROP CONSTRAINT [FK_FreePreviewDaily_FT_Expression_ID]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;&#xA;IF EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_BrowseItMonthly_FT_Expression_DM')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[BrowseItMonthly_FT] DROP CONSTRAINT [FK_BrowseItMonthly_FT_Expression_DM]&#xA;end;&#xA;GO&#xA;&#xA;&#xA;IF EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_Manifestation_Expression_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[Manifestation_DM] DROP CONSTRAINT [FK_Manifestation_Expression_ID]&#xA;end;&#xA;GO&#xA;&#xA;&#xA;IF EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_CounterMonthly_FT_Expression_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[CounterMonthly_FT] DROP CONSTRAINT [FK_CounterMonthly_FT_Expression_ID]&#xA;end;&#xA;GO&#xA;&#xA;&#xA;IF EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_Expression_Directorate_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[Expression_DM] DROP CONSTRAINT [FK_Expression_Directorate_ID]&#xA;end;&#xA;GO&#xA;&#xA;&#xA;IF EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_Expression_Language_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[Expression_DM] DROP CONSTRAINT [FK_Expression_Language_ID]&#xA;end;&#xA;GO&#xA;&#xA;&#xA;IF EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_Expression_ObjectType_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[Expression_DM] DROP CONSTRAINT [FK_Expression_ObjectType_ID]&#xA;end;&#xA;GO&#xA;&#xA;&#xA;IF EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_Expression_Theme_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[Expression_DM] DROP CONSTRAINT [FK_Expression_Theme_ID]&#xA;end;&#xA;GO&#xA;&#xA;&#xA;IF EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_GoogleBooksMonthly_Expression_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[GoogleBooksMonthly_FT] DROP CONSTRAINT [FK_GoogleBooksMonthly_Expression_ID]&#xA;end;&#xA;GO&#xA;&#xA;&#xA;IF EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_StatLink_Expression_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[StatLink_FT] DROP CONSTRAINT [FK_StatLink_Expression_ID]&#xA;end;&#xA;GO&#xA;&#xA;&#xA;IF EXISTS (SELECT * FROM sysobjects WHERE name = 'FK_FreePreviewDaily_FT_Expression_ID')&#xA;BEGIN&#xA;ALTER TABLE [dwh].[FreePreviewDaily_FT] DROP CONSTRAINT [FK_FreePreviewDaily_FT_Expression_ID]&#xA;end;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -5180,13 +5180,9 @@ on a.IGOId_ID= e.IGO_ID</property>
           Id="Package\DFT INSERT INTO DWH_TMP_STG_ExpressionParent_Update_DM_SA"
           TopLeft="12.1666666666669,1545.5" />
         <NodeLayout
-          Size="308,42.6666666666667"
-          Id="Package\TSQL MERGE INTO DWH_Expression (StatLinks)"
-          TopLeft="63.5000000000002,1340.16666666667" />
-        <NodeLayout
-          Size="274.666666666667,42.6666666666667"
-          Id="Package\TSQL MERGE INTO DWH_Expression_DM"
-          TopLeft="80.1666666666667,416.166666666668" />
+          Size="144,42.6666666666667"
+          Id="Package\TSQL ADD FK"
+          TopLeft="139.250000093132,1750.16666666666" />
         <NodeLayout
           Size="329.333333333334,42.6666666666667"
           Id="Package\TSQL CREATE DWH_TMP_STG_Expression_DM Part1"
@@ -5204,6 +5200,42 @@ on a.IGOId_ID= e.IGO_ID</property>
           Id="Package\TSQL CREATE DWH_TMP_STG_ExpressionParent_Update_DM_SA"
           TopLeft="22.8333333333335,1442.83333333333" />
         <NodeLayout
+          Size="372,42.6666666666667"
+          Id="Package\TSQL CREATE DWH_TMP_STG_Update_Expression_DM_Part2"
+          TopLeft="31.5000000000001,826.833333333335" />
+        <NodeLayout
+          Size="320,42.6666666666667"
+          Id="Package\TSQL DROP DWH_TMP_STG_Expression_DM Part1"
+          TopLeft="57.5000000000002,1955.5" />
+        <NodeLayout
+          Size="320,42.6666666666667"
+          Id="Package\TSQL DROP DWH_TMP_STG_Expression_DM Part2"
+          TopLeft="57.5000000000003,2058.16666666667" />
+        <NodeLayout
+          Size="344,42.6666666666667"
+          Id="Package\TSQL DROP DWH_TMP_STG_Expression_DM_SA_Merge"
+          TopLeft="45.5000000000002,1852.83333333333" />
+        <NodeLayout
+          Size="393.333333333334,42.6666666666667"
+          Id="Package\TSQL DROP DWH_TMP_STG_Expression_StatLinks_DM_SA_Merge"
+          TopLeft="20.8333333333336,2160.83333333333" />
+        <NodeLayout
+          Size="380,42.6666666666667"
+          Id="Package\TSQL DROP DWH_TMP_STG_ExpressionParent_Update_DM_SA"
+          TopLeft="27.5000000000003,2263.5" />
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\TSQL DROP FK"
+          TopLeft="142.166666666667,313.500000000001" />
+        <NodeLayout
+          Size="308,42.6666666666667"
+          Id="Package\TSQL MERGE INTO DWH_Expression (StatLinks)"
+          TopLeft="63.5000000000002,1340.16666666667" />
+        <NodeLayout
+          Size="274.666666666667,42.6666666666667"
+          Id="Package\TSQL MERGE INTO DWH_Expression_DM"
+          TopLeft="80.1666666666667,416.166666666668" />
+        <NodeLayout
           Size="221.333333333334,42"
           Id="Package\TSQL UPDATE Expression_DM"
           TopLeft="106.833333333334,1648.16666666667" />
@@ -5215,84 +5247,6 @@ on a.IGOId_ID= e.IGO_ID</property>
           Size="249.333333333334,42.6666666666667"
           Id="Package\TSQL UPDATE Expression_DM Part2"
           TopLeft="92.8333333333334,1032.16666666667" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1 1]"
-          TopLeft="217.5,1280.16666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999998"
-              Start="0,0"
-              End="0,52.4999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999998" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="217.5,150.833333333334">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000003"
-              Start="0,0"
-              End="0,52.5000000000003">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000003" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4 1 1]"
-          TopLeft="217.5,1485.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999998"
-              Start="0,0"
-              End="0,52.4999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999998" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\TSQL DROP FK"
-          TopLeft="142.166666666667,313.500000000001" />
-        <NodeLayout
-          Size="144,42.6666666666667"
-          Id="Package\TSQL ADD FK"
-          TopLeft="145.5,1750.16666666667" />
-        <NodeLayout
-          Size="344,42.6666666666667"
-          Id="Package\TSQL DROP DWH_TMP_STG_Expression_DM_SA_Merge"
-          TopLeft="45.5000000000002,1852.83333333333" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="217.5,48.1666666666668">
@@ -5338,6 +5292,28 @@ on a.IGOId_ID= e.IGO_ID</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 1]"
+          TopLeft="217.5,1280.16666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999998"
+              Start="0,0"
+              End="0,52.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 10]"
           TopLeft="217.5,356.166666666668">
           <EdgeLayout.Curve>
@@ -5361,18 +5337,18 @@ on a.IGOId_ID= e.IGO_ID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="217.5,1792.83333333333">
+          TopLeft="214.375000046566,1792.83333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999998"
+              EndConnector="0,59.9999999999986"
               Start="0,0"
-              End="0,52.4999999999998">
+              End="0,52.4999999999986">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999998" />
+                    End="0,52.4999999999986" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5382,41 +5358,19 @@ on a.IGOId_ID= e.IGO_ID</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="217.5,561.500000000002">
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="214.375000046566,1690.16666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000003"
+              EndConnector="0,59.9999999999948"
               Start="0,0"
-              End="0,52.5000000000003">
+              End="0,52.4999999999948">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000003" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="217.5,458.833333333335">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000002"
-              Start="0,0"
-              End="0,52.5000000000002">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000002" />
+                    End="0,52.4999999999948" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5439,58 +5393,6 @@ on a.IGOId_ID= e.IGO_ID</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.5000000000003" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="320,42.6666666666667"
-          Id="Package\TSQL DROP DWH_TMP_STG_Expression_DM Part1"
-          TopLeft="57.5000000000002,1955.5" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="217.5,1895.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000002"
-              Start="0,0"
-              End="0,52.5000000000002">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000002" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="372,42.6666666666667"
-          Id="Package\TSQL CREATE DWH_TMP_STG_Update_Expression_DM_Part2"
-          TopLeft="31.5000000000001,826.833333333335" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="217.5,869.500000000002">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5543,32 +5445,6 @@ on a.IGOId_ID= e.IGO_ID</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="320,42.6666666666667"
-          Id="Package\TSQL DROP DWH_TMP_STG_Expression_DM Part2"
-          TopLeft="57.5000000000003,2058.16666666667" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="217.5,1998.16666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999995"
-              Start="0,0"
-              End="0,52.4999999999995">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999995" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 16]"
           TopLeft="217.5,1074.83333333334">
@@ -5613,32 +5489,6 @@ on a.IGOId_ID= e.IGO_ID</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="393.333333333334,42.6666666666667"
-          Id="Package\TSQL DROP DWH_TMP_STG_Expression_StatLinks_DM_SA_Merge"
-          TopLeft="20.8333333333336,2160.83333333333" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="217.5,2100.83333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000005"
-              Start="0,0"
-              End="0,52.5000000000005">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000005" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 18]"
           TopLeft="217.5,1382.83333333333">
@@ -5653,6 +5503,28 @@ on a.IGOId_ID= e.IGO_ID</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 19]"
+          TopLeft="217.5,2203.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5684,19 +5556,19 @@ on a.IGOId_ID= e.IGO_ID</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 12]"
-          TopLeft="217.5,1690.16666666667">
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="217.5,150.833333333334">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,60.0000000000003"
               Start="0,0"
-              End="0,52.5">
+              End="0,52.5000000000003">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,52.5000000000003" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5705,24 +5577,152 @@ on a.IGOId_ID= e.IGO_ID</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="380,42.6666666666667"
-          Id="Package\TSQL DROP DWH_TMP_STG_ExpressionParent_Update_DM_SA"
-          TopLeft="27.5000000000003,2263.5" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 19]"
-          TopLeft="217.5,2203.5">
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="217.5,561.500000000002">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,60.0000000000003"
               Start="0,0"
-              End="0,52.5">
+              End="0,52.5000000000003">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,52.5000000000003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4 1 1]"
+          TopLeft="217.5,1485.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999998"
+              Start="0,0"
+              End="0,52.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="217.5,458.833333333335">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000002"
+              Start="0,0"
+              End="0,52.5000000000002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="217.5,1895.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000002"
+              Start="0,0"
+              End="0,52.5000000000002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="217.5,869.500000000002">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="217.5,2100.83333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000005"
+              Start="0,0"
+              End="0,52.5000000000005">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000005" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="217.5,1998.16666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999995"
+              Start="0,0"
+              End="0,52.4999999999995">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999995" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

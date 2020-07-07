@@ -3,7 +3,7 @@
 AS
 	
 
-	INSERT INTO [SourceLight_DM] ( [SourceLight_ID]      ,[SourceLight_Lib]     ,[SourceLight_URL] ,[LastUpdate_Date] ,[HideInReport],[NA_Import],[IsCurrent],[ValidFrom] ,[ValidTo] ,[Proxy_ID])
+	INSERT INTO dwh.[SourceLight_DM] ( [SourceLight_ID]      ,[SourceLight_Lib]     ,[SourceLight_URL] ,[LastUpdate_Date] ,[HideInReport],[NA_Import],[IsCurrent],[ValidFrom] ,[ValidTo] ,[Proxy_ID])
 	VALUES
 	(1,'Unidentified','undefined','2014-12-19 08:50:01.720',0,0,1,'2014-12-19',NULL,NULL),
 	(2,'OECD.org','www.oecd.org','2014-12-19 08:50:01.720',0,0,1,'2014-12-19',NULL,NULL),

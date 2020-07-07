@@ -2,3 +2,4 @@
 EXEC [dwh].[SP_Hours]
 EXEC [dwh].[SP_iLibraryAcessMode]
 /*EXEC [dwh].[SP_SourceLight_DM]*/
+/*EXEC[dwh].[SP_ObjectTypeDM]*/

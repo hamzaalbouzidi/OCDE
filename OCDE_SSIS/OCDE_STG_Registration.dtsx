@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Registration"
   DTS:PackageType="5"
-  DTS:VersionBuild="82"
-  DTS:VersionGUID="{35CC205F-7744-4203-95D4-F1D5972D181A}">
+  DTS:VersionBuild="83"
+  DTS:VersionGUID="{7D79BDF1-C7E2-474E-A3FC-A5338DB412E5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -3336,1005 +3336,6 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{0ebafae5-4d7a-47cc-a27f-796b8099b0a9}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\Duplicate Reason"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
-              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
-              name="Duplicate Reason"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\Duplicate Reason.Inputs[Entrée de colonne dérivée]"
-                  description="Entrée de la transformation de colonnes dérivées"
-                  name="Entrée de colonne dérivée">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\Duplicate Reason.Outputs[Sortie de colonne dérivée]"
-                  description="Sortie par défaut de la transformation de colonnes dérivées"
-                  exclusionGroup="1"
-                  name="Sortie de colonne dérivée"
-                  synchronousInputId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\Duplicate Reason.Inputs[Entrée de colonne dérivée]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\Duplicate Reason.Outputs[Sortie de colonne dérivée].Columns[Reason]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Calcul"
-                      errorRowDisposition="FailComponent"
-                      length="21"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\Duplicate Reason.Outputs[Sortie de colonne dérivée].Columns[Reason]"
-                      name="Reason"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression de colonne dérivée"
-                          name="Expression">"Duplicate  identityID"</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression claire de colonne dérivée"
-                          expressionType="Notify"
-                          name="FriendlyExpression">"Duplicate  identityID"</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\Duplicate Reason.Outputs[Sortie d'erreur de colonne dérivée]"
-                  description="Sortie d'erreur de la transformation de colonnes dérivées"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de colonne dérivée"
-                  synchronousInputId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\Duplicate Reason.Inputs[Entrée de colonne dérivée]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\Duplicate Reason.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\Duplicate Reason.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\Duplicate Reason.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\Duplicate Reason.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
-              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
-              name="LKP View_Registration_SA_Check_Duplicate"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [stg].[view_Registration_SA_Check_Duplicate]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [stg].[view_Registration_SA_Check_Duplicate]) [refTable]
-where [refTable].[identityID] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le type de cache de la table de correspondance."
-                  name="CacheType"
-                  typeConverter="CacheType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indique si les métadonnées sont à référencer en format XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="identityID" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Spécifie la liste d'identificateurs de lignage se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
-                  name="ParameterMap">#{Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[identityID]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate.Inputs[Entrée de recherche]"
-                  name="Entrée de recherche">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate.Inputs[Entrée de recherche].Columns[identityID]"
-                      cachedDataType="wstr"
-                      cachedLength="20"
-                      cachedName="identityID"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[identityID]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
-                          name="JoinToReferenceColumn">identityID</property>
-                        <property
-                          dataType="System.Null"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate.Outputs[Sortie de recherche avec correspondance]"
-                  errorOrTruncationOperation="Recherche"
-                  exclusionGroup="1"
-                  name="Sortie de recherche avec correspondance"
-                  synchronousInputId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate.Inputs[Entrée de recherche]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate.Outputs[Sortie de recherche sans correspondance]"
-                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
-                  exclusionGroup="1"
-                  name="Sortie de recherche sans correspondance"
-                  synchronousInputId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate.Inputs[Entrée de recherche]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate.Outputs[Sortie d'erreur de recherche]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de recherche"
-                  synchronousInputId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate.Inputs[Entrée de recherche]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
-              description="Destination OLE DB"
-              name="OLE_DST STG_Registration_SA_Rejected"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_Registration_SA_Rejected]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB]"
-                  errorOrTruncationOperation="Insérer"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrée de destination OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[identityID]"
-                      cachedDataType="wstr"
-                      cachedLength="20"
-                      cachedName="identityID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[identityID]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[identityID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Reason]"
-                      cachedDataType="wstr"
-                      cachedLength="21"
-                      cachedName="Reason"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Reason]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\Duplicate Reason.Outputs[Sortie de colonne dérivée].Columns[Reason]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Name]"
-                      cachedDataType="wstr"
-                      cachedLength="500"
-                      cachedName="Name"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Name]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[Name]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[ParentIDs]"
-                      cachedDataType="nText"
-                      cachedName="ParentIDs"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[ParentIDs]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[ParentIDs]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[SubordinateIDs]"
-                      cachedDataType="nText"
-                      cachedName="SubordinateIDs"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SubordinateIDs]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[SubordinateIDs]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[CustomerType]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="CustomerType"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[CustomerType]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[CustomerType]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[City]"
-                      cachedDataType="wstr"
-                      cachedLength="500"
-                      cachedName="City"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[City]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[City]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Country]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="Country"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Country]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[Country]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[CU_Number]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="CU_Number"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[CU_Number]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[CU_Number]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Admin]"
-                      cachedDataType="wstr"
-                      cachedLength="2"
-                      cachedName="Admin"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Admin]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[Admin]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[RegistrationType]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="RegistrationType"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[RegistrationType]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[RegistrationType]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[isActive]"
-                      cachedDataType="bool"
-                      cachedName="isActive"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[isActive]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[isActive]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[isParentConsortium]"
-                      cachedDataType="bool"
-                      cachedName="isParentConsortium"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[isParentConsortium]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[isParentConsortium]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[isChildConsortium]"
-                      cachedDataType="bool"
-                      cachedName="isChildConsortium"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[isChildConsortium]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[isChildConsortium]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[isMaster]"
-                      cachedDataType="bool"
-                      cachedName="isMaster"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[isMaster]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[isMaster]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[isSubordinate]"
-                      cachedDataType="bool"
-                      cachedName="isSubordinate"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[isSubordinate]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[isSubordinate]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[DoNotCountDL]"
-                      cachedDataType="bool"
-                      cachedName="DoNotCountDL"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[DoNotCountDL]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[DoNotCountDL]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[ParentMaster_identityID]"
-                      cachedDataType="wstr"
-                      cachedLength="20"
-                      cachedName="ParentMaster_identityID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[ParentMaster_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[ParentMaster_identityID]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Job_ID]"
-                      dataType="i4"
-                      name="Job_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Reason]"
-                      dataType="nText"
-                      name="Reason" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[identityID]"
-                      dataType="wstr"
-                      length="20"
-                      name="identityID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Name]"
-                      dataType="wstr"
-                      length="500"
-                      name="Name" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[ParentIDs]"
-                      dataType="nText"
-                      name="ParentIDs" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SubordinateIDs]"
-                      dataType="nText"
-                      name="SubordinateIDs" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[CustomerType]"
-                      dataType="wstr"
-                      length="10"
-                      name="CustomerType" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[City]"
-                      dataType="wstr"
-                      length="500"
-                      name="City" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Country]"
-                      dataType="wstr"
-                      length="50"
-                      name="Country" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[CU_Number]"
-                      dataType="wstr"
-                      length="50"
-                      name="CU_Number" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Admin]"
-                      dataType="wstr"
-                      length="2"
-                      name="Admin" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[RegistrationType]"
-                      dataType="wstr"
-                      length="100"
-                      name="RegistrationType" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[isActive]"
-                      dataType="bool"
-                      name="isActive" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[isParentConsortium]"
-                      dataType="bool"
-                      name="isParentConsortium" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[isChildConsortium]"
-                      dataType="bool"
-                      name="isChildConsortium" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[isMaster]"
-                      dataType="bool"
-                      name="isMaster" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[isSubordinate]"
-                      dataType="bool"
-                      name="isSubordinate" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[ParentMaster_ID]"
-                      dataType="wstr"
-                      length="20"
-                      name="ParentMaster_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[DoNotCountDL]"
-                      dataType="bool"
-                      name="DoNotCountDL" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
-              description="Source OLE DB"
-              name="OLE_SRC OCDE_STG_Registration_SA"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_Registration_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.String"
-                  description="Variable contenant la commande SQL à exécuter."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="Mappages entre les paramètres de la commande SQL et les variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB]"
-                  name="Sortie de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[identityID]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[identityID]"
-                      length="20"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[identityID]"
-                      name="identityID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[Name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Name]"
-                      length="500"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[Name]"
-                      name="Name"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[ParentIDs]"
-                      dataType="nText"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ParentIDs]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[ParentIDs]"
-                      name="ParentIDs"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[SubordinateIDs]"
-                      dataType="nText"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SubordinateIDs]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[SubordinateIDs]"
-                      name="SubordinateIDs"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[CustomerType]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[CustomerType]"
-                      length="10"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[CustomerType]"
-                      name="CustomerType"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[City]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[City]"
-                      length="500"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[City]"
-                      name="City"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[Country]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country]"
-                      length="50"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[Country]"
-                      name="Country"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[CU_Number]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[CU_Number]"
-                      length="50"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[CU_Number]"
-                      name="CU_Number"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[Admin]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Admin]"
-                      length="2"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[Admin]"
-                      name="Admin"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[RegistrationType]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[RegistrationType]"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[RegistrationType]"
-                      name="RegistrationType"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[isActive]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[isActive]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[isActive]"
-                      name="isActive"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[isParentConsortium]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[isParentConsortium]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[isParentConsortium]"
-                      name="isParentConsortium"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[isChildConsortium]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[isChildConsortium]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[isChildConsortium]"
-                      name="isChildConsortium"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[isMaster]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[isMaster]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[isMaster]"
-                      name="isMaster"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[isSubordinate]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[isSubordinate]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[isSubordinate]"
-                      name="isSubordinate"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[ParentMaster_identityID]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ParentMaster_identityID]"
-                      length="20"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[ParentMaster_identityID]"
-                      name="ParentMaster_identityID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[DoNotCountDL]"
-                      dataType="bool"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[DoNotCountDL]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[DoNotCountDL]"
-                      name="DoNotCountDL"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[RegistrationTypeNo]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[RegistrationTypeNo]"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].Columns[RegistrationTypeNo]"
-                      name="RegistrationTypeNo"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[identityID]"
-                      dataType="wstr"
-                      length="20"
-                      name="identityID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Name]"
-                      dataType="wstr"
-                      length="500"
-                      name="Name" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ParentIDs]"
-                      dataType="nText"
-                      name="ParentIDs" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SubordinateIDs]"
-                      dataType="nText"
-                      name="SubordinateIDs" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[CustomerType]"
-                      dataType="wstr"
-                      length="10"
-                      name="CustomerType" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[City]"
-                      dataType="wstr"
-                      length="500"
-                      name="City" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Country]"
-                      dataType="wstr"
-                      length="50"
-                      name="Country" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[CU_Number]"
-                      dataType="wstr"
-                      length="50"
-                      name="CU_Number" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Admin]"
-                      dataType="wstr"
-                      length="2"
-                      name="Admin" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[RegistrationType]"
-                      dataType="wstr"
-                      length="100"
-                      name="RegistrationType" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[isActive]"
-                      dataType="bool"
-                      name="isActive" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[isParentConsortium]"
-                      dataType="bool"
-                      name="isParentConsortium" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[isChildConsortium]"
-                      dataType="bool"
-                      name="isChildConsortium" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[isMaster]"
-                      dataType="bool"
-                      name="isMaster" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[isSubordinate]"
-                      dataType="bool"
-                      name="isSubordinate" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ParentMaster_identityID]"
-                      dataType="wstr"
-                      length="20"
-                      name="ParentMaster_identityID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[DoNotCountDL]"
-                      dataType="bool"
-                      name="DoNotCountDL" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB].ExternalColumns[RegistrationTypeNo]"
-                      dataType="i4"
-                      name="RegistrationTypeNo" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB]"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[identityID]"
-                      dataType="wstr"
-                      length="20"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[identityID]"
-                      name="identityID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Name]"
-                      dataType="wstr"
-                      length="500"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Name]"
-                      name="Name" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ParentIDs]"
-                      dataType="nText"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ParentIDs]"
-                      name="ParentIDs" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SubordinateIDs]"
-                      dataType="nText"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SubordinateIDs]"
-                      name="SubordinateIDs" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[CustomerType]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[CustomerType]"
-                      name="CustomerType" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[City]"
-                      dataType="wstr"
-                      length="500"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[City]"
-                      name="City" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Country]"
-                      name="Country" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[CU_Number]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[CU_Number]"
-                      name="CU_Number" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[RegistrationTypeNo]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[RegistrationTypeNo]"
-                      name="RegistrationTypeNo" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Admin]"
-                      dataType="wstr"
-                      length="2"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Admin]"
-                      name="Admin" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[RegistrationType]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[RegistrationType]"
-                      name="RegistrationType" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[isActive]"
-                      dataType="bool"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[isActive]"
-                      name="isActive" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[isParentConsortium]"
-                      dataType="bool"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[isParentConsortium]"
-                      name="isParentConsortium" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[isChildConsortium]"
-                      dataType="bool"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[isChildConsortium]"
-                      name="isChildConsortium" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[isMaster]"
-                      dataType="bool"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[isMaster]"
-                      name="isMaster" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[isSubordinate]"
-                      dataType="bool"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[isSubordinate]"
-                      name="isSubordinate" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ParentMaster_identityID]"
-                      dataType="wstr"
-                      length="20"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ParentMaster_identityID]"
-                      name="ParentMaster_identityID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[DoNotCountDL]"
-                      dataType="bool"
-                      lineageId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[DoNotCountDL]"
-                      name="DoNotCountDL" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate).Paths[Sortie de colonne dérivée]"
-              endId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected.Inputs[Entrée de destination OLE DB]"
-              name="Sortie de colonne dérivée"
-              startId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\Duplicate Reason.Outputs[Sortie de colonne dérivée]" />
-            <path
-              refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate).Paths[Sortie de recherche avec correspondance]"
-              endId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\Duplicate Reason.Inputs[Entrée de colonne dérivée]"
-              name="Sortie de recherche avec correspondance"
-              startId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate.Outputs[Sortie de recherche avec correspondance]" />
-            <path
-              refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate).Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate.Inputs[Entrée de recherche]"
-              name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tâche de flux de données"
@@ -6079,6 +5080,22 @@ where [refTable].[identityID] = ?</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\TSQL INSERT INTO STG_Registration_SA_Rejected (Duplicate)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FA772F97-9FD1-414D-A7A1-ED0B5D42ABEF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL INSERT INTO STG_Registration_SA_Rejected (Duplicate)"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
+          SQLTask:SqlStatementSource="INSERT INTO stg.[STG_Registration_SA_Rejected]&#xA;           ([Reason],[identityID],[Name],[ParentIDs],[SubordinateIDs],[CustomerType],[City],[Country],[CU_Number],[Admin],[RegistrationType],[isActive],[isParentConsortium],[isChildConsortium],[isMaster],[isSubordinate],[ParentMaster_ID],[DoNotCountDL])&#xA;&#x9;&#x9;SELECT 'Duplicate  identityID',T.[identityID],[Name],[ParentIDs],[SubordinateIDs],[CustomerType],[City],[Country],[CU_Number],[Admin],[RegistrationType],T.[isActive],[isParentConsortium],[isChildConsortium],[isMaster],[isSubordinate],[ParentMaster_identityID],T.[DoNotCountDL]&#xA;&#x9;&#x9;FROM stg.STG_Registration_SA T&#xA;&#x9;&#x9;INNER JOIN stg.[view_Registration_SA_Check_Duplicate] V ON T.identityID = V.identityID" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\TSQL Truncate STG_City"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
@@ -6219,6 +5236,22 @@ where [refTable].[identityID] = ?</property>
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\DFT INSERT INTO STG_Registration_SA" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{7FD3B40E-68CE-4939-9B4D-8197D0C7419A}"
+      DTS:From="Package\TSQL DELETE Registration_SA (CustomerType)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\TSQL INSERT INTO STG_Registration_SA_Rejected (Duplicate)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{FA24D6FC-1977-44E3-B5C4-362E37DC259F}"
+      DTS:From="Package\TSQL INSERT INTO STG_Registration_SA_Rejected (Duplicate)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\TSQL DELETE Registration_SA (Duplicate)" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
       DTS:DTSID="{876A8487-7394-4A4D-92EE-BD726107BBD7}"
@@ -6322,22 +5355,6 @@ where [refTable].[identityID] = ?</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 7"
       DTS:To="Package\TSQL DELETE Registration_SA (CustomerType)" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 8]"
-      DTS:CreationName=""
-      DTS:DTSID="{E02166CD-83D3-493D-BE6F-C3394C9B9089}"
-      DTS:From="Package\TSQL DELETE Registration_SA (CustomerType)"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 8"
-      DTS:To="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 9]"
-      DTS:CreationName=""
-      DTS:DTSID="{A90CEDE1-CF27-4AB5-BF8B-679EDD32F427}"
-      DTS:From="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 9"
-      DTS:To="Package\TSQL DELETE Registration_SA (Duplicate)" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -6371,10 +5388,6 @@ where [refTable].[identityID] = ?</property>
           Size="394.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (CustomerType)"
           TopLeft="91.6904749061383,876.336504907543" />
-        <NodeLayout
-          Size="370.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)"
-          TopLeft="109.190474645368,1014.30793656403" />
         <NodeLayout
           Size="374.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)"
@@ -6427,6 +5440,84 @@ where [refTable].[identityID] = ?</property>
           Size="257.333333333334,42.6666666666667"
           Id="Package\TSQL Truncate STG_RegistrationType"
           TopLeft="123.287696657526,203.034937165645" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="245.877974401672,476.474595714543">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.8047808744514"
+              Start="0,0"
+              End="0,18.3047808744514">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.3047808744514" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="246.232140849478,544.946043255661">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.791667688017,23.3809310058749"
+              Start="0,0"
+              End="12.791667688017,15.8809310058749">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.69046550293746" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.69046550293746"
+                    Point2="0,11.6904655029375"
+                    Point3="4,11.6904655029375" />
+                  <mssgle:LineSegment
+                    End="8.79166768801701,11.6904655029375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.79166768801701,11.6904655029375"
+                    Point2="12.791667688017,11.6904655029375"
+                    Point3="12.791667688017,15.6904655029375" />
+                  <mssgle:LineSegment
+                    End="12.791667688017,15.8809310058749" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="249.169640959684,405.379380920464">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.4285481274126"
+              Start="0,0"
+              End="0,20.9285481274126">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.9285481274126" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
           TopLeft="258.255950665989,42.7555575676095">
@@ -6725,98 +5816,36 @@ where [refTable].[identityID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="376,42.6666666666667"
+          Id="Package\TSQL INSERT INTO STG_Registration_SA_Rejected (Duplicate)"
+          TopLeft="115.624998277053,1012.99999434352" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 8]"
-          TopLeft="291.880950575961,989.84126926197">
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="289.23809317322,989.84126926197">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,24.4666673020556"
+              EndConnector="14.3869051038334,23.1587250815498"
               Start="0,0"
-              End="0,16.9666673020556">
+              End="14.3869051038334,15.6587250815498">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.9666673020556" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 9]"
-          TopLeft="295.880950426949,1056.97460323069">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26.4380977187545"
-              Start="0,0"
-              End="0,18.9380977187545">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.9380977187545" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="245.877974401672,476.474595714543">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,25.8047808744514"
-              Start="0,0"
-              End="0,18.3047808744514">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.3047808744514" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="246.232140849478,544.946043255661">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="12.791667688017,23.3809310058749"
-              Start="0,0"
-              End="12.791667688017,15.8809310058749">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,7.69046550293746" />
+                    End="0,7.57936254077492" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,7.69046550293746"
-                    Point2="0,11.6904655029375"
-                    Point3="4,11.6904655029375" />
+                    Point1="0,7.57936254077492"
+                    Point2="0,11.5793625407749"
+                    Point3="4,11.5793625407749" />
                   <mssgle:LineSegment
-                    End="8.79166768801701,11.6904655029375" />
+                    End="10.3869051038334,11.5793625407749" />
                   <mssgle:CubicBezierSegment
-                    Point1="8.79166768801701,11.6904655029375"
-                    Point2="12.791667688017,11.6904655029375"
-                    Point3="12.791667688017,15.6904655029375" />
+                    Point1="10.3869051038334,11.5793625407749"
+                    Point2="14.3869051038334,11.5793625407749"
+                    Point3="14.3869051038334,15.5793625407749" />
                   <mssgle:LineSegment
-                    End="12.791667688017,15.8809310058749" />
+                    End="14.3869051038334,15.6587250815498" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6826,19 +5855,19 @@ where [refTable].[identityID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="249.169640959684,405.379380920464">
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="300.431545576125,1055.66666101019">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,28.4285481274126"
+              EndConnector="0,27.7460399392639"
               Start="0,0"
-              End="0,20.9285481274126">
+              End="0,20.2460399392639">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.9285481274126" />
+                    End="0,20.2460399392639" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6854,7 +5883,7 @@ where [refTable].[identityID] = ?</property>
     design-time-name="Package\DFT INSERT INTO STG_City">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="169.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_City\OLE_DST STG_City"
@@ -6886,7 +5915,9 @@ where [refTable].[identityID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6908,7 +5939,9 @@ where [refTable].[identityID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7010,7 +6043,7 @@ where [refTable].[identityID] = ?</property>
     design-time-name="Package\DFT INSERT INTO STG_Registration">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="208,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Registration\OLE_DST STG_Registration"
@@ -7038,9 +6071,7 @@ where [refTable].[identityID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7170,7 +6201,7 @@ where [refTable].[identityID] = ?</property>
     design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (CustomerType)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="393.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (CustomerType)\OLE_SRC OCDE_STG_view_Registration_SA_Check_CustomerType"
@@ -7202,9 +6233,7 @@ where [refTable].[identityID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7226,9 +6255,7 @@ where [refTable].[identityID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7249,151 +6276,6 @@ where [refTable].[identityID] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (CustomerType)\OLE_DST STG_Registration_SA_Rejected">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="273.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected"
-          TopLeft="12.1666666666667,313.5" />
-        <NodeLayout
-          Size="286.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate"
-          TopLeft="5.50000000000003,108.166666666667" />
-        <NodeLayout
-          Size="161.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\Duplicate Reason"
-          TopLeft="68.1666666666667,210.833333333334" />
-        <NodeLayout
-          Size="258.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA"
-          TopLeft="19.5,5.50000000000004" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate).Paths[Sortie de source OLE DB]"
-          TopLeft="148.833333333333,48.1666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate).Paths[Sortie de recherche avec correspondance]"
-          TopLeft="148.833333333333,150.833333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-91.67701171875,20.4453125000001,183.3540234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate).Paths[Sortie de colonne dérivée]"
-          TopLeft="148.833333333333,253.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_DST STG_Registration_SA_Rejected">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\LKP View_Registration_SA_Check_Duplicate">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[stg].[view_Registration_SA_Check_Duplicate]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">1</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Duplicate)\OLE_SRC OCDE_STG_Registration_SA">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

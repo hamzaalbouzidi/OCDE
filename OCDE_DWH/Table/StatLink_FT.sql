@@ -13,10 +13,7 @@
     REFERENCES [dwh].[Source_DM] ([Source_ID]),
 	[UserAgent_ID] [int] NULL
 	CONSTRAINT [FK_StatLink_UserAgent_ID] FOREIGN KEY ([UserAgent_ID])
-    REFERENCES [dwh].[UserAgent_DM] ([UserAgent_ID]), 
-    [CurExpId] INT NOT NULL, 
-    [Plateform] VARCHAR(8) NOT NULL, 
-    [Format_ID] INT NOT NULL, 
-    [Downloads] INT NOT NULL
+    REFERENCES [dwh].[UserAgent_DM] ([UserAgent_ID])
+
 
 )
