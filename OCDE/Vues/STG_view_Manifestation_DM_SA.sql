@@ -16,7 +16,7 @@ FROM
 		,'KV3' AS ExternalSource
 		,CAST(DOI AS nvarchar(100)) collate Latin1_General_CI_AS AS Expression_ExternalID 
 		,[Medium]  collate Latin1_General_CI_AS AS Format_ExternalID	
-		,Null as ISBN13		
+		, ISBN13		
 		,CAST([FirstReleaseDate] as date) as  [FirstReleaseDate]
 
   FROM 
@@ -31,11 +31,14 @@ FROM
 			,FirstExportDate
 			,LatestDeletionDate
 			,LatestExportDate
-			,RankManif from (
+			,RankManif
+			,Isbn13
+			from (
 		SELECT 
 			 P.ProductId
 			,P.DOI
 			,P.Medium
+			,P.Isbn13
 			,(
 				SELECT MAX(ED) FROM (
 					VALUES (EmbargoDate)				
@@ -95,7 +98,7 @@ FROM
 		,'KV3' AS ExternalSource
 		,CAST(DOI AS nvarchar(100))collate Latin1_General_CI_AS  AS Expression_ExternalID 
 		,[Medium] collate Latin1_General_CI_AS AS Format_ExternalID	
-		,Null as ISBN13		
+		, ISBN13		
 		,CAST([FirstReleaseDate] as date) as  [FirstReleaseDate]
 
   FROM 
@@ -110,11 +113,13 @@ FROM
 			,FirstExportDate
 			,LatestDeletionDate
 			,LatestExportDate
+			,Isbn13
 			,RankManif from (
 		SELECT 
 			 P.ProductId
 			,P.DOI
 			,P.Medium
+			,P.Isbn13
 			,(
 				SELECT MAX(ED) FROM (
 					VALUES (EmbargoDate)				
@@ -152,4 +157,6 @@ GROUP BY
 	,Expression.Expression_ID
 	,Format.Format_ID 
 	,SA.[FirstReleaseDate]
-	,SA.ISBN13 
+	,SA.ISBN13
+GO
+

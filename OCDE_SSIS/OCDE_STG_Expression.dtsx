@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Expression"
   DTS:PackageType="5"
-  DTS:VersionBuild="161"
-  DTS:VersionGUID="{1B474771-0E27-4EE0-8A8F-DC93EF80A798}">
+  DTS:VersionBuild="163"
+  DTS:VersionGUID="{E0E4E537-605D-42C2-BE3E-540FC8F0BD68}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -9855,491 +9855,6 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO STG_IGO"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{601b752f-2cee-413a-89bb-8da4f6fc0466}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO STG_IGO"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
-              description="Destination OLE DB"
-              name="OLE_DST STG_IGO"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_IGO_DM_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB]"
-                  errorOrTruncationOperation="Insérer"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrée de destination OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].Columns[IGO_ExternalID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="IGO_ExternalID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].ExternalColumns[IGO_ExternalID]"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[IGO_ExternalID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].Columns[ExternalSource]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="3"
-                      cachedName="ExternalSource"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].Columns[IGO_Lib_EN]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="IGO_Lib_EN"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].ExternalColumns[IGO_Lib_EN]"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[IGO_Lib_EN]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].Columns[IGO_Lib_FR]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="IGO_Lib_FR"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].ExternalColumns[IGO_Lib_FR]"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[IGO_Lib_FR]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].Columns[IGO_Code_EN]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="IGO_Code_EN"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].ExternalColumns[IGO_Code_EN]"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[IGO_Code_EN]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].Columns[IGO_Code_FR]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="IGO_Code_FR"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].ExternalColumns[IGO_Code_FR]"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[IGO_Code_FR]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].Columns[DOIPrefix]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="DOIPrefix"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].ExternalColumns[DOIPrefix]"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[DOIPrefix]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].ExternalColumns[IGO_ExternalID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="IGO_ExternalID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].ExternalColumns[ExternalSource]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
-                      name="ExternalSource" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].ExternalColumns[IGO_Lib_EN]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="IGO_Lib_EN" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].ExternalColumns[IGO_Lib_FR]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="IGO_Lib_FR" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].ExternalColumns[IGO_Code_EN]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="IGO_Code_EN" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].ExternalColumns[IGO_Code_FR]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="IGO_Code_FR" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB].ExternalColumns[DOIPrefix]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      name="DOIPrefix" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Outputs[Sortie d'erreur de destination OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
-              description="Source OLE DB"
-              name="OLE_SRC OCDE_STG_view_IGO_DM_SA"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[view_IGO_DM_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.String"
-                  description="Variable contenant la commande SQL à exécuter."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="Mappages entre les paramètres de la commande SQL et les variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB]"
-                  name="Sortie de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[IGO_ExternalID]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IGO_ExternalID]"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[IGO_ExternalID]"
-                      name="IGO_ExternalID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
-                      length="3"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[ExternalSource]"
-                      name="ExternalSource"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[IGO_Lib_EN]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IGO_Lib_EN]"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[IGO_Lib_EN]"
-                      name="IGO_Lib_EN"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[IGO_Lib_FR]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IGO_Lib_FR]"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[IGO_Lib_FR]"
-                      name="IGO_Lib_FR"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[IGO_Code_EN]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IGO_Code_EN]"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[IGO_Code_EN]"
-                      name="IGO_Code_EN"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[IGO_Code_FR]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IGO_Code_FR]"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[IGO_Code_FR]"
-                      name="IGO_Code_FR"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[DOIPrefix]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[DOIPrefix]"
-                      length="8"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].Columns[DOIPrefix]"
-                      name="DOIPrefix"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IGO_ExternalID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="IGO_ExternalID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[ExternalSource]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
-                      name="ExternalSource" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IGO_Lib_EN]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="IGO_Lib_EN" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IGO_Lib_FR]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="IGO_Lib_FR" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IGO_Code_EN]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="IGO_Code_EN" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IGO_Code_FR]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="IGO_Code_FR" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[DOIPrefix]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      name="DOIPrefix" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB]"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IGO_ExternalID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IGO_ExternalID]"
-                      name="IGO_ExternalID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ExternalSource]"
-                      name="ExternalSource" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IGO_Lib_EN]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IGO_Lib_EN]"
-                      name="IGO_Lib_EN" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IGO_Lib_FR]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IGO_Lib_FR]"
-                      name="IGO_Lib_FR" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IGO_Code_EN]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IGO_Code_EN]"
-                      name="IGO_Code_EN" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IGO_Code_FR]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IGO_Code_FR]"
-                      name="IGO_Code_FR" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[DOIPrefix]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[DOIPrefix]"
-                      name="DOIPrefix" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\DFT INSERT INTO STG_IGO.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO.Inputs[Entrée de destination OLE DB]"
-              name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA.Outputs[Sortie de source OLE DB]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\DFT INSERT Update_Expression_DM_Part1"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tâche de flux de données"
@@ -11466,25 +10981,6 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\TSQL Truncate STG_IGO_DM_SA"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{74550f1d-3705-43d4-854f-79cb4f78e140}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL Truncate STG_IGO_DM_SA"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_IGO_DM_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\TSQL Truncate STG_KV3_Expression"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
@@ -11584,6 +11080,22 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\TSQL Truncate STG_Expression_DM_SA" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{F2190B73-7394-48B0-85CE-6AA1CBCBD228}"
+      DTS:From="Package\DFT INSERT INTO STG_Expression"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT INSERT INTO STG_Expression_OP" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{71F48523-4B2C-45A9-A475-6E321FA37243}"
+      DTS:From="Package\TSQL Truncate STG_Expression_SA_Rejected"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\DFT INSERT INTO STG_Expression_DM_SA_OP" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 1]"
       DTS:CreationName=""
       DTS:DTSID="{46f3f86e-34d0-4716-9abf-49fa633821d8}"
@@ -11591,14 +11103,6 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 1"
       DTS:To="Package\TSQL Truncate STG_Expression_OP" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 10]"
-      DTS:CreationName=""
-      DTS:DTSID="{02E8B0A1-2886-4ADE-8755-A1577C02D3DC}"
-      DTS:From="Package\DFT INSERT INTO STG_Expression"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 10"
-      DTS:To="Package\DFT INSERT INTO STG_IGO" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 11]"
       DTS:CreationName=""
@@ -11664,14 +11168,6 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
       DTS:ObjectName="Contrainte 18"
       DTS:To="Package\DFT INSERT Update_Expression_DM_Part1" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 19]"
-      DTS:CreationName=""
-      DTS:DTSID="{576D0C64-A4B1-4BFE-884D-1E565ACE3216}"
-      DTS:From="Package\TSQL Truncate STG_Expression_SA_Rejected"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 19"
-      DTS:To="Package\TSQL Truncate STG_IGO_DM_SA" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 2]"
       DTS:CreationName=""
       DTS:DTSID="{C070350B-B7B4-40A6-A69C-3288E37A504E}"
@@ -11687,22 +11183,6 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 2 1"
       DTS:To="Package\DFT INSERT INTO STG_Expression_StatLinks" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 20]"
-      DTS:CreationName=""
-      DTS:DTSID="{31F652D2-59DD-4FFF-9371-11237F4F40D5}"
-      DTS:From="Package\TSQL Truncate STG_IGO_DM_SA"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 20"
-      DTS:To="Package\DFT INSERT INTO STG_Expression_DM_SA_OP" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 21]"
-      DTS:CreationName=""
-      DTS:DTSID="{F068F6B5-87D6-41C3-98C5-F41D76937AB1}"
-      DTS:From="Package\DFT INSERT INTO STG_IGO"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 21"
-      DTS:To="Package\DFT INSERT INTO STG_Expression_OP" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 3]"
       DTS:CreationName=""
@@ -11803,7 +11283,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
         <NodeLayout
           Size="264,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression_OP"
-          TopLeft="61.5000000000002,1442.83333333334" />
+          TopLeft="52.7500001303854,1344.90000175119" />
         <NodeLayout
           Size="262.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression_SA"
@@ -11832,10 +11312,6 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
           Size="314.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_ExpressionParent_Update"
           TopLeft="36.166666666667,2674.83333333334" />
-        <NodeLayout
-          Size="213.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_IGO"
-          TopLeft="86.8333333333335,1340.16666666667" />
         <NodeLayout
           Size="282.666666666667,42.6666666666667"
           Id="Package\DFT INSERT Update_Expression_DM_Part1"
@@ -11888,10 +11364,6 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
           Size="298.666666666667,42.6666666666667"
           Id="Package\TSQL Truncate STG_ExpressionParent_Update"
           TopLeft="44.1666666666667,724.166666666669" />
-        <NodeLayout
-          Size="236,42.6666666666667"
-          Id="Package\TSQL Truncate STG_IGO_DM_SA"
-          TopLeft="75.5000000000001,1032.16666666667" />
         <NodeLayout
           Size="253.333333333334,42.6666666666667"
           Id="Package\TSQL Truncate STG_KV3_Expression"
@@ -11963,28 +11435,6 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 10]"
-          TopLeft="193.5,1280.16666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000032"
-              Start="0,0"
-              End="0,52.5000000000032">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000032" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 11]"
           TopLeft="193.5,2614.83333333334">
           <EdgeLayout.Curve>
@@ -12008,18 +11458,30 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 12]"
-          TopLeft="193.5,1485.5">
+          TopLeft="184.750000130385,1387.56666841786">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999998"
+              EndConnector="8.74999986961487,157.933331582142"
               Start="0,0"
-              End="0,52.4999999999998">
+              End="8.74999986961487,150.433331582142">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999998" />
+                    End="0,74.966665791071" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,74.966665791071"
+                    Point2="0,78.966665791071"
+                    Point3="4,78.966665791071" />
+                  <mssgle:LineSegment
+                    End="4.74999986961487,78.966665791071" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.74999986961487,78.966665791071"
+                    Point2="8.74999986961487,78.966665791071"
+                    Point3="8.74999986961487,82.966665791071" />
+                  <mssgle:LineSegment
+                    End="8.74999986961487,150.433331582142" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12161,28 +11623,6 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 19]"
-          TopLeft="193.5,972.166666666669">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000005"
-              Start="0,0"
-              End="0,52.5000000000005">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000005" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 2]"
           TopLeft="193.5,1177.50000000001">
           <EdgeLayout.Curve>
@@ -12218,50 +11658,6 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.5000000000036" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 20]"
-          TopLeft="193.5,1074.83333333334">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000002"
-              Start="0,0"
-              End="0,52.5000000000002">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000002" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 21]"
-          TopLeft="193.5,1382.83333333334">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999998"
-              Start="0,0"
-              End="0,52.4999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12468,6 +11864,62 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="193.5,1280.16666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.74999986961481,64.7333350845245"
+              Start="0,0"
+              End="-8.74999986961481,57.2333350845245">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.3666675422622" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.3666675422622"
+                    Point2="0,32.3666675422622"
+                    Point3="-4,32.3666675422622" />
+                  <mssgle:LineSegment
+                    End="-4.74999986961481,32.3666675422622" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.74999986961481,32.3666675422622"
+                    Point2="-8.74999986961481,32.3666675422622"
+                    Point3="-8.74999986961481,36.3666675422622" />
+                  <mssgle:LineSegment
+                    End="-8.74999986961481,57.2333350845245" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="193.5,972.16666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,162.66666666667"
+              Start="0,0"
+              End="0,155.16666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,155.16666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -12475,7 +11927,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
     design-time-name="Package\DFT INSERT INTO STG_Expression">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="262.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression\OLE_SRC OCDE_STG_view_Expression"
@@ -12519,9 +11971,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1644730691364,16.883333019515,55.0789453125,11.2138671875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12555,9 +12005,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-31.4870441218217,18.5666658220687,50.307421875,11.228515625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12593,7 +12041,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
     design-time-name="Package\DFT INSERT INTO STG_Expression_DM_SA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="189.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression_DM_SA\Conversion de données"
@@ -12629,9 +12077,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.8251171875,4.51431317716855,55.650234375,11.228515625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12653,9 +12099,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-25.1537109375,5.6595513847612,50.307421875,11.228515625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12677,9 +12121,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-25.19765625,27.9249777085513,50.3953125,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12715,7 +12157,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
     design-time-name="Package\DFT INSERT INTO STG_Expression_DM_SA_OP">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="261.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression_DM_SA_OP\OLE_DST STG_Expression_DM_SA_OP"
@@ -12759,9 +12201,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8.62441467096395,22.1666662404934,50.248828125,11.228515625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12783,9 +12223,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-25.05849609375,4.85240815291815,50.1169921875,11.228515625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12821,7 +12259,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
     design-time-name="Package\DFT INSERT INTO STG_Expression_OP">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="221.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression_OP\OLE_DST STG_Expression_OP"
@@ -12865,9 +12303,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-30.0827475106966,25.0000000000002,50.248828125,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12901,9 +12337,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-14.4577473958334,17.6499993684885,50.248828125,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12939,7 +12373,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
     design-time-name="Package\DFT INSERT INTO STG_Expression_SA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="220,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression_SA\OLE_DST STG_Expression_SA"
@@ -12971,9 +12405,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-25.1244140625,8.0190745483835,50.248828125,11.228515625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13007,9 +12439,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.8928054369985,21.266667007605,49.6189453125,11.228515625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13416,7 +12846,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
     design-time-name="Package\DFT INSERT INTO STG_Expression_StatLinks">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="349.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Expression_StatLinks\OLE_SRC OCDE_STG_view_Expression_StatLinks_DM_SA"
@@ -13444,9 +12874,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.45359375,12.4991525842745,30.9071875,9.568359375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13573,76 +13001,10 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_IGO">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="269.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA"
-          TopLeft="74.166665561497,38.1333326514563" />
-        <NodeLayout
-          Size="170.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO"
-          TopLeft="129.583331998437,122.0999980551" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_IGO.Paths[Sortie de source OLE DB]"
-          TopLeft="211.874998779967,80.799999318123">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.2999987369771"
-              Start="0,0"
-              End="0,33.7999987369771">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.7999987369771" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.45359375,12.1158196809885,30.9071875,9.568359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_IGO\OLE_DST STG_IGO">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_IGO\OLE_SRC OCDE_STG_view_IGO_DM_SA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
     design-time-name="Package\DFT INSERT Update_Expression_DM_Part1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="293.333333333334,42.6666666666667"
           Id="Package\DFT INSERT Update_Expression_DM_Part1\OLE_DST STG_Update_Expression_DM_Part1"
@@ -13670,9 +13032,7 @@ ISNULL(Parent_Item.DOI,'') &lt;&gt;''</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

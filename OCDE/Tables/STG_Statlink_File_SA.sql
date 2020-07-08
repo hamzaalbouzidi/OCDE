@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [stg].[STG_Statlink_File_SA](
-	[SOURCE] [nvarchar](2000) NULL,
+	[SOURCE] [nvarchar](4000) NULL,
 	[USERAGENT] [nvarchar](2000) NULL,
 	[IPADDRESS] [nvarchar](2000) NULL,
 	[FILENAME] [nvarchar](2000) NULL,
