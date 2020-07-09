@@ -5,5 +5,5 @@
 	Expression_ID [INT] NOT NULL,
 	Format_ID [INT] NOT NULL, 
 	FirstRelease_Date [date] NULL,
-	ISBN13 [INT] NULL	
+	ISBN13 [varchar](13) NULL	
 	)

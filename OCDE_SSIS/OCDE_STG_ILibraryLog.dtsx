@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_ILibraryLog"
   DTS:PackageType="5"
-  DTS:VersionBuild="68"
-  DTS:VersionGUID="{5EA45FDB-1A00-40B2-9BBA-2095A6874BB0}">
+  DTS:VersionBuild="71"
+  DTS:VersionGUID="{A958DD4C-A532-40DA-A413-848521E0A3B4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -790,1794 +790,51 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{b548d068-9f4e-496b-86e6-de95bac38e88}"
-      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:refId="Package\TSQL INSERT INTO STG_iLibraryLog_FT_SA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{30C6A3FD-8132-46B1-A091-97ECCCB1B7E4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO STG_iLibraryLog_FT_SA"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      DTS:ObjectName="TSQL INSERT INTO STG_iLibraryLog_FT_SA"
+      DTS:ThreadHint="0">
       <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
       <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
-              description="Destination OLE DB"
-              name="OLE_DST STG_iLibraryLog_FT_SA"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_ILibraryLog_FT_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB]"
-                  errorOrTruncationOperation="Insérer"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrée de destination OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].Columns[Download_Date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Download_Date"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].Columns[Manifestation_ID]"
-                      cachedDataType="i4"
-                      cachedName="Manifestation_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Manifestation_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].Columns[Registration_ID]"
-                      cachedDataType="i4"
-                      cachedName="Registration_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Registration_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].Columns[IPAddress_ID]"
-                      cachedDataType="i4"
-                      cachedName="IPAddress_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].Columns[DOI]"
-                      cachedDataType="wstr"
-                      cachedLength="60"
-                      cachedName="DOI"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[DOI]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].Columns[Source_ID]"
-                      cachedDataType="i4"
-                      cachedName="Source_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Source_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].Columns[SourceLight_ID]"
-                      cachedDataType="i4"
-                      cachedName="SourceLight_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[SourceLight_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].Columns[UserAgent_ID]"
-                      cachedDataType="i4"
-                      cachedName="UserAgent_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[UserAgent_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].Columns[Session_ID]"
-                      cachedDataType="i4"
-                      cachedName="Session_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Session_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Session_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].Columns[EventLogID]"
-                      cachedDataType="i4"
-                      cachedName="EventLogID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[EventLogID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[EventLogID]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
-                      dataType="dbTimeStamp"
-                      name="Download_Date" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Manifestation_ID]"
-                      dataType="i4"
-                      name="Manifestation_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Registration_ID]"
-                      dataType="i4"
-                      name="Registration_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress_ID]"
-                      dataType="i4"
-                      name="IPAddress_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
-                      dataType="wstr"
-                      length="60"
-                      name="DOI" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Source_ID]"
-                      dataType="i4"
-                      name="Source_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[SourceLight_ID]"
-                      dataType="i4"
-                      name="SourceLight_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[UserAgent_ID]"
-                      dataType="i4"
-                      name="UserAgent_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Session_ID]"
-                      dataType="i4"
-                      name="Session_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[EventLogID]"
-                      dataType="i4"
-                      name="EventLogID" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de destination OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
-              description="Source OLE DB"
-              name="OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[view_ILibraryLog_FT_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.String"
-                  description="Variable contenant la commande SQL à exécuter."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="Mappages entre les paramètres de la commande SQL et les variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB]"
-                  name="Sortie de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
-                      name="Download_Date"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Manifestation_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]"
-                      name="Manifestation_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Registration_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]"
-                      name="Registration_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
-                      name="IPAddress_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[DOI]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
-                      length="60"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[DOI]"
-                      name="DOI"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
-                      name="Source_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SourceLight_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]"
-                      name="SourceLight_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
-                      name="UserAgent_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Session_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Session_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[Session_ID]"
-                      name="Session_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[EventLogID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[EventLogID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].Columns[EventLogID]"
-                      name="EventLogID"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
-                      dataType="dbTimeStamp"
-                      name="Download_Date" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Manifestation_ID]"
-                      dataType="i4"
-                      name="Manifestation_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Registration_ID]"
-                      dataType="i4"
-                      name="Registration_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
-                      dataType="i4"
-                      name="IPAddress_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
-                      dataType="wstr"
-                      length="60"
-                      name="DOI" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
-                      dataType="i4"
-                      name="Source_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SourceLight_ID]"
-                      dataType="i4"
-                      name="SourceLight_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
-                      dataType="i4"
-                      name="UserAgent_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Session_ID]"
-                      dataType="i4"
-                      name="Session_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB].ExternalColumns[EventLogID]"
-                      dataType="i4"
-                      name="EventLogID" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB]"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
-                      name="Download_Date" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Manifestation_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Manifestation_ID]"
-                      name="Manifestation_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Registration_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Registration_ID]"
-                      name="Registration_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
-                      name="IPAddress_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
-                      dataType="wstr"
-                      length="60"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
-                      name="DOI" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
-                      name="Source_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SourceLight_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SourceLight_ID]"
-                      name="SourceLight_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
-                      name="UserAgent_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Session_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Session_ID]"
-                      name="Session_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[EventLogID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[EventLogID]"
-                      name="EventLogID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA.Inputs[Entrée de destination OLE DB]"
-              name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA.Outputs[Sortie de source OLE DB]" />
-          </paths>
-        </pipeline>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
+          SQLTask:SqlStatementSource="&#x9;INSERT INTO stg.[STG_ILibraryLog_FT_SA]&#xA;           ([Download_Date]&#xA;           ,[Manifestation_ID]&#xA;           ,[Registration_ID]&#xA;           ,[IPAddress_ID]&#xA;           ,[Source_ID]&#xA;           ,[SourceLight_ID]&#xA;           ,[UserAgent_ID]&#xA;           ,[Session_ID]&#xA;           ,[EventLogID]&#xA;           )&#xA;&#x9;&#x9;SELECT [Download_Date]&#xA;&#x9;&#x9;  ,[Manifestation_ID]&#xA;&#x9;&#x9;  ,[Registration_ID]&#xA;&#x9;&#x9;  ,[IPAddress_ID]&#xA;&#x9;&#x9;  ,[Source_ID]&#xA;&#x9;&#x9;  ,[SourceLight_ID]&#xA;&#x9;&#x9;  ,[UserAgent_ID]&#xA;&#x9;&#x9;  ,[Session_ID]&#xA;&#x9;&#x9;  ,[EventLogID]&#xA;&#x9;&#x9;  &#xA;&#x9;&#x9;FROM stg.[view_ILibraryLog_FT_SA]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO STG_iLibraryLog_SA"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{3e5747e0-be7b-4e39-bfdf-11249d1422b1}"
-      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:refId="Package\TSQL INSERT INTO STG_iLibraryLog_SA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{58FAC67B-388F-4F71-BBCD-B8F639F37365}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO STG_iLibraryLog_SA"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      DTS:ObjectName="TSQL INSERT INTO STG_iLibraryLog_SA"
+      DTS:ThreadHint="0">
       <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
       <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour"
-              componentClassID="Microsoft.ConditionalSplit"
-              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-              name="CSPL Mise à jour"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour.Inputs[Conditional Split Input]"
-                  description="Input to the Conditional Split Transformation"
-                  name="Conditional Split Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour.Inputs[Conditional Split Input].Columns[Manifestation_ID]"
-                      cachedDataType="i4"
-                      cachedName="Manifestation_ID"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour.Inputs[Conditional Split Input].Columns[Registration_ID]"
-                      cachedDataType="i4"
-                      cachedName="Registration_ID"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour.Outputs[Pas Insert]"
-                  description="Output 1 of the Conditional Split Transformation"
-                  errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Pas Insert"
-                  synchronousInputId="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[ISNULL](#{Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]}) || [ISNULL](#{Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]})</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the friendly version of the expression. This expression version uses column names."
-                      expressionType="Notify"
-                      name="FriendlyExpression">ISNULL(Registration_ID) || ISNULL(Manifestation_ID)</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
-                      name="EvaluationOrder">0</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour.Outputs[Insert]"
-                  description="Default Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  name="Insert"
-                  synchronousInputId="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour.Inputs[Conditional Split Input]">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      name="IsDefaultOut">true</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour.Outputs[Conditional Split Error Output]"
-                  description="Error Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Conditional Split Error Output"
-                  synchronousInputId="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour.Inputs[Conditional Split Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
-              description="Destination OLE DB"
-              name="OLE_DST STG_iLibraryLog_SA"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_iLibraryLog_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB]"
-                  errorOrTruncationOperation="Insérer"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrée de destination OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].Columns[Download_Date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Download_Date"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].Columns[Manifestation_ID]"
-                      cachedDataType="i4"
-                      cachedName="Manifestation_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Manifestation_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].Columns[Registration_ID]"
-                      cachedDataType="i4"
-                      cachedName="Registration_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Registration_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].Columns[IPAddress_ID]"
-                      cachedDataType="i4"
-                      cachedName="IPAddress_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].Columns[DOI]"
-                      cachedDataType="wstr"
-                      cachedLength="60"
-                      cachedName="DOI"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[DOI]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].Columns[Source_ID]"
-                      cachedDataType="i4"
-                      cachedName="Source_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Source_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].Columns[SourceLight_ID]"
-                      cachedDataType="i4"
-                      cachedName="SourceLight_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[SourceLight_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].Columns[UserAgent_ID]"
-                      cachedDataType="i4"
-                      cachedName="UserAgent_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[UserAgent_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].Columns[Session_ID]"
-                      cachedDataType="i4"
-                      cachedName="Session_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Session_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Session_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].Columns[EventLogID]"
-                      cachedDataType="i4"
-                      cachedName="EventLogID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[EventLogID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[EventLogID]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
-                      dataType="dbTimeStamp"
-                      name="Download_Date" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Manifestation_ID]"
-                      dataType="i4"
-                      name="Manifestation_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Registration_ID]"
-                      dataType="i4"
-                      name="Registration_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress_ID]"
-                      dataType="i4"
-                      name="IPAddress_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
-                      dataType="wstr"
-                      length="60"
-                      name="DOI" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Source_ID]"
-                      dataType="i4"
-                      name="Source_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[SourceLight_ID]"
-                      dataType="i4"
-                      name="SourceLight_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[UserAgent_ID]"
-                      dataType="i4"
-                      name="UserAgent_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[Session_ID]"
-                      dataType="i4"
-                      name="Session_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[EventLogID]"
-                      dataType="i4"
-                      name="EventLogID" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Outputs[Sortie d'erreur de destination OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
-              description="Source OLE DB"
-              name="OLE_SRC OCDE_STG_view_ILibraryLog_SA"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[view_ILibraryLog_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.String"
-                  description="Variable contenant la commande SQL à exécuter."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="Mappages entre les paramètres de la commande SQL et les variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB]"
-                  name="Sortie de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Download_Date]"
-                      name="Download_Date"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Manifestation_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]"
-                      name="Manifestation_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Registration_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Registration_ID]"
-                      name="Registration_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
-                      name="IPAddress_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[DOI]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
-                      length="60"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[DOI]"
-                      name="DOI"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Source_ID]"
-                      name="Source_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SourceLight_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]"
-                      name="SourceLight_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[UserAgent_ID]"
-                      name="UserAgent_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Session_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Session_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[Session_ID]"
-                      name="Session_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[EventLogID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[EventLogID]"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].Columns[EventLogID]"
-                      name="EventLogID"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Download_Date]"
-                      dataType="dbTimeStamp"
-                      name="Download_Date" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Manifestation_ID]"
-                      dataType="i4"
-                      name="Manifestation_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Registration_ID]"
-                      dataType="i4"
-                      name="Registration_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
-                      dataType="i4"
-                      name="IPAddress_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
-                      dataType="wstr"
-                      length="60"
-                      name="DOI" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Source_ID]"
-                      dataType="i4"
-                      name="Source_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SourceLight_ID]"
-                      dataType="i4"
-                      name="SourceLight_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[UserAgent_ID]"
-                      dataType="i4"
-                      name="UserAgent_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Session_ID]"
-                      dataType="i4"
-                      name="Session_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB].ExternalColumns[EventLogID]"
-                      dataType="i4"
-                      name="EventLogID" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB]"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Download_Date]"
-                      name="Download_Date" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Manifestation_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Manifestation_ID]"
-                      name="Manifestation_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Registration_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Registration_ID]"
-                      name="Registration_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
-                      name="IPAddress_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
-                      dataType="wstr"
-                      length="60"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
-                      name="DOI" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Source_ID]"
-                      name="Source_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SourceLight_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SourceLight_ID]"
-                      name="SourceLight_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[UserAgent_ID]"
-                      name="UserAgent_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Session_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Session_ID]"
-                      name="Session_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[EventLogID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[EventLogID]"
-                      name="EventLogID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\DFT INSERT INTO STG_iLibraryLog_SA.Paths[Insert]"
-              endId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA.Inputs[Entrée de destination OLE DB]"
-              name="Insert"
-              startId="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour.Outputs[Insert]" />
-            <path
-              refId="Package\DFT INSERT INTO STG_iLibraryLog_SA.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour.Inputs[Conditional Split Input]"
-              name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA.Outputs[Sortie de source OLE DB]" />
-          </paths>
-        </pipeline>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
+          SQLTask:SqlStatementSource="INSERT&#x9;stg.[STG_iLibraryLog_SA] &#xA;&#x9;&#x9;&#x9;&#x9;  ([Download_Date]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[Manifestation_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[Registration_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[IPAddress_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[DOI]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[Source_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[SourceLight_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[UserAgent_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[Session_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[EventLogID])&#xA;&#x9;  &#xA;&#x9;&#x9;&#x9;SELECT [Download_Date]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[Manifestation_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[Registration_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[IPAddress_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[DOI]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[Source_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[SourceLight_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[UserAgent_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[Session_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[EventLogID]&#xA;&#x9;&#x9;&#x9;  FROM stg.[view_ILibraryLog_SA] where [Registration_ID] is not null and  [Manifestation_ID] is not null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{ebbe6f65-81f0-4753-9637-b71cdeb7ea9f}"
-      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:refId="Package\TSQL INSERT INTO STG_ILibraryLog_SA_Rejected"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9A271D9E-90F6-487C-9E4E-70A323FF09B2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO STG_ILibraryLog_SA_Rejected"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      DTS:ObjectName="TSQL INSERT INTO STG_ILibraryLog_SA_Rejected"
+      DTS:ThreadHint="0">
       <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
       <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
-              description="Destination OLE DB"
-              name="OLE_DST STG_ILibraryLog_SA_Rejected"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_ILibraryLog_SA_Rejected]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB]"
-                  errorOrTruncationOperation="Insérer"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrée de destination OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[EVENTLOGID]"
-                      cachedDataType="wstr"
-                      cachedLength="20"
-                      cachedName="EVENTLOGID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[EVENTLOGID]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[EVENTLOGID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[IDENTITYID]"
-                      cachedDataType="wstr"
-                      cachedLength="30"
-                      cachedName="IDENTITYID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[IDENTITYID]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[IDENTITYID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[EVENT_TIME]"
-                      cachedDataType="wstr"
-                      cachedLength="30"
-                      cachedName="EVENT_TIME"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[EVENT_TIME]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[EVENT_TIME]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[SESSIONID]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="SESSIONID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SESSIONID]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[SESSIONID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[IPADDRESS]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="IPADDRESS"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[IPADDRESS]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[IPADDRESS]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[USERAGENT]"
-                      cachedDataType="nText"
-                      cachedName="USERAGENT"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[USERAGENT]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[USERAGENT]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[ITEMID]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="ITEMID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[ITEMID]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[ITEMID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[MIME_TYPE]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="MIME_TYPE"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[MIME_TYPE]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[MIME_TYPE]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[LICENCE_TYPE]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="LICENCE_TYPE"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[LICENCE_TYPE]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[LICENCE_TYPE]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[SOURCE]"
-                      cachedDataType="nText"
-                      cachedName="SOURCE"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SOURCE]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[SOURCE]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[DOI]"
-                      cachedDataType="wstr"
-                      cachedLength="60"
-                      cachedName="DOI"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[DOI]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Manifestation_ID]"
-                      cachedDataType="i4"
-                      cachedName="Manifestation_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Manifestation_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Registration_ID]"
-                      cachedDataType="i4"
-                      cachedName="Registration_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Registration_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[Registration_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[File_Date]"
-                      cachedDataType="dbDate"
-                      cachedName="File_Date"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[File_Date]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Import_Date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Import_Date"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[Import_Date]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[EVENTLOGID]"
-                      dataType="wstr"
-                      length="20"
-                      name="EVENTLOGID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[IDENTITYID]"
-                      dataType="wstr"
-                      length="30"
-                      name="IDENTITYID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[EVENT_TIME]"
-                      dataType="wstr"
-                      length="30"
-                      name="EVENT_TIME" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SESSIONID]"
-                      dataType="wstr"
-                      length="255"
-                      name="SESSIONID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[IPADDRESS]"
-                      dataType="wstr"
-                      length="100"
-                      name="IPADDRESS" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[USERAGENT]"
-                      dataType="nText"
-                      name="USERAGENT" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[ITEMID]"
-                      dataType="wstr"
-                      length="255"
-                      name="ITEMID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[MIME_TYPE]"
-                      dataType="wstr"
-                      length="100"
-                      name="MIME_TYPE" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[LICENCE_TYPE]"
-                      dataType="wstr"
-                      length="50"
-                      name="LICENCE_TYPE" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SOURCE]"
-                      dataType="nText"
-                      name="SOURCE" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
-                      dataType="wstr"
-                      length="60"
-                      name="DOI" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Manifestation_ID]"
-                      dataType="i4"
-                      name="Manifestation_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Registration_ID]"
-                      dataType="i4"
-                      name="Registration_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
-                      dataType="dbDate"
-                      name="File_Date" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
-                      dataType="dbTimeStamp"
-                      name="Import_Date" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
-              description="Source OLE DB"
-              name="OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[view_ILibraryLog_SA_Rejected]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.String"
-                  description="Variable contenant la commande SQL à exécuter."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="Mappages entre les paramètres de la commande SQL et les variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB]"
-                  name="Sortie de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[EVENTLOGID]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[EVENTLOGID]"
-                      length="20"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[EVENTLOGID]"
-                      name="EVENTLOGID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[IDENTITYID]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[IDENTITYID]"
-                      length="30"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[IDENTITYID]"
-                      name="IDENTITYID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[EVENT_TIME]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[EVENT_TIME]"
-                      length="30"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[EVENT_TIME]"
-                      name="EVENT_TIME"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[SESSIONID]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[SESSIONID]"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[SESSIONID]"
-                      name="SESSIONID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[IPADDRESS]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[IPADDRESS]"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[IPADDRESS]"
-                      name="IPADDRESS"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[USERAGENT]"
-                      dataType="nText"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[USERAGENT]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[USERAGENT]"
-                      name="USERAGENT"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[ITEMID]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[ITEMID]"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[ITEMID]"
-                      name="ITEMID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[MIME_TYPE]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[MIME_TYPE]"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[MIME_TYPE]"
-                      name="MIME_TYPE"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[LICENCE_TYPE]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[LICENCE_TYPE]"
-                      length="50"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[LICENCE_TYPE]"
-                      name="LICENCE_TYPE"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[SOURCE]"
-                      dataType="nText"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[SOURCE]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[SOURCE]"
-                      name="SOURCE"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[DOI]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
-                      length="60"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[DOI]"
-                      name="DOI"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[Manifestation_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[Manifestation_ID]"
-                      name="Manifestation_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[Registration_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[Registration_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[Registration_ID]"
-                      name="Registration_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[File_Date]"
-                      dataType="dbDate"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[File_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[File_Date]"
-                      name="File_Date"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[Import_Date]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[Import_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].Columns[Import_Date]"
-                      name="Import_Date"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[EVENTLOGID]"
-                      dataType="wstr"
-                      length="20"
-                      name="EVENTLOGID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[IDENTITYID]"
-                      dataType="wstr"
-                      length="30"
-                      name="IDENTITYID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[EVENT_TIME]"
-                      dataType="wstr"
-                      length="30"
-                      name="EVENT_TIME" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[SESSIONID]"
-                      dataType="wstr"
-                      length="255"
-                      name="SESSIONID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[IPADDRESS]"
-                      dataType="wstr"
-                      length="100"
-                      name="IPADDRESS" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[USERAGENT]"
-                      dataType="nText"
-                      name="USERAGENT" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[ITEMID]"
-                      dataType="wstr"
-                      length="255"
-                      name="ITEMID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[MIME_TYPE]"
-                      dataType="wstr"
-                      length="100"
-                      name="MIME_TYPE" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[LICENCE_TYPE]"
-                      dataType="wstr"
-                      length="50"
-                      name="LICENCE_TYPE" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[SOURCE]"
-                      dataType="nText"
-                      name="SOURCE" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[DOI]"
-                      dataType="wstr"
-                      length="60"
-                      name="DOI" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[Manifestation_ID]"
-                      dataType="i4"
-                      name="Manifestation_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[Registration_ID]"
-                      dataType="i4"
-                      name="Registration_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[File_Date]"
-                      dataType="dbDate"
-                      name="File_Date" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB].ExternalColumns[Import_Date]"
-                      dataType="dbTimeStamp"
-                      name="Import_Date" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB]"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[EVENTLOGID]"
-                      dataType="wstr"
-                      length="20"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[EVENTLOGID]"
-                      name="EVENTLOGID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[IDENTITYID]"
-                      dataType="wstr"
-                      length="30"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[IDENTITYID]"
-                      name="IDENTITYID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[EVENT_TIME]"
-                      dataType="wstr"
-                      length="30"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[EVENT_TIME]"
-                      name="EVENT_TIME" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[SESSIONID]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[SESSIONID]"
-                      name="SESSIONID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[IPADDRESS]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[IPADDRESS]"
-                      name="IPADDRESS" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[USERAGENT]"
-                      dataType="nText"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[USERAGENT]"
-                      name="USERAGENT" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[ITEMID]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[ITEMID]"
-                      name="ITEMID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[MIME_TYPE]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[MIME_TYPE]"
-                      name="MIME_TYPE" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[LICENCE_TYPE]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[LICENCE_TYPE]"
-                      name="LICENCE_TYPE" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[SOURCE]"
-                      dataType="nText"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[SOURCE]"
-                      name="SOURCE" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
-                      dataType="wstr"
-                      length="60"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[DOI]"
-                      name="DOI" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[Manifestation_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[Manifestation_ID]"
-                      name="Manifestation_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[Registration_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[Registration_ID]"
-                      name="Registration_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[File_Date]"
-                      dataType="dbDate"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[File_Date]"
-                      name="File_Date" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[Import_Date]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[Import_Date]"
-                      name="Import_Date" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected.Inputs[Entrée de destination OLE DB]"
-              name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected.Outputs[Sortie de source OLE DB]" />
-          </paths>
-        </pipeline>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
+          SQLTask:SqlStatementSource="INSERT  stg.STG_ILibraryLog_SA_Rejected(&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;[EVENTLOGID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[IDENTITYID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[EVENT_TIME]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[SESSIONID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[IPADDRESS]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[USERAGENT]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[ITEMID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[MIME_TYPE]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[LICENCE_TYPE]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[SOURCE]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[DOI]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[Manifestation_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[Registration_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[File_Date]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[Import_Date])&#xA;&#x9;&#x9;&#x9;SELECT TMP.[EVENTLOGID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[IDENTITYID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[EVENT_TIME]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[SESSIONID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[IPADDRESS]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[USERAGENT]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[ITEMID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[MIME_TYPE]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[LICENCE_TYPE]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[SOURCE]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[DOI]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[Manifestation_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[Registration_ID]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[File_Date]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[Import_Date]&#xA;&#x9;&#x9;&#x9;  FROM stg.[STG_ILibraryLog_TMP] TMP &#xA;&#x9;&#x9;&#x9;  LEFT  OUTER JOIN stg.[STG_iLibraryLog_SA] SA ON TMP.EVENTLOGID=SA.EventLogID where [Registration_ID] is null or [Manifestation_ID] is null&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2721,6 +978,30 @@
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{60D5249D-1665-454C-B0C3-B345B5DE1D55}"
+      DTS:From="Package\DFT INSERT INTO STG_ILibraryLog"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\TSQL INSERT INTO STG_iLibraryLog_SA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{847AF75A-80E7-4D2A-B080-8BA09E4BD3A4}"
+      DTS:From="Package\TSQL INSERT INTO STG_iLibraryLog_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\TSQL INSERT INTO STG_iLibraryLog_FT_SA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{7ECEFC9A-E3CE-4F7F-97EA-B501713A21D4}"
+      DTS:From="Package\TSQL INSERT INTO STG_iLibraryLog_FT_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\TSQL INSERT INTO STG_ILibraryLog_SA_Rejected" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
       DTS:DTSID="{8DBB950F-35D7-48AA-8B89-42F572440C38}"
@@ -2737,14 +1018,6 @@
       DTS:ObjectName="Contrainte 1"
       DTS:To="Package\TSQL Truncate STG_iLibraryLog_FT_SA" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 1 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{15747d4c-3a32-442a-8a2b-610863f12bda}"
-      DTS:From="Package\DFT INSERT INTO STG_iLibraryLog_SA"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 1 1"
-      DTS:To="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 2]"
       DTS:CreationName=""
       DTS:DTSID="{3DA8564D-E338-40B9-9503-B20247EEFEF3}"
@@ -2752,22 +1025,6 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 2"
       DTS:To="Package\TSQL Truncate STG_ILibraryLog_SA_Rejected" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 3]"
-      DTS:CreationName=""
-      DTS:DTSID="{49EA3884-A1C4-41CD-85D7-4776FD98B9E6}"
-      DTS:From="Package\DFT INSERT INTO STG_ILibraryLog"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 3"
-      DTS:To="Package\DFT INSERT INTO STG_iLibraryLog_SA" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 4]"
-      DTS:CreationName=""
-      DTS:DTSID="{C6EF41CB-BF8F-4127-9EB2-E2A6C8B94521}"
-      DTS:From="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 4"
-      DTS:To="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 5]"
       DTS:CreationName=""
@@ -2792,61 +1049,37 @@
         <NodeLayout
           Size="248,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_ILibraryLog"
-          TopLeft="123.277776022753,438.244437421626" />
-        <NodeLayout
-          Size="282.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA"
-          TopLeft="121.611114447316,601.177767841485" />
-        <NodeLayout
-          Size="264,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA"
-          TopLeft="126.402781042581,522.744435910649" />
-        <NodeLayout
-          Size="312,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected"
-          TopLeft="113.902776162451,682.177768228915" />
+          TopLeft="40.8333333333334,416.166666666666" />
         <NodeLayout
           Size="232,42.6666666666667"
           Id="Package\TSQL Truncate STG_ILibraryLog"
-          TopLeft="115.083331700415,102.533333434065" />
+          TopLeft="48.8333333333333,5.49999999999993" />
         <NodeLayout
           Size="265.333333333334,42.6666666666667"
           Id="Package\TSQL Truncate STG_iLibraryLog_FT_SA"
-          TopLeft="122.097225551184,254.633330714305" />
+          TopLeft="32.1666666666667,210.833333333333" />
         <NodeLayout
           Size="248,42.6666666666667"
           Id="Package\TSQL Truncate STG_iLibraryLog_SA"
-          TopLeft="123.138892202328,171.866665527622" />
+          TopLeft="40.8333333333333,108.166666666666" />
         <NodeLayout
           Size="296,42.6666666666667"
           Id="Package\TSQL Truncate STG_ILibraryLog_SA_Rejected"
-          TopLeft="114.736109483367,331.288887450231" />
+          TopLeft="16.8333333333334,313.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="231.083331700415,145.200000100732">
+          TopLeft="164.833333333333,48.1666666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="16.055560501913,26.6666654268903"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="16.055560501913,19.1666654268903">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,9.33333271344516" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,9.33333271344516"
-                    Point2="0,13.3333327134452"
-                    Point3="4,13.3333327134452" />
-                  <mssgle:LineSegment
-                    End="12.055560501913,13.3333327134452" />
-                  <mssgle:CubicBezierSegment
-                    Point1="12.055560501913,13.3333327134452"
-                    Point2="16.055560501913,13.3333327134452"
-                    Point3="16.055560501913,17.3333327134452" />
-                  <mssgle:LineSegment
-                    End="16.055560501913,19.1666654268903" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2857,40 +1090,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 1]"
-          TopLeft="250.951392210089,214.533332194288">
+          TopLeft="164.833333333333,150.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40.0999985200166"
+              EndConnector="0,59.9999999999998"
               Start="0,0"
-              End="0,32.5999985200166">
+              End="0,52.4999999999998">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5999985200166" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 1 1]"
-          TopLeft="260.673614411615,565.411102577316">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,35.7666652641693"
-              Start="0,0"
-              End="0,28.2666652641693">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.2666652641693" />
+                    End="0,52.4999999999998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2901,74 +1112,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 2]"
-          TopLeft="258.750000850609,297.299997380972">
+          TopLeft="164.833333333333,253.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33.9888900692595"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,26.4888900692595">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.4888900692595" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 3]"
-          TopLeft="247.277776022753,480.911104088293">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="11.125005019828,41.8333318223563"
-              Start="0,0"
-              End="11.125005019828,34.3333318223563">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.9166659111782" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.9166659111782"
-                    Point2="0,20.9166659111782"
-                    Point3="4,20.9166659111782" />
-                  <mssgle:LineSegment
-                    End="7.125005019828,20.9166659111782" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7.125005019828,20.9166659111782"
-                    Point2="11.125005019828,20.9166659111782"
-                    Point3="11.125005019828,24.9166659111782" />
-                  <mssgle:LineSegment
-                    End="11.125005019828,34.3333318223563" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 4]"
-          TopLeft="266.42361197155,643.844434508152">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.3333337207634"
-              Start="0,0"
-              End="0,30.8333337207634">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.8333337207634" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2979,30 +1134,96 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 5]"
-          TopLeft="262.736109483367,373.955554116898">
+          TopLeft="164.833333333333,356.166666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-15.458333460614,64.2888833047283"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="-15.458333460614,56.7888833047283">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.1444416523642" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.1444416523642"
-                    Point2="0,32.1444416523642"
-                    Point3="-4,32.1444416523642" />
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="270.666666666667,42.6666666666667"
+          Id="Package\TSQL INSERT INTO STG_iLibraryLog_SA"
+          TopLeft="29.5000000000001,518.833333333333" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="164.833333333333,458.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-11.458333460614,32.1444416523642" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-11.458333460614,32.1444416523642"
-                    Point2="-15.458333460614,32.1444416523642"
-                    Point3="-15.458333460614,36.1444416523642" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="318.666666666667,42.6666666666667"
+          Id="Package\TSQL INSERT INTO STG_ILibraryLog_SA_Rejected"
+          TopLeft="5.50000000000009,724.166666666667" />
+        <NodeLayout
+          Size="288,42.6666666666667"
+          Id="Package\TSQL INSERT INTO STG_iLibraryLog_FT_SA"
+          TopLeft="20.8333333333334,621.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="164.833333333333,561.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-15.458333460614,56.7888833047283" />
+                    End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="164.833333333333,664.166666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.0000000000001"
+              Start="0,0"
+              End="0,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3113,238 +1334,6 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="298.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA"
-          TopLeft="60.8333324268458,37.2666660002868" />
-        <NodeLayout
-          Size="240,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA"
-          TopLeft="89.5833319984372,130.766664721767" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA.Paths[Sortie de source OLE DB]"
-          TopLeft="209.874998879308,79.9333326669535">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50.8333320548135"
-              Start="0,0"
-              End="0,43.3333320548135">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.3333320548135" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_DST STG_iLibraryLog_FT_SA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_iLibraryLog_FT_SA\OLE_SRC OCDE_STG_view_iLibraryLog_FT_SA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_iLibraryLog_SA">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="282.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA"
-          TopLeft="33.2499995840089,14.0666664032142" />
-        <NodeLayout
-          Size="158.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA\CSPL Mise à jour"
-          TopLeft="105.416665095836,87.9666669533653" />
-        <NodeLayout
-          Size="222.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA"
-          TopLeft="80.7499988265331,171.966663389007" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA.Paths[Insert]"
-          TopLeft="188.416665294518,130.633333620032">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.3333297689747"
-              Start="0,0"
-              End="0,33.8333297689747">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.8333297689747" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-13.75298828125,12.2154930094874,27.5059765625,9.40234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_iLibraryLog_SA.Paths[Sortie de source OLE DB]"
-          TopLeft="174.583332917342,56.7333330698809">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="10.1666655118271,31.2333338834844"
-              Start="0,0"
-              End="10.1666655118271,23.7333338834844">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.6166669417422" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.6166669417422"
-                    Point2="0,15.6166669417422"
-                    Point3="4,15.6166669417422" />
-                  <mssgle:LineSegment
-                    End="6.16666551182709,15.6166669417422" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.16666551182709,15.6166669417422"
-                    Point2="10.1666655118271,15.6166669417422"
-                    Point3="10.1666655118271,19.6166669417422" />
-                  <mssgle:LineSegment
-                    End="10.1666655118271,23.7333338834844" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_SRC OCDE_STG_view_ILibraryLog_SA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_iLibraryLog_SA\OLE_DST STG_iLibraryLog_SA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="270.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected"
-          TopLeft="89.5833319984372,130.766664721767" />
-        <NodeLayout
-          Size="329.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected"
-          TopLeft="54.1666658595201,39.4333326282105" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected.Paths[Sortie de source OLE DB]"
-          TopLeft="221.874998928979,82.0999992948772">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,48.6666654268898"
-              Start="0,0"
-              End="0,41.1666654268898">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.1666654268898" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_DST STG_ILibraryLog_SA_Rejected">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_ILibraryLog_SA_Rejected\OLE_SRC OCDE_STG_view_ILibraryLog_SA_Rejected">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

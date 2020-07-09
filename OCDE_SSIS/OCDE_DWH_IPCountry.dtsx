@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="CSPE-W-VBISPS01"
   DTS:CreatorName="CERBA\YMIGEOT"
-  DTS:DTSID="{5F963120-AAC2-408B-B964-8B64CA8D826A}"
+  DTS:DTSID="{9ACA29BA-E757-4E99-A4BF-E076B8426341}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.1300.371"
   DTS:LocaleID="1033"
-  DTS:ObjectName="OCDE_STG_IPCountry"
+  DTS:ObjectName="OCDE_DWH_IPCountry"
   DTS:PackageType="5"
-  DTS:VersionBuild="59"
-  DTS:VersionGUID="{D90D20A7-A38E-473F-9330-9A4E6566144F}">
+  DTS:VersionBuild="63"
+  DTS:VersionGUID="{567313E9-E6E3-4867-A522-492555E5057D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -20,7 +20,7 @@
       DTS:ConfigString="Azure_OCDE_STG"
       DTS:CreationName="Microsoft.LogProviderSQLServer"
       DTS:Description="Enregistre les entrées du journal pour les événements dans une base de données SQL Server"
-      DTS:DTSID="{83D15BE4-1A75-49DF-9BFA-70FC941BD009}"
+      DTS:DTSID="{1ADFA843-E351-4DD1-B7B8-35E0FDFBF254}"
       DTS:ObjectName="Module fournisseur d'informations SSIS pour SQL Server">
       <DTS:ObjectData>
         <InnerObject />
@@ -33,18 +33,18 @@
     DTS:LoggingMode="1">
     <DTS:SelectedLogProviders>
       <DTS:SelectedLogProvider
-        DTS:InstanceID="{83D15BE4-1A75-49DF-9BFA-70FC941BD009}" />
+        DTS:InstanceID="{1ADFA843-E351-4DD1-B7B8-35E0FDFBF254}" />
     </DTS:SelectedLogProviders>
   </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry"
+      DTS:refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{37945737-80e4-4598-ac88-dfe8c0221a4a}"
+      DTS:DTSID="{02529A16-420E-4FC2-8BD2-51812B5BDA16}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO STG_Metadata_TMP_IPCountry"
+      DTS:ObjectName="DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:LoggingOptions
@@ -55,11 +55,11 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry"
+              refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
               description="Destination OLE DB"
-              name="OLE_DST STG_Metadata_TMP_IPCountry"
+              name="OLE_DST TMP_STG_Metadata_TMP_IPCountry"
               usesDispositions="true"
               version="4">
               <properties>
@@ -70,7 +70,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_Metadata_TMP_IPCountry]</property>
+                  name="OpenRowset">[dwh].[TMP_STG_Metadata_TMP_IPCountry]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -112,41 +112,41 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
+                  refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry.Connections[OleDbConnection]"
+                  connectionManagerID="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DWH]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB]"
+                  refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB]"
                   errorOrTruncationOperation="Insérer"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB].Columns[IPAddress_ID]"
+                      refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB].Columns[IPAddress_ID]"
                       cachedDataType="i4"
                       cachedName="IPAddress_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]" />
+                      externalMetadataColumnId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB].Columns[Country_ID]"
+                      refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB].Columns[Country_ID]"
                       cachedDataType="i4"
                       cachedName="Country_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie de source OLE DB].Columns[Country_ID]" />
+                      externalMetadataColumnId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ID]"
+                      lineageId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie de source OLE DB].Columns[Country_ID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress_ID]"
+                      refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB].ExternalColumns[IPAddress_ID]"
                       dataType="i4"
                       name="IPAddress_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ID]"
+                      refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ID]"
                       dataType="i4"
                       name="Country_ID" />
                   </externalMetadataColumns>
@@ -154,22 +154,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de destination OLE DB]"
+                  refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de destination OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB]">
+                  synchronousInputId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -178,11 +178,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry"
+              refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
               description="Source OLE DB"
-              name="OLE_SRC OCDE_STG_Metadata_IPCountry"
+              name="OLE_SRC OCDE_STG_Metadata_TMP_IPCountry"
               usesDispositions="true"
               version="7">
               <properties>
@@ -193,7 +193,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_Metadata_IPCountry]</property>
+                  name="OpenRowset">[stg].[STG_Metadata_TMP_IPCountry]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -227,7 +227,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Connections[OleDbConnection]"
+                  refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Connections[OleDbConnection]"
                   connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
                   connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -235,86 +235,65 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie de source OLE DB]"
+                  refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie de source OLE DB].Columns[IPAddress_ID]"
                       name="IPAddress_ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie de source OLE DB].Columns[Country_ID]"
+                      refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie de source OLE DB].Columns[Country_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie de source OLE DB].Columns[Country_ID]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ID]"
+                      lineageId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie de source OLE DB].Columns[Country_ID]"
                       name="Country_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie de source OLE DB].Columns[Country_ISO2Code]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ISO2Code]"
-                      length="10"
-                      lineageId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie de source OLE DB].Columns[Country_ISO2Code]"
-                      name="Country_ISO2Code"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
+                      refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie de source OLE DB].ExternalColumns[IPAddress_ID]"
                       dataType="i4"
                       name="IPAddress_ID" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ID]"
+                      refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ID]"
                       dataType="i4"
                       name="Country_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ISO2Code]"
-                      dataType="wstr"
-                      length="10"
-                      name="Country_ISO2Code" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie d'erreur de source OLE DB]"
+                  refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
+                      lineageId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[IPAddress_ID]"
                       name="IPAddress_ID" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ID]"
+                      refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ID]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ID]"
+                      lineageId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ID]"
                       name="Country_ID" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ISO2Code]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ISO2Code]"
-                      name="Country_ISO2Code" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -325,109 +304,60 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB]"
+              refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry.Inputs[Entrée de destination OLE DB]"
               name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry.Outputs[Sortie de source OLE DB]" />
+              startId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry.Outputs[Sortie de source OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\TSQL INSERT INTO STG_Metadata_IPCountry"
+      DTS:refId="Package\TSQL CREATE DWH_TMP_STG_Metadata_TMP_IPCountry"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{8C236411-E434-4D41-9644-55031D60FFB0}"
+      DTS:DTSID="{710a0c8d-07a6-4759-89f0-c732c0fc178c}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL INSERT INTO STG_Metadata_IPCountry"
+      DTS:ObjectName="TSQL CREATE DWH_TMP_STG_Metadata_TMP_IPCountry"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="INSERT [stg].[STG_Metadata_IPCountry] (IPAddress_ID,Country_ID) &#xA;&#xA;&#xA;&#x9;&#x9;SELECT c.IPAddress_ID,d.Country_ID from &#xA;&#xA;&#x9;&#x9;(SELECT a.*,b.* from &#xA;&#xA;&#x9;&#x9;(SELECT  [IPAddress_ID]&#xA;&#x9;&#x9;&#x9;  , [IPAddress]&#xA;&#x9;&#x9;&#x9;  ,(CONVERT(bigint, PARSENAME([IPAddress],1)) +&#xA;&#xA;&#x9;&#x9;CONVERT(bigint, PARSENAME([IPAddress],2)) * 256 +&#xA;&#xA;&#x9;&#x9;CONVERT(bigint, PARSENAME([IPAddress],3)) * 65536 +&#xA;&#xA;&#x9;&#x9;CONVERT(bigint, PARSENAME([IPAddress],4)) * 16777216) as IPNumber&#xA;&#xA;&#xA;&#x9;&#x9;  FROM stg.[IPAddress_DM] where ISNUMERIC(PARSENAME([IPAddress],1))=1 and ISNUMERIC(PARSENAME([IPAddress],2))=1 &#xA;&#x9;&#x9;  and ISNUMERIC(PARSENAME([IPAddress],3))=1 and ISNUMERIC(PARSENAME([IPAddress],4))=1  ) a  CROSS JOIN [stg].[STG_Metadata_TMP_IP_Country_Range] b&#xA;&#x9;&#x9;  WHERE  &#xA;  &#xA;&#x9;&#x9;  IPNumber&lt;=[HBoundDec] AND IPNumber&gt;=[LBoundDec]) c INNER JOIN stg.[Country_DM] d on c.CountryISO2=d.Country_ISO2Code" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_Metadata_TMP_IPCountry')&#xA;drop TABLE  [dwh].[TMP_STG_Metadata_TMP_IPCountry]&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_Metadata_TMP_IPCountry](&#xA;[IPAddress_ID] [int] NOT NULL,&#xA;&#x9;[Country_ID] [int] NULL&#xA;)ON [PRIMARY]&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\TSQL Truncate STG_Metadata_TMP_IPCountry"
+      DTS:refId="Package\TSQL DROP DWH_TMP_STG_Metadata_TMP_IPCountry"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{C278375D-CF4E-4BD1-986B-878E39E293B7}"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f1997662-502d-46d4-b1c7-a922c2c7e41b}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL Truncate STG_Metadata_TMP_IPCountry"
+      DTS:ObjectName="TSQL DROP DWH_TMP_STG_Metadata_TMP_IPCountry"
       DTS:ThreadHint="0">
       <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1">
-        <DTS:Property
-          DTS:DataType="8"
-          DTS:Name="EventFilter">3,7,OnError,13,OnPostExecute,12,OnPreExecute</DTS:Property>
-        <DTS:Property
-          DTS:EventName="OnError"
-          DTS:Name="ColumnFilter">
-          <DTS:Property
-            DTS:Name="Computer">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="Operator">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceName">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="ExecutionID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="MessageText">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="DataBytes">-1</DTS:Property>
-        </DTS:Property>
-        <DTS:Property
-          DTS:EventName="OnPostExecute"
-          DTS:Name="ColumnFilter">
-          <DTS:Property
-            DTS:Name="Computer">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="Operator">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceName">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="ExecutionID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="MessageText">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="DataBytes">-1</DTS:Property>
-        </DTS:Property>
-        <DTS:Property
-          DTS:EventName="OnPreExecute"
-          DTS:Name="ColumnFilter">
-          <DTS:Property
-            DTS:Name="Computer">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="Operator">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceName">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="ExecutionID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="MessageText">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="DataBytes">-1</DTS:Property>
-        </DTS:Property>
-        <DTS:SelectedLogProviders>
-          <DTS:SelectedLogProvider
-            DTS:InstanceID="{83D15BE4-1A75-49DF-9BFA-70FC941BD009}" />
-        </DTS:SelectedLogProviders>
-      </DTS:LoggingOptions>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_Metadata_TMP_IPCountry" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_Metadata_TMP_IPCountry')&#xA;&#xA;DROP TABLE [dwh].[TMP_STG_Metadata_TMP_IPCountry]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL UPDATE IPAddress_DM"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2B2C24D4-88B9-424A-B234-0E3BA63CBF99}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL UPDATE IPAddress_DM"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
+          SQLTask:SqlStatementSource="UPDATE dwh.[IPAddress_DM]&#xA;&#xA;&#x9;&#x9;Set  [IPAddress_DM].[Country_ID]=t.Country_ID&#xA;&#xA;&#x9;&#x9;from [dwh].[IPAddress_DM] IP INNER JOIN dwh.[TMP_STG_Metadata_TMP_IPCountry] t on ip.IPAddress_ID=t.IPAddress_ID&#xA;&#x9;&#x9;where IP.[Country_ID] is null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -435,19 +365,27 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{318841A6-259E-4556-B146-DF344BDAB1AA}"
-      DTS:From="Package\TSQL Truncate STG_Metadata_TMP_IPCountry"
+      DTS:DTSID="{4C1D00EB-BB04-430E-B636-734247996B8E}"
+      DTS:From="Package\TSQL CREATE DWH_TMP_STG_Metadata_TMP_IPCountry"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\TSQL INSERT INTO STG_Metadata_IPCountry" />
+      DTS:To="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{70CB4D12-1F61-40D4-9463-9C97FE00BAF1}"
-      DTS:From="Package\TSQL INSERT INTO STG_Metadata_IPCountry"
+      DTS:DTSID="{3157B76C-4BD6-4B2D-BB81-9D1509A0FD05}"
+      DTS:From="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry" />
+      DTS:To="Package\TSQL UPDATE IPAddress_DM" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{20FCBA76-5D53-4211-BDFA-3BB6E1DC06EA}"
+      DTS:From="Package\TSQL UPDATE IPAddress_DM"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\TSQL DROP DWH_TMP_STG_Metadata_TMP_IPCountry" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -462,27 +400,31 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="300,42.6666666666667"
-          Id="Package\TSQL Truncate STG_Metadata_TMP_IPCountry"
-          TopLeft="67.1666657477623,80.8666671548285" />
+          Size="342.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry"
+          TopLeft="107.100527586564,135.369309847067" />
         <NodeLayout
-          Size="297.333333333334,42.6666666666667"
-          Id="Package\TSQL INSERT INTO STG_Metadata_IPCountry"
-          TopLeft="72.083332259208,157.799997845888" />
+          Size="352,42.6666666666667"
+          Id="Package\TSQL CREATE DWH_TMP_STG_Metadata_TMP_IPCountry"
+          TopLeft="96.7023852160645,50.6285706216092" />
+        <NodeLayout
+          Size="342.666666666667,42.6666666666667"
+          Id="Package\TSQL DROP DWH_TMP_STG_Metadata_TMP_IPCountry"
+          TopLeft="101.369051882731,358.628570621609" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="218.958332336818,123.533333821495">
+          TopLeft="275.568123067981,93.2952372882759">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.266664024393"
+              EndConnector="0,42.0740725587916"
               Start="0,0"
-              End="0,26.766664024393">
+              End="0,34.5740725587916">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.766664024393" />
+                    End="0,34.5740725587916" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -492,23 +434,69 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="317.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry"
-          TopLeft="67.1666657477623,260.466664512555" />
+          Size="218.666666666667,42.6666666666667"
+          Id="Package\TSQL UPDATE IPAddress_DM"
+          TopLeft="153.70370141334,253.259254730631" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="223.291665670152,200.466664512555">
+          TopLeft="278.433860919897,178.035976513734">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="-15.3968261732235,75.2232782168967"
               Start="0,0"
-              End="0,52.5">
+              End="-15.3968261732235,67.7232782168967">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,33.6116391084484" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.6116391084484"
+                    Point2="0,37.6116391084484"
+                    Point3="-4,37.6116391084484" />
+                  <mssgle:LineSegment
+                    End="-11.3968261732235,37.6116391084484" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.3968261732235,37.6116391084484"
+                    Point2="-15.3968261732235,37.6116391084484"
+                    Point3="-15.3968261732235,41.6116391084484" />
+                  <mssgle:LineSegment
+                    End="-15.3968261732235,67.7232782168967" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="263.037034746673,295.925921397297">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.66535046939129,62.7026492243116"
+              Start="0,0"
+              End="9.66535046939129,55.2026492243116">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.3513246121558" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.3513246121558"
+                    Point2="0,31.3513246121558"
+                    Point3="4,31.3513246121558" />
+                  <mssgle:LineSegment
+                    End="5.66535046939129,31.3513246121558" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.66535046939129,31.3513246121558"
+                    Point2="9.66535046939129,31.3513246121558"
+                    Point3="9.66535046939129,35.3513246121558" />
+                  <mssgle:LineSegment
+                    End="9.66535046939129,55.2026492243116" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -521,21 +509,21 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry">
+    design-time-name="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="274.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry"
-          TopLeft="17.9166663996871,114.733331675132" />
-        <NodeLayout
-          Size="281.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry"
+          Size="306.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry"
           TopLeft="13.7499997951089,38.566665977041" />
+        <NodeLayout
+          Size="300,42.6666666666667"
+          Id="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry"
+          TopLeft="17.9166663996871,114.733331675132" />
         <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry.Paths[Sortie de source OLE DB]"
-          TopLeft="154.833333097398,81.2333326437077">
+          Id="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry.Paths[Sortie de source OLE DB]"
+          TopLeft="167.499999764065,81.2333326437077">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -552,13 +540,37 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_DST TMP_STG_Metadata_TMP_IPCountry">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_TMP_IPCountry">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

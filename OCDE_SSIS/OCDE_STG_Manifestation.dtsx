@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Manifestation"
   DTS:PackageType="5"
-  DTS:VersionBuild="72"
-  DTS:VersionGUID="{308C1884-813D-4350-B0D2-AF62CC3D2FFB}">
+  DTS:VersionBuild="77"
+  DTS:VersionGUID="{1FEA73EC-0817-42AA-A362-26EF21A4693E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -195,7 +195,9 @@
                       name="FirstRelease_Date" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_Manifestation\OLE_DST STG_Manifestation.Inputs[Entrée de destination OLE DB].ExternalColumns[ISBN13]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
                       name="ISBN13" />
                   </externalMetadataColumns>
                 </input>
@@ -2870,7 +2872,7 @@
     design-time-name="Package\DFT INSERT INTO STG_Manifestation">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="314.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Manifestation\OLE_SRC OCDE_STG_view_Manifestation_DM_SA"
@@ -2878,27 +2880,41 @@
         <NodeLayout
           Size="214.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Manifestation\OLE_DST STG_Manifestation"
-          TopLeft="125.083331737667,129.033331419428" />
+          TopLeft="140.416665071,172.366664752761" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO STG_Manifestation.Paths[Sortie de source OLE DB]"
-          TopLeft="235.708331927036,82.5333326204619">
+          TopLeft="238.999998783072,82.5333326204619">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.4999987989661"
+              EndConnector="8.74999962126208,89.8333321322991"
               Start="0,0"
-              End="0,38.9999987989661">
+              End="8.74999962126208,82.3333321322991">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.9999987989661" />
+                    End="0,40.9166660661496" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.9166660661496"
+                    Point2="0,44.9166660661496"
+                    Point3="4,44.9166660661496" />
+                  <mssgle:LineSegment
+                    End="4.74999962126208,44.9166660661496" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.74999962126208,44.9166660661496"
+                    Point2="8.74999962126208,44.9166660661496"
+                    Point3="8.74999962126208,48.9166660661496" />
+                  <mssgle:LineSegment
+                    End="8.74999962126208,82.3333321322991" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3100,7 +3116,7 @@
     design-time-name="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="280,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Manifestation_SA_Rejected\OLE_DST STG_Manifestation_SA_Rejected"
@@ -3132,9 +3148,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3156,9 +3170,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3194,7 +3206,7 @@
     design-time-name="Package\DFT INSERT INTO STG_Manifestation_StatLink">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="358.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Manifestation_StatLink\OLE_SRC OCDE_STG_View_Manifestation_StatLink_DM_SA"
@@ -3226,7 +3238,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3248,7 +3262,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
