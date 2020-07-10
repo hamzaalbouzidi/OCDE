@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_BrowseItMonthly_FT"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{7666FE8E-1E5F-4292-8E2A-92D3A5C02F05}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{F23A2E5D-C3B2-44C5-9BFB-DA547FEC63DE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -30,7 +30,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="INSERT INTO dwh.[BrowseItMonthly_FT]&#xA;&#x9;&#x9;&#x9;([Download_Date]&#xA;&#x9;&#x9;&#x9;,[Expression_ID]&#xA;&#x9;&#x9;&#x9;,[Downloads]&#xA;&#x9;&#x9;&#x9;,[Exclude])&#xA;&#x9;&#x9;SELECT &#xA;&#x9;&#x9;&#x9; T.[Download_Date]&#xA;&#x9;&#x9;&#x9;,T.[Expression_ID]&#xA;&#x9;&#x9;&#x9;,T.[Downloads]&#xA;&#x9;&#x9;&#x9;,T.[Exclude]&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;FROM (&#xA;&#x9;&#x9;  SELECT a.* from dwh.[TMP_BrowseItMonthly_FT] a &#xA;&#x9;&#x9;  inner join (select Expression_ID from dwh.Expression_DM) b&#xA;&#x9;&#x9;  on a.Expression_ID =b.Expression_ID) T &#xA;&#xA;&#x9;&#x9;  INSERT INTO [dwh].[Rejected_BrowseItMonthly_FT]&#xA;&#x9;&#x9;&#x9;([Download_Date]&#xA;&#x9;&#x9;&#x9;,[Expression_ID]&#xA;&#x9;&#x9;&#x9;,[Downloads]&#xA;&#x9;&#x9;&#x9;,[Exclude])&#xA;&#x9;&#x9;SELECT &#xA;&#x9;&#x9;&#x9; d.[Download_Date]&#xA;&#x9;&#x9;&#x9;,d.[Expression_ID]&#xA;&#x9;&#x9;&#x9;,d.[Downloads]&#xA;&#x9;&#x9;&#x9;,d.[Exclude]&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;FROM  dwh.[TMP_BrowseItMonthly_FT] d  where d.Expression_ID not in (&#xA;&#x9;&#x9;  SELECT a.Expression_ID from dwh.[TMP_BrowseItMonthly_FT] a &#xA;&#x9;&#x9;  inner join (select Expression_ID from dwh.Expression_DM) b&#xA;&#x9;&#x9;  on a.Expression_ID =b.Expression_ID) " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="INSERT INTO dwh.[BrowseItMonthly_FT]&#xA;&#x9;&#x9;&#x9;([Download_Date]&#xA;&#x9;&#x9;&#x9;,[Expression_ID]&#xA;&#x9;&#x9;&#x9;,[Downloads]&#xA;&#x9;&#x9;&#x9;,[Exclude])&#xA;&#x9;&#x9;SELECT &#xA;&#x9;&#x9;&#x9; T.[Download_Date]&#xA;&#x9;&#x9;&#x9;,T.[Expression_ID]&#xA;&#x9;&#x9;&#x9;,T.[Downloads]&#xA;&#x9;&#x9;&#x9;,T.[Exclude]&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;FROM (&#xA;&#x9;&#x9;  SELECT a.* from dwh.[TMP_BrowseItMonthly_FT] a &#xA;&#x9;&#x9;  inner join (select Expression_ID from dwh.Expression_DM) b&#xA;&#x9;&#x9;  on a.Expression_ID =b.Expression_ID) T &#xA;&#xA;&#x9;&#x9;  INSERT INTO [dwh].[BrowseItMonthly_Rejected]&#xA;&#x9;&#x9;&#x9;([Download_Date]&#xA;&#x9;&#x9;&#x9;,[Expression_ID]&#xA;&#x9;&#x9;&#x9;,[Downloads]&#xA;&#x9;&#x9;&#x9;,[Exclude])&#xA;&#x9;&#x9;SELECT &#xA;&#x9;&#x9;&#x9; d.[Download_Date]&#xA;&#x9;&#x9;&#x9;,d.[Expression_ID]&#xA;&#x9;&#x9;&#x9;,d.[Downloads]&#xA;&#x9;&#x9;&#x9;,d.[Exclude]&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;FROM  dwh.[TMP_BrowseItMonthly_FT] d  where d.Expression_ID not in (&#xA;&#x9;&#x9;  SELECT a.Expression_ID from dwh.[TMP_BrowseItMonthly_FT] a &#xA;&#x9;&#x9;  inner join (select Expression_ID from dwh.Expression_DM) b&#xA;&#x9;&#x9;  on a.Expression_ID =b.Expression_ID) " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>

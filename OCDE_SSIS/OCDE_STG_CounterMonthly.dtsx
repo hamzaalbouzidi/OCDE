@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_CounterMonthly"
   DTS:PackageType="5"
-  DTS:VersionBuild="79"
-  DTS:VersionGUID="{8BD6E596-FA39-435F-8E4F-0C62B9359C60}">
+  DTS:VersionBuild="82"
+  DTS:VersionGUID="{E640C4AF-088A-4D3C-85F0-B681BA7B5628}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -1221,6 +1221,196 @@
               </outputs>
             </component>
             <component
+              refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST DWH_CounterMonthly_Rejected"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dwh].[CounterMonthly_Rejected]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Connections[OleDbConnection]"
+                  connectionManagerID="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DWH]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].Columns[File_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="File_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[File_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].Columns[Import_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Import_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Import_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].Columns[Expression_ID]"
+                      cachedDataType="i4"
+                      cachedName="Expression_ID"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression_ID]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Expression_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].Columns[Registration_ID]"
+                      cachedDataType="i4"
+                      cachedName="Registration_ID"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Registration_ID]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Registration_ID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].Columns[Copie de Copie de DOI]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="Copie de Copie de DOI"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données].Columns[Copie de Copie de DOI]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].Columns[Copie de Copie de IdentityID]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Copie de Copie de IdentityID"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[IdentityID]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données].Columns[Copie de Copie de IdentityID]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].Columns[DownloadDate]"
+                      cachedDataType="dbDate"
+                      cachedName="DownloadDate"
+                      cachedSortKeyPosition="5"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[DownloadDate]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].Columns[Copie de Downloads]"
+                      cachedDataType="i4"
+                      cachedName="Copie de Downloads"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Downloads]"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données].Columns[Copie de Downloads]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
+                      dataType="dbDate"
+                      name="Download_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Downloads]"
+                      dataType="i4"
+                      name="Downloads" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
+                      dataType="dbDate"
+                      name="File_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
+                      dataType="dbTimeStamp"
+                      name="Import_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[IdentityID]"
+                      dataType="wstr"
+                      length="30"
+                      name="IdentityID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
+                      dataType="wstr"
+                      length="60"
+                      name="DOI" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression_ID]"
+                      dataType="i4"
+                      name="Expression_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Registration_ID]"
+                      dataType="i4"
+                      name="Registration_ID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
@@ -1380,196 +1570,6 @@
                       refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
-              description="Destination OLE DB"
-              name="OLE_DST STG_CounterMonthly_SA_Rejected"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_CounterMonthly_SA_Rejected]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB]"
-                  errorOrTruncationOperation="Insérer"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrée de destination OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[File_Date]"
-                      cachedDataType="dbDate"
-                      cachedName="File_Date"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[File_Date]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Import_Date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Import_Date"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Import_Date]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Expression_ID]"
-                      cachedDataType="i4"
-                      cachedName="Expression_ID"
-                      cachedSortKeyPosition="2"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Expression_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Registration_ID]"
-                      cachedDataType="i4"
-                      cachedName="Registration_ID"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Registration_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Registration_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Copie de Copie de DOI]"
-                      cachedDataType="wstr"
-                      cachedLength="60"
-                      cachedName="Copie de Copie de DOI"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données].Columns[Copie de Copie de DOI]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Copie de Copie de IdentityID]"
-                      cachedDataType="wstr"
-                      cachedLength="30"
-                      cachedName="Copie de Copie de IdentityID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[IdentityID]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données].Columns[Copie de Copie de IdentityID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[DownloadDate]"
-                      cachedDataType="dbDate"
-                      cachedName="DownloadDate"
-                      cachedSortKeyPosition="5"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[DownloadDate]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Copie de Downloads]"
-                      cachedDataType="i4"
-                      cachedName="Copie de Downloads"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Downloads]"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données].Columns[Copie de Downloads]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
-                      dataType="dbDate"
-                      name="Download_Date" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Downloads]"
-                      dataType="i4"
-                      name="Downloads" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
-                      dataType="dbDate"
-                      name="File_Date" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
-                      dataType="dbTimeStamp"
-                      name="Import_Date" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[IdentityID]"
-                      dataType="wstr"
-                      length="30"
-                      name="IdentityID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[DOI]"
-                      dataType="wstr"
-                      length="60"
-                      name="DOI" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Expression_ID]"
-                      dataType="i4"
-                      name="Expression_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Registration_ID]"
-                      dataType="i4"
-                      name="Registration_ID" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2018,35 +2018,6 @@ on 1=1</property>
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Row Count"
-              componentClassID="Microsoft.RowCount"
-              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
-              name="Row Count">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable to hold the row count."
-                  name="VariableName">User::NumberOfRows</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Row Count.Inputs[Row Count Input 1]"
-                  hasSideEffects="true"
-                  name="Row Count Input 1">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Row Count.Outputs[Row Count Output 1]"
-                  name="Row Count Output 1"
-                  synchronousInputId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Row Count.Inputs[Row Count Input 1]">
                   <externalMetadataColumns />
                 </output>
               </outputs>
@@ -2662,18 +2633,13 @@ on 1=1</property>
               name="Rejet"
               startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\CSPL Mise à jour.Outputs[Rejet]" />
             <path
-              refId="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Row Count Output 1]"
-              endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB]"
-              name="Row Count Output 1"
-              startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Row Count.Outputs[Row Count Output 1]" />
-            <path
               refId="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de conversion de données]"
               endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\CSPL Mise à jour.Inputs[Conditional Split Input]"
               name="Sortie de conversion de données"
               startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données.Outputs[Sortie de conversion de données]" />
             <path
               refId="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de conversion de données1]"
-              endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Row Count.Inputs[Row Count Input 1]"
+              endId="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected.Inputs[Entrée de destination OLE DB]"
               name="Sortie de conversion de données"
               startId="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données 1.Outputs[Sortie de conversion de données]" />
             <path
@@ -3012,9 +2978,9 @@ on 1=1</property>
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion"
           TopLeft="497.222214813034,452.888880830341" />
         <NodeLayout
-          Size="292,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected"
-          TopLeft="433.88888242344,714.305548691584" />
+          Size="277.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected"
+          TopLeft="420.694438175608,617.961105969913" />
         <NodeLayout
           Size="220,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP"
@@ -3170,6 +3136,40 @@ on 1=1</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de conversion de données1]"
+          TopLeft="576.41665955757,568.722217921748">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.0555547152959,49.2388880481649"
+              Start="0,0"
+              End="-17.0555547152959,41.7388880481649">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6194440240824" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.6194440240824"
+                    Point2="0,24.6194440240824"
+                    Point3="-4,24.6194440240824" />
+                  <mssgle:LineSegment
+                    End="-13.0555547152959,24.6194440240824" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.0555547152959,24.6194440240824"
+                    Point2="-17.0555547152959,24.6194440240824"
+                    Point3="-17.0555547152959,28.6194440240824" />
+                  <mssgle:LineSegment
+                    End="-17.0555547152959,41.7388880481649" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de conversion de données]"
           TopLeft="214.083331439644,136.166665233175">
           <EdgeLayout.Curve>
@@ -3299,54 +3299,6 @@ on 1=1</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="131.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\Row Count"
-          TopLeft="509.722214626769,599.499996035298" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Sortie de conversion de données1]"
-          TopLeft="575.902770425503,568.722217921748">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.7777781135502"
-              Start="0,0"
-              End="0,23.2777781135502">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.2777781135502" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA.Paths[Row Count Output 1]"
-          TopLeft="577.638881858438,642.166662701964">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,72.1388859896191"
-              Start="0,0"
-              End="0,64.6388859896191">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,64.6388859896191" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -3377,7 +3329,7 @@ on 1=1</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA_Rejected">
+    design-time-name="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

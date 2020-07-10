@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_StatLink"
   DTS:PackageType="5"
-  DTS:VersionBuild="90"
-  DTS:VersionGUID="{451F8FA1-306D-428B-BFE4-F5320E7F140E}">
+  DTS:VersionBuild="92"
+  DTS:VersionGUID="{EB2079AE-89A4-4CF9-9AAA-E027B8219497}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -51,215 +51,16 @@
       DTS:refId="Package\DFT INSERT INTO STG_StatLink_File_SA"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{3f0a8a03-0cdf-47c2-8d16-d68eb4f68681}"
+      DTS:DTSID="{4f88cef0-b6bc-4c15-9c2f-b4844c1aaf9b}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="DFT INSERT INTO STG_StatLink_File_SA"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
       <DTS:ObjectData>
         <pipeline
           version="1">
           <components>
-            <component
-              refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
-              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
-              name="Colonne dérivée"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
-                  description="Entrée de la transformation de colonnes dérivées"
-                  name="Entrée de colonne dérivée">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[item]"
-                      cachedDataType="nText"
-                      cachedName="item"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée]"
-                  description="Sortie par défaut de la transformation de colonnes dérivées"
-                  exclusionGroup="1"
-                  name="Sortie de colonne dérivée"
-                  synchronousInputId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[SOURCE]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Calcul"
-                      errorRowDisposition="FailComponent"
-                      length="2000"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[SOURCE]"
-                      name="SOURCE"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression de colonne dérivée"
-                          name="Expression">[SUBSTRING]([SUBSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},1,[FINDSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},@[User::quote],4) - 1),[FINDSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},@[User::quote],3) + 1,[LEN]([SUBSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},1,[FINDSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},@[User::quote],4) - 1)))</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression claire de colonne dérivée"
-                          expressionType="Notify"
-                          name="FriendlyExpression">SUBSTRING(SUBSTRING((DT_WSTR,2000)item,1,FINDSTRING((DT_WSTR,2000)item,@[User::quote],4) - 1),FINDSTRING((DT_WSTR,2000)item,@[User::quote],3) + 1,LEN(SUBSTRING((DT_WSTR,2000)item,1,FINDSTRING((DT_WSTR,2000)item,@[User::quote],4) - 1)))</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[USERAGENT]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Calcul"
-                      errorRowDisposition="FailComponent"
-                      length="2000"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[USERAGENT]"
-                      name="USERAGENT"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression de colonne dérivée"
-                          name="Expression">[SUBSTRING]([SUBSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},1,[FINDSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},@[User::quote],6) - 1),[FINDSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},@[User::quote],5) + 1,[LEN]([SUBSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},1,[FINDSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},@[User::quote],6) - 1)))</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression claire de colonne dérivée"
-                          expressionType="Notify"
-                          name="FriendlyExpression">SUBSTRING(SUBSTRING((DT_WSTR,2000)item,1,FINDSTRING((DT_WSTR,2000)item,@[User::quote],6) - 1),FINDSTRING((DT_WSTR,2000)item,@[User::quote],5) + 1,LEN(SUBSTRING((DT_WSTR,2000)item,1,FINDSTRING((DT_WSTR,2000)item,@[User::quote],6) - 1)))</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[IPADDRESS]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Calcul"
-                      errorRowDisposition="FailComponent"
-                      length="2000"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[IPADDRESS]"
-                      name="IPADDRESS"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression de colonne dérivée"
-                          name="Expression">[SUBSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},1,[FINDSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]}," - - ",1))</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression claire de colonne dérivée"
-                          expressionType="Notify"
-                          name="FriendlyExpression">SUBSTRING((DT_WSTR,2000)item,1,FINDSTRING((DT_WSTR,2000)item," - - ",1))</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[DATE]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Calcul"
-                      errorRowDisposition="FailComponent"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[DATE]"
-                      name="DATE"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression de colonne dérivée"
-                          name="Expression">[SUBSTRING]([SUBSTRING]((DT_WSTR,255)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},1,[FINDSTRING]((DT_WSTR,255)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]}," - - [",1) + 16),[FINDSTRING]((DT_WSTR,255)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]}," - - [",1) + 6,[LEN]([SUBSTRING]((DT_WSTR,255)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},1,[FINDSTRING]((DT_WSTR,255)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]}," - - [",1) + 16)))</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression claire de colonne dérivée"
-                          expressionType="Notify"
-                          name="FriendlyExpression">SUBSTRING(SUBSTRING((DT_WSTR,255)item,1,FINDSTRING((DT_WSTR,255)item," - - [",1) + 16),FINDSTRING((DT_WSTR,255)item," - - [",1) + 6,LEN(SUBSTRING((DT_WSTR,255)item,1,FINDSTRING((DT_WSTR,255)item," - - [",1) + 16)))</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[TIME]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Calcul"
-                      errorRowDisposition="FailComponent"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[TIME]"
-                      name="TIME"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression de colonne dérivée"
-                          name="Expression">[SUBSTRING]([SUBSTRING]((DT_WSTR,255)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},1,[FINDSTRING]((DT_WSTR,255)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]}," - - [",1) + 25),[FINDSTRING]((DT_WSTR,255)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]}," - - [",1) + 18,[LEN]([SUBSTRING]((DT_WSTR,255)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},1,[FINDSTRING]((DT_WSTR,255)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]}," - - [",1) + 25)))</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression claire de colonne dérivée"
-                          expressionType="Notify"
-                          name="FriendlyExpression">SUBSTRING(SUBSTRING((DT_WSTR,255)item,1,FINDSTRING((DT_WSTR,255)item," - - [",1) + 25),FINDSTRING((DT_WSTR,255)item," - - [",1) + 18,LEN(SUBSTRING((DT_WSTR,255)item,1,FINDSTRING((DT_WSTR,255)item," - - [",1) + 25)))</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[FILENAME]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Calcul"
-                      errorRowDisposition="FailComponent"
-                      length="2000"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[FILENAME]"
-                      name="FILENAME"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression de colonne dérivée"
-                          name="Expression">[SUBSTRING]([SUBSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},1,[FINDSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]}," HTTP/1.1",1)),[FINDSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},"/",3) + 1,[LEN]([SUBSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]},1,[FINDSTRING]((DT_WSTR,2000)#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]}," HTTP/1.1",1))))</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Expression claire de colonne dérivée"
-                          expressionType="Notify"
-                          name="FriendlyExpression">SUBSTRING(SUBSTRING((DT_WSTR,2000)item,1,FINDSTRING((DT_WSTR,2000)item," HTTP/1.1",1)),FINDSTRING((DT_WSTR,2000)item,"/",3) + 1,LEN(SUBSTRING((DT_WSTR,2000)item,1,FINDSTRING((DT_WSTR,2000)item," HTTP/1.1",1))))</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée]"
-                  description="Sortie d'erreur de la transformation de colonnes dérivées"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de colonne dérivée"
-                  synchronousInputId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
             <component
               refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données"
               componentClassID="Microsoft.DataConvert"
@@ -273,17 +74,15 @@
                   name="Entrée de conversion de données">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Inputs[Entrée de conversion de données].Columns[DATE]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="DATE"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[DATE]" />
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Inputs[Entrée de conversion de données].Columns[File_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="File_Date"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[File_Date]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Inputs[Entrée de conversion de données].Columns[TIME]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="TIME"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[TIME]" />
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Inputs[Entrée de conversion de données].Columns[Import_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Import_Date"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[Import_Date]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -296,20 +95,19 @@
                   synchronousInputId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Inputs[Entrée de conversion de données]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de DATE]"
-                      dataType="wstr"
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de File_Date]"
+                      dataType="dbDate"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de DATE]"
-                      name="Copie de DATE"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de File_Date]"
+                      name="Copie de File_Date"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[DATE]}</property>
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[File_Date]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
@@ -317,20 +115,19 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de TIME]"
-                      dataType="wstr"
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Import_Date]"
+                      dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de TIME]"
-                      name="Copie de TIME"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Import_Date]"
+                      name="Copie de Import_Date"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[TIME]}</property>
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[Import_Date]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
@@ -357,6 +154,82 @@
                       refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion.Inputs[Data Conversion Input].Columns[Item]"
+                      cachedDataType="nText"
+                      cachedName="Item"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[Item]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion.Outputs[Data Conversion Output].Columns[ItemIn]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4000"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion.Outputs[Data Conversion Output].Columns[ItemIn]"
+                      name="ItemIn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[Item]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -442,49 +315,49 @@
                       cachedLength="2000"
                       cachedName="SOURCE"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[SOURCE]"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[SOURCE]" />
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[SOURCE]" />
                     <inputColumn
                       refId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB].Columns[USERAGENT]"
                       cachedDataType="wstr"
                       cachedLength="2000"
                       cachedName="USERAGENT"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[USERAGENT]"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[USERAGENT]" />
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[USERAGENT]" />
                     <inputColumn
                       refId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB].Columns[FILENAME]"
                       cachedDataType="wstr"
                       cachedLength="2000"
                       cachedName="FILENAME"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[FILENAME]"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[FILENAME]" />
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[FILENAME]" />
                     <inputColumn
                       refId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB].Columns[IPADDRESS]"
                       cachedDataType="wstr"
                       cachedLength="2000"
                       cachedName="IPADDRESS"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[IPADDRESS]"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[IPADDRESS]" />
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[IPADDRESS]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB].Columns[Copie de DATE]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB].Columns[SL_TIME]"
                       cachedDataType="wstr"
                       cachedLength="50"
-                      cachedName="Copie de DATE"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[SL_DATE]"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de DATE]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB].Columns[Copie de TIME]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="Copie de TIME"
+                      cachedName="SL_TIME"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[SL_TIME]"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de TIME]" />
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[SL_TIME]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB].Columns[SL_DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SL_DATE"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[SL_DATE]"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[SL_DATE]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[SOURCE]"
                       dataType="wstr"
-                      length="2000"
+                      length="4000"
                       name="SOURCE" />
                     <externalMetadataColumn
                       refId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB].ExternalColumns[USERAGENT]"
@@ -601,13 +474,31 @@
                   name="Sortie de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[Item]"
                       dataType="nText"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[item]"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[item]"
-                      name="item"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[Item]"
+                      name="Item"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[File_Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[File_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[File_Date]"
+                      name="File_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[Import_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].ExternalColumns[Import_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[Import_Date]"
+                      name="Import_Date"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -648,6 +539,1014 @@
                       dataType="nText"
                       lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[item]"
                       name="item" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[File_Date]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[File_Date]"
+                      name="File_Date" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[Import_Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie d'erreur de source OLE DB].Columns[Import_Date]"
+                      name="Import_Date" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;9"
+              description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+              name="PARSE  Statlink File"
+              version="11">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_ea166901f7df40eba336d332ee4e46bb")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("OECD")]
+[assembly: AssemblyProduct("SC_ea166901f7df40eba336d332ee4e46bb")]
+[assembly: AssemblyCopyright("Copyright @ OECD 2017")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.0.0")]
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[#region Namespaces
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Text.RegularExpressions;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+#endregion
+
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+    private static string LOG_REGEXP = @"^(?<ip>\S+) (\S+) (\S+) \[(?<date>[\w:/]+\s[+\-]\d{4})\] ""(?<method>\S+)\s?(?<uri>\S+)?\s?(?<protocol>\S+)?"" (?<response_code>\d{3}|-) (?<size>\d+|-) ""{1}(?<source>.*)?""{1} ""{1}(?<user_agent>.*)?""{1}.*?$";
+
+    public override void PreExecute(){
+        base.PreExecute();
+    }
+
+    public override void PostExecute(){
+        base.PostExecute();
+    }
+
+    public override void Input0_ProcessInputRow(Input0Buffer Row){
+		string Item = Row.ItemIn.ToString();
+        Match match = Regex.Match(Item, LOG_REGEXP);
+		if (match.Success)
+		{
+			DateTimeOffset dtOffset = DateTimeOffset.ParseExact(match.Groups["date"].Value, "dd/MMM/yyyy:HH:mm:ss zzzzz", CultureInfo.InvariantCulture);
+
+            Row.SLDATE = dtOffset.ToString("dd/MM/yyyy");
+            Row.SLTIME = dtOffset.ToString("HH:mm:ss");
+			Row.FILENAME = Path.GetFileName(match.Groups["uri"].Value);
+			Row.IPADDRESS = match.Groups["ip"].Value;
+			Row.USERAGENT = match.Groups["user_agent"].Value;
+			string source = match.Groups["source"].Value;
+            if (source != null && source.Length > 900)
+            {
+                Row.SOURCE = source.Substring(0,900);
+            }
+            else 
+            {
+                Row.SOURCE = source;
+            }
+		}
+	}
+}]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class Input0Buffer: ScriptBuffer
+
+{
+    public Input0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public String ItemIn
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[0]);
+        }
+    }
+    public bool ItemIn_IsNull
+    {
+        get
+        {
+            return IsNull(0);
+        }
+    }
+
+    public String SOURCE
+    {
+        set
+        {
+            this[1] = value;
+        }
+    }
+    public bool SOURCE_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(1);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String USERAGENT
+    {
+        set
+        {
+            this[2] = value;
+        }
+    }
+    public bool USERAGENT_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(2);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String IPADDRESS
+    {
+        set
+        {
+            this[3] = value;
+        }
+    }
+    public bool IPADDRESS_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(3);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String FILENAME
+    {
+        set
+        {
+            this[4] = value;
+        }
+    }
+    public bool FILENAME_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(4);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String SLTIME
+    {
+        set
+        {
+            this[5] = value;
+        }
+    }
+    public bool SLTIME_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(5);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String SLDATE
+    {
+        set
+        {
+            this[6] = value;
+        }
+    }
+    public bool SLDATE_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(6);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public bool NextRow()
+    {
+        return base.NextRow();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public override void ProcessInput(int InputID, string InputName, PipelineBuffer Buffer, OutputNameMap OutputMap)
+    {
+
+        if (InputName.Equals(@"Input 0", StringComparison.Ordinal))
+        {
+            Input0_ProcessInput(new Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap));
+        }
+
+    }
+
+    public virtual void Input0_ProcessInput(Input0Buffer Buffer)
+    {
+        while (Buffer.NextRow())
+        {
+            Input0_ProcessInputRow(Buffer);
+        }
+    }
+
+    public virtual void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>SC_ea166901f7df40eba336d332ee4e46bb</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>SC_ea166901f7df40eba336d332ee4e46bb</msb:DisplayName>
+    <msb:ProjectId>{B2785561-05CA-4EF8-8520-22777F5F2E9F}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="SC_ea166901f7df40eba336d332ee4e46bb.csproj" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="main.cs" />
+    <msb:File Include="BufferWrapper.cs" />
+    <msb:File Include="ComponentWrapper.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_ea166901f7df40eba336d332ee4e46bb.Properties.Settings.get_Default():SC_ea166901f7df40eba336d332ee4e46bb.Properties.Sett" +
+    "ings")]
+
+namespace SC_ea166901f7df40eba336d332ee4e46bb.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_ea166901f7df40eba336d332ee4e46bb.csproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0693B2DF-FE3E-42B6-8AC9-5EC13AFF30E6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_ea166901f7df40eba336d332ee4e46bb</RootNamespace>
+    <AssemblyName>SC_E46B27A08FBD472984D0395A1D5BBBD5</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=14.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=14.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=14.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=14.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptComponent" IconIndex="0" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC140</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_ea166901f7df40eba336d332ee4e46bb.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_ea166901f7df40eba336d332ee4e46bb.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_ea166901f7df40eba336d332ee4e46bb.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_ea166901f7df40eba336d332ee4e46bb.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_ea166901f7df40eba336d332ee4e46bb.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_E46B27A08FBD472984D0395A1D5BBBD5.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAPomCF8AAAAAAAAAAOAAIiALATAAABoAAAAIAAAAAAAAIjkA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAANA4AABPAAAAAEAAAFgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAKBkAAAAgAAAAGgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAFgEAAAAQAAAAAYAAAAcAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAIgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAE
+OQAAAAAAAEgAAAACAAUAWCMAAMAUAAABAAAAAAAAABg4AAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBAAAAoqHgIoEQAACioTMAQAAQEAAAEAABEDbwcAAAZv
+EgAACn4BAAAEKBMAAAoKBm8UAAAKOd8AAAAGbxUAAApyAQAAcG8WAAAKbxcAAApyCwAAcCgYAAAK
+KBkAAAoLAxIBckEAAHAoGgAACm8TAAAGAxIBclcAAHAoGgAACm8RAAAGAwZvFQAACnJpAABwbxYA
+AApvFwAACigbAAAKbw8AAAYDBm8VAAAKcnEAAHBvFgAACm8XAAAKbw0AAAYDBm8VAAAKcncAAHBv
+FgAACm8XAAAKbwsAAAYGbxUAAApyjQAAcG8WAAAKbxcAAAoMCCwgCG8cAAAKIIQDAAAxEwMIFiCE
+AwAAbx0AAApvCQAABioDCG8JAAAGKh4CKBcAAAYqLnKbAABwgAEAAAQqKgIDBAUoHgAACipSAnsf
+AAAKAnsgAAAKFpRvIQAACioiAhYoIgAACiomAhcDKCMAAAoqWgMsCAIXKCQAAAoqcjQCAHBzJQAA
+CnomAhgDKCMAAAoqWgMsCAIYKCQAAAoqcjQCAHBzJQAACnomAhkDKCMAAAoqWgMsCAIZKCQAAAoq
+cjQCAHBzJQAACnomAhoDKCMAAAoqWgMsCAIaKCQAAAoqcjQCAHBzJQAACnomAhsDKCMAAAoqWgMs
+CAIbKCQAAAoqcjQCAHBzJQAACnomAhwDKCMAAAoqWgMsCAIcKCQAAAoqcjQCAHBzJQAACnoeAigm
+AAAKKh4CKCcAAAoqfgIoKAAACgICcxsAAAZ9AgAABAICcxwAAAZ9AwAABCqSBHLRAgBwGm8pAAAK
+LBUCBQIDKCoAAAoOBHMGAAAGbxkAAAYqSisHAgNvGgAABgNvFQAABi3xKgYqOgIoKwAACgIDfQQA
+AAQqOgIoKwAACgIDfQUAAAQqHgIoKwAACiqufgYAAAQtHnLhAgBw0AcAAAIoLAAACm8tAAAKcy4A
+AAqABgAABH4GAAAEKhp+BwAABCoeAoAHAAAEKhp+CAAABCoeAigvAAAKKi5zIgAABoAIAAAEKgAA
+QlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAAOAcAACN+AACkBwAAyAcAACNTdHJp
+bmdzAAAAAGwPAABUAwAAI1VTAMASAAAQAAAAI0dVSUQAAADQEgAA8AEAACNCbG9iAAAAAAAAAAIA
+AAFXFaIBCQEAAAD6ATMAFgAAAQAAACcAAAAIAAAACAAAACMAAAAZAAAALwAAABAAAAABAAAAAwAA
+ABEAAAASAAAAAQAAAAQAAAABAAAAAACoAwEAAAAAAAYAbAKnBQYAAAOnBQYAuAGUBQ8AGwYAAAYA
+5QHDBAYATwLDBAYAMALDBAYA5wLDBAYAjALDBAYApQLDBAYA/AHDBAYAFwJFAwoAwALoAA4AfAOY
+BgYA7AZwBAoAZgXoABIAVwXoAAoAHAXoAAoAMQfoAAYA5QZwBAYAmwGUBQYAdwXHBQYAEAWuBA4A
+awGSAw4AzAGSAw4AUwGZBAYAgAGnBQ4AsgeYBg4ANAWYBg4A1QSYBg4ASwGYBgYAOgVwBAYAggNk
+AAYAawNwBAYA5QRwBAYA/wRwBAYACQFwBAYArgBwBAYAvAfDBAAAAAAlAAAAAAABAAEAAQAQAI4E
+AAAQAAEAAQABABAASgUAAEEAAgAGAAEAEAATBwAATQACABcAAQAQALcGAABRAAQAGwABABAAWQYA
+AFEABQAcAAAAEADOBSoGUQAGAB0AAAEQAIgGKgZpAAgAIQARAG4AuQAGALcGvAAGAFkGwAABACEH
+xAABACEHxAARAIIEyAARACYBzAARAJ4A0ABQIAAAAADGAB4DBgABAFggAAAAAMYAKQMGAAEAYCAA
+AAAAxgCTB9QAAQBtIQAAAACGGIcFBgACAHUhAAAAAJEYjQXaAAIAgSEAAAAAhhiHBWAAAgCMIQAA
+AACGCHcEIwAFAKEhAAAAAIYIRAQuAAUAqiEAAAAAhgg2ABAABQC0IQAAAACGCNAD3gAGAMshAAAA
+AIYIhwAQAAcA1SEAAAAAhggvBN4ACADsIQAAAACGCHkAEAAJAPYhAAAAAIYIGgTeAAoADSIAAAAA
+hghBABAACwAXIgAAAACGCOID3gAMAC4iAAAAAIYITgAQAA0AOCIAAAAAhgj2A94ADgBPIgAAAACG
+CFkAEAAPAFkiAAAAAIYICATeABAAcCIAAAAAhgCqBy4AEQB4IgAAAACGAPsGLgARAIAiAAAAAIYY
+hwUGABEAoCIAAAAAxgCGB+MAEQDFIgAAAADGAX8H1AAVANgiAAAAAMYBkwfUABYA2iIAAAAAhhiH
+Be0AFwDpIgAAAACGGIcF7QAYAPgiAAAAAIMYhwUGABkAACMAAAAAkwhzBfMAGQAsIwAAAACTCA4B
+PQAZADMjAAAAAJMIGgH4ABkAOyMAAAAAlggHB/4AGgBCIwAAAACGGIcFBgAaAEojAAAAAJEYjQXa
+ABoAAAABAK4HAAABAGwFAAACAGMGAAADACoFAAABAD8DAAABAD8DAAABAD8DAAABAD8DAAABAD8D
+AAABAD8DAAABAD8DAAABAD8DAAABAD8DAAABAD8DAAABAD8DAAABAD8DAAABAC4AAAACAN4AAAAD
+AGwFAAAEACoFAAABAGwFAAABAK4HAAABADcHAAABADcHAAABAD8DCQCHBQEAEQCHBQYAGQCHBQoA
+KQCHBRAAMQCHBRAAOQCHBRAAQQCHBRAASQCHBRAAUQCHBRAAWQCHBRAAYQCHBRAAaQCHBQYAqQCH
+BQYAyQCHBRUA2QCHBQYAmQAeAwYAmQApAwYAoQBfAyMA4QB8AycA6QDOBi4AcQDDBjIA8QBeBDcA
++QA1AyMAuQA2AT0AeQDaBkIAeQBfA0wACQHSAFEAEQGHA1YAEQFyA1oAgQCHBWAAgQBsBWoAgQBj
+Bm4AiQBoA3IAgQBPBHcAgQBnBHwAgQBWBAEAGQGHBRAAgQCqBy4AgQD7Bi4AmQCHBQYAEQGRBoIA
+mQB3BooAoQCHBQYAKQHAAJAAKQG4B5kAsQCHBZ8A0QCHBQYALgALABoBLgATACMBLgAbAEIBLgAj
+AEsBLgArAHQBLgAzAHQBLgA7AHoBLgBDAEsBLgBLAIQBLgBTAHQBLgBbAJ8BQwBjAOkB4wBrAOkB
+AQF7AOkB6QFzAEIBCQJzAEIBGwADAAEABwAPAAgAEQAAAHsEAwEAAEgEBwEAADoAAwEAANQDBwEA
+AIsAAwEAADMEBwEAAH0AAwEAAB4EBwEAAEUAAwEAAOYDBwEAAFIAAwEAAPoDBwEAAF0AAwEAAAwE
+BwEAAHcFCwEAAEMBEAEAAAsHFQECAAcAAwACAAgABQABAAkABwABAAoACQABAAsACwABAAwADQAB
+AA0ADwABAA4AEQABAA8AEwABABAAFQABABEAFwABABIAGQABABMAGwABABQAHQACAB4AHwACAB8A
+IQABACAAIQACACEAIwAEgAAAAQAAAAAAAAAAAAAAAAABAAAABAAAAAAAAAAAAAAApwCVAAAAAAAO
+AAAAAAAAAAAAAACwAEEHAAAAAAQAAAAAAAAAAAAAAKcAcAQAAAAADgAAAAAAAAAAAAAAsABeBwAA
+AAAAAAAAAQAAANgFAAAAAAAAAFNDX0U0NkIyN0EwOEZCRDQ3Mjk4NEQwMzk1QTFENUJCQkQ1ADxN
+b2R1bGU+AElucHV0SUQAc2V0X1NPVVJDRQBzZXRfRklMRU5BTUUAc2V0X1NMVElNRQBzZXRfU0xE
+QVRFAFN5c3RlbS5JTwBMT0dfUkVHRVhQAHNldF9JUEFERFJFU1MAc2V0X1VTRVJBR0VOVABtc2Nv
+cmxpYgBkZWZhdWx0SW5zdGFuY2UAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUA
+R2V0RmlsZU5hbWUASW5wdXROYW1lAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlBpcGVsaW5lAFR5
+cGUAZ2V0X0N1bHR1cmUAc2V0X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJlAGdldF9JbnZhcmlhbnRD
+dWx0dXJlAENhcHR1cmUAQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UARWRpdG9yQnJvd3NhYmxlU3Rh
+dGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUARGVidWdnZXJOb25Vc2VyQ29kZUF0dHJpYnV0
+ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0dHJpYnV0ZQBBc3NlbWJseVRp
+dGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRlAFRhcmdldEZyYW1ld29ya0F0
+dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlEZXNjcmlwdGlv
+bkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmlidXRlAEFzc2VtYmx5UHJvZHVj
+dEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBTU0lTU2NyaXB0Q29tcG9uZW50
+RW50cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVudGltZUNvbXBh
+dGliaWxpdHlBdHRyaWJ1dGUAUHJlRXhlY3V0ZQBQb3N0RXhlY3V0ZQBnZXRfVmFsdWUAdmFsdWUA
+U3lzdGVtLlJ1bnRpbWUuVmVyc2lvbmluZwBUb1N0cmluZwBHZXRTdHJpbmcAU3Vic3RyaW5nAE1h
+dGNoAFBhdGgAZ2V0X0xlbmd0aABTeXN0ZW0uQ29tcG9uZW50TW9kZWwAU0NfRTQ2QjI3QTA4RkJE
+NDcyOTg0RDAzOTVBMUQ1QkJCRDUuZGxsAHNldF9TT1VSQ0VfSXNOdWxsAHNldF9GSUxFTkFNRV9J
+c051bGwAc2V0X1NMVElNRV9Jc051bGwAc2V0X1NMREFURV9Jc051bGwAc2V0X0lQQUREUkVTU19J
+c051bGwAc2V0X1VTRVJBR0VOVF9Jc051bGwAZ2V0X0l0ZW1Jbl9Jc051bGwAU2V0TnVsbABnZXRf
+SXRlbQBzZXRfSXRlbQBTeXN0ZW0AZ2V0X0l0ZW1JbgByZXNvdXJjZU1hbgBTY3JpcHRNYWluAFN5
+c3RlbS5Db25maWd1cmF0aW9uAFN5c3RlbS5HbG9iYWxpemF0aW9uAFN5c3RlbS5SZWZsZWN0aW9u
+AEdyb3VwQ29sbGVjdGlvbgBJbnZhbGlkT3BlcmF0aW9uRXhjZXB0aW9uAFN0cmluZ0NvbXBhcmlz
+b24AQ3VsdHVyZUluZm8AT3V0cHV0TmFtZU1hcABPdXRwdXRNYXAAR3JvdXAASUZvcm1hdFByb3Zp
+ZGVyAElucHV0MEJ1ZmZlcgBQaXBlbGluZUJ1ZmZlcgBTY3JpcHRCdWZmZXIAZ2V0X1Jlc291cmNl
+TWFuYWdlcgAuY3RvcgAuY2N0b3IAU3lzdGVtLkRpYWdub3N0aWNzAFN5c3RlbS5SdW50aW1lLkNv
+bXBpbGVyU2VydmljZXMAU3lzdGVtLlJlc291cmNlcwBTQ19lYTE2NjkwMWY3ZGY0MGViYTMzNmQz
+MzJlZTRlNDZiYi5Qcm9wZXJ0aWVzLlJlc291cmNlcy5yZXNvdXJjZXMARGVidWdnaW5nTW9kZXMA
+U0NfZWExNjY5MDFmN2RmNDBlYmEzMzZkMzMyZWU0ZTQ2YmIuUHJvcGVydGllcwBWYXJpYWJsZXMA
+QnVmZmVyQ29sdW1uSW5kZXhlcwBHZXRDb2x1bW5JbmRleGVzAFNldHRpbmdzAEVxdWFscwBTeXN0
+ZW0uVGV4dC5SZWd1bGFyRXhwcmVzc2lvbnMAQ29ubmVjdGlvbnMAZ2V0X0dyb3VwcwBnZXRfU3Vj
+Y2VzcwBQYXJzZUV4YWN0AE9iamVjdABEYXRlVGltZU9mZnNldABFbmRPZlJvd3NldABnZXRfRGVm
+YXVsdABVc2VyQ29tcG9uZW50AFBhcmVudENvbXBvbmVudABTY3JpcHRDb21wb25lbnQATWljcm9z
+b2Z0LlNxbFNlcnZlci5UeFNjcmlwdABNaWNyb3NvZnQuU3FsU2VydmVyLlBpcGVsaW5lSG9zdABJ
+bnB1dDBfUHJvY2Vzc0lucHV0AElucHV0MF9Qcm9jZXNzSW5wdXRSb3cATmV4dFJvdwBSZWdleABn
+ZXRfQXNzZW1ibHkAAAAAAAlkAGEAdABlAAA1ZABkAC8ATQBNAE0ALwB5AHkAeQB5ADoASABIADoA
+bQBtADoAcwBzACAAegB6AHoAegB6AAAVZABkAC8ATQBNAC8AeQB5AHkAeQAAEUgASAA6AG0AbQA6
+AHMAcwAAB3UAcgBpAAAFaQBwAAAVdQBzAGUAcgBfAGEAZwBlAG4AdAAADXMAbwB1AHIAYwBlAACB
+l14AKAA/ADwAaQBwAD4AXABTACsAKQAgACgAXABTACsAKQAgACgAXABTACsAKQAgAFwAWwAoAD8A
+PABkAGEAdABlAD4AWwBcAHcAOgAvAF0AKwBcAHMAWwArAFwALQBdAFwAZAB7ADQAfQApAFwAXQAg
+ACIAKAA/ADwAbQBlAHQAaABvAGQAPgBcAFMAKwApAFwAcwA/ACgAPwA8AHUAcgBpAD4AXABTACsA
+KQA/AFwAcwA/ACgAPwA8AHAAcgBvAHQAbwBjAG8AbAA+AFwAUwArACkAPwAiACAAKAA/ADwAcgBl
+AHMAcABvAG4AcwBlAF8AYwBvAGQAZQA+AFwAZAB7ADMAfQB8AC0AKQAgACgAPwA8AHMAaQB6AGUA
+PgBcAGQAKwB8AC0AKQAgACIAewAxAH0AKAA/ADwAcwBvAHUAcgBjAGUAPgAuACoAKQA/ACIAewAx
+AH0AIAAiAHsAMQB9ACgAPwA8AHUAcwBlAHIAXwBhAGcAZQBuAHQAPgAuACoAKQA/ACIAewAxAH0A
+LgAqAD8AJAABgJtJAHMATgB1AGwAbAAgAHAAcgBvAHAAZQByAHQAeQAgAGMAYQBuAG4AbwB0ACAA
+YgBlACAAcwBlAHQAIAB0AG8AIABGAGEAbABzAGUALgAgAEEAcwBzAGkAZwBuACAAYQAgAHYAYQBs
+AHUAZQAgAHQAbwAgAHQAaABlACAAYwBvAGwAdQBtAG4AIABpAG4AcwB0AGUAYQBkAC4AAA9JAG4A
+cAB1AHQAIAAwAABxUwBDAF8AZQBhADEANgA2ADkAMAAxAGYANwBkAGYANAAwAGUAYgBhADMAMwA2
+AGQAMwAzADIAZQBlADQAZQA0ADYAYgBiAC4AUAByAG8AcABlAHIAdABpAGUAcwAuAFIAZQBzAG8A
+dQByAGMAZQBzAAAAeOrnNWMzLkWKhQylwJEwMAAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQERYQcH
+AxI5ET0OAyAADgYAAhI5Dg4DIAACBCAAEnkFIAESdQ4EAAASXQkAAxE9Dg4SgIEEIAEODgQAAQ4O
+AyAACAUgAg4ICAkgAwESRR0IEkkDBhJFAwYdCAQgAQ4IBCABAggFIAIBCBwHIAICDhGAkQUgAR0I
+CAgAARKAlRGAmQUgABKAnQcgAgEOEoCdCLd6XFYZNOCJCImEXc2AgMyRAgYOAwYSFAMGEhgDBhJN
+AwYSWQMGEl0DBhIgBSABARIMAwAAAQQgAQECCSAEAQgOEkUSSQUgAQESTQQAABJZBQABARJdBAAA
+EiADKAAOAygAAgQIABJZBAgAEl0ECAASIAgBAAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlv
+blRocm93cwEIAQACAAAAAAAoAQAjU0NfZWExNjY5MDFmN2RmNDBlYmEzMzZkMzMyZWU0ZTQ2YmIA
+AAUBAAAAAAkBAARPRUNEAAAaAQAVQ29weXJpZ2h0IEAgT0VDRCAyMDE3AABJAQAaLk5FVEZyYW1l
+d29yayxWZXJzaW9uPXY0LjUBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3Jr
+IDQuNQQBAAAAAAC0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFk
+ZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5
+VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNl
+dAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAA+DgAAAAAAAAAAAAAEjkAAAAgAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAQ5AAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAAEAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAA
+AFhAAAD8AwAAAAAAAAAAAAD8AzQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAA
+vQTv/gAAAQAAAAEAAAAAAAAAAQAAAAAAPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAAB
+AFYAYQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBuAAAA
+AAAAALAEXAMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAOAMAAAEAMAAwADAAMAAw
+ADQAYgAwAAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACoABQABAEMAbwBtAHAAYQBuAHkA
+TgBhAG0AZQAAAAAATwBFAEMARAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBv
+AG4AAAAAAFMAQwBfAGUAYQAxADYANgA5ADAAMQBmADcAZABmADQAMABlAGIAYQAzADMANgBkADMA
+MwAyAGUAZQA0AGUANAA2AGIAYgAAADAACAABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAu
+ADAALgAwAC4AMAAAAHAAKAABAEkAbgB0AGUAcgBuAGEAbABOAGEAbQBlAAAAUwBDAF8ARQA0ADYA
+QgAyADcAQQAwADgARgBCAEQANAA3ADIAOQA4ADQARAAwADMAOQA1AEEAMQBEADUAQgBCAEIARAA1
+AC4AZABsAGwAAABQABYAAQBMAGUAZwBhAGwAQwBvAHAAeQByAGkAZwBoAHQAAABDAG8AcAB5AHIA
+aQBnAGgAdAAgAEAAIABPAEUAQwBEACAAMgAwADEANwAAACoAAQABAEwAZQBnAGEAbABUAHIAYQBk
+AGUAbQBhAHIAawBzAAAAAAAAAAAAeAAoAAEATwByAGkAZwBpAG4AYQBsAEYAaQBsAGUAbgBhAG0A
+ZQAAAFMAQwBfAEUANAA2AEIAMgA3AEEAMAA4AEYAQgBEADQANwAyADkAOAA0AEQAMAAzADkANQBB
+ADEARAA1AEIAQgBCAEQANQAuAGQAbABsAAAAaAAkAAEAUAByAG8AZAB1AGMAdABOAGEAbQBlAAAA
+AABTAEMAXwBlAGEAMQA2ADYAOQAwADEAZgA3AGQAZgA0ADAAZQBiAGEAMwAzADYAZAAzADMAMgBl
+AGUANABlADQANgBiAGIAAAA0AAgAAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAxAC4A
+MAAuADAALgAwAAAAOAAIAAEAQQBzAHMAZQBtAGIAbAB5ACAAVgBlAHIAcwBpAG8AbgAAADEALgAw
+AC4AMAAuADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAAJDkAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_e46b27a08fbd472984d0395a1d5bbbd5</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum"
+                  typeConverter="NOTBROWSABLE">cff633b086efc7a06cfa1937394b63a1</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+                <property
+                  dataType="System.String"
+                  description="Somme de contrôle pour faire correspondre les métadonnées de composant avec les codes compilés."
+                  name="MetadataChecksum140"
+                  typeConverter="NOTBROWSABLE">08</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Inputs[Input 0]"
+                  hasSideEffects="true"
+                  name="Input 0">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Inputs[Input 0].Columns[ItemIn]"
+                      cachedDataType="nText"
+                      cachedName="Item"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB].Columns[Item]"
+                      name="ItemIn" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0]"
+                  name="Output 0"
+                  synchronousInputId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Inputs[Input 0]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[SOURCE]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[SOURCE]"
+                      name="SOURCE" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[USERAGENT]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[USERAGENT]"
+                      name="USERAGENT" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[IPADDRESS]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[IPADDRESS]"
+                      name="IPADDRESS" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[FILENAME]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[FILENAME]"
+                      name="FILENAME" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[SL_TIME]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[SL_TIME]"
+                      name="SL_TIME" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[SL_DATE]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0].Columns[SL_DATE]"
+                      name="SL_DATE" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -656,10 +1555,15 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT INSERT INTO STG_StatLink_File_SA.Paths[Sortie de colonne dérivée]"
+              refId="Package\DFT INSERT INTO STG_StatLink_File_SA.Paths[Data Conversion Output]"
+              endId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Inputs[Input 0]"
+              name="Data Conversion Output"
+              startId="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT INSERT INTO STG_StatLink_File_SA.Paths[Output 0]"
               endId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Inputs[Entrée de conversion de données]"
-              name="Sortie de colonne dérivée"
-              startId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Outputs[Sortie de colonne dérivée]" />
+              name="Output 0"
+              startId="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File.Outputs[Output 0]" />
             <path
               refId="Package\DFT INSERT INTO STG_StatLink_File_SA.Paths[Sortie de conversion de données]"
               endId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA.Inputs[Entrée de destination OLE DB]"
@@ -667,7 +1571,7 @@
               startId="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données.Outputs[Sortie de conversion de données]" />
             <path
               refId="Package\DFT INSERT INTO STG_StatLink_File_SA.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+              endId="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion.Inputs[Data Conversion Input]"
               name="Sortie de source OLE DB"
               startId="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP.Outputs[Sortie de source OLE DB]" />
           </paths>
@@ -1347,11 +2251,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected"
+              refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
               description="Destination OLE DB"
-              name="OLE_DST STG_StatLink_SA_Rejected"
+              name="OLE_DST DWH_StatLink_Rejected"
               usesDispositions="true"
               version="4">
               <properties>
@@ -1362,7 +2266,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_StatLink_SA_Rejected]</property>
+                  name="OpenRowset">[dwh].[StatLink_Rejected]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -1404,113 +2308,113 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
+                  refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Connections[OleDbConnection]"
+                  connectionManagerID="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DWH]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB]"
+                  refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB]"
                   errorOrTruncationOperation="Insérer"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[File_Date]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].Columns[File_Date]"
                       cachedDataType="dbDate"
                       cachedName="File_Date"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
                       lineageId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[File_Date]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Import_Date]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].Columns[Import_Date]"
                       cachedDataType="dbTimeStamp"
                       cachedName="Import_Date"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
                       lineageId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Import_Date]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[SL_DATE]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].Columns[SL_DATE]"
                       cachedDataType="dbDate"
                       cachedName="SL_DATE"
                       cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SL_DATE]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SL_DATE]"
                       lineageId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[SL_DATE]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[SL_TIME]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].Columns[SL_TIME]"
                       cachedDataType="dbTime2"
                       cachedName="SL_TIME"
                       cachedScale="7"
                       cachedSortKeyPosition="2"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SL_TIME]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SL_TIME]"
                       lineageId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[SL_TIME]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[FILENAME]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].Columns[FILENAME]"
                       cachedDataType="wstr"
                       cachedLength="900"
                       cachedName="FILENAME"
                       cachedSortKeyPosition="3"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[FILENAME]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[FILENAME]"
                       lineageId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[FILENAME]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[IPADDRESS]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].Columns[IPADDRESS]"
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="IPADDRESS"
                       cachedSortKeyPosition="4"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[IPADDRESS]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[IPADDRESS]"
                       lineageId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[IPADDRESS]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[USERAGENT]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].Columns[USERAGENT]"
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="USERAGENT"
                       cachedSortKeyPosition="5"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[USERAGENT]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[USERAGENT]"
                       lineageId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[USERAGENT]" />
                     <inputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[SOURCE]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].Columns[SOURCE]"
                       cachedDataType="wstr"
                       cachedLength="900"
                       cachedName="SOURCE"
                       cachedSortKeyPosition="6"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SOURCE]"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SOURCE]"
                       lineageId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[SOURCE]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
                       dataType="dbDate"
                       name="File_Date" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
                       dataType="dbTimeStamp"
                       name="Import_Date" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SL_DATE]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SL_DATE]"
                       dataType="dbDate"
                       name="SL_DATE" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SL_TIME]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SL_TIME]"
                       dataType="dbTime2"
                       name="SL_TIME"
                       scale="7" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[FILENAME]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[FILENAME]"
                       dataType="nText"
                       name="FILENAME" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[IPADDRESS]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[IPADDRESS]"
                       dataType="nText"
                       name="IPADDRESS" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[USERAGENT]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[USERAGENT]"
                       dataType="nText"
                       name="USERAGENT" />
                     <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SOURCE]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SOURCE]"
                       dataType="nText"
                       name="SOURCE" />
                   </externalMetadataColumns>
@@ -1518,22 +2422,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB]"
+                  refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Outputs[Sortie d'erreur de destination OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB]">
+                  synchronousInputId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2534,7 +3438,7 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
           <paths>
             <path
               refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected.Paths[Sortie de jointure de fusion]"
-              endId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected.Inputs[Entrée de destination OLE DB]"
+              endId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB]"
               name="Sortie de jointure de fusion"
               startId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\Jointure de fusion.Outputs[Sortie de jointure de fusion]" />
             <path
@@ -2719,11 +3623,11 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{1CA79E2F-899D-4A47-849A-770D2AE0E6AF}"
-      DTS:From="Package\DFT INSERT INTO STG_StatLink_File_SA"
+      DTS:DTSID="{5D393C6A-36C1-4C84-9746-80CA4151C954}"
+      DTS:From="Package\Truncate STG_StatLink_FT_SA"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\TSQL INSERT INTO STG_StatLink_SA" />
+      DTS:To="Package\DFT INSERT INTO STG_StatLink_File_SA" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -2732,6 +3636,14 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\DFT INSERT INTO STG_StatLink_SA_Rejected" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{F6CF791C-839F-492D-81F9-DA16C0CAF925}"
+      DTS:From="Package\DFT INSERT INTO STG_StatLink_File_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\TSQL INSERT INTO STG_StatLink_SA" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
@@ -2764,14 +3676,6 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 4"
       DTS:To="Package\DFT INSERT INTO STG_StatLink_FT_SA" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 5]"
-      DTS:CreationName=""
-      DTS:DTSID="{184DE578-E8E1-4E74-9C61-1080F156BCCF}"
-      DTS:From="Package\Truncate STG_StatLink_FT_SA"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 5"
-      DTS:To="Package\DFT INSERT INTO STG_StatLink_File_SA" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -2788,7 +3692,7 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
         <NodeLayout
           Size="272,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_StatLink_File_SA"
-          TopLeft="18.1666666666667,416.166666666666" />
+          TopLeft="12.9999998882413,410.833340771993" />
         <NodeLayout
           Size="268,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_StatLink_FT_SA"
@@ -2819,18 +3723,18 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
           TopLeft="13.5,210.833333333333" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="154.166666666667,458.833333333333">
+          TopLeft="151.583333277454,356.166666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000003"
+              EndConnector="0,54.6666741053265"
               Start="0,0"
-              End="0,52.5000000000003">
+              End="0,47.1666741053265">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000003" />
+                    End="0,47.1666741053265" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2853,6 +3757,28 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="151.583333277454,453.50000743866">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.3333258946731"
+              Start="0,0"
+              End="0,57.8333258946731">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.8333258946731" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2949,28 +3875,6 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 5]"
-          TopLeft="154.166666666667,356.166666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999993"
-              Start="0,0"
-              End="0,52.4999999999993">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999993" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -2978,37 +3882,41 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
     design-time-name="Package\DFT INSERT INTO STG_StatLink_File_SA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="189.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données"
-          TopLeft="118.749998230487,180.333332635959" />
-        <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_StatLink_File_SA\Colonne dérivée"
-          TopLeft="134.999997988343,111.79999800086" />
-        <NodeLayout
-          Size="229.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA"
-          TopLeft="101.249998491257,246.999995583296" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="276,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP"
-          TopLeft="74.166665561497,38.1333326514563" />
+          TopLeft="52.2619048772114,9.23809614578882" />
+        <NodeLayout
+          Size="229.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA"
+          TopLeft="77.4999988451599,314.59999561429" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_StatLink_File_SA\PARSE  Statlink File"
+          TopLeft="90.208332883194,152.083331686755" />
+        <NodeLayout
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion"
+          TopLeft="139.285712210195,84.0904747038512" />
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_StatLink_File_SA\Conversion de données"
+          TopLeft="79.5833330415192,240.833330350121" />
         <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_StatLink_File_SA.Paths[Sortie de colonne dérivée]"
-          TopLeft="212.874998109415,154.466664667527">
+          Id="Package\DFT INSERT INTO STG_StatLink_File_SA.Paths[Output 0]"
+          TopLeft="175.22916629569,194.749998353422">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,25.8666679684321"
+              EndConnector="0,46.0833319966993"
               Start="0,0"
-              End="0,18.3666679684321">
+              End="0,38.5833319966993">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.3666679684321" />
+                    End="0,38.5833319966993" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3018,19 +3926,31 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_StatLink_File_SA.Paths[Sortie de source OLE DB]"
-          TopLeft="212.249998441587,80.799999318123">
+          Id="Package\DFT INSERT INTO STG_StatLink_File_SA.Paths[Data Conversion Output]"
+          TopLeft="217.952378876862,126.757141370518">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30.9999986827372"
+              EndConnector="-41.7440459936676,25.3261903162371"
               Start="0,0"
-              End="0,23.4999986827372">
+              End="-41.7440459936676,17.8261903162371">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.4999986827372" />
+                    End="0,8.66309515811857" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.66309515811857"
+                    Point2="0,12.6630951581186"
+                    Point3="-4,12.6630951581186" />
+                  <mssgle:LineSegment
+                    End="-37.7440459936676,12.6630951581186" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-37.7440459936676,12.6630951581186"
+                    Point2="-41.7440459936676,12.6630951581186"
+                    Point3="-41.7440459936676,16.6630951581186" />
+                  <mssgle:LineSegment
+                    End="-41.7440459936676,17.8261903162371" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3041,18 +3961,64 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO STG_StatLink_File_SA.Paths[Sortie de conversion de données]"
-          TopLeft="214.666665027539,222.999999302626">
+          TopLeft="174.249999708186,283.499997016788">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,23.9999962806703"
+              EndConnector="17.9166658036407,31.0999985975027"
               Start="0,0"
-              End="0,16.4999962806703">
+              End="17.9166658036407,23.5999985975027">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.4999962806703" />
+                    End="0,11.5499992987513" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5499992987513"
+                    Point2="0,15.5499992987513"
+                    Point3="4,15.5499992987513" />
+                  <mssgle:LineSegment
+                    End="13.9166658036407,15.5499992987513" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.9166658036407,15.5499992987513"
+                    Point2="17.9166658036407,15.5499992987513"
+                    Point3="17.9166658036407,19.5499992987513" />
+                  <mssgle:LineSegment
+                    End="17.9166658036407,23.5999985975027" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_StatLink_File_SA.Paths[Sortie de source OLE DB]"
+          TopLeft="190.261904877211,51.9047628124555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.6904739996502,32.1857118913957"
+              Start="0,0"
+              End="27.6904739996502,24.6857118913957">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.0928559456979" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.0928559456979"
+                    Point2="0,16.0928559456979"
+                    Point3="4,16.0928559456979" />
+                  <mssgle:LineSegment
+                    End="23.6904739996502,16.0928559456979" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.6904739996502,16.0928559456979"
+                    Point2="27.6904739996502,16.0928559456979"
+                    Point3="27.6904739996502,20.0928559456979" />
+                  <mssgle:LineSegment
+                    End="27.6904739996502,24.6857118913957" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3064,32 +4030,6 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_DST STG_StatLink_File_SA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_StatLink_File_SA\OLE_SRC OCDE_STG_view_StatLink_TMP">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\DFT INSERT INTO STG_StatLink_FT_SA">
     <LayoutInfo>
@@ -3160,7 +4100,7 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
     design-time-name="Package\DFT INSERT INTO STG_StatLink_SA_Rejected">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="110.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\Trier 1"
@@ -3174,8 +4114,8 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
           Id="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\Trier"
           TopLeft="280.555551374952,300.444439072079" />
         <NodeLayout
-          Size="254.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected"
+          Size="241.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected"
           TopLeft="316.041661957279,493.161104947095" />
         <NodeLayout
           Size="221.333333333334,42.6666666666667"
@@ -3216,9 +4156,7 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3252,9 +4190,7 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3288,9 +4224,7 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3312,33 +4246,29 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO STG_StatLink_SA_Rejected.Paths[Sortie de jointure de fusion]"
-          TopLeft="443.937494944471,429.777771372265">
+          TopLeft="440.604161611137,429.777771372266">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,63.3833335748301"
+              EndConnector="0,63.3833335748293"
               Start="0,0"
-              End="0,55.8833335748301">
+              End="0,55.8833335748293">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,55.8833335748301" />
+                    End="0,55.8833335748293" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3358,7 +4288,7 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST STG_StatLink_SA_Rejected">
+    design-time-name="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

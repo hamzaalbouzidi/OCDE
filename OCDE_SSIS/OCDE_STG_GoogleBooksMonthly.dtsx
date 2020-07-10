@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_GoogleBooksMonthly"
   DTS:PackageType="5"
-  DTS:VersionBuild="64"
-  DTS:VersionGUID="{EABE623C-47B4-4BFF-BE6A-C5DE32EA5CC5}">
+  DTS:VersionBuild="65"
+  DTS:VersionGUID="{E253D264-67F4-4544-88E2-CE49477E5D74}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -1325,6 +1325,189 @@
               </outputs>
             </component>
             <component
+              refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST DWH_GoogleBooksMonthly_Rejected"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dwh].[GoogleBooksMonthly_Rejected]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Connections[OleDbConnection]"
+                  connectionManagerID="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DWH]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].Columns[File_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="File_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[File_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].Columns[Import_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Import_Date"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Import_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].Columns[Download_Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Download_Date"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Download_Date]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].Columns[ISBN13]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ISBN13"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[ISBN13]"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[ISBN13]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].Columns[books_visits]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="books_visits"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[books_visits]"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[books_visits]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].Columns[BV_w_pages_viewed]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="BV_w_pages_viewed"
+                      cachedSortKeyPosition="4"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[BV_w_pages_viewed]"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[BV_w_pages_viewed]" />
+                    <inputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].Columns[pages_viewed]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="pages_viewed"
+                      cachedSortKeyPosition="5"
+                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[pages_viewed]"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[pages_viewed]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
+                      dataType="dbDate"
+                      name="Download_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
+                      dataType="dbDate"
+                      name="File_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
+                      dataType="dbTimeStamp"
+                      name="Import_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[ISBN13]"
+                      dataType="wstr"
+                      length="100"
+                      name="ISBN13" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[books_visits]"
+                      dataType="i4"
+                      name="books_visits" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[BV_w_pages_viewed]"
+                      dataType="i4"
+                      name="BV_w_pages_viewed" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[pages_viewed]"
+                      dataType="i4"
+                      name="pages_viewed" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
@@ -1480,189 +1663,6 @@
                       refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
-              description="Destination OLE DB"
-              name="OLE_DST STG_GoogleBooksMonthly_SA_Rejected"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_GoogleBooksMonthly_SA_Rejected]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB]"
-                  errorOrTruncationOperation="Insérer"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrée de destination OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[File_Date]"
-                      cachedDataType="dbDate"
-                      cachedName="File_Date"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[File_Date]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Import_Date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Import_Date"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Import_Date]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[Download_Date]"
-                      cachedDataType="dbDate"
-                      cachedName="Download_Date"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
-                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[Download_Date]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[ISBN13]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="ISBN13"
-                      cachedSortKeyPosition="2"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[ISBN13]"
-                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[ISBN13]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[books_visits]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="books_visits"
-                      cachedSortKeyPosition="3"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[books_visits]"
-                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[books_visits]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[BV_w_pages_viewed]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="BV_w_pages_viewed"
-                      cachedSortKeyPosition="4"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[BV_w_pages_viewed]"
-                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[BV_w_pages_viewed]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].Columns[pages_viewed]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="pages_viewed"
-                      cachedSortKeyPosition="5"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[pages_viewed]"
-                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[pages_viewed]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Download_Date]"
-                      dataType="dbDate"
-                      name="Download_Date" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[File_Date]"
-                      dataType="dbDate"
-                      name="File_Date" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Import_Date]"
-                      dataType="dbTimeStamp"
-                      name="Import_Date" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[ISBN13]"
-                      dataType="wstr"
-                      length="100"
-                      name="ISBN13" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[books_visits]"
-                      dataType="i4"
-                      name="books_visits" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[BV_w_pages_viewed]"
-                      dataType="i4"
-                      name="BV_w_pages_viewed" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[pages_viewed]"
-                      dataType="i4"
-                      name="pages_viewed" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2883,7 +2883,7 @@ on 1=1</property>
               startId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\CSPL Mise à jour.Outputs[Rejet]" />
             <path
               refId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Sortie de jointure de fusion]"
-              endId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected.Inputs[Entrée de destination OLE DB]"
+              endId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected.Inputs[Entrée de destination OLE DB]"
               name="Sortie de jointure de fusion"
               startId="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Jointure de fusion.Outputs[Sortie de jointure de fusion]" />
             <path
@@ -3511,8 +3511,8 @@ on 1=1</property>
           Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Trier"
           TopLeft="174.583330731839,85.614284183383" />
         <NodeLayout
-          Size="314.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected"
+          Size="301.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected"
           TopLeft="296.170630564115,428.026978913649" />
         <NodeLayout
           Size="110.666666666667,42.6666666666667"
@@ -3670,18 +3670,30 @@ on 1=1</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Sortie de jointure de fusion]"
-          TopLeft="455.251979154757,391.555549873246">
+          TopLeft="456.999994412065,391.555549873246">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36.4714290404035"
+              EndConnector="-10.1626971812834,36.4714290404033"
               Start="0,0"
-              End="0,28.9714290404035">
+              End="-10.1626971812834,28.9714290404033">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.9714290404035" />
+                    End="0,14.2357145202016" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.2357145202016"
+                    Point2="0,18.2357145202016"
+                    Point3="-4,18.2357145202016" />
+                  <mssgle:LineSegment
+                    End="-6.16269718128342,18.2357145202016" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.16269718128342,18.2357145202016"
+                    Point2="-10.1626971812834,18.2357145202016"
+                    Point3="-10.1626971812834,22.2357145202016" />
+                  <mssgle:LineSegment
+                    End="-10.1626971812834,28.9714290404033" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3779,7 +3791,7 @@ on 1=1</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA_Rejected">
+    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -1,4 +1,4 @@
-﻿CREATE TABLE [stg].[STG_ILibraryLog_SA_Rejected]
+﻿CREATE TABLE [dwh].[ILibraryLog_Rejected]
 (
 	[EVENTLOGID] [nvarchar](20) NULL,
 	[IDENTITYID] [nvarchar](30) NULL,

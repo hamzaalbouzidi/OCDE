@@ -1,4 +1,4 @@
-﻿CREATE TABLE [stg].[STG_CounterMonthly_SA_Rejected]
+﻿CREATE TABLE [dwh].[CounterMonthly_Rejected]
 (
     [IdentityID] [nvarchar](30) NULL,
 	[Download_Date] [date] NULL,

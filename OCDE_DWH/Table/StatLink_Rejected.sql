@@ -1,4 +1,4 @@
-﻿CREATE TABLE [stg].[STG_StatLink_SA_Rejected]
+﻿CREATE TABLE [dwh].[StatLink_Rejected]
 (
 	[SL_DATE] [date] NULL,
 	[SL_TIME] [time](7) NULL,

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_IPCountry"
   DTS:PackageType="5"
-  DTS:VersionBuild="59"
-  DTS:VersionGUID="{D90D20A7-A38E-473F-9330-9A4E6566144F}">
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{0C9B7AAA-A276-4350-845B-A22ACE3F799D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -346,7 +346,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="INSERT [stg].[STG_Metadata_IPCountry] (IPAddress_ID,Country_ID) &#xA;&#xA;&#xA;&#x9;&#x9;SELECT c.IPAddress_ID,d.Country_ID from &#xA;&#xA;&#x9;&#x9;(SELECT a.*,b.* from &#xA;&#xA;&#x9;&#x9;(SELECT  [IPAddress_ID]&#xA;&#x9;&#x9;&#x9;  , [IPAddress]&#xA;&#x9;&#x9;&#x9;  ,(CONVERT(bigint, PARSENAME([IPAddress],1)) +&#xA;&#xA;&#x9;&#x9;CONVERT(bigint, PARSENAME([IPAddress],2)) * 256 +&#xA;&#xA;&#x9;&#x9;CONVERT(bigint, PARSENAME([IPAddress],3)) * 65536 +&#xA;&#xA;&#x9;&#x9;CONVERT(bigint, PARSENAME([IPAddress],4)) * 16777216) as IPNumber&#xA;&#xA;&#xA;&#x9;&#x9;  FROM stg.[IPAddress_DM] where ISNUMERIC(PARSENAME([IPAddress],1))=1 and ISNUMERIC(PARSENAME([IPAddress],2))=1 &#xA;&#x9;&#x9;  and ISNUMERIC(PARSENAME([IPAddress],3))=1 and ISNUMERIC(PARSENAME([IPAddress],4))=1  ) a  CROSS JOIN [stg].[STG_Metadata_TMP_IP_Country_Range] b&#xA;&#x9;&#x9;  WHERE  &#xA;  &#xA;&#x9;&#x9;  IPNumber&lt;=[HBoundDec] AND IPNumber&gt;=[LBoundDec]) c INNER JOIN stg.[Country_DM] d on c.CountryISO2=d.Country_ISO2Code" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='a')&#xA;drop TABLE  [dbo].a&#xA;BEGIN&#xA;&#xA;SELECT  [IPAddress_ID]&#xA;              , [IPAddress]&#xA;,(CONVERT(bigint, PARSENAME([IPAddress],1)) +  CONVERT(bigint, PARSENAME([IPAddress],2)) * 256 +&#xA;CONVERT(bigint, PARSENAME([IPAddress],3)) * 65536 +&#xA; &#xA; &#xA;        CONVERT(bigint, PARSENAME([IPAddress],4)) * 16777216) as IPNumber&#xA;INTO a&#xA;FROM [stg].[IPAddress_DM] &#xA;where ISNUMERIC(PARSENAME([IPAddress],1))=1 and ISNUMERIC(PARSENAME([IPAddress],2))=1 &#xA;and ISNUMERIC(PARSENAME([IPAddress],3))=1 and ISNUMERIC(PARSENAME([IPAddress],4))=1  &#xA;end&#xA;&#xA;IF  EXISTS (SELECT * FROM sys.objects where name ='b')&#xA;drop TABLE  [dbo].b&#xA;BEGIN&#xA;select [HBoundDec],[LBoundDec],CountryISO2 &#xA;into b&#xA;from [stg].[STG_Metadata_TMP_IP_Country_Range]&#xA;end&#xA;&#xA;IF  EXISTS (SELECT * FROM sys.objects where name ='d')&#xA;drop TABLE  [dbo].d&#xA;BEGIN&#xA;select Country_ISO2Code,Country_ID &#xA;into d &#xA;from [stg].[Country_DM]&#xA;end&#xA;&#xA;INSERT [stg].[STG_Metadata_IPCountry] (IPAddress_ID,Country_ID) &#xA;SELECT c.IPAddress_ID,d.Country_ID from &#xA;(SELECT  a.*,b.* &#xA;from dbo.a  &#xA;CROSS JOIN b where   IPNumber&lt;=b.[HBoundDec] AND IPNumber&gt;=b.[LBoundDec]) c &#xA;INNER JOIN d on c.CountryISO2=d.Country_ISO2Code&#xA;&#xA;drop table a &#xA;drop table b &#xA;drop table d&#xA; &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -462,13 +462,17 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="300,42.6666666666667"
-          Id="Package\TSQL Truncate STG_Metadata_TMP_IPCountry"
-          TopLeft="67.1666657477623,80.8666671548285" />
+          Size="317.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry"
+          TopLeft="67.1666657477623,260.466664512555" />
         <NodeLayout
           Size="297.333333333334,42.6666666666667"
           Id="Package\TSQL INSERT INTO STG_Metadata_IPCountry"
           TopLeft="72.083332259208,157.799997845888" />
+        <NodeLayout
+          Size="300,42.6666666666667"
+          Id="Package\TSQL Truncate STG_Metadata_TMP_IPCountry"
+          TopLeft="67.1666657477623,80.8666671548285" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="218.958332336818,123.533333821495">
@@ -491,10 +495,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="317.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry"
-          TopLeft="67.1666657477623,260.466664512555" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="223.291665670152,200.466664512555">
@@ -524,15 +524,15 @@
     design-time-name="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="274.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry"
-          TopLeft="17.9166663996871,114.733331675132" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="281.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_SRC OCDE_STG_Metadata_IPCountry"
           TopLeft="13.7499997951089,38.566665977041" />
+        <NodeLayout
+          Size="274.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry\OLE_DST STG_Metadata_TMP_IPCountry"
+          TopLeft="17.9166663996871,114.733331675132" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO STG_Metadata_TMP_IPCountry.Paths[Sortie de source OLE DB]"
           TopLeft="154.833333097398,81.2333326437077">
@@ -552,9 +552,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -1,4 +1,4 @@
-﻿CREATE TABLE [stg].[STG_Registration_SA_Rejected]
+﻿CREATE TABLE [dwh].[Registration_Rejected]
 (
 	[Job_ID] [int] NULL,
 	[Reason] [nvarchar](max) NULL,

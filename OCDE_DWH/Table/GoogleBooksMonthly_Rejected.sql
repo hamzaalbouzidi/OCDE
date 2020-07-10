@@ -1,4 +1,4 @@
-﻿CREATE TABLE [stg].[STG_GoogleBooksMonthly_SA_Rejected]
+﻿CREATE TABLE [dwh].[GoogleBooksMonthly_Rejected]
 (
 	[Download_Date] [date] NULL,
 	[ISBN13] [nvarchar](100) NULL,
