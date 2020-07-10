@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_GoogleBooksMonthly"
   DTS:PackageType="5"
-  DTS:VersionBuild="65"
-  DTS:VersionGUID="{E253D264-67F4-4544-88E2-CE49477E5D74}">
+  DTS:VersionBuild="66"
+  DTS:VersionGUID="{D8250AEC-F160-4B0B-AFDB-8FC4273EC428}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -3034,27 +3034,16 @@ on 1=1</property>
           SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_GoogleBooksMonthly_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\TSQL Truncate STG_GoogleBooksMonthly_SA_Rejected"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{1a4bcb0a-f3b7-4c29-a696-730b36e77631}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL Truncate STG_GoogleBooksMonthly_SA_Rejected"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_GoogleBooksMonthly_SA_Rejected" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{7820B1A9-B1BC-42B2-8D70-E193472D7D91}"
+      DTS:From="Package\TSQL Truncate STG_GoogleBooksMonthly_FT_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT INSERT INTO STG_GoogleBooksMonthly" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
@@ -3072,14 +3061,6 @@ on 1=1</property>
       DTS:ObjectName="Contrainte 1"
       DTS:To="Package\TSQL Truncate STG_GoogleBooksMonthly_FT_SA" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 2]"
-      DTS:CreationName=""
-      DTS:DTSID="{09CD0E5F-BEB5-45AA-88DB-8C244F202E43}"
-      DTS:From="Package\TSQL Truncate STG_GoogleBooksMonthly_FT_SA"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 2"
-      DTS:To="Package\TSQL Truncate STG_GoogleBooksMonthly_SA_Rejected" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 3]"
       DTS:CreationName=""
       DTS:DTSID="{96783815-FB8D-40DE-87C5-92BBC7A86943}"
@@ -3095,14 +3076,6 @@ on 1=1</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 4"
       DTS:To="Package\DFT INSERT INTO STG_GoogleBooksMonthly_FT_SA" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 5]"
-      DTS:CreationName=""
-      DTS:DTSID="{D454B480-8112-4C95-BCEE-80BF05611314}"
-      DTS:From="Package\TSQL Truncate STG_GoogleBooksMonthly_SA_Rejected"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 5"
-      DTS:To="Package\DFT INSERT INTO STG_GoogleBooksMonthly" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3140,10 +3113,6 @@ on 1=1</property>
           Size="294.666666666667,42.6666666666667"
           Id="Package\TSQL Truncate STG_GoogleBooksMonthly_SA"
           TopLeft="114.458331709729,176.199998783469" />
-        <NodeLayout
-          Size="341.333333333334,42.6666666666667"
-          Id="Package\TSQL Truncate STG_GoogleBooksMonthly_SA_Rejected"
-          TopLeft="96.3333319798116,325.266662784616" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
           TopLeft="253.083331700415,145.200000100732">
@@ -3192,28 +3161,6 @@ on 1=1</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,25.4499986478681" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 2]"
-          TopLeft="264.354165243296,294.483330764671">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.7833320199455"
-              Start="0,0"
-              End="0,23.2833320199455">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.2833320199455" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3279,31 +3226,31 @@ on 1=1</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 5]"
-          TopLeft="266.999998646478,367.933329451283">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="261.708331840113,294.483330764671">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-18.2083334295703,38.6166633773843"
+              EndConnector="-12.916666623205,112.066662063996"
               Start="0,0"
-              End="-18.2083334295703,31.1166633773843">
+              End="-12.916666623205,104.566662063996">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.3083316886921" />
+                    End="0,52.0333310319982" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.3083316886921"
-                    Point2="0,19.3083316886921"
-                    Point3="-4,19.3083316886921" />
+                    Point1="0,52.0333310319982"
+                    Point2="0,56.0333310319982"
+                    Point3="-4,56.0333310319982" />
                   <mssgle:LineSegment
-                    End="-14.2083334295703,19.3083316886921" />
+                    End="-8.91666662320503,56.0333310319982" />
                   <mssgle:CubicBezierSegment
-                    Point1="-14.2083334295703,19.3083316886921"
-                    Point2="-18.2083334295703,19.3083316886921"
-                    Point3="-18.2083334295703,23.3083316886921" />
+                    Point1="-8.91666662320503,56.0333310319982"
+                    Point2="-12.916666623205,56.0333310319982"
+                    Point3="-12.916666623205,60.0333310319982" />
                   <mssgle:LineSegment
-                    End="-18.2083334295703,31.1166633773843" />
+                    End="-12.916666623205,104.566662063996" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3499,6 +3446,10 @@ on 1=1</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="268,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA"
+          TopLeft="11.071428406451,244.361900785763" />
+        <NodeLayout
           Size="164,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Jointure de fusion"
           TopLeft="374.999994412065,348.888883206579" />
@@ -3510,10 +3461,6 @@ on 1=1</property>
           Size="101.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Trier"
           TopLeft="174.583330731839,85.614284183383" />
-        <NodeLayout
-          Size="301.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected"
-          TopLeft="296.170630564115,428.026978913649" />
         <NodeLayout
           Size="110.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\Trier 1"
@@ -3531,9 +3478,9 @@ on 1=1</property>
           Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\CSPL Mise à jour"
           TopLeft="144.166664518416,152.361902335485" />
         <NodeLayout
-          Size="268,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA"
-          TopLeft="11.071428406451,244.361900785763" />
+          Size="301.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected"
+          TopLeft="296.170630564115,428.026978913649" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA.Paths[Sortie de tri2]"
           TopLeft="569.222214564681,296.888884343041">
@@ -3778,7 +3725,7 @@ on 1=1</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE_STG_GoogleBooksMonthly_TMP2">
+    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3791,7 +3738,7 @@ on 1=1</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected">
+    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_SRC OCDE_STG_GoogleBooksMonthly_TMP2">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3812,7 +3759,7 @@ on 1=1</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST STG_GoogleBooksMonthly_SA">
+    design-time-name="Package\DFT INSERT INTO STG_GoogleBooksMonthly_SA\OLE_DST DWH_GoogleBooksMonthly_Rejected">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_ILibraryLog"
   DTS:PackageType="5"
-  DTS:VersionBuild="72"
-  DTS:VersionGUID="{6170AFF6-0BB0-409F-982B-7304273C5EBD}">
+  DTS:VersionBuild="73"
+  DTS:VersionGUID="{DC90A0F0-58E7-4D51-A698-C905F8FF90CC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -956,25 +956,6 @@
           SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_iLibraryLog_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\TSQL Truncate STG_ILibraryLog_SA_Rejected"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{11d9d5c8-2113-44f8-83ef-541c1ed7caa0}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL Truncate STG_ILibraryLog_SA_Rejected"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_ILibraryLog_SA_Rejected" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -1002,6 +983,14 @@
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\TSQL INSERT INTO STG_ILibraryLog_SA_Rejected" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{BCEFB5DE-D00F-4D7E-8138-C49A504B0A4B}"
+      DTS:From="Package\TSQL Truncate STG_iLibraryLog_FT_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\DFT INSERT INTO STG_ILibraryLog" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
       DTS:DTSID="{8DBB950F-35D7-48AA-8B89-42F572440C38}"
@@ -1017,22 +1006,6 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 1"
       DTS:To="Package\TSQL Truncate STG_iLibraryLog_FT_SA" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 2]"
-      DTS:CreationName=""
-      DTS:DTSID="{3DA8564D-E338-40B9-9503-B20247EEFEF3}"
-      DTS:From="Package\TSQL Truncate STG_iLibraryLog_FT_SA"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 2"
-      DTS:To="Package\TSQL Truncate STG_ILibraryLog_SA_Rejected" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 5]"
-      DTS:CreationName=""
-      DTS:DTSID="{F9B4F2FE-4BD3-4B91-B97E-4E863333C838}"
-      DTS:From="Package\TSQL Truncate STG_ILibraryLog_SA_Rejected"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 5"
-      DTS:To="Package\DFT INSERT INTO STG_ILibraryLog" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1074,10 +1047,6 @@
           Size="248,42.6666666666667"
           Id="Package\TSQL Truncate STG_iLibraryLog_SA"
           TopLeft="40.8333333333333,108.166666666666" />
-        <NodeLayout
-          Size="296,42.6666666666667"
-          Id="Package\TSQL Truncate STG_ILibraryLog_SA_Rejected"
-          TopLeft="16.8333333333334,313.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="164.833333333333,458.833333333333">
@@ -1189,41 +1158,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 2]"
+          Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="164.833333333333,253.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,162.666666666666"
               Start="0,0"
-              End="0,52.5">
+              End="0,155.166666666666">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 5]"
-          TopLeft="164.833333333333,356.166666666666">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
-              Start="0,0"
-              End="0,52.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,155.166666666666" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

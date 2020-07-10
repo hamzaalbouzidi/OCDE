@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_BrowseItMonthly"
   DTS:PackageType="5"
-  DTS:VersionBuild="74"
-  DTS:VersionGUID="{0F643021-40BF-411B-8F58-9CC0CD75F514}">
+  DTS:VersionBuild="76"
+  DTS:VersionGUID="{A2CF5CA8-69BA-4E65-B7E8-730ED64CA1D9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -1029,7 +1029,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_BrowseItMonthly_SA_Rejected]</property>
+                  name="OpenRowset">[dwh].[BrowseItMonthly_Rejected]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -1072,8 +1072,8 @@
               <connections>
                 <connection
                   refId="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\OLE_DST STG_BrowseItMonthly_SA_Rejected.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
+                  connectionManagerID="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_DWH]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -2763,25 +2763,6 @@ on 1=1</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\TSQL Truncate STG_BrowseItMonthly_SA_Rejected"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{4af0b48c-9791-4260-8cbc-c8df3378efb5}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL Truncate STG_BrowseItMonthly_SA_Rejected"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE [stg].STG_BrowseItMonthly_SA_Rejected" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\TSQL Truncate STG_BrowseItMonthly_SA_TMP"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
@@ -2867,8 +2848,8 @@ on 1=1</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{6EB42E0C-E28E-4C0A-8530-D347F5592467}"
-      DTS:From="Package\TSQL Truncate STG_BrowseItMonthly_SA_Rejected"
+      DTS:DTSID="{207B825F-E0FB-41C8-8FC6-BAB3822D6C53}"
+      DTS:From="Package\TSQL Truncate STG_BrowseItMonthly_FT_SA"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\DFT INSERT INTO STG_BrowseIt_OP" />
@@ -2896,14 +2877,6 @@ on 1=1</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 1"
       DTS:To="Package\TSQL Truncate STG_BrowseItMonthly_FT_SA" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 2]"
-      DTS:CreationName=""
-      DTS:DTSID="{0D24A81D-658E-4185-BC05-620C01D6F526}"
-      DTS:From="Package\TSQL Truncate STG_BrowseItMonthly_FT_SA"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 2"
-      DTS:To="Package\TSQL Truncate STG_BrowseItMonthly_SA_Rejected" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 3]"
       DTS:CreationName=""
@@ -2958,35 +2931,9 @@ on 1=1</property>
           Id="Package\TSQL Truncate STG_BrowseItMonthly_SA"
           TopLeft="110.569442878788,88.4500003525616" />
         <NodeLayout
-          Size="321.333333333334,42.6666666666667"
-          Id="Package\TSQL Truncate STG_BrowseItMonthly_SA_Rejected"
-          TopLeft="83.4166655056182,234.483331074615" />
-        <NodeLayout
           Size="301.333333333334,42.6666666666667"
           Id="Package\TSQL Truncate STG_BrowseItMonthly_SA_TMP"
           TopLeft="101.124998575077,18.4666682706273" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="243.374998606121,277.149997741282">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,61.9833314620453"
-              Start="0,0"
-              End="0,54.4833314620453">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.4833314620453" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="245.916665220013,381.799995869994">
@@ -3054,41 +3001,19 @@ on 1=1</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 2]"
-          TopLeft="246.145832037243,208.033332310518">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26.4499987640969"
-              Start="0,0"
-              End="0,18.9499987640969">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.9499987640969" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 3]"
-          TopLeft="245.472220916302,469.799992460608">
+          TopLeft="245.472220916301,469.799992460608">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,29.9166653687764"
+              EndConnector="0,29.9166653687763"
               Start="0,0"
-              End="0,22.4166653687764">
+              End="0,22.4166653687763">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.4166653687764" />
+                    End="0,22.4166653687763" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3111,6 +3036,28 @@ on 1=1</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,24.5833319966983" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="245.437498471079,208.033332310518">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,131.099996892809"
+              Start="0,0"
+              End="0,123.599996892809">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,123.599996892809" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3268,33 +3215,21 @@ on 1=1</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="189.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\Conversion de données"
-          TopLeft="234.166663177312,289.799997535944" />
-        <NodeLayout
-          Size="110.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\Trier 3"
-          TopLeft="542.757927935927,481.935712248385" />
+          Size="249.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\OLE_DST STG_BrowseItMonthly_SA"
+          TopLeft="79.9999988079077,483.691275601619" />
         <NodeLayout
           Size="225.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\OLE_SRC OCDE BrowseIt_TMP"
           TopLeft="482.599198015497,287.769058405657" />
         <NodeLayout
-          Size="158.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\CSPL Mise à jour"
-          TopLeft="261.40872577915,382.099207289185" />
-        <NodeLayout
-          Size="249.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\OLE_DST STG_BrowseItMonthly_SA"
-          TopLeft="79.9999988079077,483.691275601619" />
+          Size="308,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\OLE_SRC OCDE_STG_BrowseItMonthly_SA_TMP"
+          TopLeft="157.182536856051,198.911112108098" />
         <NodeLayout
           Size="198.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\Conversion de données 1"
           TopLeft="499.424594913035,380.880159508155" />
-        <NodeLayout
-          Size="308,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\OLE_SRC OCDE_STG_BrowseItMonthly_SA_TMP"
-          TopLeft="157.182536856051,198.911112108098" />
         <NodeLayout
           Size="296,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\OLE_DST STG_BrowseItMonthly_SA_Rejected"
@@ -3304,9 +3239,55 @@ on 1=1</property>
           Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\Sort"
           TopLeft="379.563485923269,482.630154594249" />
         <NodeLayout
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\CSPL Mise à jour"
+          TopLeft="261.40872577915,382.099207289185" />
+        <NodeLayout
+          Size="110.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\Trier 3"
+          TopLeft="542.757927935927,481.935712248385" />
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\Conversion de données"
+          TopLeft="234.166663177312,289.799997535944" />
+        <NodeLayout
           Size="131.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\Merge Join"
           TopLeft="447.27181824767,569.296819711195" />
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA.Paths[Sortie de source OLE DB1]"
+          TopLeft="311.182536856051,241.577778774765">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.650792987928,48.2222187611793"
+              Start="0,0"
+              End="17.650792987928,40.7222187611793">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1111093805896" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1111093805896"
+                    Point2="0,24.1111093805896"
+                    Point3="4,24.1111093805896" />
+                  <mssgle:LineSegment
+                    End="13.650792987928,24.1111093805896" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.650792987928,24.1111093805896"
+                    Point2="17.650792987928,24.1111093805896"
+                    Point3="17.650792987928,28.1111093805896" />
+                  <mssgle:LineSegment
+                    End="17.650792987928,40.7222187611793" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA.Paths[Sortie de source OLE DB]"
           TopLeft="597.011896464266,330.435725072324">
@@ -3330,6 +3311,40 @@ on 1=1</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA.Paths[Sortie de conversion de données1]"
+          TopLeft="328.833329843979,332.466664202611">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.9087292685043,49.6325430865743"
+              Start="0,0"
+              End="11.9087292685043,42.1325430865743">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.8162715432871" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.8162715432871"
+                    Point2="0,24.8162715432871"
+                    Point3="4,24.8162715432871" />
+                  <mssgle:LineSegment
+                    End="7.90872926850432,24.8162715432871" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.90872926850432,24.8162715432871"
+                    Point2="11.9087292685043,24.8162715432871"
+                    Point3="11.9087292685043,28.8162715432871" />
+                  <mssgle:LineSegment
+                    End="11.9087292685043,42.1325430865743" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA.Paths[Sortie de conversion de données]"
           TopLeft="598.424594757815,423.546826174822">
           <EdgeLayout.Curve>
@@ -3343,6 +3358,98 @@ on 1=1</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,50.8888860735626" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA.Paths[Sort Output]"
+          TopLeft="428.896819256602,525.296821260916">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84.041665657734,43.9999984502792"
+              Start="0,0"
+              End="84.041665657734,36.4999984502792">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.9999992251396" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.9999992251396"
+                    Point2="0,21.9999992251396"
+                    Point3="4,21.9999992251396" />
+                  <mssgle:LineSegment
+                    End="80.041665657734,21.9999992251396" />
+                  <mssgle:CubicBezierSegment
+                    Point1="80.041665657734,21.9999992251396"
+                    Point2="84.041665657734,21.9999992251396"
+                    Point3="84.041665657734,25.9999992251396" />
+                  <mssgle:LineSegment
+                    End="84.041665657734,36.4999984502792" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA.Paths[Rejet]"
+          TopLeft="365.853170223594,424.765873955852">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.0436490330081,57.8642806383973"
+              Start="0,0"
+              End="63.0436490330081,50.3642806383973">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.4923202591829" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.4923202591829"
+                    Point2="0,23.4923202591829"
+                    Point3="4,23.4923202591829" />
+                  <mssgle:LineSegment
+                    End="59.0436490330081,23.4923202591829" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59.0436490330081,23.4923202591829"
+                    Point2="63.0436490330081,23.4923202591829"
+                    Point3="63.0436490330081,27.4923202591829" />
+                  <mssgle:LineSegment
+                    End="63.0436490330081,50.3642806383973" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="19.4504377977541,28.4923202591829,24.1427734375,11.384765625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA.Paths[Merge Join Output]"
+          TopLeft="510.796620455484,611.963486377862">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.1166768212119"
+              Start="0,0"
+              End="0,29.6166768212119">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.6166768212119" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3388,76 +3495,6 @@ on 1=1</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA.Paths[Rejet]"
-          TopLeft="365.853170223594,424.765873955852">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="63.0436490330081,57.8642806383973"
-              Start="0,0"
-              End="63.0436490330081,50.3642806383973">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.4923202591829" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.4923202591829"
-                    Point2="0,23.4923202591829"
-                    Point3="4,23.4923202591829" />
-                  <mssgle:LineSegment
-                    End="59.0436490330081,23.4923202591829" />
-                  <mssgle:CubicBezierSegment
-                    Point1="59.0436490330081,23.4923202591829"
-                    Point2="63.0436490330081,23.4923202591829"
-                    Point3="63.0436490330081,27.4923202591829" />
-                  <mssgle:LineSegment
-                    End="63.0436490330081,50.3642806383973" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="19.4504377977541,28.4923202591829,24.1427734375,11.384765625"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA.Paths[Sort Output]"
-          TopLeft="428.896819256602,525.296821260916">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="84.041665657734,43.9999984502792"
-              Start="0,0"
-              End="84.041665657734,36.4999984502792">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.9999992251396" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.9999992251396"
-                    Point2="0,21.9999992251396"
-                    Point3="4,21.9999992251396" />
-                  <mssgle:LineSegment
-                    End="80.041665657734,21.9999992251396" />
-                  <mssgle:CubicBezierSegment
-                    Point1="80.041665657734,21.9999992251396"
-                    Point2="84.041665657734,21.9999992251396"
-                    Point3="84.041665657734,25.9999992251396" />
-                  <mssgle:LineSegment
-                    End="84.041665657734,36.4999984502792" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA.Paths[Sortie de tri]"
           TopLeft="598.09126126926,524.602378915052">
           <EdgeLayout.Curve>
@@ -3491,99 +3528,22 @@ on 1=1</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA.Paths[Merge Join Output]"
-          TopLeft="510.796620455484,611.963486377862">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37.1166768212119"
-              Start="0,0"
-              End="0,29.6166768212119">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.6166768212119" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA.Paths[Sortie de source OLE DB1]"
-          TopLeft="311.182536856051,241.577778774765">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="17.650792987928,48.2222187611793"
-              Start="0,0"
-              End="17.650792987928,40.7222187611793">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.1111093805896" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.1111093805896"
-                    Point2="0,24.1111093805896"
-                    Point3="4,24.1111093805896" />
-                  <mssgle:LineSegment
-                    End="13.650792987928,24.1111093805896" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.650792987928,24.1111093805896"
-                    Point2="17.650792987928,24.1111093805896"
-                    Point3="17.650792987928,28.1111093805896" />
-                  <mssgle:LineSegment
-                    End="17.650792987928,40.7222187611793" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_BrowseItMonthly_SA.Paths[Sortie de conversion de données1]"
-          TopLeft="328.833329843979,332.466664202611">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="11.9087292685043,49.6325430865743"
-              Start="0,0"
-              End="11.9087292685043,42.1325430865743">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.8162715432871" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.8162715432871"
-                    Point2="0,24.8162715432871"
-                    Point3="4,24.8162715432871" />
-                  <mssgle:LineSegment
-                    End="7.90872926850432,24.8162715432871" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7.90872926850432,24.8162715432871"
-                    Point2="11.9087292685043,24.8162715432871"
-                    Point3="11.9087292685043,28.8162715432871" />
-                  <mssgle:LineSegment
-                    End="11.9087292685043,42.1325430865743" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\OLE_DST STG_BrowseItMonthly_SA_Rejected">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\DFT INSERT INTO STG_BrowseItMonthly_SA_TMP">
     <LayoutInfo>
@@ -3645,19 +3605,6 @@ on 1=1</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_BrowseItMonthly_SA\OLE_DST STG_BrowseItMonthly_SA_Rejected">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

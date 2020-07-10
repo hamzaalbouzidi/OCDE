@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Manifestation"
   DTS:PackageType="5"
-  DTS:VersionBuild="78"
-  DTS:VersionGUID="{222FFD3A-4066-4A20-B857-45015F6BDA0D}">
+  DTS:VersionBuild="79"
+  DTS:VersionGUID="{D1FFF8FB-031F-443A-BF1F-9973B003CB2B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -2441,25 +2441,6 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\TSQL Truncate STG_Manifestation_SA_Rejected"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{60b83843-c70f-48b1-9327-afbdbb41d8da}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL Truncate STG_Manifestation_SA_Rejected"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_Manifestation_SA_Rejected" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\TSQL Truncate STG_Manifestation_StatLink"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
@@ -2543,6 +2524,14 @@
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D1767CF1-EF77-4813-883E-9B9FAC45ABF1}"
+      DTS:From="Package\TSQL Truncate STG_Manifestation_StatLink"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT INSERT INTO STG_Manifestation_OP" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
       DTS:DTSID="{DB7A8F96-63B9-41DF-9BBE-976273D2CD87}"
@@ -2574,22 +2563,6 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 3"
       DTS:To="Package\TSQL Truncate STG_Manifestation" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 4]"
-      DTS:CreationName=""
-      DTS:DTSID="{D51ED471-F183-436B-8D17-A31175E8644A}"
-      DTS:From="Package\TSQL Truncate STG_Manifestation_StatLink"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 4"
-      DTS:To="Package\TSQL Truncate STG_Manifestation_SA_Rejected" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 5]"
-      DTS:CreationName=""
-      DTS:DTSID="{F3E00A1E-5895-402A-B961-58AE9810A5D3}"
-      DTS:From="Package\TSQL Truncate STG_Manifestation_SA_Rejected"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 5"
-      DTS:To="Package\DFT INSERT INTO STG_Manifestation_OP" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 6]"
       DTS:CreationName=""
@@ -2659,10 +2632,6 @@
           Size="258.666666666667,42.6666666666667"
           Id="Package\TSQL Truncate STG_Manifestation_SA"
           TopLeft="49.4583326783034,75.2333339222263" />
-        <NodeLayout
-          Size="305.333333333334,42.6666666666667"
-          Id="Package\TSQL Truncate STG_Manifestation_SA_Rejected"
-          TopLeft="21.3333330973988,286.916663470366" />
         <NodeLayout
           Size="284,42.6666666666667"
           Id="Package\TSQL Truncate STG_Manifestation_StatLink"
@@ -2756,50 +2725,6 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 4]"
-          TopLeft="174.9166663376,264.077775752809">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,22.8388877175565"
-              Start="0,0"
-              End="0,15.3388877175565">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.3388877175565" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 5]"
-          TopLeft="171.791666359331,329.583330137033">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,138.861106029319"
-              Start="0,0"
-              End="0,131.361106029319">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,131.361106029319" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 6]"
           TopLeft="170.986110706504,511.111102833019">
           <EdgeLayout.Curve>
@@ -2857,6 +2782,28 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,16.8388877304722" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="172.708332932865,264.07777575281">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,204.366660413542"
+              Start="0,0"
+              End="0,196.866660413542">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,196.866660413542" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

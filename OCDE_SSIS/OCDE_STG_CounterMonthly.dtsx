@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_CounterMonthly"
   DTS:PackageType="5"
-  DTS:VersionBuild="82"
-  DTS:VersionGUID="{E640C4AF-088A-4D3C-85F0-B681BA7B5628}">
+  DTS:VersionBuild="83"
+  DTS:VersionGUID="{2DD4784C-F9BF-4282-82DD-DCE176C1087B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -2709,27 +2709,16 @@ on 1=1</property>
           SQLTask:SqlStatementSource="TRUNCATE TABLE [stg].STG_CounterMonthly_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\TSQL Truncate STG_CounterMonthly_SA_Rejected"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{c6065f79-fd65-4b61-89e0-10222c4516f1}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL Truncate STG_CounterMonthly_SA_Rejected"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE [stg].STG_CounterMonthly_SA_Rejected" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{296256CD-37A4-4AEC-86FD-15494B7D5440}"
+      DTS:From="Package\TSQL Truncate STG_CounterMonthly_FT_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT INSERT INTO STG_CounterMonthly_SA" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
@@ -2739,14 +2728,6 @@ on 1=1</property>
       DTS:ObjectName="Contrainte"
       DTS:To="Package\TSQL Truncate STG_CounterMonthly_FT_SA" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{78C83ABF-1882-4E4B-BB89-C65D93142D7D}"
-      DTS:From="Package\TSQL Truncate STG_CounterMonthly_FT_SA"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 1"
-      DTS:To="Package\TSQL Truncate STG_CounterMonthly_SA_Rejected" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 2]"
       DTS:CreationName=""
       DTS:DTSID="{A12B33CE-914B-422F-BB51-DB29FF835A3A}"
@@ -2754,14 +2735,6 @@ on 1=1</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 2"
       DTS:To="Package\DFT INSERT INTO STG_CounterMonthly_FT_SA" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 3]"
-      DTS:CreationName=""
-      DTS:DTSID="{39C97FFD-A374-4905-8C37-739DBE2CB6D1}"
-      DTS:From="Package\TSQL Truncate STG_CounterMonthly_SA_Rejected"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 3"
-      DTS:To="Package\DFT INSERT INTO STG_CounterMonthly_SA" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -2774,7 +2747,7 @@ on 1=1</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="305.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_FT_SA"
@@ -2791,10 +2764,6 @@ on 1=1</property>
           Size="270.666666666667,42.6666666666667"
           Id="Package\TSQL Truncate STG_CounterMonthly_SA"
           TopLeft="91.9351838972011,38.688890131248" />
-        <NodeLayout
-          Size="317.333333333334,42.6666666666667"
-          Id="Package\TSQL Truncate STG_CounterMonthly_SA_Rejected"
-          TopLeft="77.4212955226091,178.294443190461" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
           TopLeft="230.629628356132,81.3555567979147">
@@ -2809,28 +2778,6 @@ on 1=1</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,18.7333321013052" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 1]"
-          TopLeft="235.039350835503,150.255555565887">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.0388876245749"
-              Start="0,0"
-              End="0,20.5388876245749">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.5388876245749" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2862,19 +2809,19 @@ on 1=1</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 3]"
-          TopLeft="236.303239700592,220.961109857128">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="235.25462834682,150.255555565887">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39.7722189122773"
+              EndConnector="0,110.477773203518"
               Start="0,0"
-              End="0,32.2722189122773">
+              End="0,102.977773203518">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.2722189122773" />
+                    End="0,102.977773203518" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2890,7 +2837,7 @@ on 1=1</property>
     design-time-name="Package\DFT INSERT INTO STG_CounterMonthly_FT_SA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="321.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_FT_SA\OLE_SRC OCDE_STG_view_CounterMonthly_FT_SA"
@@ -2918,9 +2865,7 @@ on 1=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2958,13 +2903,13 @@ on 1=1</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="277.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected"
+          TopLeft="420.694438175608,617.961105969913" />
+        <NodeLayout
           Size="245.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA"
           TopLeft="12.5694442571447,291.027772967186" />
-        <NodeLayout
-          Size="330,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_STG_view_CounterMonthly_SA_TMP"
-          TopLeft="51.3888881231346,25.1333328839144" />
         <NodeLayout
           Size="101.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\Trier"
@@ -2977,10 +2922,6 @@ on 1=1</property>
           Size="164,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\Jointure de fusion"
           TopLeft="497.222214813034,452.888880830341" />
-        <NodeLayout
-          Size="277.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected"
-          TopLeft="420.694438175608,617.961105969913" />
         <NodeLayout
           Size="220,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE Counter_TMP"
@@ -2997,6 +2938,10 @@ on 1=1</property>
           Size="189.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\Conversion de données"
           TopLeft="120.833331532776,93.4999985665084" />
+        <NodeLayout
+          Size="330,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_STG_view_CounterMonthly_SA_TMP"
+          TopLeft="51.3888881231346,25.1333328839144" />
         <NodeLayout
           Size="168,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_CounterMonthly_SA\CSPL Mise à jour 1"
@@ -3303,7 +3248,7 @@ on 1=1</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA">
+    design-time-name="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3316,20 +3261,7 @@ on 1=1</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_STG_view_CounterMonthly_SA_TMP">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST DWH_CounterMonthly_Rejected">
+    design-time-name="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_DST STG_CounterMonthly_SA">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3346,6 +3278,19 @@ on 1=1</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_CounterMonthly_SA\OLE_SRC OCDE_STG_view_CounterMonthly_SA_TMP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
