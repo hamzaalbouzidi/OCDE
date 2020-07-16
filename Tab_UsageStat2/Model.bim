@@ -16,7 +16,6 @@
           "authentication": null,
           "query": null
         },
-        "options": {},
         "credential": {
           "AuthenticationKind": "UsernamePassword",
           "kind": "SQL",
@@ -1068,7 +1067,7 @@
         ],
         "measures": [
           {
-            "name": "Freepreview Downloads",
+            "name": "Freepreview views",
             "expression": "SUM(FACT_FreePreview[Downloads])"
           }
         ]
@@ -1191,7 +1190,7 @@
         ],
         "measures": [
           {
-            "name": "iLibraryCounter Downloads",
+            "name": "iLibraryCOUNTER Successful Hits",
             "expression": "SUM(FACT_iLibraryCounter[Downloads])"
           }
         ]
@@ -1432,15 +1431,6 @@
         "toColumn": "CurExpId"
       },
       {
-        "name": "e2e3b7e5-f351-4b85-8da7-52822795781e",
-        "fromCardinality": "one",
-        "fromTable": "FACT_GoogleBooks",
-        "fromColumn": "CurExpId",
-        "toTable": "DIM_Expression",
-        "toColumn": "CurExpId",
-        "crossFilteringBehavior": "bothDirections"
-      },
-      {
         "name": "c707a0b5-aa5b-4c37-b13d-27fb52c5b8e5",
         "fromTable": "FACT_FreePreview",
         "fromColumn": "CurExpId",
@@ -1467,14 +1457,6 @@
         "fromColumn": "Format_ID",
         "toTable": "DIM_Format",
         "toColumn": "Format_ID"
-      },
-      {
-        "name": "282d7dc3-9136-4464-abaa-a676d702c556",
-        "fromTable": "FACT_GoogleBooks",
-        "fromColumn": "Format_ID",
-        "toTable": "DIM_Format",
-        "toColumn": "Format_ID",
-        "isActive": false
       },
       {
         "name": "52a9fc64-e313-46dd-886c-09b055f7f6b9",
@@ -1524,14 +1506,6 @@
         "fromColumn": "Plateform",
         "toTable": "DIM_Plateform",
         "toColumn": "Plateform"
-      },
-      {
-        "name": "8fad1e18-e0da-4b2e-8c0b-d58a50fbd069",
-        "fromTable": "FACT_GoogleBooks",
-        "fromColumn": "Plateform",
-        "toTable": "DIM_Plateform",
-        "toColumn": "Plateform",
-        "isActive": false
       },
       {
         "name": "fe5d6c2b-e5b5-45b6-b58c-3086aca73cb0",
@@ -1597,14 +1571,6 @@
         "toColumn": "PK_Date"
       },
       {
-        "name": "a5dbd0a8-6009-4b9b-bce2-5eaa02aa5ae0",
-        "fromTable": "FACT_GoogleBooks",
-        "fromColumn": "Download_Date",
-        "toTable": "DIM_Date",
-        "toColumn": "PK_Date",
-        "isActive": false
-      },
-      {
         "name": "c25cd436-7467-423e-8f1d-8de9327c3227",
         "fromTable": "FACT_FreePreview",
         "fromColumn": "Download_Date",
@@ -1617,6 +1583,35 @@
         "fromColumn": "Download_Date",
         "toTable": "DIM_Date",
         "toColumn": "PK_Date"
+      },
+      {
+        "name": "20fd261b-f31a-4e66-a087-5cc8d11f8f6d",
+        "fromTable": "FACT_GoogleBooks",
+        "fromColumn": "CurExpId",
+        "toTable": "DIM_Expression",
+        "toColumn": "CurExpId",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "a5dbd0a8-6009-4b9b-bce2-5eaa02aa5ae0",
+        "fromTable": "FACT_GoogleBooks",
+        "fromColumn": "Download_Date",
+        "toTable": "DIM_Date",
+        "toColumn": "PK_Date"
+      },
+      {
+        "name": "282d7dc3-9136-4464-abaa-a676d702c556",
+        "fromTable": "FACT_GoogleBooks",
+        "fromColumn": "Format_ID",
+        "toTable": "DIM_Format",
+        "toColumn": "Format_ID"
+      },
+      {
+        "name": "f119a587-062f-4fa0-ab60-06bcf3c8c674",
+        "fromTable": "FACT_GoogleBooks",
+        "fromColumn": "Plateform",
+        "toTable": "DIM_Plateform",
+        "toColumn": "Plateform"
       }
     ],
     "annotations": [
