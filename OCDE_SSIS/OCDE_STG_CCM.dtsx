@@ -7,12 +7,12 @@
   DTS:CreatorName="CERBA\YMIGEOT"
   DTS:DTSID="{AB504B26-53A1-4002-B5C6-F82DC85AB488}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_CCM"
   DTS:PackageType="5"
-  DTS:VersionBuild="56"
-  DTS:VersionGUID="{75F05F26-126F-40EB-9B64-6C2B22CD3981}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{B11910F8-21D5-4A44-9D7B-151FD4302D26}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -38,278 +38,19 @@
   </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO STG_Update_County_DM"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{C981B47B-C077-4D63-9681-2172B85EDB41}"
-      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:refId="Package\TSQL INSERT INTO STG_Update_County_DM"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{2B643ABA-7E1F-4CC3-B1C1-D1EB7F178DFC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO STG_Update_County_DM"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      DTS:ObjectName="TSQL INSERT INTO STG_Update_County_DM"
+      DTS:ThreadHint="0">
       <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
       <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
-              description="Destination OLE DB"
-              name="OLE_DST STG_Update_County_DM"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_Update_County_DM]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB]"
-                  errorOrTruncationOperation="Insérer"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrée de destination OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB].Columns[CCMZone_ID]"
-                      cachedDataType="i4"
-                      cachedName="CCMZone_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB].ExternalColumns[CCMZone_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].Columns[CCMZone_ID]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB].Columns[Country_ID]"
-                      cachedDataType="i4"
-                      cachedName="Country_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].Columns[Country_ID]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB].ExternalColumns[CCMZone_ID]"
-                      dataType="i4"
-                      name="CCMZone_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB].ExternalColumns[Country_ID]"
-                      dataType="i4"
-                      name="Country_ID" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Outputs[Sortie d'erreur de destination OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
-              description="Source OLE DB"
-              name="OLE_SRC OCDE_STG_view_Update_County_DM"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[view_Update_County_DM]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.String"
-                  description="Variable contenant la commande SQL à exécuter."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="Mappages entre les paramètres de la commande SQL et les variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB]"
-                  name="Sortie de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].Columns[CCMZone_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].ExternalColumns[CCMZone_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].Columns[CCMZone_ID]"
-                      name="CCMZone_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].Columns[Country_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].Columns[Country_ID]"
-                      name="Country_ID"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].ExternalColumns[CCMZone_ID]"
-                      dataType="i4"
-                      name="CCMZone_ID" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB].ExternalColumns[Country_ID]"
-                      dataType="i4"
-                      name="Country_ID" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB]"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[CCMZone_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[CCMZone_ID]"
-                      name="CCMZone_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[Country_ID]"
-                      name="Country_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\DFT INSERT INTO STG_Update_County_DM.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM.Inputs[Entrée de destination OLE DB]"
-              name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM.Outputs[Sortie de source OLE DB]" />
-          </paths>
-        </pipeline>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
+          SQLTask:SqlStatementSource="INSERT INTO [stg].[STG_Update_County_DM]( [CCMZone_ID]&#xA;      ,[Country_ID])&#xA;SELECT [CCMZone_ID]&#xA;      ,[Country_ID]&#xA;  FROM [stg].[view_Update_County_DM]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -398,46 +139,58 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
-      DTS:DTSID="{3C325A59-239F-4968-8066-3729FAE31C8C}"
+      DTS:DTSID="{C8274674-400D-4B56-8803-41E378E35A10}"
       DTS:From="Package\TSQL Truncate STG_Update_County_DM"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte"
-      DTS:To="Package\DFT INSERT INTO STG_Update_County_DM" />
+      DTS:To="Package\TSQL INSERT INTO STG_Update_County_DM" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="288,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Update_County_DM"
-          TopLeft="50.4999993294481,174.933330303629" />
-        <NodeLayout
           Size="272,42.6666666666667"
           Id="Package\TSQL Truncate STG_Update_County_DM"
           TopLeft="54.249999273569,102.10000010848" />
+        <NodeLayout
+          Size="294.666666666667,42.6666666666667"
+          Id="Package\TSQL INSERT INTO STG_Update_County_DM"
+          TopLeft="53.0555547649661,187.922219946716" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="192.374999301509,144.766666775147">
+          TopLeft="190.249999273569,144.766666775147">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30.1666635284824"
+              EndConnector="10.1388888247304,43.155553171569"
               Start="0,0"
-              End="0,22.6666635284824">
+              End="10.1388888247304,35.655553171569">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.6666635284824" />
+                    End="0,17.5777765857845" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5777765857845"
+                    Point2="0,21.5777765857845"
+                    Point3="4,21.5777765857845" />
+                  <mssgle:LineSegment
+                    End="6.13888882473043,21.5777765857845" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.13888882473043,21.5777765857845"
+                    Point2="10.1388888247304,21.5777765857845"
+                    Point3="10.1388888247304,25.5777765857845" />
+                  <mssgle:LineSegment
+                    End="10.1388888247304,35.655553171569" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -449,69 +202,5 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_Update_County_DM">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="305.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM"
-          TopLeft="51.2499992363152,42.4666659073036" />
-        <NodeLayout
-          Size="245.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM"
-          TopLeft="88.3333320170637,122.533331535657" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_Update_County_DM.Paths[Sortie de source OLE DB]"
-          TopLeft="207.458332293356,85.1333325739703">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37.3999989616869"
-              Start="0,0"
-              End="0,29.8999989616869">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.8999989616869" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_Update_County_DM\OLE_DST STG_Update_County_DM">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_Update_County_DM\OLE_SRC OCDE_STG_view_Update_County_DM">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

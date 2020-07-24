@@ -7,12 +7,12 @@
   DTS:CreatorName="CERBA\YMIGEOT"
   DTS:DTSID="{DB156B57-E1EA-4B02-9263-B40ABA35C3F6}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Source"
   DTS:PackageType="5"
-  DTS:VersionBuild="55"
-  DTS:VersionGUID="{00F6C871-6DD8-4444-8093-47F3505C5408}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{66486B0B-08DA-4133-A4B5-5F442E66637F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -38,278 +38,19 @@
   </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO STG_Source"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{EF50E221-A10E-4C4A-AFC0-32A8B24947FD}"
-      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:refId="Package\TSQL INSERT INTO STG_Source"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{02AC0720-B8BF-403B-95D3-6244C73499EA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO STG_Source"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      DTS:ObjectName="TSQL INSERT INTO STG_Source"
+      DTS:ThreadHint="0">
       <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
       <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
-              description="Destination OLE DB"
-              name="OLE_DST STG_Source"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_Source_DM_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source.Inputs[Entrée de destination OLE DB]"
-                  errorOrTruncationOperation="Insérer"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrée de destination OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source.Inputs[Entrée de destination OLE DB].Columns[source]"
-                      cachedDataType="nText"
-                      cachedName="source"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source.Inputs[Entrée de destination OLE DB].ExternalColumns[Source]"
-                      lineageId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie de source OLE DB].Columns[source]" />
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source.Inputs[Entrée de destination OLE DB].Columns[SourceLight_ID]"
-                      cachedDataType="i4"
-                      cachedName="SourceLight_ID"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source.Inputs[Entrée de destination OLE DB].ExternalColumns[SourceLight_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source.Inputs[Entrée de destination OLE DB].ExternalColumns[Source]"
-                      dataType="nText"
-                      name="Source" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source.Inputs[Entrée de destination OLE DB].ExternalColumns[SourceLight_ID]"
-                      dataType="i4"
-                      name="SourceLight_ID" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source.Outputs[Sortie d'erreur de destination OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source.Inputs[Entrée de destination OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
-              description="Source OLE DB"
-              name="OLE_SRC OCDE_STG_view_Source_DM_SA"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[view_Source_DM_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.String"
-                  description="Variable contenant la commande SQL à exécuter."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="Mappages entre les paramètres de la commande SQL et les variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie de source OLE DB]"
-                  name="Sortie de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie de source OLE DB].Columns[source]"
-                      dataType="nText"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[source]"
-                      lineageId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie de source OLE DB].Columns[source]"
-                      name="source"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SourceLight_ID]"
-                      lineageId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie de source OLE DB].Columns[SourceLight_ID]"
-                      name="SourceLight_ID"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[source]"
-                      dataType="nText"
-                      name="source" />
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[SourceLight_ID]"
-                      dataType="i4"
-                      name="SourceLight_ID" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie d'erreur de source OLE DB]"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[source]"
-                      dataType="nText"
-                      lineageId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[source]"
-                      name="source" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SourceLight_ID]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[SourceLight_ID]"
-                      name="SourceLight_ID" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\DFT INSERT INTO STG_Source.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source.Inputs[Entrée de destination OLE DB]"
-              name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA.Outputs[Sortie de source OLE DB]" />
-          </paths>
-        </pipeline>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
+          SQLTask:SqlStatementSource="INSERT INTO [stg].[STG_Source_DM_SA]( [Source]&#xA;      ,[SourceLight_ID])&#xA;SELECT [source]&#xA;      ,[SourceLight_ID]&#xA;  FROM [stg].[view_Source_DM_SA]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -398,46 +139,58 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
-      DTS:DTSID="{D820AC9F-1BA0-4217-8358-B1197FD787D0}"
+      DTS:DTSID="{39DEBE1D-E9E5-43A6-8127-AF63972FC9F3}"
       DTS:From="Package\TSQL Truncate STG_Source"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte"
-      DTS:To="Package\DFT INSERT INTO STG_Source" />
+      DTS:To="Package\TSQL INSERT INTO STG_Source" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="226.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Source"
-          TopLeft="112.583331737668,180.56666353623" />
-        <NodeLayout
           Size="210.666666666667,42.6666666666667"
           Id="Package\TSQL Truncate STG_Source"
           TopLeft="115.083331700415,102.533333434065" />
+        <NodeLayout
+          Size="232,42.6666666666667"
+          Id="Package\TSQL INSERT INTO STG_Source"
+          TopLeft="114.999998286366,183.233331248959" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="223.166665052375,145.200000100732">
+          TopLeft="220.416665033748,145.200000100732">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35.3666634354985"
+              EndConnector="10.5833332526181,38.0333311482273"
               Start="0,0"
-              End="0,27.8666634354985">
+              End="10.5833332526181,30.5333311482273">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.8666634354985" />
+                    End="0,15.0166655741136" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.0166655741136"
+                    Point2="0,19.0166655741136"
+                    Point3="4,19.0166655741136" />
+                  <mssgle:LineSegment
+                    End="6.58333325261808,19.0166655741136" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.58333325261808,19.0166655741136"
+                    Point2="10.5833332526181,19.0166655741136"
+                    Point3="10.5833332526181,23.0166655741136" />
+                  <mssgle:LineSegment
+                    End="10.5833332526181,30.5333311482273" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -449,69 +202,5 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_Source">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="284,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA"
-          TopLeft="54.5833325199781,39.8666659537952" />
-        <NodeLayout
-          Size="184,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source"
-          TopLeft="107.916665058583,123.399998186827" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_Source.Paths[Sortie de source OLE DB]"
-          TopLeft="198.24999878928,82.5333326204619">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,40.8666655663647"
-              Start="0,0"
-              End="0,33.3666655663647">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.3666655663647" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_Source\OLE_DST STG_Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_Source\OLE_SRC OCDE_STG_view_Source_DM_SA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

@@ -1,9 +1,8 @@
 ﻿CREATE TABLE [dwh].[BrowseItMonthly_Rejected]
 (
 	[Download_Date] [date] NULL,
+	[Expression_ID] [int] NOT NULL,
 	[Downloads] [int] NULL,
-	[Item] [varchar](200) NULL,
-	[File_Date] [date] NULL,
-	[Import_Date] DATETIME NOT NULL DEFAULT GETUTCDATE()
+	[Exclude] [bit] NOT NULL, 
 )
 

@@ -7,12 +7,12 @@
   DTS:CreatorName="CERBA\YMIGEOT"
   DTS:DTSID="{5425F7A3-9B8F-40B0-B1EC-D9DFC918BF00}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Session"
   DTS:PackageType="5"
-  DTS:VersionBuild="52"
-  DTS:VersionGUID="{B816CD5E-3964-4A1C-9EEC-45B4CEBC0507}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{B4272717-B1B4-4BBC-AF50-25EE2D515E05}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -38,317 +38,19 @@
   </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO STG_Session"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{353ECF50-9C09-4CF5-ACF4-32D400F183C9}"
-      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:refId="Package\TQSL INSERT INTO STG_Session"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{4CC0A425-0533-4B2B-A0E2-29CF86168A0A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO STG_Session"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      DTS:ObjectName="TQSL INSERT INTO STG_Session"
+      DTS:ThreadHint="0">
       <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1">
-        <DTS:Property
-          DTS:DataType="8"
-          DTS:Name="EventFilter">3,7,OnError,13,OnPostExecute,12,OnPreExecute</DTS:Property>
-        <DTS:Property
-          DTS:EventName="OnError"
-          DTS:Name="ColumnFilter">
-          <DTS:Property
-            DTS:Name="Computer">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="Operator">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceName">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="ExecutionID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="MessageText">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="DataBytes">-1</DTS:Property>
-        </DTS:Property>
-        <DTS:Property
-          DTS:EventName="OnPostExecute"
-          DTS:Name="ColumnFilter">
-          <DTS:Property
-            DTS:Name="Computer">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="Operator">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceName">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="ExecutionID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="MessageText">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="DataBytes">-1</DTS:Property>
-        </DTS:Property>
-        <DTS:Property
-          DTS:EventName="OnPreExecute"
-          DTS:Name="ColumnFilter">
-          <DTS:Property
-            DTS:Name="Computer">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="Operator">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceName">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="SourceID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="ExecutionID">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="MessageText">-1</DTS:Property>
-          <DTS:Property
-            DTS:Name="DataBytes">-1</DTS:Property>
-        </DTS:Property>
-        <DTS:SelectedLogProviders>
-          <DTS:SelectedLogProvider
-            DTS:InstanceID="{E28385DD-BC93-44E8-9061-CCD378AB8C24}" />
-        </DTS:SelectedLogProviders>
-      </DTS:LoggingOptions>
       <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\DFT INSERT INTO STG_Session\OLE_DST STG_Session"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
-              description="Destination OLE DB"
-              name="OLE_DST STG_Session"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_Session_DM_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_Session\OLE_DST STG_Session.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_Session\OLE_DST STG_Session.Inputs[Entrée de destination OLE DB]"
-                  errorOrTruncationOperation="Insérer"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrée de destination OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_Session\OLE_DST STG_Session.Inputs[Entrée de destination OLE DB].Columns[Session]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Session"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Session\OLE_DST STG_Session.Inputs[Entrée de destination OLE DB].ExternalColumns[Session]"
-                      lineageId="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie de source OLE DB].Columns[Session]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Session\OLE_DST STG_Session.Inputs[Entrée de destination OLE DB].ExternalColumns[Session]"
-                      dataType="wstr"
-                      length="255"
-                      name="Session" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Session\OLE_DST STG_Session.Outputs[Sortie d'erreur de destination OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_Session\OLE_DST STG_Session.Inputs[Entrée de destination OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Session\OLE_DST STG_Session.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Session\OLE_DST STG_Session.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Session\OLE_DST STG_Session.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Session\OLE_DST STG_Session.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
-              description="Source OLE DB"
-              name="OLE_SRC OCDE_STG_view_Session_DM_SA"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[view_Session_DM_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.String"
-                  description="Variable contenant la commande SQL à exécuter."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="Mappages entre les paramètres de la commande SQL et les variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie de source OLE DB]"
-                  name="Sortie de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie de source OLE DB].Columns[Session]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Session]"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie de source OLE DB].Columns[Session]"
-                      name="Session"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[Session]"
-                      dataType="wstr"
-                      length="255"
-                      name="Session" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie d'erreur de source OLE DB]"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Session]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[Session]"
-                      name="Session" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\DFT INSERT INTO STG_Session.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO STG_Session\OLE_DST STG_Session.Inputs[Entrée de destination OLE DB]"
-              name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA.Outputs[Sortie de source OLE DB]" />
-          </paths>
-        </pipeline>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
+          SQLTask:SqlStatementSource="INSERT INTO [stg].[STG_Session_DM_SA]( [Session])&#xA;SELECT [Session]&#xA;  FROM [stg].[view_Session_DM_SA]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -375,46 +77,58 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte]"
       DTS:CreationName=""
-      DTS:DTSID="{DC883A29-9ECA-4F5C-83BB-580F5FD8CD23}"
+      DTS:DTSID="{209E59C4-850A-4939-B19A-3580E2D1DD38}"
       DTS:From="Package\TSQL Truncate STG_Session"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte"
-      DTS:To="Package\DFT INSERT INTO STG_Session" />
+      DTS:To="Package\TQSL INSERT INTO STG_Session" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="229.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Session"
-          TopLeft="109.249998454005,180.56666353623" />
-        <NodeLayout
           Size="213.333333333334,42.6666666666667"
           Id="Package\TSQL Truncate STG_Session"
           TopLeft="115.083331700415,102.533333434065" />
+        <NodeLayout
+          Size="236,42.6666666666667"
+          Id="Package\TQSL INSERT INTO STG_Session"
+          TopLeft="112.916664984077,174.999998062849" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="222.833331743877,145.200000100732">
+          TopLeft="221.749998367082,145.200000100732">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35.3666634354987"
+              EndConnector="9.16666661699557,29.7999979621174"
               Start="0,0"
-              End="0,27.8666634354987">
+              End="9.16666661699557,22.2999979621174">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.8666634354987" />
+                    End="0,10.8999989810587" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.8999989810587"
+                    Point2="0,14.8999989810587"
+                    Point3="4,14.8999989810587" />
+                  <mssgle:LineSegment
+                    End="5.16666661699557,14.8999989810587" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.16666661699557,14.8999989810587"
+                    Point2="9.16666661699557,14.8999989810587"
+                    Point3="9.16666661699557,18.8999989810587" />
+                  <mssgle:LineSegment
+                    End="9.16666661699557,22.2999979621174" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -426,69 +140,5 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_Session">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="188,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Session\OLE_DST STG_Session"
-          TopLeft="92.4999986216422,116.466664977471" />
-        <NodeLayout
-          Size="286.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA"
-          TopLeft="48.3333326131103,38.9999993026258" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_Session.Paths[Sortie de source OLE DB]"
-          TopLeft="189.083332284043,81.6666659692925">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.7999990081785"
-              Start="0,0"
-              End="0,27.2999990081785">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.2999990081785" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_Session\OLE_DST STG_Session">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_Session\OLE_SRC OCDE_STG_view_Session_DM_SA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
