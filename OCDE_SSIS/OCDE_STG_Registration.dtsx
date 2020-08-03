@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_Registration"
   DTS:PackageType="5"
-  DTS:VersionBuild="100"
-  DTS:VersionGUID="{6DC87EB6-D150-4192-8A5E-FD0F494227CF}">
+  DTS:VersionBuild="104"
+  DTS:VersionGUID="{34C4A5C1-C3C9-4899-BC70-5F358E6D0D96}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -810,510 +810,6 @@
               endId="Package\DFT INSERT INTO DWH_TMP_Registration_SA\OLE_DST DWH_TMP_Registration_SA.Inputs[OLE DB Destination Input]"
               name="Sortie de source OLE DB"
               startId="Package\DFT INSERT INTO DWH_TMP_Registration_SA\OLE_SRC OCDE_STG_Registration_SA.Outputs[Sortie de source OLE DB]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO STG_CustomerType"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{bded058f-b292-48f2-bed7-31072194daf8}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO STG_CustomerType"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\DFT INSERT INTO STG_CustomerType\OLE_DST STG_CustomerType"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
-              description="Destination OLE DB"
-              name="OLE_DST STG_CustomerType"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_CustomerType_DM_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_CustomerType\OLE_DST STG_CustomerType.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_CustomerType\OLE_DST STG_CustomerType.Inputs[Entrée de destination OLE DB]"
-                  errorOrTruncationOperation="Insérer"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrée de destination OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_CustomerType\OLE_DST STG_CustomerType.Inputs[Entrée de destination OLE DB].Columns[CustomerType]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="CustomerType"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CustomerType\OLE_DST STG_CustomerType.Inputs[Entrée de destination OLE DB].ExternalColumns[CustomerType]"
-                      lineageId="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA.Outputs[Sortie de source OLE DB].Columns[CustomerType]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_CustomerType\OLE_DST STG_CustomerType.Inputs[Entrée de destination OLE DB].ExternalColumns[CustomerType]"
-                      dataType="wstr"
-                      length="10"
-                      name="CustomerType" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_CustomerType\OLE_DST STG_CustomerType.Outputs[Sortie d'erreur de destination OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_CustomerType\OLE_DST STG_CustomerType.Inputs[Entrée de destination OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CustomerType\OLE_DST STG_CustomerType.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_CustomerType\OLE_DST STG_CustomerType.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CustomerType\OLE_DST STG_CustomerType.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_CustomerType\OLE_DST STG_CustomerType.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
-              description="Source OLE DB"
-              name="OLE_SRC OCDE_STG_view_CustomerType_DM_SA"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[view_CustomerType_DM_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.String"
-                  description="Variable contenant la commande SQL à exécuter."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="Mappages entre les paramètres de la commande SQL et les variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA.Outputs[Sortie de source OLE DB]"
-                  name="Sortie de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA.Outputs[Sortie de source OLE DB].Columns[CustomerType]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[CustomerType]"
-                      length="10"
-                      lineageId="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA.Outputs[Sortie de source OLE DB].Columns[CustomerType]"
-                      name="CustomerType"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[CustomerType]"
-                      dataType="wstr"
-                      length="10"
-                      name="CustomerType" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA.Outputs[Sortie d'erreur de source OLE DB]"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[CustomerType]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[CustomerType]"
-                      name="CustomerType" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\DFT INSERT INTO STG_CustomerType.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO STG_CustomerType\OLE_DST STG_CustomerType.Inputs[Entrée de destination OLE DB]"
-              name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA.Outputs[Sortie de source OLE DB]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\DFT INSERT INTO STG_RegistrationType"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Tâche de flux de données"
-      DTS:DTSID="{afd64c05-54c6-4369-867b-8bf190bafdee}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="DFT INSERT INTO STG_RegistrationType"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_DST STG_RegistrationType"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
-              description="Destination OLE DB"
-              name="OLE_DST STG_RegistrationType"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[STG_RegistrationType_DM_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_DST STG_RegistrationType.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_DST STG_RegistrationType.Inputs[Entrée de destination OLE DB]"
-                  errorOrTruncationOperation="Insérer"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrée de destination OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_DST STG_RegistrationType.Inputs[Entrée de destination OLE DB].Columns[RegistrationType]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="RegistrationType"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_RegistrationType\OLE_DST STG_RegistrationType.Inputs[Entrée de destination OLE DB].ExternalColumns[RegistrationType]"
-                      lineageId="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA.Outputs[Sortie de source OLE DB].Columns[RegistrationType]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_DST STG_RegistrationType.Inputs[Entrée de destination OLE DB].ExternalColumns[RegistrationType]"
-                      dataType="wstr"
-                      length="100"
-                      name="RegistrationType" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_DST STG_RegistrationType.Outputs[Sortie d'erreur de destination OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT INSERT INTO STG_RegistrationType\OLE_DST STG_RegistrationType.Inputs[Entrée de destination OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_DST STG_RegistrationType.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_RegistrationType\OLE_DST STG_RegistrationType.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_DST STG_RegistrationType.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_RegistrationType\OLE_DST STG_RegistrationType.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
-              description="Source OLE DB"
-              name="OLE_SRC OCDE_STG_view_RegistrationType_DM_SA"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[stg].[view_RegistrationType_DM_SA]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Commande SQL à exécuter."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.String"
-                  description="Variable contenant la commande SQL à exécuter."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le mode utilisé pour accéder à la base de données."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="Mappages entre les paramètres de la commande SQL et les variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA.Connections[OleDbConnection]"
-                  connectionManagerID="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Azure_OCDE_STG]"
-                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA.Outputs[Sortie de source OLE DB]"
-                  name="Sortie de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA.Outputs[Sortie de source OLE DB].Columns[RegistrationType]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[RegistrationType]"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA.Outputs[Sortie de source OLE DB].Columns[RegistrationType]"
-                      name="RegistrationType"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA.Outputs[Sortie de source OLE DB].ExternalColumns[RegistrationType]"
-                      dataType="wstr"
-                      length="100"
-                      name="RegistrationType" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA.Outputs[Sortie d'erreur de source OLE DB]"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de source OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[RegistrationType]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[RegistrationType]"
-                      name="RegistrationType" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\DFT INSERT INTO STG_RegistrationType.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT INSERT INTO STG_RegistrationType\OLE_DST STG_RegistrationType.Inputs[Entrée de destination OLE DB]"
-              name="Sortie de source OLE DB"
-              startId="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA.Outputs[Sortie de source OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -3977,25 +3473,6 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\TSQL Truncate STG_CustomerType"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{125b9cc3-5d91-4025-8481-3ef84d424952}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL Truncate STG_CustomerType"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_CustomerType_DM_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\TSQL Truncate STG_Registration"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tâche d'exécution de requêtes SQL"
@@ -4012,25 +3489,6 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_Registration_DM_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\TSQL Truncate STG_RegistrationType"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tâche d'exécution de requêtes SQL"
-      DTS:DTSID="{3aeefa4c-e366-44c5-b56c-a358d63ae2e5}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="TSQL Truncate STG_RegistrationType"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0"
-        DTS:LoggingMode="1" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE stg.STG_RegistrationType_DM_SA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4087,45 +3545,13 @@
       DTS:ObjectName="Contrainte 1"
       DTS:To="Package\TSQL CREATE DWH_TMP_STG_Registration_SA" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 10]"
-      DTS:CreationName=""
-      DTS:DTSID="{B25281FD-52D2-48FF-89B9-7332729A683A}"
-      DTS:From="Package\TSQL DELETE Registration_SA (Duplicate)"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 10"
-      DTS:To="Package\DFT INSERT INTO STG_RegistrationType" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 11]"
       DTS:CreationName=""
-      DTS:DTSID="{F2ED3966-3DA9-447E-99D7-77432A7839EA}"
+      DTS:DTSID="{0E7510D5-6526-4361-962B-61B0C9F55BA6}"
       DTS:From="Package\TSQL Truncate STG_Registration"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 11"
-      DTS:To="Package\TSQL Truncate STG_RegistrationType" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 12]"
-      DTS:CreationName=""
-      DTS:DTSID="{A035C97D-BB5F-448A-B64A-15BAB243F9F1}"
-      DTS:From="Package\DFT INSERT INTO STG_RegistrationType"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 12"
-      DTS:To="Package\DFT INSERT INTO STG_CustomerType" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 13]"
-      DTS:CreationName=""
-      DTS:DTSID="{E1A5FFDC-3A75-4065-88B8-2DE094232760}"
-      DTS:From="Package\TSQL Truncate STG_CustomerType"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 13"
       DTS:To="Package\TSQL INSERT INTO STG_Registration_SA" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Contrainte 14]"
-      DTS:CreationName=""
-      DTS:DTSID="{96D59DC0-2A59-4370-80E9-FA836562AB04}"
-      DTS:From="Package\TSQL Truncate STG_RegistrationType"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Contrainte 14"
-      DTS:To="Package\TSQL Truncate STG_CustomerType" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 15]"
       DTS:CreationName=""
@@ -4185,8 +3611,8 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 8]"
       DTS:CreationName=""
-      DTS:DTSID="{CAA7F251-126B-4B11-B88E-4608C3906F5A}"
-      DTS:From="Package\DFT INSERT INTO STG_CustomerType"
+      DTS:DTSID="{DA3C0910-40B0-4522-8DB2-61192893575D}"
+      DTS:From="Package\TSQL DELETE Registration_SA (Duplicate)"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 8"
       DTS:To="Package\TSQL INSERT INTO STG_Registration" />
@@ -4210,109 +3636,81 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="300,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_TMP_Registration_SA"
-          TopLeft="523.416665393859,858.488877387378" />
-        <NodeLayout
-          Size="262.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_CustomerType"
-          TopLeft="173.357140355876,1364.35714037021" />
+          TopLeft="52.8333333333335,1032.16666666667" />
         <NodeLayout
           Size="394.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (CustomerType)"
-          TopLeft="91.6904749061383,876.336504907543" />
+          TopLeft="5.50000000000011,724.166666666665" />
         <NodeLayout
           Size="374.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (IdentityID)"
-          TopLeft="71.6904752041616,568.326974261536" />
+          TopLeft="15.5000000000001,313.499999999999" />
         <NodeLayout
           Size="354.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_Registration_SA_Rejected (Name)"
-          TopLeft="84.1904750178972,713.231739127369" />
-        <NodeLayout
-          Size="273.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_RegistrationType"
-          TopLeft="160.301584994864,1293.29047497432" />
+          TopLeft="25.5000000000001,518.833333333332" />
         <NodeLayout
           Size="304,42.6666666666667"
           Id="Package\TSQL CREATE DWH_TMP_STG_Registration_SA"
-          TopLeft="523.916665356606,769.688877139423" />
+          TopLeft="50.8333333333335,929.499999999999" />
         <NodeLayout
           Size="301.333333333334,42.6666666666667"
           Id="Package\TSQL DELETE Registration_SA (CustomerType)"
-          TopLeft="138.571426506553,947.174602595303" />
+          TopLeft="52.1666666666668,826.833333333332" />
         <NodeLayout
           Size="277.333333333334,42.6666666666667"
           Id="Package\TSQL DELETE Registration_SA (Duplicate)"
-          TopLeft="600.238086293851,1151.66269972904" />
+          TopLeft="64.1666666666669,1237.5" />
         <NodeLayout
           Size="281.333333333334,42.6666666666667"
           Id="Package\TSQL DELETE Registration_SA (IdentityID)"
-          TopLeft="120.238093446408,635.698405344618" />
+          TopLeft="62.1666666666667,416.166666666666" />
         <NodeLayout
           Size="261.333333333334,42.6666666666667"
           Id="Package\TSQL DELETE Registration_SA (Name)"
-          TopLeft="126.071426692818,790.269834939968" />
+          TopLeft="72.1666666666668,621.499999999999" />
         <NodeLayout
           Size="269.333333333334,42.6666666666667"
           Id="Package\TSQL DROP DWH_TMP_Registration_SA"
-          TopLeft="167.166670590639,1517.28886814329" />
+          TopLeft="68.1666666666669,1442.83333333333" />
         <NodeLayout
           Size="256,42.6666666666667"
           Id="Package\TSQL INSERT INTO STG_Registration"
-          TopLeft="516.666658967733,1441.66664884488" />
+          TopLeft="74.8333333333335,1340.16666666667" />
         <NodeLayout
           Size="274.666666666667,42.6666666666667"
           Id="Package\TSQL INSERT INTO STG_Registration_SA"
-          TopLeft="443.74999338761,437.833332209786" />
+          TopLeft="65.5,210.833333333333" />
         <NodeLayout
           Size="376,42.6666666666667"
           Id="Package\TSQL INSERT INTO STG_Registration_SA_Rejected (Duplicate)"
-          TopLeft="535.416658688336,1080.16665980915" />
-        <NodeLayout
-          Size="246.666666666667,42.6666666666667"
-          Id="Package\TSQL Truncate STG_CustomerType"
-          TopLeft="122.45436333661,278.43493581739" />
+          TopLeft="14.8333333333335,1134.83333333333" />
         <NodeLayout
           Size="234.666666666667,42.6666666666667"
           Id="Package\TSQL Truncate STG_Registration"
-          TopLeft="135.509918697622,135.223829492331" />
+          TopLeft="85.5,108.166666666666" />
         <NodeLayout
           Size="252,42.6666666666667"
           Id="Package\TSQL Truncate STG_Registration_SA"
-          TopLeft="134.874998072163,0.0888909009428147" />
-        <NodeLayout
-          Size="257.333333333334,42.6666666666667"
-          Id="Package\TSQL Truncate STG_RegistrationType"
-          TopLeft="123.287696657526,203.034937165645" />
+          TopLeft="76.8333333333334,5.49999999999993" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="260.874998072163,42.7555575676095">
+          TopLeft="202.833333333333,48.1666666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-8.03174604120767,92.4682719247215"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="-8.03174604120767,84.9682719247215">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.2341359623608" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,42.2341359623608"
-                    Point2="0,46.2341359623608"
-                    Point3="-4,46.2341359623608" />
-                  <mssgle:LineSegment
-                    End="-4.03174604120767,46.2341359623608" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-4.03174604120767,46.2341359623608"
-                    Point2="-8.03174604120767,46.2341359623608"
-                    Point3="-8.03174604120767,50.2341359623608" />
-                  <mssgle:LineSegment
-                    End="-8.03174604120767,84.9682719247215" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4323,30 +3721,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="723.416658688336,1122.83332647582">
+          TopLeft="202.833333333333,1177.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="15.4880942721809,28.829373253225"
+              EndConnector="0,60.0000000000002"
               Start="0,0"
-              End="15.4880942721809,21.329373253225">
+              End="0,52.5000000000002">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.4146866266125" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.4146866266125"
-                    Point2="0,14.4146866266125"
-                    Point3="4,14.4146866266125" />
-                  <mssgle:LineSegment
-                    End="11.4880942721809,14.4146866266125" />
-                  <mssgle:CubicBezierSegment
-                    Point1="11.4880942721809,14.4146866266125"
-                    Point2="15.4880942721809,14.4146866266125"
-                    Point3="15.4880942721809,18.4146866266125" />
-                  <mssgle:LineSegment
-                    End="15.4880942721809,21.329373253225" />
+                    End="0,52.5000000000002" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4357,18 +3743,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="674.666665375232,812.355543806089">
+          TopLeft="202.833333333333,972.166666666665">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.1333335812891"
+              EndConnector="0,60.0000000000002"
               Start="0,0"
-              End="0,38.6333335812891">
+              End="0,52.5000000000002">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.6333335812891" />
+                    End="0,52.5000000000002" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4379,164 +3765,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 1]"
-          TopLeft="338.126982062109,947.174602595303">
+          TopLeft="202.833333333333,869.499999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="288.456349961164,-134.819058789214"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="288.456349961164,-127.319058789214">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-63.4134028376566" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-63.4134028376566"
-                    Point2="0,-67.4134028376566"
-                    Point3="4,-67.4134028376566" />
-                  <mssgle:LineSegment
-                    End="284.456349961164,-67.4134028376566" />
-                  <mssgle:CubicBezierSegment
-                    Point1="284.456349961164,-67.4134028376566"
-                    Point2="288.456349961164,-67.4134028376566"
-                    Point3="288.456349961164,-71.4134028376566" />
-                  <mssgle:LineSegment
-                    End="288.456349961164,-127.319058789214" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 10]"
-          TopLeft="738.904752960517,1194.32936639571">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-441.936501298986,98.9611085786132"
-              Start="0,0"
-              End="-441.936501298986,91.4611085786132">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.4805542893066" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,45.4805542893066"
-                    Point2="0,49.4805542893066"
-                    Point3="-4,49.4805542893066" />
-                  <mssgle:LineSegment
-                    End="-437.936501298986,49.4805542893066" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-437.936501298986,49.4805542893066"
-                    Point2="-441.936501298986,49.4805542893066"
-                    Point3="-441.936501298986,53.4805542893066" />
-                  <mssgle:LineSegment
-                    End="-441.936501298986,91.4611085786132" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 11]"
-          TopLeft="252.398807677574,177.890496158998">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,25.1444410066471"
-              Start="0,0"
-              End="0,17.6444410066471">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.6444410066471" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 12]"
-          TopLeft="300.82936267537,1335.95714164099">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.3999987292239"
-              Start="0,0"
-              End="0,20.8999987292239">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.8999987292239" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 13]"
-          TopLeft="245.787696669943,321.101602484057">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="335.295630051,116.731729725729"
-              Start="0,0"
-              End="335.295630051,109.231729725729">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.3658648628646" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,54.3658648628646"
-                    Point2="0,58.3658648628646"
-                    Point3="4,58.3658648628646" />
-                  <mssgle:LineSegment
-                    End="331.295630051,58.3658648628646" />
-                  <mssgle:CubicBezierSegment
-                    Point1="331.295630051,58.3658648628646"
-                    Point2="335.295630051,58.3658648628646"
-                    Point3="335.295630051,62.3658648628646" />
-                  <mssgle:LineSegment
-                    End="335.295630051,109.231729725729" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 14]"
-          TopLeft="248.871029997068,245.701603832312">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.733331985078"
-              Start="0,0"
-              End="0,25.233331985078">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.233331985078" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4547,30 +3787,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 15]"
-          TopLeft="581.083326720943,480.499998876452">
+          TopLeft="202.833333333333,253.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-322.059518183448,87.8269753850835"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="-322.059518183448,80.3269753850835">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.9134876925417" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,39.9134876925417"
-                    Point2="0,43.9134876925417"
-                    Point3="-4,43.9134876925417" />
-                  <mssgle:LineSegment
-                    End="-318.059518183448,43.9134876925417" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-318.059518183448,43.9134876925417"
-                    Point2="-322.059518183448,43.9134876925417"
-                    Point3="-322.059518183448,47.9134876925417" />
-                  <mssgle:LineSegment
-                    End="-322.059518183448,80.3269753850835" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4581,30 +3809,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 2]"
-          TopLeft="673.416665393859,901.155544054045">
+          TopLeft="202.833333333333,1074.83333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="49.9999932944773,179.011115755108"
+              EndConnector="0,59.9999999999998"
               Start="0,0"
-              End="49.9999932944773,171.511115755108">
+              End="0,52.4999999999998">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,85.5055578775541" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,85.5055578775541"
-                    Point2="0,89.5055578775541"
-                    Point3="4,89.5055578775541" />
-                  <mssgle:LineSegment
-                    End="45.9999932944773,89.5055578775541" />
-                  <mssgle:CubicBezierSegment
-                    Point1="45.9999932944773,89.5055578775541"
-                    Point2="49.9999932944773,89.5055578775541"
-                    Point3="49.9999932944773,93.5055578775541" />
-                  <mssgle:LineSegment
-                    End="49.9999932944773,171.511115755108" />
+                    End="0,52.4999999999998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4615,18 +3831,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 3]"
-          TopLeft="259.964284325285,610.993640928202">
+          TopLeft="202.833333333333,356.166666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,24.7047644164156"
+              EndConnector="0,59.9999999999998"
               Start="0,0"
-              End="0,17.2047644164156">
+              End="0,52.4999999999998">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.2047644164156" />
+                    End="0,52.4999999999998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4637,18 +3853,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 4]"
-          TopLeft="261.214284232153,678.365072011285">
+          TopLeft="202.833333333333,458.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.866667116084"
+              EndConnector="0,59.9999999999998"
               Start="0,0"
-              End="0,27.366667116084">
+              End="0,52.4999999999998">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.366667116084" />
+                    End="0,52.4999999999998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4659,18 +3875,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 5]"
-          TopLeft="259.130950855358,755.898405794035">
+          TopLeft="202.833333333333,561.499999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.3714291459322"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="0,26.8714291459322">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.8714291459322" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4681,30 +3897,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 6]"
-          TopLeft="256.738093359485,832.936501606634">
+          TopLeft="202.833333333333,664.166666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="32.2857148799869,43.4000033009094"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="32.2857148799869,35.9000033009094">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.7000016504547" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.7000016504547"
-                    Point2="0,21.7000016504547"
-                    Point3="4,21.7000016504547" />
-                  <mssgle:LineSegment
-                    End="28.2857148799869,21.7000016504547" />
-                  <mssgle:CubicBezierSegment
-                    Point1="28.2857148799869,21.7000016504547"
-                    Point2="32.2857148799869,21.7000016504547"
-                    Point3="32.2857148799869,25.7000016504547" />
-                  <mssgle:LineSegment
-                    End="32.2857148799869,35.9000033009094" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4715,52 +3919,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 7]"
-          TopLeft="289.130950706346,919.00317157421">
+          TopLeft="202.833333333333,766.833333333332">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,28.1714310210933"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="0,20.6714310210933">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.6714310210933" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Contrainte 8]"
-          TopLeft="304.690473689209,1407.02380703688">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="339.976185278524,34.6428418080013"
-              Start="0,0"
-              End="339.976185278524,27.1428418080013">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.3214209040007" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.3214209040007"
-                    Point2="0,17.3214209040007"
-                    Point3="4,17.3214209040007" />
-                  <mssgle:LineSegment
-                    End="335.976185278524,17.3214209040007" />
-                  <mssgle:CubicBezierSegment
-                    Point1="335.976185278524,17.3214209040007"
-                    Point2="339.976185278524,17.3214209040007"
-                    Point3="339.976185278524,21.3214209040007" />
-                  <mssgle:LineSegment
-                    End="339.976185278524,27.1428418080013" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4771,30 +3941,62 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte 9]"
-          TopLeft="644.666658967733,1484.33331551154">
+          TopLeft="202.833333333334,1382.83333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-342.833321710428,32.9555526317454"
+              EndConnector="0,60.0000000000002"
               Start="0,0"
-              End="-342.833321710428,25.4555526317454">
+              End="0,52.5000000000002">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.4777763158727" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.4777763158727"
-                    Point2="0,16.4777763158727"
-                    Point3="-4,16.4777763158727" />
+                    End="0,52.5000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 11]"
+          TopLeft="202.833333333333,150.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999998"
+              Start="0,0"
+              End="0,52.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-338.833321710428,16.4777763158727" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-338.833321710428,16.4777763158727"
-                    Point2="-342.833321710428,16.4777763158727"
-                    Point3="-342.833321710428,20.4777763158727" />
+                    End="0,52.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 8]"
+          TopLeft="202.833333333334,1280.16666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999998"
+              Start="0,0"
+              End="0,52.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-342.833321710428,25.4555526317454" />
+                    End="0,52.4999999999998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4876,72 +4078,6 @@
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_CustomerType">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="220,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_CustomerType\OLE_DST STG_CustomerType"
-          TopLeft="108.916665331771,122.999998062849" />
-        <NodeLayout
-          Size="318.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA"
-          TopLeft="60.8333324268457,38.566665977041" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_CustomerType.Paths[Sortie de source OLE DB]"
-          TopLeft="219.541665545975,81.2333326437077">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.766665419141"
-              Start="0,0"
-              End="0,34.266665419141">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.266665419141" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_CustomerType\OLE_DST STG_CustomerType">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_CustomerType\OLE_SRC OCDE_STG_view_CustomerType_DM_SA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -5236,72 +4372,6 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DFT INSERT INTO STG_RegistrationType">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="230.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_RegistrationType\OLE_DST STG_RegistrationType"
-          TopLeft="98.9166653317706,126.766664721767" />
-        <NodeLayout
-          Size="330,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA"
-          TopLeft="55.4166658408938,39.8666659537952" />
-        <EdgeLayout
-          Id="Package\DFT INSERT INTO STG_RegistrationType.Paths[Sortie de source OLE DB]"
-          TopLeft="217.333332252999,82.5333326204619">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44.2333321013052"
-              Start="0,0"
-              End="0,36.7333321013052">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.7333321013052" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_RegistrationType\OLE_DST STG_RegistrationType">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_RegistrationType\OLE_SRC OCDE_STG_view_RegistrationType_DM_SA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

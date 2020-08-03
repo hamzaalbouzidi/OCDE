@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_IPCountry"
   DTS:PackageType="5"
-  DTS:VersionBuild="65"
-  DTS:VersionGUID="{95A9FF14-2F4C-4AAA-BC4D-F6D30C60D49A}">
+  DTS:VersionBuild="73"
+  DTS:VersionGUID="{EDD803BA-EBD3-4EC5-9A3E-7A8241D5E09E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -40,6 +40,7 @@
     <DTS:Executable
       DTS:refId="Package\DFT INSERT INTO TMP_STG_Metadata_TMP_IPCountry"
       DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
       DTS:Description="Tâche de flux de données"
       DTS:DTSID="{02529A16-420E-4FC2-8BD2-51812B5BDA16}"
       DTS:ExecutableType="Microsoft.Pipeline"
@@ -325,7 +326,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4641DD75-26CC-4801-9A21-A9C3763ECEB2}"
-          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_Metadata_TMP_IPCountry')&#xA;drop TABLE  [dwh].[TMP_STG_Metadata_TMP_IPCountry]&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_Metadata_TMP_IPCountry](&#xA;[IPAddress_ID] [int] NOT NULL,&#xA;&#x9;[Country_ID] [int] NULL&#xA;)ON [PRIMARY]&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects where name ='TMP_STG_Metadata_TMP_IPCountry')&#xA;drop TABLE  [dwh].[TMP_STG_Metadata_TMP_IPCountry]&#xA;BEGIN&#xA;&#xA;CREATE TABLE [dwh].[TMP_STG_Metadata_TMP_IPCountry](&#xA;[IPAddress_ID] [int] NOT NULL,&#xA;&#x9;[Country_ID] [int] NULL&#xA;) ON [PRIMARY]&#xA;END&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -410,11 +411,11 @@
         <NodeLayout
           Size="342.666666666667,42.6666666666667"
           Id="Package\TSQL DROP DWH_TMP_STG_Metadata_TMP_IPCountry"
-          TopLeft="101.369051882731,358.628570621609" />
+          TopLeft="78.0357188970914,336.961904342373" />
         <NodeLayout
           Size="218.666666666667,42.6666666666667"
           Id="Package\TSQL UPDATE IPAddress_DM"
-          TopLeft="153.70370141334,253.259254730631" />
+          TopLeft="144.953701543725,253.692588056216" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="275.568123067981,93.2952372882759">
@@ -443,26 +444,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-15.3968261732235,75.2232782168967"
+              EndConnector="-24.1468260428389,75.6566115424821"
               Start="0,0"
-              End="-15.3968261732235,67.7232782168967">
+              End="-24.1468260428389,68.1566115424821">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.6116391084484" />
+                    End="0,33.8283057712411" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,33.6116391084484"
-                    Point2="0,37.6116391084484"
-                    Point3="-4,37.6116391084484" />
+                    Point1="0,33.8283057712411"
+                    Point2="0,37.8283057712411"
+                    Point3="-4,37.8283057712411" />
                   <mssgle:LineSegment
-                    End="-11.3968261732235,37.6116391084484" />
+                    End="-20.1468260428389,37.8283057712411" />
                   <mssgle:CubicBezierSegment
-                    Point1="-11.3968261732235,37.6116391084484"
-                    Point2="-15.3968261732235,37.6116391084484"
-                    Point3="-15.3968261732235,41.6116391084484" />
+                    Point1="-20.1468260428389,37.8283057712411"
+                    Point2="-24.1468260428389,37.8283057712411"
+                    Point3="-24.1468260428389,41.8283057712411" />
                   <mssgle:LineSegment
-                    End="-15.3968261732235,67.7232782168967" />
+                    End="-24.1468260428389,68.1566115424821" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -473,30 +474,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="263.037034746673,295.925921397297">
+          TopLeft="251.828043553742,296.359254722882">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="9.66535046939129,62.7026492243116"
+              EndConnector="0,40.6026496194901"
               Start="0,0"
-              End="9.66535046939129,55.2026492243116">
+              End="0,33.1026496194901">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.3513246121558" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.3513246121558"
-                    Point2="0,31.3513246121558"
-                    Point3="4,31.3513246121558" />
-                  <mssgle:LineSegment
-                    End="5.66535046939129,31.3513246121558" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5.66535046939129,31.3513246121558"
-                    Point2="9.66535046939129,31.3513246121558"
-                    Point3="9.66535046939129,35.3513246121558" />
-                  <mssgle:LineSegment
-                    End="9.66535046939129,55.2026492243116" />
+                    End="0,33.1026496194901" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

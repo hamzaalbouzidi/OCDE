@@ -7,12 +7,12 @@
   DTS:CreatorName="CERBA\YMIGEOT"
   DTS:DTSID="{965E2848-39D4-420C-A251-D19EA2DBB4D7}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DMT_FACT_StatLink"
   DTS:PackageType="5"
-  DTS:VersionBuild="53"
-  DTS:VersionGUID="{2169EE14-23A3-4730-92D5-C0F05096E41F}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{E70D4F9E-8010-4436-85D0-E1DE76F5F169}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -259,7 +259,7 @@
                       1 AS Downloads
 FROM         dwh.StatLink_FT F
              INNER JOIN dwh.DIM_Expression E on F.Expression_ID=E.[Expression - ID] where [Download_Date]&gt;= '2013-05-01'
-             UNION
+             UNION 
 SELECT  [Download_Date] as Download_Date,NULL as [Download_Time] 
       ,E.[CurExpId]
       ,'StatLink' as Plateform, 0 as IPAddress_ID, 0 Source_ID, 0 UserAgent_ID,51 as Format_ID,  
@@ -535,12 +535,12 @@ FROM         [dwh].[StatLinkMonthly_FT_to_2013_05_01]  AS F2
       DTS:To="Package\DFT INSERT INTO FACT_StatLink" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>

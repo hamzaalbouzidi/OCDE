@@ -7,12 +7,12 @@
   DTS:CreatorName="CERBA\YMIGEOT"
   DTS:DTSID="{C433C3CA-534D-4BE4-98DA-E8E5370E92D4}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DWH_Country_DM"
   DTS:PackageType="5"
-  DTS:VersionBuild="56"
-  DTS:VersionGUID="{59A77C43-38FA-48E0-9BBB-2E9AECC46BF7}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{A4CA4D3D-932E-45B7-A88B-02478FF10804}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -242,19 +242,19 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1"
+              refId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED)"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
-              name="Data Conversion 1"
+              name="Data Conversion (MATCHED)"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1.Inputs[Data Conversion Input]"
+                  refId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED).Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1.Inputs[Data Conversion Input].Columns[ExternalSource]"
+                      refId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED).Inputs[Data Conversion Input].Columns[ExternalSource]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="3"
@@ -266,18 +266,18 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1.Outputs[Data Conversion Output]"
+                  refId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED).Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED).Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of ExternalSource]"
+                      refId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED).Outputs[Data Conversion Output].Columns[Copy of ExternalSource]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="3"
-                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of ExternalSource]"
+                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED).Outputs[Data Conversion Output].Columns[Copy of ExternalSource]"
                       name="Copy of ExternalSource"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -296,22 +296,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  refId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED).Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED).Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED).Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED).Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED).Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED).Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1325,7 +1325,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
                       cachedLength="3"
                       cachedName="Copy of ExternalSource"
                       externalMetadataColumnId="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM (MATCHED).Inputs[OLE DB Destination Input].ExternalColumns[ExternalSource]"
-                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of ExternalSource]" />
+                      lineageId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED).Outputs[Data Conversion Output].Columns[Copy of ExternalSource]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1900,7 +1900,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
               refId="Package\DFT INSERT INTO DWH_Country_DM.Paths[Data Conversion Output1]"
               endId="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM (MATCHED).Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
-              startId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1.Outputs[Data Conversion Output]" />
+              startId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED).Outputs[Data Conversion Output]" />
             <path
               refId="Package\DFT INSERT INTO DWH_Country_DM.Paths[Lookup Match Output]"
               endId="Package\DFT INSERT INTO DWH_Country_DM\CSPL Mise à jour.Inputs[Conditional Split Input]"
@@ -1913,7 +1913,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
               startId="Package\DFT INSERT INTO DWH_Country_DM\LKP DWH_Country_DM.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\DFT INSERT INTO DWH_Country_DM.Paths[OLE DB Command Output]"
-              endId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1.Inputs[Data Conversion Input]"
+              endId="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED).Inputs[Data Conversion Input]"
               name="OLE DB Command Output"
               startId="Package\DFT INSERT INTO DWH_Country_DM\OLE_CMD Mise à jour.Outputs[OLE DB Command Output]" />
             <path
@@ -1942,12 +1942,12 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
     </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -1968,11 +1968,11 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
         <NodeLayout
           Size="188,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Country_DM\LKP DWH_Country_DM"
-          TopLeft="277.833333333333,313.5" />
+          TopLeft="283.388888806104,209.788890743388" />
         <NodeLayout
-          Size="172,42.6666666666667"
-          Id="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion 1"
-          TopLeft="370.555554293096,617.166666744153" />
+          Size="216,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion (MATCHED)"
+          TopLeft="344.722221344709,423.033336882194" />
         <NodeLayout
           Size="261.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Country_DM\OLE_SRC OCDE_STG_Country_DM_SA"
@@ -1980,45 +1980,45 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
         <NodeLayout
           Size="274.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM (MATCHED)"
-          TopLeft="315.388888061047,715.500000154972" />
+          TopLeft="309.277777040998,492.766670804421" />
         <NodeLayout
           Size="236,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Country_DM\DC Conversioon type de données"
-          TopLeft="253.833333333333,210.833333333333" />
+          TopLeft="254.111111106972,141.500001239776" />
         <NodeLayout
           Size="298.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Country_DM\OLE_DST DWH_Country_DM (NOT MATCHED)"
-          TopLeft="29.1111107592782,521.722222170565" />
+          TopLeft="35.4999995529653,357.633336215814" />
         <NodeLayout
           Size="157.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Country_DM\Data Conversion"
-          TopLeft="94.9999996895592,407.500000154972" />
+          TopLeft="103.888888445993,285.877780107524" />
         <NodeLayout
           Size="145.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Country_DM\DC_ Variables"
-          TopLeft="299.166666666667,108.166666666666" />
+          TopLeft="301.944444403053,72.6333339687182" />
         <NodeLayout
           Size="158.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Country_DM\CSPL Mise à jour"
-          TopLeft="377.222220959763,411.833333410819" />
+          TopLeft="371.666665486992,288.18889117731" />
         <NodeLayout
           Size="181.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO DWH_Country_DM\OLE_CMD Mise à jour"
-          TopLeft="365.888887626429,514.500000077486" />
+          TopLeft="355.333332228164,356.766669564644" />
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Country_DM.Paths[OLE DB Command Output]"
-          TopLeft="456.555554293096,557.166666744152">
+          TopLeft="449.36111011977,399.433336231311">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,23.6000006508831"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,16.1000006508831">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,16.1000006508831" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2029,90 +2029,90 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Country_DM.Paths[Lookup No Match Output]"
-          TopLeft="341.833333333333,356.166666666666">
+          TopLeft="347.388888806104,252.455557410055">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-168.166666977108,51.3333334883055"
+              EndConnector="-164.833333693444,33.4222226974698"
               Start="0,0"
-              End="-168.166666977108,43.8333334883055">
+              End="-164.833333693444,25.9222226974698">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.7932490079212" />
+                    End="0,9.53811552302573" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.7932490079212"
-                    Point2="0,20.7932490079212"
-                    Point3="-4,20.7932490079212" />
+                    Point1="0,9.53811552302573"
+                    Point2="0,13.5381155230257"
+                    Point3="-4,13.5381155230257" />
                   <mssgle:LineSegment
-                    End="-164.166666977108,20.7932490079212" />
+                    End="-160.833333693444,13.5381155230257" />
                   <mssgle:CubicBezierSegment
-                    Point1="-164.166666977108,20.7932490079212"
-                    Point2="-168.166666977108,20.7932490079212"
-                    Point3="-168.166666977108,24.7932490079212" />
+                    Point1="-160.833333693444,13.5381155230257"
+                    Point2="-164.833333693444,13.5381155230257"
+                    Point3="-164.833333693444,17.5381155230257" />
                   <mssgle:LineSegment
-                    End="-168.166666977108,43.8333334883055" />
+                    End="-164.833333693444,25.9222226974698" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-139.889720207304,25.7932490079212,111.6127734375,11.609375"
+              BoundingBox="-138.223053565472,18.5381155230257,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Country_DM.Paths[Lookup Match Output]"
-          TopLeft="401.833333333333,356.166666666666">
+          TopLeft="407.388888806104,252.455557410055">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="54.7222209597628,55.6666667441527"
+              EndConnector="43.6111100142205,35.7333337672549"
               Start="0,0"
-              End="54.7222209597628,48.1666667441527">
+              End="43.6111100142205,28.2333337672549">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.5485232381378" />
+                    End="0,10.4742617791412" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.5485232381378"
-                    Point2="0,22.5485232381378"
-                    Point3="4,22.5485232381378" />
+                    Point1="0,10.4742617791412"
+                    Point2="0,14.4742617791412"
+                    Point3="4,14.4742617791412" />
                   <mssgle:LineSegment
-                    End="50.7222209597628,22.5485232381378" />
+                    End="39.6111100142205,14.4742617791412" />
                   <mssgle:CubicBezierSegment
-                    Point1="50.7222209597628,22.5485232381378"
-                    Point2="54.7222209597628,22.5485232381378"
-                    Point3="54.7222209597628,26.5485232381378" />
+                    Point1="39.6111100142205,14.4742617791412"
+                    Point2="43.6111100142205,14.4742617791412"
+                    Point3="43.6111100142205,18.4742617791412" />
                   <mssgle:LineSegment
-                    End="54.7222209597628,48.1666667441527" />
+                    End="43.6111100142205,28.2333337672549" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-20.8302762388686,27.5485232381378,96.3827734375,11.609375"
+              BoundingBox="-26.3858317116397,19.4742617791412,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Country_DM.Paths[Data Conversion Output1]"
-          TopLeft="454.638887843738,659.833333410819">
+          TopLeft="449.66666585952,465.700003548861">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,55.6666667441528"
+              EndConnector="0,27.0666672555603"
               Start="0,0"
-              End="0,48.1666667441528">
+              End="0,19.5666672555603">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.1666667441528" />
+                    End="0,19.5666672555603" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2123,18 +2123,18 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Country_DM.Paths[Data Conversion Output]"
-          TopLeft="176.055555224419,450.166666821638">
+          TopLeft="183.694443999479,328.544446774191">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,71.5555553489261"
+              EndConnector="0,29.0888894416228"
               Start="0,0"
-              End="0,64.0555553489261">
+              End="0,21.5888894416228">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,64.0555553489261" />
+                    End="0,21.5888894416228" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2145,42 +2145,42 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Country_DM.Paths[Update]"
-          TopLeft="456.555554293096,454.500000077486">
+          TopLeft="448.499998857578,330.855557843976">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.0000000000001"
+              EndConnector="0,25.9111117206682"
               Start="0,0"
-              End="0,52.5000000000001">
+              End="0,18.4111117206682">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5000000000001" />
+                    End="0,18.4111117206682" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-16.28029296875,20.4453125,32.5605859375,11.609375"
+              BoundingBox="-16.28029296875,3.4008683603341,32.5605859375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Country_DM.Paths[Sortie de source OLE DB]"
-          TopLeft="371.833333333333,48.1666666666666">
+          TopLeft="373.222222201527,48.1666666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,24.4666673020516"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,16.9666673020516">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,16.9666673020516" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2191,18 +2191,18 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Country_DM.Paths[Sortie de conversion de données]"
-          TopLeft="371.833333333333,253.5">
+          TopLeft="374.749999956538,184.166667906443">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,25.6222228369451"
               Start="0,0"
-              End="0,52.5">
+              End="0,18.1222228369451">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,18.1222228369451" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2213,18 +2213,18 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT INSERT INTO DWH_Country_DM.Paths[Sortie de colonne dérivée]"
-          TopLeft="371.833333333333,150.833333333333">
+          TopLeft="373.361111088346,115.300000635385">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999998"
+              EndConnector="0,26.2000006043914"
               Start="0,0"
-              End="0,52.4999999999998">
+              End="0,18.7000006043914">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999998" />
+                    End="0,18.7000006043914" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2242,7 +2242,7 @@ where [refTable].[IsCurrent] = ? and [refTable].[ExternalSource] = ? and [refTab
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
