@@ -8,7 +8,7 @@ SELECT [Theme_ExternalID] collate Latin1_General_CI_AS as [Theme_ExternalID]
 	  FROM
 	  (		
 		SELECT 
-			CAST([Theme] as varchar(20)) as  [Theme_ExternalID]
+			CAST([Theme] as varchar(500)) as  [Theme_ExternalID]
 			,'KV3' as ExternalSource
 			,[EnglishDesc] as [Theme_Lib_EN]
 			,[FrenchDesc] as [Theme_Lib_FR]

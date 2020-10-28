@@ -4,7 +4,7 @@ SELECT
 	SA.RegistrationType
 FROM
 [stg].STG_Registration_SA SA
-LEFT OUTER JOIN [stg].RegistrationType_DM DM 
+LEFT OUTER JOIN [dwh].RegistrationType_DM DM 
 	ON DM.RegistrationType = SA.RegistrationType 
 WHERE DM.RegistrationType_ID IS NULL
 	--AND SA.RegistrationType IS NOT NULL

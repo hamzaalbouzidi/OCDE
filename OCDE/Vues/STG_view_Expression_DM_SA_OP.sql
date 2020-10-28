@@ -1,6 +1,5 @@
 ﻿CREATE view [stg].[view_Expression_DM_SA_OP]
 AS
-
 SELECT CAST([Exp].DOI  as nvarchar(100)) collate Latin1_General_CI_AS as  Expression_ExternalID  
 	  ,'KV3' collate Latin1_General_CI_AS  as ExternalSource
 	  ,[Exp].[DOI] collate Latin1_General_CI_AS as DOI

@@ -11,9 +11,9 @@ SELECT
       ,[STG_Manifestation_SA].[Format_ExternalID]
       ,[STG_Manifestation_SA].[FirstRelease_Date]
 	FROM [stg].[STG_Manifestation_SA] 
-	LEFT OUTER JOIN (select [Expression_ExternalID] from [stg].Expression_DM ) expr
+	LEFT OUTER JOIN (select [Expression_ExternalID] from [dwh].Expression_DM ) expr
 		ON expr.[Expression_ExternalID]	= [stg].[STG_Manifestation_SA].[Expression_ExternalID]
-	LEFT OUTER JOIN (select [Format_ExternalID] from [stg].Format_DM ) form
+	LEFT OUTER JOIN (select [Format_ExternalID] from [dwh].Format_DM ) form
 		ON form.[Format_ExternalID]			= [stg].[STG_Manifestation_SA].[Format_ExternalID]	
 	WHERE  expr.[Expression_ExternalID] IS NULL
 		OR form.[Format_ExternalID]		 IS NULL

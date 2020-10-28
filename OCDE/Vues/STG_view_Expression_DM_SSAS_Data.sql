@@ -1,6 +1,8 @@
 ﻿ 
  CREATE VIEW [stg].[view_Expression_DM_SSAS_Data]
 AS
+ CREATE VIEW [stg].[view_Expression_DM_SSAS_Data]
+AS
 select 
 CurExpId,[Expression - ID], [Expression - DOI], [Expression - FullTitle], [Expression - iLibraryURLAlias],
 [Expression - iLibraryAccessMode],[Expression - Directorate ID],[Expression - Language ID], [Expression - Theme ID],

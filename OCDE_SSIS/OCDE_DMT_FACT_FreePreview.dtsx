@@ -3,16 +3,16 @@
   DTS:refId="Package"
   DTS:CreationDate="9/9/2019 5:03:05 PM"
   DTS:CreationName="Microsoft.Package"
-  DTS:CreatorComputerName="CSPE-W-VBISPS01"
-  DTS:CreatorName="CERBA\YMIGEOT"
+  DTS:CreatorComputerName="INV060333"
+  DTS:CreatorName="OCDE\AurélieAtta"
   DTS:DTSID="{B6764BD6-3AD1-44D6-9F46-048DF0BE161A}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DMT_FACT_FreePreview"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{E589ACBD-8B43-46CD-9CCA-D6AEF8959FBE}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{FCA846C8-2F05-45B1-8771-C36C15EEA9B6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -216,7 +216,11 @@
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [Download_Date] 
       ,E.[CurExpId]
 	  ,'FreePreview' as Plateform
-      , 53 as Format_ID
+      , (SELECT TOP 1 Format_ID
+                                FROM dwh.Format_DM
+                                WHERE Format_ExternalID = 'FreePreview'
+                                AND IsCurrent = 1
+                                AND  NA_Import = 0) as Format_ID
 	 ,[Downloads]
   FROM [dwh].[FreePreviewDaily_FT] F INNER JOIN dwh.DIM_Expression E on F.Expression_ID=E.[Expression - ID]</property>
                 <property
@@ -416,12 +420,12 @@
       DTS:To="Package\DFT INSERT INTO FACT_FreePreview" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>

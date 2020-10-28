@@ -1,6 +1,7 @@
 ﻿CREATE VIEW [stg].[view_DIM_Expression_Metadata] 
 --WITH SCHEMABINDING
 AS
+
 SELECT
 	 Expression_DM.Expression_ID
 	,Correspondance.Expression_ID CurExpId 
@@ -33,13 +34,13 @@ SELECT
       ,Correspondance.[HasHTML]
       ,Correspondance.[HasExcel]
 
-FROM (select doi,Expression_ID from [stg].Expression_DM) Expression_DM
+FROM (select doi,Expression_ID from [dwh].Expression_DM) Expression_DM
 
 INNER JOIN 
 (SELECT t.* 
 	from  
 	(SELECT * ,RANK() OVER (PARTITION BY  DOI ORDER BY expression_id desc   ) AS RankExp  
-		FROM [stg].[Expression_DM] where doi is not null and doi<>'') t where t.RankExp=1) Correspondance
+		FROM [dwh].[Expression_DM] where doi is not null and doi<>'') t where t.RankExp=1) Correspondance
 
 ON Expression_DM.DOI=Correspondance.DOI
 
@@ -78,14 +79,12 @@ SELECT
       ,Expression_DM.[HasHTML]
       ,Expression_DM.[HasExcel]
 
-FROM [stg].Expression_DM
+FROM [dwh].Expression_DM
 
 LEFT OUTER JOIN 
 (SELECT t.* 
 	from  
 		(SELECT Expression_ID,doi ,RANK() OVER (PARTITION BY  DOI ORDER BY expression_id desc   ) AS RankExp  
-			FROM [stg].[Expression_DM] where doi is not null and doi<>'') t where t.RankExp=1) Correspondance
+			FROM [dwh].[Expression_DM] where doi is not null and doi<>'') t where t.RankExp=1) Correspondance
 
 ON Expression_DM.DOI=Correspondance.DOI where Correspondance.Expression_ID is null
-GO
-

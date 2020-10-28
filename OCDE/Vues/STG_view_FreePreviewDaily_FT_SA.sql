@@ -5,5 +5,4 @@ SELECT
 	,Expression_ID
 	,Embed
 	,Downloads
-FROM [stg].[STG_FreePreviewDaily_SA]  
-
+FROM [stg].[STG_FreePreviewDaily_SA]

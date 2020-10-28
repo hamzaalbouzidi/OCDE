@@ -28,7 +28,7 @@ SELECT [Primary ISBN]
 			  LEFT OUTER  JOIN 
 			  
 			  
-			  (SELECT Manifestation_Id,ISBN13 from (SELECT Manifestation_Id,ISBN13, RANK() OVER (PARTITION BY ISBN13 ORDER BY Manifestation_Id desc) as rk  FROM  [stg].Manifestation_DM) t where t.rk=1) M
+			  (SELECT Manifestation_Id,ISBN13 from (SELECT Manifestation_Id,ISBN13, RANK() OVER (PARTITION BY ISBN13 ORDER BY Manifestation_Id desc) as rk  FROM  [dwh].Manifestation_DM) t where t.rk=1) M
 				ON M.ISBN13  = t.[Primary ISBN] 
 			   where  
 					LEN(T.[Primary ISBN])<=13

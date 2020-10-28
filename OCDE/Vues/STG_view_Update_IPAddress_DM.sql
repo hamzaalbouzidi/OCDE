@@ -4,5 +4,5 @@ as
 
 select t.Country_ID,t.IPAddress_ID
 
-		from [stg].[IPAddress_DM] IP INNER JOIN [stg].[STG_Metadata_TMP_IPCountry] t on ip.IPAddress_ID=t.IPAddress_ID
+		from [dwh].[IPAddress_DM] IP INNER JOIN [stg].[STG_Metadata_TMP_IPCountry] t on ip.IPAddress_ID=t.IPAddress_ID
 		where IP.[Country_ID] is null

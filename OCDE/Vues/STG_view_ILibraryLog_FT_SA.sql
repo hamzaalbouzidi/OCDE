@@ -14,6 +14,6 @@ SELECT
 	,[EventLogID]
 
 
-FROM  [stg].[STG_iLibraryLog_SA] 
+FROM  [stg].[STG_iLibraryLog_SA]
 
 

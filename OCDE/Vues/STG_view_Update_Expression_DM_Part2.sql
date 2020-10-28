@@ -1,6 +1,6 @@
 ﻿create view [stg].[view_Update_Expression_DM_Part2] as
 
-	   SELECT
+	    SELECT
 	   EXPD.[ISSN],             
 	   EXPD.[Title],            
 	   EXPD.[SubTitle],         
@@ -8,7 +8,7 @@
 	   EXPD.[iLibraryAccessMode],
 	   cast(EXPD.DOI as [nvarchar](255) ) as  DOI
 			 
-		FROM [stg].Expression_DM INNER JOIN 
+		FROM [dwh].Expression_DM INNER JOIN 
  
 		(
 				select * from (SELECT DOI
@@ -32,5 +32,4 @@
 					  ,ROW_NUMBER() OVER (PARTITION BY DOI ORDER BY [ProductId] DESC) AS rn
 				  FROM [stg].[view_Expression] where DOI is not null and DOI <>'' 
 		
-				)t)t2 where t2.rn2=1) EXPD on Expression_DM.DOI=EXPD.DOI  
-		
+				)t)t2 where t2.rn2=1) EXPD on Expression_DM.DOI=EXPD.DOI 

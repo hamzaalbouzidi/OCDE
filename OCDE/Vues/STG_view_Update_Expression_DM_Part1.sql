@@ -1,12 +1,12 @@
 ﻿create view [stg].[view_Update_Expression_DM_Part1] as
 
-		SELECT 
+	SELECT 
 			EXPD.[FirstReleaseDate],
 			EXPD.[FirstExportDate],
 			EXPD.[LatestExportDate],
 			EXPD.[LatestDeletionDate],
 			cast(EXPD.DOI as [nvarchar](255) ) as  DOI
-		FROM [stg].Expression_DM LEFT OUTER JOIN 
+		FROM [dwh].Expression_DM LEFT OUTER JOIN 
 
 		(
 				select * from (SELECT 
@@ -32,6 +32,4 @@
 
 				  Group By DOI  ) t) t2 where t2.rn2=1
 		
-				) EXPD on Expression_DM.DOI=EXPD.DOI 
-
-		
+				) EXPD on Expression_DM.DOI=EXPD.DOI

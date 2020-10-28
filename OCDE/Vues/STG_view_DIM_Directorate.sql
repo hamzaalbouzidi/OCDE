@@ -112,10 +112,9 @@ SELECT C.Directorate_ID as [Directorate_ID]
 		ELSE 90 END as ID2
 
 
-  FROM [stg].[Directorate_DM] ) C 
+  FROM [dwh].[Directorate_DM] ) C 
 
   INNER JOIN (
   select [Directorate_ID],[Directorate_ExternalID],[ExternalSource] ,
 		 [Directorate_Code],[Directorate_Lib_EN],[Directorate_Lib_FR]
-		 From [stg].Directorate_DM) D on C.ID2=D.Directorate_ID
-GO
+		 From [dwh].Directorate_DM) D on C.ID2=D.Directorate_ID

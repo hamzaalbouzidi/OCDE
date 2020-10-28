@@ -3,16 +3,16 @@
   DTS:refId="Package"
   DTS:CreationDate="9/9/2019 5:03:05 PM"
   DTS:CreationName="Microsoft.Package"
-  DTS:CreatorComputerName="CSPE-W-VBISPS01"
-  DTS:CreatorName="CERBA\YMIGEOT"
+  DTS:CreatorComputerName="INV060333"
+  DTS:CreatorName="OCDE\AurélieAtta"
   DTS:DTSID="{179FCE60-D51C-4497-9F14-118A4635DD04}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DMT_FACT_BrowseIt"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{6973EB5D-9D76-43F1-9A2D-15661567330A}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{1F882818-EBF3-4CE2-A107-F2C9A57CA1D2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -215,8 +215,12 @@
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT     Download_Date, E.[CurExpId]
 	  ,'BrowseIt' as Plateform 
-	  ,59 AS Format_ID, 
-Downloads
+	 ,(SELECT TOP 1 Format_ID
+                                FROM dwh.Format_DM
+                                WHERE Format_ExternalID = 'Browseit'
+                                AND IsCurrent = 1
+                                AND  NA_Import = 0) AS Format_ID
+,Downloads
 
 FROM         dwh.BrowseItMonthly_FT F INNER JOIN dwh.DIM_Expression E on F.Expression_ID=E.[Expression - ID]</property>
                 <property
@@ -416,12 +420,12 @@ FROM         dwh.BrowseItMonthly_FT F INNER JOIN dwh.DIM_Expression E on F.Expre
       DTS:To="Package\DFT INSERT INTO FACT_BrowseIt" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>

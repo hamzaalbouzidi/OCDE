@@ -40,5 +40,4 @@ LEFT OUTER JOIN [stg].[view_US_Expression] Parent_Item
 	ON Parent_Item.DOI= Parent_Exp.ParentDoi
 WHERE 
 ISNULL(Parent_Item.DOI,'') <>''
-GO
 

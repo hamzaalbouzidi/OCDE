@@ -18,19 +18,19 @@ SELECT
 	,[ParentMaster_identityID]
 	,[DoNotCountDL]
 	FROM [stg].[STG_Registration_SA] SA
-	LEFT OUTER JOIN [stg].Country_DM Country
+	LEFT OUTER JOIN [dwh].Country_DM Country
 		ON Country.Country_Code = SA.Country
 			AND Country.IsCurrent = 1
-	LEFT OUTER JOIN [stg].City_DM City
+	LEFT OUTER JOIN [dwh].City_DM City
 		ON City.City = SA.City
 			AND City.IsCurrent = 1
-	LEFT OUTER JOIN [stg].Location_DM L 
+	LEFT OUTER JOIN [dwh].Location_DM L 
 		ON L.City_ID = City.City_ID
 			AND L.Country_ID = Country.Country_ID
 			AND L.IsCurrent = 1
-	LEFT OUTER JOIN [stg].RegistrationType_DM RT
+	LEFT OUTER JOIN [dwh].RegistrationType_DM RT
 		ON RT.RegistrationType = SA.RegistrationType
 			AND RT.IsCurrent = 1
-	LEFT OUTER JOIN [stg].CustomerType_DM CT
+	LEFT OUTER JOIN [dwh].CustomerType_DM CT
 		ON CT.CustomerType = SA.CustomerType
 			AND CT.IsCurrent = 1

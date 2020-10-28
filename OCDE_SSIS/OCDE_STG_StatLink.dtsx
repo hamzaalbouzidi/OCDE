@@ -3,16 +3,16 @@
   DTS:refId="Package"
   DTS:CreationDate="9/9/2019 5:03:05 PM"
   DTS:CreationName="Microsoft.Package"
-  DTS:CreatorComputerName="CSPE-W-VBISPS01"
-  DTS:CreatorName="CERBA\YMIGEOT"
+  DTS:CreatorComputerName="INV060333"
+  DTS:CreatorName="OCDE\AurélieAtta"
   DTS:DTSID="{2E7F54CF-207C-42B0-8210-4086780E8C0E}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_STG_StatLink"
   DTS:PackageType="5"
-  DTS:VersionBuild="98"
-  DTS:VersionGUID="{A49D043E-D513-482E-9DE8-1642305FF825}">
+  DTS:VersionBuild="106"
+  DTS:VersionGUID="{AEDBF544-18B4-4FA8-9713-FE4FFDB54538}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -47,6 +47,54 @@
     </DTS:SelectedLogProviders>
   </DTS:LoggingOptions>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT INSERT INTO DWH_IPAddress_DM (StatLink)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{fde6295a-46ec-419b-b266-e388ab78892d}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT INSERT INTO DWH_IPAddress_DM (StatLink)"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
+          SQLTask:SqlStatementSource="INSERT INTO [dwh].[IPAddress_DM]&#xA;           ([IPAddress]&#xA;           ,[LastUpdate_Date]&#xA;           ,[HideInReport]&#xA;           ,[NA_Import]&#xA;           ,[IsCurrent]&#xA;           ,[ValidFrom]&#xA;           ,[ValidTo]&#xA;           ,[Proxy_ID])&#xA;  &#xA;  SELECT substring([IPAddress],1,100) &#xA;      ,GETDATE()  --[LastUpdate_Date] &#xA;   ,0    --[HideInReport]&#xA;   ,0    --[NA_Import]&#xA;   ,1    --[IsCurrent]&#xA;   ,GETDATE()  --[ValidFrom]&#xA;   ,NULL   --[ValidTo]&#xA;   ,NULL   --[Proxy_ID]&#xA;  FROM (&#xA;    SELECT [STG_StatLink_SA].[IPAddress] &#xA;    FROM [stg].[STG_StatLink_SA]&#xA;    LEFT OUTER JOIN dwh.[IPAddress_DM] ON substring([STG_StatLink_SA].[IPAddress],1,100) = [IPAddress_DM].[IPAddress] &#xA;    WHERE [IPAddress_DM].[IPAddress] IS NULL and [stg].[STG_StatLink_SA].[IPAddress] &lt;&gt;'' and [stg].[STG_StatLink_SA].[IPAddress] &lt;&gt;'-'&#xA;    GROUP BY [STG_StatLink_SA].[IPAddress] ) NewIPAddress" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT INSERT INTO DWH_Source_DM (StatLink)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{cd41b60b-bdee-4901-9876-53317b97c9a0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT INSERT INTO DWH_Source_DM (StatLink)"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
+          SQLTask:SqlStatementSource="INSERT INTO dwh.[Source_DM]&#xA;           ([Source]&#xA;     ,SourceLight_ID&#xA;           ,[LastUpdate_Date]&#xA;           ,[HideInReport]&#xA;           ,[NA_Import]&#xA;           ,[IsCurrent]&#xA;           ,[ValidFrom]&#xA;           ,[ValidTo]&#xA;           ,[Proxy_ID] )&#xA;  SELECT substring([Source],1,900)&#xA;   ,1&#xA;   ,GETDATE()  --[LastUpdate_Date] &#xA;   ,0    --[HideInReport]&#xA;   ,0    --[NA_Import]&#xA;   ,1    --[IsCurrent]&#xA;   ,GETDATE()  --[ValidFrom]&#xA;   ,NULL   --[ValidTo]&#xA;   ,NULL   --[Proxy_ID]  &#xA;    &#xA;  FROM (&#xA;    SELECT &#xA;        [stg].[STG_StatLink_SA].[Source] &#xA;      FROM [stg].[STG_StatLink_SA]&#xA;      LEFT OUTER JOIN dwh.[Source_DM] ON substring([STG_StatLink_SA].[Source],1,900) = [Source_DM].[Source] &#xA;      WHERE [Source_DM].[Source] IS NULL and [stg].[STG_StatLink_SA].[SOURCE] &lt;&gt;'' and [stg].[STG_StatLink_SA].[SOURCE] &lt;&gt;'-'&#xA;      GROUP BY [STG_StatLink_SA].[Source] ) NewSource" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT INSERT INTO DWH_UserAgent_DM (StatLink)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{6ed96c21-f925-4b33-8002-2c4765af20bc}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT INSERT INTO DWH_UserAgent_DM (StatLink)"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
+          SQLTask:SqlStatementSource="&#xA;INSERT INTO [dwh].[UserAgent_DM]&#xA;           ([USERAGENT] &#xA;     ,[PotentialBot]&#xA;     ,[PotentialCrawler]&#xA;           ,[LastUpdate_Date]&#xA;           ,[HideInReport]&#xA;           ,[NA_Import]&#xA;           ,[IsCurrent]&#xA;           ,[ValidFrom]&#xA;           ,[ValidTo]&#xA;           ,[Proxy_ID])&#xA;  &#xA;  SELECT substring([USERAGENT],1,900)&#xA;  ,0&#xA;  ,0&#xA;      ,GETDATE()  &#xA;   ,0    &#xA;   ,0    &#xA;   ,1    &#xA;   ,GETDATE()  &#xA;   ,NULL   &#xA;   ,NULL   &#xA;  FROM (&#xA;    SELECT [stg].[STG_StatLink_SA].[USERAGENT] &#xA;    FROM [stg].[STG_StatLink_SA]&#xA;    LEFT OUTER JOIN dwh.[UserAgent_DM] ON substring([STG_StatLink_SA].[USERAGENT],1,2000) = [UserAgent_DM].[USERAGENT] &#xA;    WHERE [UserAgent_DM].[USERAGENT] IS NULL and [stg].[STG_StatLink_SA].[USERAGENT] &lt;&gt;'' and [stg].[STG_StatLink_SA].[USERAGENT] &lt;&gt;'-'&#xA;    GROUP BY [STG_StatLink_SA].[USERAGENT] ) NewUserAgent" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\DFT INSERT INTO STG_StatLink_File_SA"
       DTS:CreationName="Microsoft.Pipeline"
@@ -2026,6 +2074,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[SOURCE]"
                       dataType="nText"
                       name="SOURCE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected.Inputs[Entrée de destination OLE DB].ExternalColumns[Reject_Date]"
+                      dataType="dbTimeStamp"
+                      name="Reject_Date" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2340,7 +2392,7 @@ on 1=1</property>
 
   FROM [stg].[View_StatLink_TMP_SA] SA
 			  LEFT OUTER JOIN (SELECT iLibraryURLAlias, Expression_ID
-FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
+FROM    [dwh].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
  where E.Expression_ID is null</property>
                 <property
                   dataType="System.String"
@@ -3121,7 +3173,7 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B0DC49FE-B31E-4725-AD3B-5BB1D1A9DFE8}"
-          SQLTask:SqlStatementSource="INSERT stg.[STG_StatLink_SA]([SL_DATE]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[SL_TIME]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[FILENAME]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[IPADDRESS]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[USERAGENT]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[SOURCE])&#xA;&#x9;&#x9;&#x9;SELECT [SL_DATE]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[SL_TIME]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[FILENAME]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[IPADDRESS]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[USERAGENT]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[SOURCE]&#xA;&#x9;&#x9;&#x9;  FROM stg.[View_StatLink_TMP_SA] SA&#xA;&#x9;&#x9;&#x9;  INNER JOIN stg.[Expression_DM] E on SA.FILENAME=E.[iLibraryURLAlias]&#xA;&#x9;&#x9;&#x9;  &#xA;&#x9;&#x9;&#x9;  where E.[ExternalSource]='SL' and isnull([FILENAME],'')&lt;&gt;''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="INSERT stg.[STG_StatLink_SA]([SL_DATE]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[SL_TIME]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[FILENAME]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[IPADDRESS]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[USERAGENT]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[SOURCE])&#xA;&#x9;&#x9;&#x9;SELECT [SL_DATE]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[SL_TIME]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[FILENAME]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[IPADDRESS]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[USERAGENT]&#xA;&#x9;&#x9;&#x9;&#x9;  ,[SOURCE]&#xA;&#x9;&#x9;&#x9;  FROM stg.[View_StatLink_TMP_SA] SA&#xA;&#x9;&#x9;&#x9;  INNER JOIN dwh.[Expression_DM] E on SA.FILENAME=E.[iLibraryURLAlias]&#xA;&#x9;&#x9;&#x9;  &#xA;&#x9;&#x9;&#x9;  where E.[ExternalSource]='SL' and isnull([FILENAME],'')&lt;&gt;''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -3173,14 +3225,6 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
       DTS:ObjectName="Constraint"
       DTS:To="Package\DFT INSERT INTO STG_StatLink_File_SA" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{7BE9E30C-B52B-484F-8B32-7BE5201BFFD5}"
-      DTS:From="Package\TSQL INSERT INTO STG_StatLink_SA"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 1"
-      DTS:To="Package\DFT INSERT INTO STG_StatLink_SA_Rejected" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
       DTS:DTSID="{F6CF791C-839F-492D-81F9-DA16C0CAF925}"
@@ -3205,6 +3249,14 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
       DTS:ObjectName="Contrainte"
       DTS:To="Package\TSQL INSERT INTO STG_StatLink_FT_SA" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{2C9C7059-F52C-4E78-8F7D-3950232F4525}"
+      DTS:From="Package\TSQL INSERT INTO STG_StatLink_SA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 1"
+      DTS:To="Package\DFT INSERT INTO DWH_Source_DM (StatLink)" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Contrainte 2]"
       DTS:CreationName=""
       DTS:DTSID="{54728800-77F4-4435-87F5-36E5AA139A20}"
@@ -3212,6 +3264,30 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
       DTS:LogicalAnd="True"
       DTS:ObjectName="Contrainte 2"
       DTS:To="Package\TSQL Truncate STG_StatLink_SA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{C0897CE7-84E4-4816-B4DD-C1F67F8D973C}"
+      DTS:From="Package\DFT INSERT INTO DWH_Source_DM (StatLink)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 3"
+      DTS:To="Package\DFT INSERT INTO DWH_UserAgent_DM (StatLink)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{244D1800-0CA1-4E7D-AAB2-5CEC8A8F657C}"
+      DTS:From="Package\DFT INSERT INTO DWH_UserAgent_DM (StatLink)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 4"
+      DTS:To="Package\DFT INSERT INTO DWH_IPAddress_DM (StatLink)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{FBA682C3-0FDB-4BA8-AB09-653197C8C0DC}"
+      DTS:From="Package\DFT INSERT INTO DWH_IPAddress_DM (StatLink)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte 5"
+      DTS:To="Package\DFT INSERT INTO STG_StatLink_SA_Rejected" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
@@ -3224,15 +3300,15 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="272,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_StatLink_File_SA"
           TopLeft="12.9999998882413,410.833340771993" />
         <NodeLayout
-          Size="297.333333333334,42.6666666666667"
+          Size="308,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_StatLink_SA_Rejected"
-          TopLeft="4.6666666790843,609.366666883628" />
+          TopLeft="20.2916664462537,792.682459770132" />
         <NodeLayout
           Size="222.666666666667,42.6666666666667"
           Id="Package\Truncate STG_StatLink_FT_SA"
@@ -3240,7 +3316,7 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
         <NodeLayout
           Size="274.666666666667,42.6666666666667"
           Id="Package\TSQL INSERT INTO STG_StatLink_FT_SA"
-          TopLeft="12.4999998137355,704.599995459318" />
+          TopLeft="28.1249995809049,887.915788345822" />
         <NodeLayout
           Size="256,42.6666666666667"
           Id="Package\TSQL INSERT INTO STG_StatLink_SA"
@@ -3267,28 +3343,6 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,47.1666741053265" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="153.750000006209,561.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47.8666668836279"
-              Start="0,0"
-              End="0,40.3666668836279">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.3666668836279" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3343,18 +3397,30 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Contrainte]"
-          TopLeft="151.58333324641,652.033333550294">
+          TopLeft="174.291666446253,835.349126436799">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,52.5666619090241"
+              EndConnector="-8.83333353201544,52.5666619090234"
               Start="0,0"
-              End="0,45.0666619090241">
+              End="-8.83333353201544,45.0666619090234">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.0666619090241" />
+                    End="0,22.2833309545117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.2833309545117"
+                    Point2="0,26.2833309545117"
+                    Point3="-4,26.2833309545117" />
+                  <mssgle:LineSegment
+                    End="-4.83333353201544,26.2833309545117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.83333353201544,26.2833309545117"
+                    Point2="-8.83333353201544,26.2833309545117"
+                    Point3="-8.83333353201544,30.2833309545117" />
+                  <mssgle:LineSegment
+                    End="-8.83333353201544,45.0666619090234" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3385,6 +3451,148 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="309.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_Source_DM (StatLink)"
+          TopLeft="280.916662562639,567.108762868766" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 1]"
+          TopLeft="282.166666666667,540.166666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="153.416662562639,26.9420962020994"
+              Start="0,0"
+              End="153.416662562639,19.4420962020994">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="149.416662562639,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="149.416662562639,0"
+                    Point2="153.416662562639,0"
+                    Point3="153.416662562639,4" />
+                  <mssgle:LineSegment
+                    End="153.416662562639,19.4420962020994" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="326,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_UserAgent_DM (StatLink)"
+          TopLeft="285.291662497446,646.477185415311" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 3]"
+          TopLeft="435.583329229305,609.775429535432">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.7083332681406,36.7017558798786"
+              Start="0,0"
+              End="12.7083332681406,29.2017558798786">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.3508779399393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.3508779399393"
+                    Point2="0,18.3508779399393"
+                    Point3="4,18.3508779399393" />
+                  <mssgle:LineSegment
+                    End="8.70833326814062,18.3508779399393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.70833326814062,18.3508779399393"
+                    Point2="12.7083332681406,18.3508779399393"
+                    Point3="12.7083332681406,22.3508779399393" />
+                  <mssgle:LineSegment
+                    End="12.7083332681406,29.2017558798786" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="325.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO DWH_IPAddress_DM (StatLink)"
+          TopLeft="276.541662627831,716.95087095233" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 4]"
+          TopLeft="448.291662497446,689.143852081978">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.08333320294815,27.8070188703521"
+              Start="0,0"
+              End="-9.08333320294815,20.3070188703521">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.90350943517603" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.90350943517603"
+                    Point2="0,13.903509435176"
+                    Point3="-4,13.903509435176" />
+                  <mssgle:LineSegment
+                    End="-5.08333320294815,13.903509435176" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.08333320294815,13.903509435176"
+                    Point2="-9.08333320294815,13.903509435176"
+                    Point3="-9.08333320294815,17.903509435176" />
+                  <mssgle:LineSegment
+                    End="-9.08333320294815,20.3070188703521" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte 5]"
+          TopLeft="439.208329294498,759.617537618996">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-264.916662848244,33.0649221511359"
+              Start="0,0"
+              End="-264.916662848244,25.5649221511359">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5324610755679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5324610755679"
+                    Point2="0,16.5324610755679"
+                    Point3="-4,16.5324610755679" />
+                  <mssgle:LineSegment
+                    End="-260.916662848244,16.5324610755679" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-260.916662848244,16.5324610755679"
+                    Point2="-264.916662848244,16.5324610755679"
+                    Point3="-264.916662848244,20.5324610755679" />
+                  <mssgle:LineSegment
+                    End="-264.916662848244,25.5649221511359" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3392,7 +3600,7 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
     design-time-name="Package\DFT INSERT INTO STG_StatLink_File_SA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="157.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_StatLink_File_SA\Data Conversion"
@@ -3432,7 +3640,9 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3454,7 +3664,9 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3476,7 +3688,9 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3498,7 +3712,9 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3508,11 +3724,11 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
     design-time-name="Package\DFT INSERT INTO STG_StatLink_SA_Rejected">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="110.666666666667,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\Trier 1"
-          TopLeft="480.55554839472,303.333327909311" />
+          Size="241.333333333334,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected"
+          TopLeft="316.041661957279,493.161104947095" />
         <NodeLayout
           Size="294.666666666667,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_SRC OCDE_STG_View_StatLink_TMP_SA"
@@ -3522,13 +3738,13 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
           Id="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\Trier"
           TopLeft="280.555551374952,300.444439072079" />
         <NodeLayout
-          Size="241.333333333334,42.6666666666667"
-          Id="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected"
-          TopLeft="316.041661957279,493.161104947095" />
-        <NodeLayout
           Size="221.333333333334,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_SRC OCDE StatLink_TMP"
           TopLeft="424.652771449958,198.433332189123" />
+        <NodeLayout
+          Size="110.666666666667,42.6666666666667"
+          Id="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\Trier 1"
+          TopLeft="480.55554839472,303.333327909311" />
         <NodeLayout
           Size="164,42.6666666666667"
           Id="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\Jointure de fusion"
@@ -3564,7 +3780,9 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3598,7 +3816,9 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3632,7 +3852,9 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3654,7 +3876,9 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3676,25 +3900,14 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_SRC OCDE_STG_View_StatLink_TMP_SA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">View</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_DST DWH_StatLink_Rejected">
     <Properties>
@@ -3705,6 +3918,19 @@ FROM    [stg].[Expression_DM]) E on SA.FILENAME=E.[iLibraryURLAlias]
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT INSERT INTO STG_StatLink_SA_Rejected\OLE_SRC OCDE_STG_View_StatLink_TMP_SA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

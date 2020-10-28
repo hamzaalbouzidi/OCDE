@@ -1,7 +1,5 @@
 ﻿CREATE view [stg].[view_Language_DM_SA] as
 
-
-
 select
  Language_ExternalID collate Latin1_General_CI_AS  as Language_ExternalID,
  ExternalSource collate Latin1_General_CI_AS  as ExternalSource,

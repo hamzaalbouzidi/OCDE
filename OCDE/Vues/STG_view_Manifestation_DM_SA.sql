@@ -58,12 +58,13 @@ FROM
   ) KV3 
 
 ) SA
-INNER JOIN [stg].Expression_DM Expression
+INNER JOIN [dwh].Expression_DM Expression
 	ON Expression.Expression_ExternalID = SA.Expression_ExternalID
 	AND Expression.ExternalSource = SA.ExternalSource
 	AND Expression.IsCurrent = 1
 	AND Expression.NA_Import = 0
-INNER JOIN [stg].Format_DM Format
+
+INNER JOIN [dwh].Format_DM Format
 	ON Format.Format_ExternalID = SA.Format_ExternalID
 	AND Format.ExternalSource = SA.ExternalSource
 	AND Format.IsCurrent = 1
@@ -87,7 +88,11 @@ SELECT
 	SA.[Manifestation_ExternalID]
 	,'FP' AS [ExternalSource]
 	,Expression.Expression_ID
-	, 53 as Format_ID 
+	, (SELECT TOP 1 Format_ID
+                                FROM [dwh].Format_DM
+                                WHERE Format_ExternalID = 'FreePreview'
+                                AND IsCurrent = 1
+                                AND  NA_Import = 0) as Format_ID 
 	,SA.[FirstReleaseDate] as FirstRelease_Date
 	,SA.ISBN13	
 
@@ -139,17 +144,34 @@ FROM
   ) KV3 
 
  ) SA
-INNER JOIN [stg].Expression_DM Expression
+INNER JOIN [dwh].Expression_DM Expression
 	ON Expression.Expression_ExternalID = SA.Expression_ExternalID
 	AND Expression.ExternalSource = SA.ExternalSource
 	AND Expression.IsCurrent = 1
 	AND Expression.NA_Import = 0
-INNER JOIN [stg].Format_DM Format
+
+
+INNER JOIN [dwh].Format_DM Format
 	ON Format.Format_ExternalID = SA.Format_ExternalID
 	AND Format.ExternalSource = SA.ExternalSource
 	AND Format.IsCurrent = 1
 	AND Format.NA_Import = 0
-WHERE   Format.format_id in (11,36,41,44) or (Format.format_id in (35,48) and Expression.HasEBook=0)
+	          
+WHERE   
+                Format.format_id in 
+				              (SELECT TOP 1 Format_ID
+                                FROM [dwh].Format_DM
+                                WHERE Format_ExternalID = 'E'
+                                AND IsCurrent = 1
+                                AND  NA_Import = 0) 
+                or   (           
+               Format.format_id in (SELECT TOP 1 Format_ID
+                                FROM [dwh].Format_DM
+                                WHERE Format_ExternalID = 'X'
+                                AND IsCurrent = 1
+                                AND  NA_Import = 0) 
+                 and Expression.HasEBook=0 )
+
 GROUP BY
 	SA.[Manifestation_ExternalID]
 	,SA.[ExternalSource]
@@ -158,5 +180,3 @@ GROUP BY
 	,Format.Format_ID 
 	,SA.[FirstReleaseDate]
 	,SA.ISBN13
-GO
-

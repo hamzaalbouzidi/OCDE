@@ -6,13 +6,13 @@ SELECT
 	
 FROM
 	[stg].STG_Registration_SA SA
-LEFT OUTER JOIN [stg].Country_DM 
+LEFT OUTER JOIN [dwh].Country_DM 
 	ON Country_DM.Country_Code = SA.Country
 	AND Country_DM.IsCurrent = 1
-LEFT OUTER JOIN [stg].City_DM 
+LEFT OUTER JOIN [dwh].City_DM 
 	ON City_DM.City = SA.City
 	AND City_DM.IsCurrent = 1
-LEFT OUTER JOIN [stg].Location_DM  
+LEFT OUTER JOIN [dwh].Location_DM  
 	ON Location_DM.City_ID = City_DM.City_ID
 	AND Location_DM.Country_ID = Country_DM.Country_ID
 	AND Location_DM.IsCurrent = 1

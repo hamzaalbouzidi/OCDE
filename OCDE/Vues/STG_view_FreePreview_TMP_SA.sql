@@ -1,4 +1,5 @@
 ﻿CREATE VIEW [stg].[view_FreePreview_TMP_SA] AS
+
 SELECT  TMP.iLibraryURLAlias
 		,E.Expression_ID
 		,Downloads
@@ -20,7 +21,7 @@ FROM(
 				nb_hits as hits,
 				0 as Embed,[File_Date]
 				from
-				STG_FreePreview_TMP
+				stg.STG_FreePreview_TMP
 				where label like 'oecd/media/%'
 			UNION
 				SELECT
@@ -28,7 +29,7 @@ FROM(
 				nb_hits as hits,
 				1 as Embed,[File_Date]
 				from
-				STG_FreePreview_TMP
+				stg.STG_FreePreview_TMP
 				where label like 'Digital-Asset-Management/embed-oecd/%'
 			UNION
 				SELECT
@@ -36,7 +37,7 @@ FROM(
 				nb_hits as hits,
 				0 as Embed,[File_Date]
 				from
-				STG_FreePreview_TMP
+				stg.STG_FreePreview_TMP
 				where label like'Digital-Asset-Management/oecd/%'
 			UNION
 				SELECT
@@ -44,7 +45,7 @@ FROM(
 				nb_hits as hits,
 				0 as Embed,[File_Date]
 				from
-				STG_FreePreview_TMP
+				stg.STG_FreePreview_TMP
 				where label like'"Digital-Asset-Management/oecd/%'
 			) TMP1)TMP2
 	GROUP BY 
@@ -53,6 +54,7 @@ FROM(
 
 		LEFT OUTER JOIN 
 		
-		(SELECT Expression_ID,iLibraryURLAlias FROM (SELECT Expression_ID,iLibraryURLAlias, RANK() OVER (PARTITION BY iLibraryURLAlias ORDER BY Expression_ID DESC) as Rank  FROM [stg].Expression_DM)T 
+		(SELECT Expression_ID,iLibraryURLAlias FROM (
+		SELECT Expression_ID,iLibraryURLAlias, RANK() OVER (PARTITION BY iLibraryURLAlias ORDER BY Expression_ID DESC) as Rank  
+		FROM [dwh].Expression_DM )T 
 		where T.Rank=1 )E on TMP.iLibraryURLAlias=E.iLibraryURLAlias
-

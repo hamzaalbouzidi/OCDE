@@ -1,5 +1,6 @@
 ﻿create view [stg].[view_ILibraryLog_SA_Rejected]
 as
+
 SELECT TMP.[EVENTLOGID]
       ,[IDENTITYID]
       ,[EVENT_TIME]

@@ -27,4 +27,3 @@ WHERE
 GROUP BY
 Child.DOI,
 Parent.DOI
-GO

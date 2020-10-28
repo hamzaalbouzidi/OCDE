@@ -1,7 +1,7 @@
 ﻿CREATE view [stg].[view_StatLink_FT_SA] AS
 
 
-	SELECT 
+		SELECT 
 	[SL_DATE] as [Download_Date]
     ,[SL_TIME] as [Download_Time]
 	,Expression_ID  
@@ -19,17 +19,17 @@
       ,substring(CASE WHEN [USERAGENT]='-' THEN '' ELSE [USERAGENT] END ,1,100) as [USERAGENT]
 	  ,substring(CASE WHEN [SOURCE]='-' THEN '' ELSE [SOURCE] END ,1,900) as [SOURCE]
   FROM [stg].[STG_StatLink_SA]) SA 
-		LEFT OUTER JOIN stg.IPAddress_DM
+		LEFT OUTER JOIN dwh.IPAddress_DM
 			ON isnull(IPAddress_DM.IPAddress,'') = SA.IPAddress 
-		LEFT OUTER JOIN stg.Source_DM
+		LEFT OUTER JOIN dwh.Source_DM
 			ON isnull(Source_DM.[Source],'') = SA.[Source] 
-		LEFT OUTER JOIN stg.UserAgent_DM
+		LEFT OUTER JOIN dwh.UserAgent_DM
 			ON isnull(UserAgent_DM.UserAgent,'') = SA.UserAgent 
 		LEFT OUTER JOIN 
 
 		(SELECT 
 			 Expression_ID 
 			,[iLibraryURLAlias],RANK() OVER(PARTITION BY [iLibraryURLAlias] ORDER BY Expression_ID DESC) as RankLOg  
-		from stg.Expression_DM where [ExternalSource]='SL' and [iLibraryURLAlias]<>'' ) EXPR 
+		from dwh.Expression_DM where [ExternalSource]='SL' and [iLibraryURLAlias]<>'' ) EXPR 
 
 		ON SA.[FILENAME]=EXPR.iLibraryURLAlias

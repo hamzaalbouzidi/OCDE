@@ -1,7 +1,7 @@
 ﻿CREATE view [stg].[view_CounterMonthly_SA_TMP] AS
 
 
-	select 
+select 
 	TMP.DownloadDate,
 			  CASE WHEN charindex('pub_series-database-',TMP.[DOI])>0 THEN Replace(TMP.[DOI],'pub_series-database-','pub_series/database/') ELSE
 					CASE WHEN charindex('pub_series-dataset-',TMP.[DOI])>0 THEN Replace(TMP.[DOI],'pubs_series-dataset-','pub_series/dataset/') ELSE
@@ -47,13 +47,12 @@
 			)TMP
 			LEFT OUTER JOIN 
 			(SELECT DOI, Expression_ID FROM  (SELECT DOI, Expression_ID, RANK() OVER (PARTITION BY DOI ORDER BY Expression_ID DESC) as rank 
-			from [stg].Expression_DM where doi is not null and doi<>'')t where t.rank=1) E 
+			from [dwh].Expression_DM where doi is not null and doi<>'')t where t.rank=1) E 
 			ON TMP.DOI=E.DOI
 
 		
 			LEFT OUTER JOIN 
 			(SELECT [identityID],[Registration_ID]  FROM  (SELECT [identityID], [Registration_ID], RANK() OVER (PARTITION BY [identityID] ORDER BY [Registration_ID] DESC) as rank 
-			from [stg].[Registration_DM] where [identityID] is not null and [identityID]<>'')t where t.rank=1) R
-			ON TMP.IdentityID=R.identityID 
-
+			from [dwh].[Registration_DM] where [identityID] is not null and [identityID]<>'')t where t.rank=1) R
+			ON TMP.IdentityID=R.identityID
 

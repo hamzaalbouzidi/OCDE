@@ -17,4 +17,4 @@ SELECT [DOI]
       ,[LatestDeletionDate]
       ,[iLibraryURLAlias]
 	  ,[iLibraryAccessTypeId]
-  FROM [stg].[PS_Expression]
+   FROM [stg].view_US_Expression

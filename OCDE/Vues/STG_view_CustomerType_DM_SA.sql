@@ -4,7 +4,7 @@ SELECT
 	SA.CustomerType
 FROM
 stg.STG_Registration_SA SA
-LEFT OUTER JOIN [stg].CustomerType_DM DM 
+LEFT OUTER JOIN [dwh].CustomerType_DM DM 
 	ON DM.CustomerType = SA.CustomerType 
 WHERE DM.CustomerType_ID IS NULL
 	--AND SA.CustomerType IS NOT NULL

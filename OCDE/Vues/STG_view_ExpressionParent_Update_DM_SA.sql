@@ -1,6 +1,9 @@
 ﻿CREATE view [stg].[view_ExpressionParent_Update_DM_SA] as
 
 
+	CREATE view [stg].[view_ExpressionParent_Update_DM_SA] as
+
+
 	select 
 		childDOI0 as doi, 
 		case when exp1 is not null then exp1 else exp0 end   as expr
@@ -35,7 +38,7 @@
 				(select * from (SELECT [Expression_ID]
 						,[DOI] 
 						,RANK() OVER (PARTITION BY  DOI ORDER BY expression_id desc   ) AS RankExp 
-					FROM [stg].[Expression_DM]
+					FROM [dwh].[Expression_DM]
 					where doi is not null and doi <>'') d where d.RankExp=1
 					) SourceExp 
 					on SourceDOI.ParentDOI0=SourceExp.DOI				
@@ -46,7 +49,7 @@
 					select * from (SELECT [Expression_ID] as Expression_ID0
 						,[DOI]  as DOI0
 						,RANK() OVER (PARTITION BY  DOI ORDER BY expression_id desc   ) AS RankExp0
-					FROM [stg].[Expression_DM]
+					FROM [dwh].[Expression_DM]
 					where doi is not null and doi <>'') d where d.RankExp0=1
 				) SourceExp2 
 					on SourceDOI.[ChildDOI0]=SourceExp2.DOI0
@@ -80,7 +83,7 @@
 					select * from (SELECT [Expression_ID]
 						,[DOI] 
 						,RANK() OVER (PARTITION BY  DOI ORDER BY expression_id desc   ) AS RankExp 
-					FROM [stg].[Expression_DM]
+					FROM [dwh].[Expression_DM]
 					where doi is not null and doi <>'') d where d.RankExp=1
 				) SourceExp 
 				on SourceDOI.ParentDOI1=SourceExp.DOI
@@ -90,7 +93,7 @@
 					select * from (SELECT [Expression_ID] as Expression_ID1
 						,[DOI]  as DOI1
 						,RANK() OVER (PARTITION BY  DOI ORDER BY expression_id desc   ) AS RankExp1
-					FROM [stg].[Expression_DM]
+					FROM [dwh].[Expression_DM]
 					where doi is not null and doi <>'') d where d.RankExp1=1
 				) SourceExp2 
 				on  SourceDOI.ParentDOI1=SourceExp2.DOI1

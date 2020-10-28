@@ -3,16 +3,16 @@
   DTS:refId="Package"
   DTS:CreationDate="9/9/2019 5:03:05 PM"
   DTS:CreationName="Microsoft.Package"
-  DTS:CreatorComputerName="CSPE-W-VBISPS01"
-  DTS:CreatorName="CERBA\YMIGEOT"
+  DTS:CreatorComputerName="INV060333"
+  DTS:CreatorName="OCDE\AurélieAtta"
   DTS:DTSID="{965E2848-39D4-420C-A251-D19EA2DBB4D7}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
   DTS:LocaleID="1033"
   DTS:ObjectName="OCDE_DMT_FACT_StatLink"
   DTS:PackageType="5"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{E70D4F9E-8010-4436-85D0-E1DE76F5F169}">
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{5D181375-E8B2-412B-9805-68AB96748CE5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -255,15 +255,28 @@
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT     F.[Download_Date]as Download_Date,cast(substring(cast([Download_Time] as varchar(12)),1,2) as int) as [Download_Time]
       ,E.[CurExpId]
-      ,'StatLink' as Plateform,F.IPAddress_ID, F.Source_ID, F.UserAgent_ID,51 as Format_ID,  
-                      1 AS Downloads
+      
+	 ,'StatLink' as Plateform,F.IPAddress_ID, F.Source_ID, F.UserAgent_ID
+                  , (SELECT TOP 1 Format_ID
+                                FROM DWH.Format_DM
+                                WHERE Format_ExternalID = 'StatLink'
+                                AND IsCurrent = 1
+                                AND  NA_Import = 0) as Format_ID
+                  , 1 AS Downloads 
+
+
 FROM         dwh.StatLink_FT F
              INNER JOIN dwh.DIM_Expression E on F.Expression_ID=E.[Expression - ID] where [Download_Date]&gt;= '2013-05-01'
              UNION 
 SELECT  [Download_Date] as Download_Date,NULL as [Download_Time] 
       ,E.[CurExpId]
-      ,'StatLink' as Plateform, 0 as IPAddress_ID, 0 Source_ID, 0 UserAgent_ID,51 as Format_ID,  
-       Downloads
+      ,'StatLink' as Plateform, 0 as IPAddress_ID, 0 Source_ID, 0 UserAgent_ID
+                  ,(SELECT TOP 1 Format_ID
+                                FROM DWH.Format_DM
+                                WHERE Format_ExternalID = 'StatLink'
+                                AND IsCurrent = 1
+                                AND  NA_Import = 0) as Format_ID
+                  ,Downloads
 FROM         [dwh].[StatLinkMonthly_FT_to_2013_05_01]  AS F2 
              INNER JOIN dwh.DIM_Expression E on F2.Expression_ID=E.[Expression - ID] where [Download_Date]&lt; '2013-05-01'</property>
                 <property
